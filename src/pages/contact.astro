@@ -1,0 +1,83 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+
+const channels = [
+  {
+    label: 'Suporte aos usuários',
+    email: 'support@zymplo.com',
+    description: 'Dúvidas sobre o uso do app · problemas técnicos · cancelamentos',
+  },
+  {
+    label: 'Informações gerais',
+    email: 'info@zymplo.com',
+    description: 'Quero saber mais sobre o Zymplo, parcerias, oportunidades',
+  },
+  {
+    label: 'Privacidade · DPO (LGPD)',
+    email: 'privacy@zymplo.com',
+    description: 'Solicitações sobre seus dados pessoais · LGPD · exclusão · acesso',
+  },
+  {
+    label: 'Imprensa · mídia',
+    email: 'press@zymplo.com',
+    description: 'Pedidos de entrevista · press kit · materiais para mídia',
+  },
+  {
+    label: 'Jurídico · contratos',
+    email: 'legal@zymplo.com',
+    description: 'Assuntos legais · termos · contratos comerciais',
+  },
+  {
+    label: 'Investidores',
+    email: 'inversores@zymplo.com',
+    description: 'Pedidos de informação para investimento · deck · SAFE notes',
+  },
+];
+---
+
+<BaseLayout
+  title="Contato"
+  description="Canais oficiais de contato com a Zymplo · suporte · DPO · imprensa · investidores"
+>
+  <article class="container-prose">
+    <h1>Contato</h1>
+
+    <p>
+      Escolha o canal certo para sua dúvida. Respondemos em horário comercial
+      (segunda a sexta, 9h-18h BRT). Para pedidos LGPD, o prazo legal é até 15 dias
+      úteis.
+    </p>
+
+    <div class="grid gap-4 md:grid-cols-2 mt-8">
+      {channels.map((c) => (
+        <a
+          href={`mailto:${c.email}`}
+          class="block p-5 bg-white border border-zinc-200 rounded-xl hover:border-zymplo-400 hover:shadow-sm transition-all no-underline"
+        >
+          <div class="font-bold text-ink mb-1">{c.label}</div>
+          <div class="text-zymplo-600 font-mono text-sm mb-2">{c.email}</div>
+          <div class="text-zinc-600 text-sm leading-relaxed">{c.description}</div>
+        </a>
+      ))}
+    </div>
+
+    <h2>Endereço</h2>
+
+    <p>
+      <strong>Zymplo Inc.</strong><br />
+      131 Continental Dr, Suite 305<br />
+      Newark, DE 19713 · USA
+    </p>
+
+    <p>
+      <strong>Zymplo Tecnologia LTDA</strong><br />
+      Endereço fiscal a ser publicado após emissão do CNPJ.
+    </p>
+
+    <h2>Redes sociais</h2>
+
+    <p class="text-zinc-600">
+      Em construção · em breve estaremos em Instagram, TikTok, LinkedIn e YouTube.
+    </p>
+  </article>
+</BaseLayout>

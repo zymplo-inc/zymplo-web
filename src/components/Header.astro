@@ -1,0 +1,23 @@
+---
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/#produto', label: 'Produto' },
+  { href: '/contact', label: 'Contato' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-zinc-100">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2" aria-label="Zymplo home">
+      <img src="/logo-zymplo.svg" alt="Zymplo" class="h-8 w-auto" />
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm font-semibold text-zinc-700">
+      {links.map((l) => (
+        <li>
+          <a href={l.href} class="hover:text-zymplo-600">{l.label}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="#cta" class="btn-primary text-sm py-2 px-4">Quero o Zymplo</a>
+  </nav>
+</header>
