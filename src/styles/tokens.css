@@ -1,7 +1,7 @@
 /* ========================================================================
    Zymplo · Design Tokens V2 (canonical)
+   Fonts loaded via <link> in CountryLayout.astro head (non-blocking).
    ======================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* ── Brand · turquesa scale ── */

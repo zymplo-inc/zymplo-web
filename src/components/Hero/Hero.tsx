@@ -1,3 +1,4 @@
+import { BUILD_MARKER } from './buildmark';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Country } from '@data/countries';
@@ -7,6 +8,7 @@ interface Props { slug: string; country: Country; dict: Dict }
 
 /** Hero — cinematográfico · SVG procedural "video tubes" + typewriter rotate. */
 export default function Hero({ slug, country, dict }: Props) {
+  if (typeof window !== 'undefined') (window as any).__ZBM = BUILD_MARKER;
   const [idx, setIdx] = useState(0);
   const phrases = dict.hero.rotate;
   useEffect(() => {
@@ -118,3 +120,4 @@ function Tubes() {
     </svg>
   );
 }
+// build: 1777587595
