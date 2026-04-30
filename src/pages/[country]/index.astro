@@ -1,0 +1,27 @@
+---
+import CountryLayout from '@layouts/CountryLayout.astro';
+import Hero from '@components/Hero/Hero';
+import ChatDemo from '@components/ChatDemo/ChatDemo';
+import InfluencerHero from '@components/InfluencerHero/InfluencerHero.astro';
+import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
+import PricingTable from '@components/PricingTable/PricingTable';
+import PersonajesMEI from '@components/PersonajesMEI/PersonajesMEI.astro';
+import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { getDict } from '@i18n/index';
+
+export function getStaticPaths() {
+  return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
+}
+
+const { country: slug } = Astro.params as { country: CountrySlug };
+const c = COUNTRIES[slug];
+const dict = getDict(slug);
+---
+<CountryLayout slug={slug}>
+  <Hero client:load slug={slug} country={c} dict={dict} />
+  <InfluencerHero slug={slug} />
+  <ChatDemo client:visible slug={slug} country={c} dict={dict} />
+  <PersonajesMEI slug={slug} />
+  <ToolsCarousel slug={slug} />
+  <PricingTable client:visible slug={slug} country={c} dict={dict} />
+</CountryLayout>

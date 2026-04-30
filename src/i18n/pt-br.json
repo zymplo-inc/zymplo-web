@@ -1,0 +1,20 @@
+{
+  "nav": { "product": "Produto", "pricing": "Preços", "integrations": "Integrações", "solutions": "Soluções", "resources": "Recursos", "login": "Entrar", "cta": "Começar grátis" },
+  "hero": {
+    "eyebrow": "Sua secretária IA no WhatsApp",
+    "rotate": ["Sua secretária IA no WhatsApp", "Cobre clientes sem esforço", "Emita NFS-e do WhatsApp"],
+    "subline": "Sem app. Sem cadastro. Apenas WhatsApp.",
+    "trust": "Mais de 12.000 microempreendedores"
+  },
+  "chat": {
+    "title": "Veja como funciona",
+    "messages": [
+      { "from": "user", "text": "Recebi R$480 da Maria" },
+      { "from": "bot", "text": "Anotei! ✅ R$480 de Maria — venda registrada. Quer emitir NFS-e?" },
+      { "from": "user", "text": "Pode emitir sim" },
+      { "from": "bot", "text": "Pronto, NFS-e #00231 emitida e enviada para Maria 🧾" }
+    ]
+  },
+  "pricing": { "title": "Planos simples, sem letrinha miúda", "free_label": "Grátis para sempre", "starter_label": "Starter", "pro_label": "Pro", "gold_label": "Gold", "month": "/mês" },
+  "footer": { "tagline": "Tua secretária IA no WhatsApp", "rights": "Todos os direitos reservados" }
+}

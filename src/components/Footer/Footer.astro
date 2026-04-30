@@ -1,0 +1,48 @@
+---
+import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { getDict } from '@i18n/index';
+interface Props { slug: CountrySlug }
+const { slug } = Astro.props;
+const c = COUNTRIES[slug];
+const dict = getDict(slug);
+const year = new Date().getFullYear();
+---
+<footer class="bg-ink text-paper/70 py-16 mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
+    <div>
+      <div class="flex items-center gap-2">
+        <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-7 w-7" />
+        <span class="font-display font-bold text-xl text-paper tracking-tighter">zymplo</span>
+      </div>
+      <p class="mt-4 text-sm">{dict.footer.tagline}</p>
+      <p class="mt-2 text-xs text-paper/40">{c.flag} {c.name} · {c.locale}</p>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Produto</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href={`/${slug}/`}>Início</a></li>
+        <li><a href={`/${slug}/precios/`}>Preços</a></li>
+        <li><a href={`/${slug}/onboarding/`}>Onboarding</a></li>
+        {slug === 'br' && <li><a href={`/${slug}/contiq/`}>Contiq B2B</a></li>}
+      </ul>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Compliance</div>
+      <ul class="space-y-2 text-sm">
+        {c.compliance.map((x) => <li>{x}</li>)}
+      </ul>
+    </div>
+    <div>
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Países</div>
+      <ul class="space-y-2 text-sm">
+        {COUNTRY_SLUGS.map((s) => (
+          <li><a href={`/${s}/`}>{COUNTRIES[s].flag} {COUNTRIES[s].name}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-paper/10 flex flex-wrap justify-between gap-4 text-xs text-paper/40">
+    <span>© {year} Zymplo · {dict.footer.rights}</span>
+    <span>{c.payments.join(' · ')}</span>
+  </div>
+</footer>

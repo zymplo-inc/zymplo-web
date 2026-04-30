@@ -1,0 +1,20 @@
+{
+  "nav": { "product": "Product", "pricing": "Pricing", "integrations": "Integrations", "solutions": "Solutions", "resources": "Resources", "login": "Sign in", "cta": "Start free" },
+  "hero": {
+    "eyebrow": "Your AI secretary on WhatsApp",
+    "rotate": ["Your AI secretary on WhatsApp", "Get paid effortlessly", "Send invoices from WhatsApp"],
+    "subline": "No app. No signup. Just WhatsApp.",
+    "trust": "12,000+ small business owners"
+  },
+  "chat": {
+    "title": "See how it works",
+    "messages": [
+      { "from": "user", "text": "Got $480 from Maria" },
+      { "from": "bot", "text": "Logged! ✅ $480 from Maria. Want me to send a 1099 invoice?" },
+      { "from": "user", "text": "Yes please" },
+      { "from": "bot", "text": "Done, invoice #00231 sent 🧾" }
+    ]
+  },
+  "pricing": { "title": "Simple plans, no fine print", "free_label": "Free forever", "starter_label": "Starter", "pro_label": "Pro", "gold_label": "Gold", "month": "/month" },
+  "footer": { "tagline": "Your AI secretary on WhatsApp", "rights": "All rights reserved" }
+}

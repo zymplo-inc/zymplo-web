@@ -1,0 +1,136 @@
+---
+import { COUNTRIES, type CountrySlug } from '@data/countries';
+interface Props { slug: CountrySlug }
+const { slug } = Astro.props;
+const c = COUNTRIES[slug];
+
+// SVG warm procedural por país · símbolos abstractos culturales · paleta turquesa+ink
+type Sym = { d: string; fill: string; stroke?: string; opacity?: number };
+const COUNTRY_VIBES: Record<CountrySlug, { bgGradient: string; accent: string; symbols: Sym[]; subtitle: string }> = {
+  br: {
+    bgGradient: 'from-turquesa-paler via-paper to-success/20',
+    accent: '#22C55E',
+    subtitle: 'Brasil verde-amarelo · samba + futebol',
+    symbols: [
+      { d: 'M50 320 Q150 280 250 320 Q350 360 350 320 L350 380 L50 380 Z', fill: '#22C55E', opacity: 0.4 }, // hill
+      { d: 'M340 100 L348 116 L364 118 L352 130 L356 146 L340 138 L324 146 L328 130 L316 118 L332 116 Z', fill: '#F59E0B', opacity: 0.85 }, // star
+      { d: 'M110 90 q12 -28 36 -8 q-8 28 -36 8 z', fill: '#14B8A6', opacity: 0.5 }, // leaf
+    ],
+  },
+  mx: {
+    bgGradient: 'from-warning/20 via-paper to-turquesa-paler',
+    accent: '#F59E0B',
+    subtitle: 'México vibrante · sol + corazón',
+    symbols: [
+      { d: 'M340 90 m-26 0 a26 26 0 1 0 52 0 a26 26 0 1 0 -52 0', fill: '#F59E0B', opacity: 0.85 }, // sun
+      { d: 'M314 76 L340 64 M340 64 L366 76 M340 116 L340 140 M308 90 L292 102 M372 90 L388 102', fill: 'none', stroke: '#F59E0B', opacity: 0.6 }, // sun rays
+      { d: 'M90 320 q40 -60 80 -10 q40 -50 80 10 q-30 60 -80 80 q-50 -20 -80 -80 z', fill: '#EF4444', opacity: 0.35 }, // heart
+    ],
+  },
+  us: {
+    bgGradient: 'from-azul/15 via-paper to-error/15',
+    accent: '#1E4AD4',
+    subtitle: 'United States · big sky energy',
+    symbols: [
+      { d: 'M40 120 L380 120 M40 140 L380 140 M40 160 L380 160 M40 180 L380 180 M40 200 L380 200', fill: 'none', stroke: '#EF4444', opacity: 0.18 }, // stripes
+      { d: 'M40 60 L150 60 L150 120 L40 120 Z', fill: '#1E4AD4', opacity: 0.5 }, // canton blue
+      { d: 'M68 88 L72 96 L80 98 L74 104 L76 112 L68 108 L60 112 L62 104 L56 98 L64 96 Z', fill: '#FAFBFF', opacity: 0.95 }, // star
+    ],
+  },
+  co: {
+    bgGradient: 'from-warning/25 via-azul/15 to-error/15',
+    accent: '#F59E0B',
+    subtitle: 'Colombia · mountains + coffee',
+    symbols: [
+      { d: 'M40 120 L380 120 L380 180 L40 180 Z', fill: '#F59E0B', opacity: 0.55 }, // amarillo
+      { d: 'M40 200 L380 200 L380 240 L40 240 Z', fill: '#1E4AD4', opacity: 0.5 }, // azul
+      { d: 'M40 260 L380 260 L380 300 L40 300 Z', fill: '#EF4444', opacity: 0.5 }, // rojo
+      { d: 'M280 60 q20 -10 40 -2 q-12 30 -36 22 q-12 -10 -4 -20 z', fill: '#7C2D12', opacity: 0.7 }, // coffee bean abstract
+    ],
+  },
+  es: {
+    bgGradient: 'from-warning/25 via-paper to-error/20',
+    accent: '#EF4444',
+    subtitle: 'España · sol + olé',
+    symbols: [
+      { d: 'M40 100 L380 100 L380 140 L40 140 Z', fill: '#EF4444', opacity: 0.5 }, // rojo banda
+      { d: 'M40 140 L380 140 L380 220 L40 220 Z', fill: '#F59E0B', opacity: 0.5 }, // amarillo banda ancha
+      { d: 'M40 220 L380 220 L380 260 L40 260 Z', fill: '#EF4444', opacity: 0.5 }, // rojo banda
+      { d: 'M340 320 m-22 0 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0', fill: '#0A0B14', opacity: 0.55 }, // toro circle
+    ],
+  },
+  ar: {
+    bgGradient: 'from-azul/20 via-paper to-warning/15',
+    accent: '#5EEAD4',
+    subtitle: 'Argentina · cielo + asado',
+    symbols: [
+      { d: 'M40 100 L380 100 L380 160 L40 160 Z', fill: '#5EEAD4', opacity: 0.55 }, // celeste
+      { d: 'M40 220 L380 220 L380 280 L40 280 Z', fill: '#5EEAD4', opacity: 0.55 }, // celeste
+      { d: 'M210 190 m-22 0 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0', fill: '#F59E0B', opacity: 0.85 }, // sol mayo
+      { d: 'M210 168 L210 154 M210 226 L210 240 M188 190 L174 190 M232 190 L246 190', fill: 'none', stroke: '#F59E0B', opacity: 0.7 },
+    ],
+  },
+  py: {
+    bgGradient: 'from-error/20 via-paper to-azul/15',
+    accent: '#EF4444',
+    subtitle: 'Paraguay · ñanduti + tereré',
+    symbols: [
+      { d: 'M40 100 L380 100 L380 140 L40 140 Z', fill: '#EF4444', opacity: 0.55 }, // rojo
+      { d: 'M40 220 L380 220 L380 260 L40 260 Z', fill: '#1E4AD4', opacity: 0.55 }, // azul
+      { d: 'M210 190 m-26 0 a26 26 0 1 0 52 0 a26 26 0 1 0 -52 0', fill: 'none', stroke: '#F59E0B', stroke: '#F59E0B', opacity: 0.75 }, // estrella circle
+      { d: 'M210 174 L214 184 L224 186 L216 192 L218 202 L210 198 L202 202 L204 192 L196 186 L206 184 Z', fill: '#F59E0B', opacity: 0.95 }, // star
+    ],
+  },
+};
+
+const vibe = COUNTRY_VIBES[slug];
+const initial = c.influencer.name.charAt(0);
+---
+<section class="bg-paper py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div class="order-2 md:order-1">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">
+        Influencer IA · {c.flag} {c.name}
+      </span>
+      <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">{c.influencer.name}</h2>
+      <p class="mt-4 text-lg text-mute max-w-md">{c.influencer.tagline}</p>
+      <p class="mt-2 text-sm text-turquesa-deeper font-semibold">{vibe.subtitle}</p>
+      <div class="mt-6 flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>
+          ratificado
+        </span>
+        <span class="text-xs text-mute">trademark legal-safe · evocativo</span>
+      </div>
+    </div>
+
+    <div class={`order-1 md:order-2 relative aspect-square max-w-md mx-auto rounded-[2rem] overflow-hidden bg-gradient-to-br ${vibe.bgGradient} shadow-[0_20px_60px_-20px_rgba(20,184,166,0.3)]`}>
+      <svg viewBox="0 0 400 400" class="absolute inset-0 w-full h-full" aria-label={`Ilustração warm de ${c.influencer.name}`}>
+        {/* Símbolos culturais país-specific */}
+        {vibe.symbols.map((s) => (
+          <path d={s.d} fill={s.fill} stroke={s.stroke ?? 'none'} stroke-width="3" opacity={s.opacity ?? 1} />
+        ))}
+
+        {/* Avatar warm · cabeza + torso · turquesa primario */}
+        <circle cx="200" cy="180" r="62" fill="#14B8A6" opacity="0.95" />
+        <ellipse cx="200" cy="174" rx="42" ry="48" fill="#5EEAD4" opacity="0.6" />
+        <circle cx="184" cy="172" r="3.5" fill="#0A0B14" />
+        <circle cx="216" cy="172" r="3.5" fill="#0A0B14" />
+        <path d="M180 196 Q200 212 220 196" fill="none" stroke="#0A0B14" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M118 320 Q200 248 282 320 L282 380 L118 380 Z" fill="#0F9488" />
+        <path d="M118 320 Q200 248 282 320 L282 380 L118 380 Z" fill="#14B8A6" opacity="0.6" />
+
+        {/* Inicial sobre torso */}
+        <text x="200" y="346" text-anchor="middle" font-family="Sora, Manrope, sans-serif" font-weight="800" font-size="56" fill="#FAFBFF">{initial}</text>
+
+        {/* Brand isotipo small bottom-right */}
+        <g transform="translate(340, 350) scale(0.45)">
+          <g fill="none" stroke="#0A0B14" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
+            <path d="M26 44 L40 28 L54 44 L72 22" />
+            <path d="M22 56 Q48 86 74 56" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>

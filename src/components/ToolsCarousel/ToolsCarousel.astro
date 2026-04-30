@@ -1,0 +1,117 @@
+---
+import type { CountrySlug } from '@data/countries';
+interface Props { slug: CountrySlug }
+const { slug: _slug } = Astro.props;
+
+const TOOLS = [
+  { icon: '📅', label: 'Agenda' },
+  { icon: '⏰', label: 'Lembretes' },
+  { icon: '✅', label: 'Tarefas' },
+  { icon: '📝', label: 'Notas' },
+  { icon: '💰', label: 'Finanças' },
+  { icon: '🛒', label: 'Gastos' },
+  { icon: '💵', label: 'Rendas' },
+  { icon: '📊', label: 'Resumos' },
+  { icon: '🧾', label: 'NFS-e' },
+  { icon: '💳', label: 'Pix' },
+  { icon: '📩', label: 'Cobranças' },
+  { icon: '📨', label: 'DAS' },
+  { icon: '🌍', label: 'Hora global' },
+  { icon: '🌤️', label: 'Clima' },
+  { icon: '💱', label: 'Moeda' },
+  { icon: '🪙', label: 'Crypto' },
+  { icon: '🎙️', label: 'Áudio' },
+  { icon: '📸', label: 'Foto' },
+  { icon: '📄', label: 'Documento' },
+  { icon: '🔍', label: 'Busca' },
+  { icon: '🌐', label: 'Tradução' },
+  { icon: '🧠', label: 'Memória' },
+  { icon: '📍', label: 'Localização' },
+  { icon: '🆔', label: 'Validação ID' },
+  { icon: '🗂️', label: 'Multi-step' },
+  { icon: '🚨', label: 'Escalação' },
+  { icon: '📈', label: 'Métricas' },
+  { icon: '✨', label: '+ 80 mais' },
+];
+const SEQ = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
+---
+<section class="bg-ink text-paper py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full liquid-glass text-turquesa-light text-xs font-bold uppercase tracking-widest">100+ ferramentas</span>
+      <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">Tudo dentro do WhatsApp</h2>
+      <p class="mt-3 text-paper/60 max-w-xl mx-auto">Sem app · sem cadastro · sem login · só conversa.</p>
+    </div>
+  </div>
+
+  <!-- Marquee row 1 -->
+  <div class="tc-marquee" aria-hidden="false" role="list">
+    <div class="tc-track tc-track-fwd">
+      {SEQ.map((t, i) => (
+        <div class="tc-item liquid-glass" role="listitem">
+          <span class="tc-emoji" aria-hidden="true">{t.icon}</span>
+          <span class="tc-label">{t.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Marquee row 2 (reverse) -->
+  <div class="tc-marquee mt-4" aria-hidden="true">
+    <div class="tc-track tc-track-rev">
+      {SEQ.slice().reverse().map((t, i) => (
+        <div class="tc-item liquid-glass">
+          <span class="tc-emoji">{t.icon}</span>
+          <span class="tc-label">{t.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tc-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  }
+  .tc-track {
+    display: inline-flex;
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+    will-change: transform;
+  }
+  .tc-track-fwd { animation: tc-scroll 50s linear infinite; }
+  .tc-track-rev { animation: tc-scroll-rev 60s linear infinite; }
+  @keyframes tc-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes tc-scroll-rev {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  .tc-marquee:hover .tc-track { animation-play-state: paused; }
+  .tc-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .tc-emoji { font-size: 1.5rem; line-height: 1; }
+  .tc-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #FAFBFF;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tc-track-fwd, .tc-track-rev { animation: none; }
+    .tc-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  }
+</style>

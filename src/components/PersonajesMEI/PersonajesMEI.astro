@@ -1,0 +1,89 @@
+---
+import { COUNTRIES, type CountrySlug } from '@data/countries';
+interface Props { slug: CountrySlug }
+const { slug } = Astro.props;
+const c = COUNTRIES[slug];
+
+// Mapeo rol → símbolo + paleta accent (warm · sin foto real · evocativo)
+const ROLE_VIBE: Record<string, { emoji: string; symbol: string; accent: string; bg: string }> = {
+  // pt-br
+  eletricista: { emoji: '⚡', symbol: 'M180 80 L210 130 L195 130 L220 180 L180 130 L195 130 Z', accent: '#F59E0B', bg: 'from-warning/20 to-paper' },
+  encanador: { emoji: '🔧', symbol: 'M150 100 q40 -40 80 0 q-20 30 -20 60 q0 30 20 60 q-40 40 -80 0 q20 -30 20 -60 q0 -30 -20 -60 z', accent: '#1E4AD4', bg: 'from-azul/15 to-paper' },
+  pedreiro: { emoji: '🧱', symbol: 'M140 90 L260 90 L260 130 L140 130 Z M140 140 L260 140 L260 180 L140 180 Z', accent: '#7C2D12', bg: 'from-warning/15 to-paper' },
+  cabeleireira: { emoji: '💇', symbol: 'M200 70 q-50 0 -50 60 q0 50 50 50 q50 0 50 -50 q0 -60 -50 -60 z', accent: '#623AE6', bg: 'from-purple/15 to-paper' },
+  // es generic
+  electricista: { emoji: '⚡', symbol: 'M180 80 L210 130 L195 130 L220 180 L180 130 L195 130 Z', accent: '#F59E0B', bg: 'from-warning/20 to-paper' },
+  plomero: { emoji: '🔧', symbol: 'M150 100 q40 -40 80 0 q-20 30 -20 60 q0 30 20 60 q-40 40 -80 0 q20 -30 20 -60 q0 -30 -20 -60 z', accent: '#1E4AD4', bg: 'from-azul/15 to-paper' },
+  fontanero: { emoji: '🔧', symbol: 'M150 100 q40 -40 80 0 q-20 30 -20 60 q0 30 20 60 q-40 40 -80 0 q20 -30 20 -60 q0 -30 -20 -60 z', accent: '#1E4AD4', bg: 'from-azul/15 to-paper' },
+  estilista: { emoji: '💇', symbol: 'M200 70 q-50 0 -50 60 q0 50 50 50 q50 0 50 -50 q0 -60 -50 -60 z', accent: '#623AE6', bg: 'from-purple/15 to-paper' },
+  peluquera: { emoji: '💇', symbol: 'M200 70 q-50 0 -50 60 q0 50 50 50 q50 0 50 -50 q0 -60 -50 -60 z', accent: '#623AE6', bg: 'from-purple/15 to-paper' },
+  // en
+  electrician: { emoji: '⚡', symbol: 'M180 80 L210 130 L195 130 L220 180 L180 130 L195 130 Z', accent: '#F59E0B', bg: 'from-warning/20 to-paper' },
+  plumber: { emoji: '🔧', symbol: 'M150 100 q40 -40 80 0 q-20 30 -20 60 q0 30 20 60 q-40 40 -80 0 q20 -30 20 -60 q0 -30 -20 -60 z', accent: '#1E4AD4', bg: 'from-azul/15 to-paper' },
+  hairstylist: { emoji: '💇', symbol: 'M200 70 q-50 0 -50 60 q0 50 50 50 q50 0 50 -50 q0 -60 -50 -60 z', accent: '#623AE6', bg: 'from-purple/15 to-paper' },
+};
+
+const QUOTE: Record<string, string[]> = {
+  br: [
+    '"Antes anotava num caderno. Agora o Zymplo cuida de tudo no WhatsApp."',
+    '"Emito NFS-e em 10 segundos. Antes era impossível."',
+    '"Recebo Pix e o Zymplo já registra · zero esforço."',
+  ],
+  es: [
+    '"Antes anotaba todo en un cuaderno. Ahora Zymplo lo hace por mí."',
+    '"Cobros y facturas en segundos · sin app · sin lío."',
+    '"Recibo el pago y Zymplo lo registra solo. Magia."',
+  ],
+  en: [
+    '"I used to write everything on paper. Zymplo does it all now."',
+    '"Invoicing in 10 seconds. Felt impossible before."',
+    '"Get paid and Zymplo logs it automatically. Wild."',
+  ],
+};
+const langKey = c.locale.startsWith('pt') ? 'br' : c.locale.startsWith('en') ? 'en' : 'es';
+const quotes = QUOTE[langKey];
+const fallback = ROLE_VIBE.eletricista;
+---
+<section class="bg-paper-soft bg-gradient-to-b from-paper to-turquesa-paler/30 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-turquesa-deeper text-xs font-bold uppercase tracking-widest border border-turquesa/20">Quem usa</span>
+      <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">Microempreendedores reais</h2>
+      <p class="mt-3 text-mute max-w-xl mx-auto">{c.flag} 3 perfiles arquetípicos · validados con IBGE-weighted sims</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {c.personas.map((p, i) => {
+        const vibe = ROLE_VIBE[p.role] ?? fallback;
+        const initial = p.name.charAt(0);
+        return (
+          <article class="bg-white rounded-3xl p-6 border border-ink/5 shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <div class={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${vibe.bg} mb-4 relative overflow-hidden`}>
+              <svg viewBox="0 0 400 300" class="absolute inset-0 w-full h-full" aria-label={`Ilustração de ${p.name}, ${p.role}`}>
+                {/* Símbolo de oficio · accent color · semi-transparente fondo */}
+                <path d={vibe.symbol} fill={vibe.accent} opacity="0.18" transform="translate(-30, 0) scale(1.2)" />
+
+                {/* Avatar · cabeza turquesa */}
+                <circle cx="200" cy="125" r="44" fill="#14B8A6" />
+                <ellipse cx="200" cy="120" rx="30" ry="34" fill="#5EEAD4" opacity="0.55" />
+                {/* Ojos */}
+                <circle cx="190" cy="120" r="2.5" fill="#0A0B14" />
+                <circle cx="210" cy="120" r="2.5" fill="#0A0B14" />
+                {/* Sonrisa warm */}
+                <path d="M188 138 Q200 148 212 138" fill="none" stroke="#0A0B14" stroke-width="2.5" stroke-linecap="round" />
+                {/* Torso · turquesa-dark */}
+                <path d="M140 220 Q200 175 260 220 L260 280 L140 280 Z" fill="#0F9488" />
+                {/* Inicial */}
+                <text x="200" y="262" text-anchor="middle" font-family="Sora, Manrope, sans-serif" font-weight="800" font-size="36" fill="#FAFBFF">{initial}</text>
+                {/* Emoji de oficio top-right · evocativo */}
+                <text x="350" y="50" text-anchor="middle" font-size="32" opacity="0.85">{vibe.emoji}</text>
+              </svg>
+            </div>
+            <div class="text-xs uppercase tracking-widest font-bold text-turquesa-deeper">{p.role}</div>
+            <div class="font-display text-xl font-bold tracking-tighter mt-1">{p.name}</div>
+            <p class="text-sm text-mute mt-2">{quotes[i % quotes.length]}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

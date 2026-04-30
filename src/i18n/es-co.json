@@ -1,0 +1,7 @@
+{
+  "nav": { "product": "Producto", "pricing": "Precios", "integrations": "Integraciones", "solutions": "Soluciones", "resources": "Recursos", "login": "Entrar", "cta": "Empezar gratis" },
+  "hero": { "eyebrow": "Tu secretaria IA en WhatsApp", "rotate": ["Tu secretaria IA en WhatsApp", "Cobra sin estrés", "Emite facturas desde WhatsApp"], "subline": "Sin app. Sin registro. Solo WhatsApp.", "trust": "Más de 12.000 emprendedores" },
+  "chat": { "title": "Mirá cómo funciona", "messages": [{ "from": "user", "text": "Recibí $480 de María" }, { "from": "bot", "text": "¡Anotado parce! ✅ $480 de María." }] },
+  "pricing": { "title": "Planes simples, sin letra chica", "free_label": "Gratis para siempre", "starter_label": "Starter", "pro_label": "Pro", "gold_label": "Gold", "month": "/mes" },
+  "footer": { "tagline": "Tu secretaria IA en WhatsApp", "rights": "Todos los derechos reservados" }
+}
