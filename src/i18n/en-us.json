@@ -9,22 +9,22 @@
     "cta": "Start free"
   },
   "hero": {
-    "eyebrow": "Your AI secretary on WhatsApp",
+    "eyebrow": "Your AI assistant",
     "headline_a": "Charge, organize, invoice. All in WhatsApp.",
     "headline_b": "WhatsApp with AI. Built for your business.",
-    "headline_c": "Get paid. Without chasing.",
+    "headline_c": "Your day. Lighter.",
     "rotate": [
       "Get paid effortlessly",
       "Send invoices from WhatsApp",
       "Organize your schedule in chat",
       "See exactly what came in this month"
     ],
-    "subline": "Your AI secretary. No app, no signup. Just conversation.",
+    "subline": "Zymplo handles it · you enjoy your time.",
     "subline_premium": "Invoicing, payments, scheduling, and taxes — all handled by an AI inside your WhatsApp.",
-    "subline_bold": "12,847 small business owners already get paid better with Zymplo.",
+    "subline_bold": "Your AI assistant on WhatsApp · always close · always simple.",
     "trust": "12,847+ small business owners",
     "persona_badge": "just got paid",
-    "subheadline_ai": "The AI collects. You never chase clients again.",
+    "subheadline_ai": "Zymplo handles everything. You live what matters.",
     "cta_microcopy": "Free · no card · 7 days",
     "stats": [
       {
@@ -148,7 +148,7 @@
     "title": "See how it works",
     "online": "online",
     "demo_label": "demo · 90s",
-    "persona_intro": "{name}, {role}, chats with Zymplo as if it were their personal secretary.",
+    "persona_intro": "{name}, {role}, chats with Zymplo as if it were their personal assistant.",
     "placeholder": "Message",
     "messages": [
       {
@@ -294,8 +294,8 @@
   "payments_label": "All payment methods supported",
   "chat_widget": {
     "title": "Chat with Zymplo",
-    "persona": "Zé · your AI secretary",
-    "greeting": "Hi! I'm Zé, your AI secretary. I can help with invoicing, payments, scheduling and more. What do you need?",
+    "persona": "Zé · your AI assistant",
+    "greeting": "Hi! I'm Zé, your AI assistant. I can help with invoicing, payments, scheduling and more. What do you need?",
     "tagline": "Reply on your WhatsApp · 100% free",
     "ask_placeholder": "Ask anything…",
     "quick": [
@@ -330,7 +330,7 @@
     "title": "Scan · open WhatsApp · go",
     "subtitle": "No app · no signup · no card. Just chat.",
     "wa_label": "WhatsApp",
-    "wa_sub": "Scan to start chatting with your AI secretary",
+    "wa_sub": "Scan to start chatting with your AI assistant",
     "app_label": "Mobile app",
     "app_sub": "Coming soon",
     "app_eyebrow": "Coming soon",
@@ -513,7 +513,7 @@
     "unsupported": "Voice not supported in this browser"
   },
   "footer": {
-    "tagline": "Your AI secretary on WhatsApp · no app · no signup · just chat.",
+    "tagline": "Your AI assistant on WhatsApp · no app · no signup · just chat.",
     "rights": "All rights reserved.",
     "made_in": "Built with ❤ for small business owners",
     "brand_legal": "Zymplo is a registered trademark of Zymplo Inc. in the United States and other countries.",
