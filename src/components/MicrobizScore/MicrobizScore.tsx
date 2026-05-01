@@ -24,11 +24,17 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
   const labelHours = m.label_hours ?? 'Hours/week chasing or invoicing?';
   const calculate = m.calculate ?? 'Calculate my score';
 
-  // Realistic monthly billing example per country (purchasing-power normalized to ~$1,000 USD)
+  // Realistic monthly billing example per country (typical MEI/microbiz monthly billing in local currency)
   const BILLING_EXAMPLE: Record<string, number> = {
-    BRL: 5000, MXN: 18000, USD: 1000, COP: 4000000, EUR: 900,
-    ARS: 1000000, PYG: 7500000, PEN: 3700, CLP: 950000, UYU: 40000,
-    BOB: 7000, CRC: 500000,
+    BRL: 8000, MXN: 35000, USD: 2000, COP: 8000000, EUR: 1800,
+    ARS: 2000000, PYG: 14000000, PEN: 7400, CLP: 1900000, UYU: 80000,
+    BOB: 14000, CRC: 1000000,
+  };
+  // Approximate exchange rate to USD (April 2026 · used for scoring normalization, NOT for display)
+  const USD_RATE: Record<string, number> = {
+    BRL: 5.4, MXN: 17, USD: 1, COP: 4000, EUR: 0.88,
+    ARS: 1040, PYG: 7250, PEN: 3.7, CLP: 950, UYU: 40,
+    BOB: 6.95, CRC: 510,
   };
   // Custom currency symbol map (consistent with HeroC formatMoney)
   const SYM: Record<string, string> = {
@@ -38,9 +44,10 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
   };
   const code = country.currency.code;
   const sym = SYM[code] || country.currency.symbol;
+  const rate = USD_RATE[code] || 1;
   const exampleAmount = BILLING_EXAMPLE[code] || 5000;
   const locale = (country as any).locale || 'pt-BR';
-  const formatExample = (n: number) => {
+  const formatLocal = (n: number) => {
     try {
       const formatted = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(n);
       return code === 'EUR' ? `${formatted} ${sym}` : `${sym} ${formatted}`;
@@ -48,7 +55,8 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
       return `${sym} ${n.toLocaleString()}`;
     }
   };
-  const placeBilling = m.place_billing ?? `ej: ${formatExample(exampleAmount)}`;
+  // Always derive placeholders dynamically per country (ignore i18n overrides · they were copied from es-mx)
+  const placeBilling = `ej: ${formatLocal(exampleAmount)}`;
   const placeClients = m.place_clients ?? 'ej: 25';
   const placeHours = m.place_hours ?? 'ej: 8';
 
@@ -70,10 +78,14 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
     const c = Math.max(0, Number(clients) || 0);
     const h = Math.max(0, Number(hours) || 0);
 
+    // CRITICAL · normalize billing to USD purchasing power before scoring
+    // Ensures $5,000 ARS (~$5 USD) does NOT score the same as $5,000 USD
+    const billingUSD = b / rate;
+
     // Weighted heuristic · clamps 0-100
     // Hours-chasing has heaviest weight (Zymplo's core saving)
     let s = 0;
-    s += Math.min(40, Math.log10(b + 10) * 12); // 0-40 from billing volume
+    s += Math.min(40, Math.log10(billingUSD + 10) * 12); // 0-40 from billing volume (USD-normalized)
     s += Math.min(25, c * 1.2); // 0-25 from clients (more = more chasing)
     s += Math.min(35, h * 4); // 0-35 from hours saved
     s = Math.round(Math.min(100, Math.max(15, s + 15))); // floor at 15 (everyone benefits)
@@ -84,11 +96,15 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
 
   const fitMessage = score === null ? '' : score < 50 ? fitLow : score < 80 ? fitMid : fitHigh;
 
-  // Estimated monthly saving (very rough · purely illustrative)
-  const monthlySaving = score === null ? 0 : Math.round(((Number(hours) || 4) * 4 * 25) + (Number(clients) || 10) * 2);
+  // Estimated monthly saving in LOCAL currency
+  // Base: ~$25 USD per hour saved × 4 weeks + ~$2 USD per client (chasing reduction)
+  // Convert from USD baseline → local currency via exchange rate
+  const monthlySavingUSD = score === null ? 0 : ((Number(hours) || 4) * 4 * 25) + (Number(clients) || 10) * 2;
+  const monthlySaving = Math.round(monthlySavingUSD * rate);
+  const monthlySavingFormatted = score === null ? '' : formatLocal(monthlySaving);
 
   return (
-    <section id="score" className="bg-paper py-16 md:py-24 border-y border-ink/5">
+    <section id="score" className="bg-paper pt-14 pb-10 md:pt-20 md:pb-14 border-y border-ink/5">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-8">
           <span className="inline-block px-3 py-1 rounded-full bg-warning/15 text-warning text-[11px] font-bold uppercase tracking-widest">{eyebrow}</span>
@@ -161,7 +177,7 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
                 />
               </div>
               <p className="mt-5 text-base md:text-lg text-ink font-semibold leading-relaxed">{fitMessage}</p>
-              <p className="mt-1.5 text-sm text-slate">{recap}: <span className="font-bold text-turquesa-deeper">{country.currency.symbol} {monthlySaving.toLocaleString()}/mo</span></p>
+              <p className="mt-1.5 text-sm text-slate">{recap}: <span className="font-bold text-turquesa-deeper">{monthlySavingFormatted}/mes</span></p>
 
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <a
