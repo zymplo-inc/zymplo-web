@@ -23,14 +23,28 @@ export default function HeroC({ slug, country, dict }: Props) {
   const scanLabel = (dict.hero as any).scan_label ?? 'Scan';
   const scanOnPhone = (dict.hero as any).scan_on_phone ?? 'on your phone';
 
-  // Live counter (animates from start to target)
-  const [counter, setCounter] = useState(47_280_000);
+  // Exchange rate USD → local (approximated · April 2026)
+  // Counter normalized to ~$47.28M USD purchasing power across all countries
+  const USD_RATE: Record<string, number> = {
+    BRL: 5.4, MXN: 17, USD: 1, COP: 4000, EUR: 0.88,
+    ARS: 1040, PYG: 7250, PEN: 3.7, CLP: 950, UYU: 40,
+    BOB: 6.95, CRC: 510,
+  };
+  const BASE_USD = 47_280_000; // monthly billing aggregate base
+  const ccCode = country.currency.code;
+  const rate = USD_RATE[ccCode] || 1;
+  const initialLocal = Math.round(BASE_USD * rate);
+  // Increment also scaled to currency (so PYG +50K · USD +5)
+  const incScale = Math.max(1, Math.round(rate / 5));
+
+  // Live counter (animates from start) · per-country purchasing power equivalent
+  const [counter, setCounter] = useState(initialLocal);
   useEffect(() => {
     const inc = setInterval(() => {
-      setCounter((c) => c + Math.floor(Math.random() * 200) + 50);
+      setCounter((c) => c + (Math.floor(Math.random() * 200) + 50) * incScale);
     }, 2500);
     return () => clearInterval(inc);
-  }, []);
+  }, [incScale]);
 
   // Joined today counter
   const [joined, setJoined] = useState(847);

@@ -1,56 +1,42 @@
 ---
 interface Props { name: string; size?: number; }
-const { name, size = 64 } = Astro.props;
+const { name, size = 80 } = Astro.props;
 
-// Modern duotone SVG icons · Zymplo brand turquesa #14B8A6
-// Style: 2px stroke + soft accent fill · friendly + trustworthy
-const ICONS: Record<string, string> = {
-  // 💰 Cobranças automáticas → currency circle (dollar/pix)
-  money: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="32" cy="32" r="28" fill="#14B8A6" fill-opacity="0.12"/>
-    <circle cx="32" cy="32" r="22" stroke="#14B8A6" stroke-width="2.5"/>
-    <path d="M32 18 V46" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M38 25 C38 22 35 20 32 20 C29 20 26 22 26 25 C26 28 29 30 32 30 C35 30 38 32 38 35 C38 38 35 40 32 40 C29 40 26 38 26 35" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </svg>`,
-  // 🧾 NFS-e em 3 segundos → receipt with check
-  receipt: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="14" y="8" width="36" height="48" rx="3" fill="#14B8A6" fill-opacity="0.12"/>
-    <path d="M14 8 H50 V52 L46 56 L42 52 L38 56 L34 52 L30 56 L26 52 L22 56 L18 52 L14 56 Z" stroke="#14B8A6" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-    <path d="M22 22 H42" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M22 30 H42" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M22 38 H34" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="42" cy="40" r="6" fill="#14B8A6"/>
-    <path d="M39 40 L41 42 L45 38" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`,
-  // 📊 Resumo financeiro → chart line up trending
-  chart: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="10" width="48" height="44" rx="4" fill="#14B8A6" fill-opacity="0.12"/>
-    <rect x="8" y="10" width="48" height="44" rx="4" stroke="#14B8A6" stroke-width="2.5"/>
-    <path d="M16 42 L24 34 L32 38 L40 26 L48 22" stroke="#14B8A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="16" cy="42" r="3" fill="#14B8A6"/>
-    <circle cx="24" cy="34" r="3" fill="#14B8A6"/>
-    <circle cx="32" cy="38" r="3" fill="#14B8A6"/>
-    <circle cx="40" cy="26" r="3" fill="#14B8A6"/>
-    <circle cx="48" cy="22" r="3" fill="#14B8A6"/>
-    <path d="M48 22 L52 18 M48 22 L46 18" stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"/>
-  </svg>`,
-  // 📅 Agenda inteligente → calendar with check
-  calendar: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="14" width="44" height="42" rx="4" fill="#14B8A6" fill-opacity="0.12"/>
-    <rect x="10" y="14" width="44" height="42" rx="4" stroke="#14B8A6" stroke-width="2.5"/>
-    <path d="M10 24 H54" stroke="#14B8A6" stroke-width="2.5"/>
-    <path d="M22 8 V18" stroke="#14B8A6" stroke-width="3" stroke-linecap="round"/>
-    <path d="M42 8 V18" stroke="#14B8A6" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="32" cy="40" r="9" fill="#14B8A6"/>
-    <path d="M28 40 L31 43 L36 36" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`,
+// Modern 3D rendered icons · Microsoft Fluent UI Emoji 3D · friendly + cercano + confiable
+// CDN: jsdelivr · github.com/microsoft/fluentui-emoji · MIT license · production-ready
+const CDN = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets';
+const IMAGES: Record<string, { src: string; alt: string }> = {
+  money:    { src: `${CDN}/Money%20bag/3D/money_bag_3d.png`,                  alt: 'Cobranças' },
+  receipt:  { src: `${CDN}/Receipt/3D/receipt_3d.png`,                        alt: 'NFS-e' },
+  chart:    { src: `${CDN}/Chart%20increasing/3D/chart_increasing_3d.png`,    alt: 'Resumo financeiro' },
+  calendar: { src: `${CDN}/Spiral%20calendar/3D/spiral_calendar_3d.png`,      alt: 'Agenda' },
+  pix:      { src: `${CDN}/Money%20with%20wings/3D/money_with_wings_3d.png`,  alt: 'Pix' },
+  bell:     { src: `${CDN}/Bell/3D/bell_3d.png`,                              alt: 'Lembretes' },
+  rocket:   { src: `${CDN}/Rocket/3D/rocket_3d.png`,                          alt: 'Rápido' },
+  shield:   { src: `${CDN}/Shield/3D/shield_3d.png`,                          alt: 'Seguro' },
+  check:    { src: `${CDN}/Check%20mark%20button/3D/check_mark_button_3d.png`, alt: 'Listo' },
+  star:     { src: `${CDN}/Star/3D/star_3d.png`,                              alt: 'Top' },
 };
 
-const svg = ICONS[name] ?? ICONS.money;
+const img = IMAGES[name] ?? IMAGES.money;
 ---
-<div class="zymplo-feature-icon" style={`width:${size}px;height:${size}px`} set:html={svg} aria-hidden="true"></div>
+<div class="zymplo-feature-icon" style={`width:${size}px;height:${size}px`}>
+  <img src={img.src} alt={img.alt} width={size} height={size} loading="lazy" decoding="async" />
+</div>
 
 <style>
-  .zymplo-feature-icon { display: inline-block; line-height: 0; }
-  .zymplo-feature-icon :global(svg) { width: 100%; height: 100%; display: block; }
+  .zymplo-feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 6px 18px rgba(20, 184, 166, 0.18));
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .zymplo-feature-icon:hover { transform: translateY(-2px) scale(1.04); }
+  .zymplo-feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 </style>

@@ -116,7 +116,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     compliance: ['AFIP', 'CAE', 'Monotributo', 'Ley 25.326'],
     payments: ['MercadoPago', 'Transferencia'],
     slang: ['che', 'boludo', 'viste', 're'],
-    cta: { primary: 'Dale che 💪', secondary: 'Ver demo 90s ▶' },
+    cta: { primary: 'Dale que 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$4.000 ARS', pro: '$9.000 ARS', gold: '$19.000 ARS' },
     videoSrc: '/videos/hero/ar.mp4',
   },
@@ -131,8 +131,8 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     ],
     compliance: ['DGT', 'IRACIS', 'IVA', 'Ley 6534/20'],
     payments: ['Tigo Money', 'Personal Pay'],
-    slang: ['che mau', 'estamos arreglando', 'pio'],
-    cta: { primary: 'Dale che mau 💪', secondary: 'Ver demo 90s ▶' },
+    slang: ['metele', 'dale que', 'estamos arreglando', 'pio'],
+    cta: { primary: 'Metele 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '₲ 35.000', pro: '₲ 75.000', gold: '₲ 149.000' },
     videoSrc: '/videos/hero/py.mp4',
   },
@@ -143,3 +143,65 @@ export const getCountry = (slug: string): Country | null =>
   (COUNTRIES as Record<string, Country>)[slug] ?? null;
 
 export const EU_SLUGS: CountrySlug[] = ['es'];
+
+// WhatsApp Business number for signup CTAs (Zymplo onboarding)
+export const WA_NUMBER = '595981970735';
+const WA_TEXT: Record<CountrySlug, string> = {
+  br: 'Olá! Quero começar com Zymplo grátis.',
+  mx: '¡Hola! Quiero empezar con Zymplo gratis.',
+  us: 'Hi! I want to start with Zymplo free.',
+  co: '¡Hola! Quiero empezar con Zymplo gratis.',
+  es: '¡Hola! Quiero empezar con Zymplo gratis.',
+  ar: '¡Hola! Quiero empezar con Zymplo gratis.',
+  py: '¡Hola! Quiero empezar con Zymplo gratis.',
+};
+export const waLink = (slug: CountrySlug, planLabel?: string): string => {
+  const baseText = WA_TEXT[slug] ?? WA_TEXT.br;
+  const text = planLabel ? `${baseText} (${planLabel})` : baseText;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+};
+
+// Social profiles (Zymplo official · global brand)
+export const SOCIAL = {
+  instagram: 'https://www.instagram.com/zymplo',
+  tiktok: 'https://www.tiktok.com/@zymplo',
+  facebook: 'https://www.facebook.com/zymplo',
+  x: 'https://x.com/zymplo',
+  youtube: 'https://www.youtube.com/@zymplo',
+  linkedin: 'https://www.linkedin.com/company/zymplo',
+  threads: 'https://www.threads.net/@zymplo',
+} as const;
+
+// Brand assets (single source · S1 mirror)
+export const BRAND = {
+  logoIso: 'https://sims.zymplo.com/brand/isotipo.svg',
+  logoIsoWhite: 'https://sims.zymplo.com/brand/isotipo-blanco.svg',
+  apple: 'https://sims.zymplo.com/brand/apple-touch-icon.png',
+  manifest: 'https://sims.zymplo.com/brand/site.webmanifest',
+} as const;
+
+// Legal pages (relative · same-country)
+export const LEGAL = {
+  terms: '/legal/terms/',
+  privacy: '/legal/privacy/',
+  cookies: '/legal/cookies/',
+  lgpd: '/legal/lgpd/',
+  contact: '/contact/',
+  press: 'mailto:press@zymplo.com',
+  support: 'mailto:support@zymplo.com',
+} as const;
+
+// QR code generator (WhatsApp deep-link · brand colors via api.qrserver.com)
+export const qrLink = (slug: CountrySlug, size = 240): string => {
+  const url = waLink(slug);
+  const params = new URLSearchParams({
+    size: `${size}x${size}`,
+    data: url,
+    color: '14B8A6',
+    bgcolor: 'FFFFFF',
+    margin: '8',
+    qzone: '1',
+    format: 'svg',
+  });
+  return `https://api.qrserver.com/v1/create-qr-code/?${params.toString()}`;
+};
