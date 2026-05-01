@@ -1,0 +1,73 @@
+ZYMPLO INC. PROPRIETARY LICENSE · v1.0
+Copyright (c) 2026 Zymplo Inc. (Delaware C-Corp, file no. 10544645). All Rights Reserved.
+
+NOTICE: This software, source code, configuration, prompts, simulations, datasets,
+trained model artifacts, brand assets, design tokens, documentation and any
+derivative works (collectively, the "Software") are the confidential and
+proprietary intellectual property of Zymplo Inc.
+
+1. NO LICENSE GRANTED.
+   No license, express or implied, by estoppel or otherwise, to any intellectual
+   property rights is granted by this document. The Software is made available
+   solely to authorized employees, contractors and partners of Zymplo Inc. who
+   have signed a current Non-Disclosure Agreement (NDA) and Intellectual
+   Property Assignment Agreement with Zymplo Inc.
+
+2. PROHIBITED ACTS.
+   You may NOT, without prior written authorization from Zymplo Inc.:
+   (a) copy, reproduce, modify, adapt, translate, or create derivative works;
+   (b) distribute, publish, sublicense, sell, rent, lease, or transfer;
+   (c) reverse engineer, decompile, or disassemble;
+   (d) remove or alter any proprietary notices, labels, or markings;
+   (e) use the Software, any portion thereof, or any output produced therefrom
+       to train, fine-tune, evaluate, benchmark, distill, prompt, or otherwise
+       improve any artificial intelligence model, machine learning system,
+       large language model, retrieval system, or any other automated tool,
+       whether for commercial or non-commercial purposes;
+   (f) use the Software to build, design, market, or operate any product or
+       service that is competitive with Zymplo Inc.'s offerings.
+
+3. AI-TRAINING PROHIBITION (DMCA · UK CDPA · EU AI Act · Brazilian LGPD).
+   Pursuant to 17 U.S.C. § 1201 et seq., the UK Copyright Designs and Patents
+   Act § 29A, the EU Directive 2019/790 Article 4(3) text-and-data-mining
+   reservation, and the Brazilian LGPD, Zymplo Inc. expressly reserves all
+   rights and prohibits the use of any portion of the Software, including
+   without limitation source code, prompts, system prompts, agent
+   configurations, brand voice samples, simulation cases, and training
+   datasets, for the development, training, fine-tuning, retrieval-augmented
+   generation, evaluation or improvement of any artificial intelligence model
+   or system. Machine-readable opt-out signals are emitted via robots.txt,
+   ai.txt, and HTTP X-Robots-Tag: noai, noimageai headers.
+
+4. TRADE SECRET DESIGNATION.
+   The Software contains trade secrets of Zymplo Inc. protected under the
+   U.S. Defend Trade Secrets Act of 2016 (18 U.S.C. § 1836), the Brazilian
+   Industrial Property Law (Law No. 9.279/96, Articles 195 et seq.), and
+   equivalent laws of all jurisdictions. Misappropriation will be prosecuted
+   to the fullest extent of the law, including criminal penalties.
+
+5. CANARY TOKENS · WATERMARKING.
+   The Software contains digital canary tokens and forensic watermarks. Any
+   unauthorized copy can be traced to its origin. Activation of a canary
+   token triggers immediate legal action.
+
+6. NO WARRANTY · LIABILITY DISCLAIMER.
+   THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. ZYMPLO INC.
+   SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM USE OF THE SOFTWARE BY
+   UNAUTHORIZED PARTIES.
+
+7. GOVERNING LAW · VENUE.
+   This License is governed by the laws of the State of Delaware, USA, without
+   reference to conflict of laws principles. Exclusive venue: Court of
+   Chancery of the State of Delaware. The parties waive any objection to
+   personal jurisdiction or venue.
+
+8. ENFORCEMENT · DMCA AGENT.
+   Reports of infringement: legal@zymplo.com (DPO: jose.rolon@zymplo.com,
+   General Counsel: jesus.caballero@zymplo.com).
+   DMCA Designated Agent (registered with U.S. Copyright Office):
+   https://www.copyright.gov/dmca-directory/
+
+For licensing inquiries: legal@zymplo.com
+
+END OF LICENSE
