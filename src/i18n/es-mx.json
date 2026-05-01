@@ -47,7 +47,7 @@
       "Andrea · Bogotá · pago recibido",
       "Juan · Buenos Aires · agenda organizada"
     ],
-    "live_counter_label": "cobrados hoy",
+    "live_counter_label": "nuevos miembros · últimas 24h · live",
     "joined_today_label": "negocios se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
@@ -62,31 +62,22 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "WhatsApp Business AI",
+        "ERP Tradicional",
         "CRMs con IA para WhatsApp",
-        "Asistentes virtuales tradicionales"
+        "Asistentes IA personales"
       ],
       "rows": [
         {
           "feature": "Sin app · solo WhatsApp",
           "values": [
             true,
-            true,
             false,
-            false
+            true,
+            true
           ]
         },
         {
-          "feature": "IA cobra automático",
-          "values": [
-            true,
-            false,
-            true,
-            false
-          ]
-        },
-        {
-          "feature": "Factura en 3 segundos",
+          "feature": "IA cobra a clientes sola",
           "values": [
             true,
             false,
@@ -95,34 +86,62 @@
           ]
         },
         {
-          "feature": "Agenda + Recordatorios IA",
+          "feature": "CFDI/factura en 3 segundos",
           "values": [
             true,
-            false,
+            true,
             false,
             false
           ]
         },
         {
-          "feature": "Impuestos automáticos",
+          "feature": "Vertical microempresario · RESICO · SAT",
           "values": [
             true,
-            false,
+            true,
             false,
             false
           ]
         },
         {
-          "feature": "Resumen financiero",
+          "feature": "Agenda + recordatorios IA",
           "values": [
             true,
             false,
             false,
             true
           ]
+        },
+        {
+          "feature": "Resumen financiero real",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Setup en 3 minutos",
+          "values": [
+            true,
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "SPEI · CoDi · OXXO integrados",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
         }
       ],
-      "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública. Tiene fines informativos y no implica denigración ni asociación comercial."
+      "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública disponible. Fines informativos · sin denigración ni asociación comercial implícita.",
+      "eyebrow": "vs · toda la competencia actual"
     }
   },
   "chat": {

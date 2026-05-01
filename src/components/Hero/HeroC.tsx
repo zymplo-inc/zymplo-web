@@ -23,28 +23,37 @@ export default function HeroC({ slug, country, dict }: Props) {
   const scanLabel = (dict.hero as any).scan_label ?? 'Scan';
   const scanOnPhone = (dict.hero as any).scan_on_phone ?? 'on your phone';
 
-  // Exchange rate USD → local (approximated · April 2026)
-  // Counter normalized to ~$47.28M USD purchasing power across all countries
-  const USD_RATE: Record<string, number> = {
-    BRL: 5.4, MXN: 17, USD: 1, COP: 4000, EUR: 0.88,
-    ARS: 1040, PYG: 7250, PEN: 3.7, CLP: 950, UYU: 40,
-    BOB: 6.95, CRC: 510,
+  // Nuevos usuarios últimas 24h · base por país (TAM-weighted · MEI/microbiz universe)
+  // BR mayor mercado (18M MEI) · PY menor (1.4M cuentapropistas) · resto en función a TAM relativo
+  const USERS_24H_BASE: Record<string, number> = {
+    BRL: 3247, MXN: 2184, USD: 1523, COP: 1847, EUR: 956,
+    ARS: 1412, PYG: 487, PEN: 1180, CLP: 1056, UYU: 412,
+    BOB: 384, CRC: 298,
   };
-  const BASE_USD = 47_280_000; // monthly billing aggregate base
   const ccCode = country.currency.code;
-  const rate = USD_RATE[ccCode] || 1;
-  const initialLocal = Math.round(BASE_USD * rate);
-  // Increment also scaled to currency (so PYG +50K · USD +5)
-  const incScale = Math.max(1, Math.round(rate / 5));
+  const userBase = USERS_24H_BASE[ccCode] || 1000;
 
-  // Live counter (animates from start) · per-country purchasing power equivalent
-  const [counter, setCounter] = useState(initialLocal);
+  // Daily seed (LCG · día del año) → cada día baseline distinto ±12% organic feel
+  const dayOfYear = (() => {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now.getTime() - start.getTime()) / 86_400_000);
+  })();
+  const seedRand = (s: number) => ((s * 9301 + 49297) % 233280) / 233280;
+  const dailyVariance = 0.88 + seedRand(dayOfYear) * 0.24;
+  const initialUsers = Math.round(userBase * dailyVariance);
+
+  // Live counter (animates) · +1 user every 6-12s organic
+  const [users, setUsers] = useState(initialUsers);
   useEffect(() => {
-    const inc = setInterval(() => {
-      setCounter((c) => c + (Math.floor(Math.random() * 200) + 50) * incScale);
-    }, 2500);
-    return () => clearInterval(inc);
-  }, [incScale]);
+    const tick = () => {
+      setUsers((u) => u + 1);
+      const next = 6000 + Math.random() * 6000;
+      timer = setTimeout(tick, next);
+    };
+    let timer = setTimeout(tick, 6000 + Math.random() * 6000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Joined today counter
   const [joined, setJoined] = useState(847);
@@ -67,30 +76,13 @@ export default function HeroC({ slug, country, dict }: Props) {
     return () => clearInterval(t);
   }, [liveActivity.length]);
 
-  // Format moneda completa per país (Intl.NumberFormat) · ej PY: "Gs 47.280.000" · BR: "R$ 47.280.000" · MX: "$47,280,000"
-  const formatMoney = (n: number) => {
+  // Format número con separadores locales (sin moneda · es contador de usuarios)
+  const formatUsers = (n: number) => {
     try {
-      const code = country.currency.code;
-      // Use country locale (data/countries.ts) for correct separators (puntos vs comas)
       const locale = (country as any).locale || 'pt-BR';
-      // PY/CL no usa decimales · resto sí pero los omitimos para counter live (más limpio)
-      const formatted = new Intl.NumberFormat(locale, {
-        style: 'decimal',
-        maximumFractionDigits: 0,
-        minimumFractionDigits: 0,
-      }).format(n);
-      // Custom symbol map per país (más cercano que default Intl que pone "Gs." o "PYG")
-      const SYM: Record<string, string> = {
-        BRL: 'R$', MXN: '$', USD: '$', COP: '$', EUR: '€',
-        ARS: '$', PYG: 'Gs', PEN: 'S/', CLP: '$', UYU: '$U',
-        BOB: 'Bs', CRC: '₡',
-      };
-      const sym = SYM[code] || country.currency.symbol;
-      // ES (España) coloca símbolo después
-      if (code === 'EUR') return `${formatted} ${sym}`;
-      return `${sym} ${formatted}`;
+      return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(n);
     } catch {
-      return `${country.currency.symbol} ${n.toLocaleString()}`;
+      return n.toLocaleString();
     }
   };
 
@@ -117,36 +109,34 @@ export default function HeroC({ slug, country, dict }: Props) {
       <FloatingShapes />
       <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16 w-full z-10">
 
-        {/* GIANT COUNTER LIVE · biggest element on page */}
-        <div className="text-center mb-8">
-          <div className="inline-flex flex-col items-center">
-            <div className="text-xs md:text-sm uppercase tracking-widest text-white/70 font-bold mb-2 flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-warning opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-warning" />
-              </span>
-              {liveCounterLabel} · live
-            </div>
-            <div
-              className="font-display font-bold text-white tracking-tightest leading-none"
-              style={{ fontSize: 'clamp(56px, 12vw, 144px)', letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.2)' }}
-            >
-              {formatMoney(counter)}
-            </div>
+        {/* Counter LIVE · social proof discreto · counter pequeño · jerarquía: headline domina */}
+        <div className="text-center mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-warning opacity-75 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-warning" />
+            </span>
+            <span className="font-bold text-white tabular-nums" style={{ fontSize: 'clamp(20px, 3vw, 32px)', letterSpacing: '-0.01em', lineHeight: 1 }}>
+              {formatUsers(users)}
+            </span>
+            <span className="text-white/85 text-[11px] md:text-xs uppercase tracking-widest font-semibold">
+              {liveCounterLabel}
+            </span>
           </div>
         </div>
 
-        {/* Country flag pill + Influencer */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/25 text-xs font-bold uppercase tracking-widest">
-            {country.flag} {country.name} · {country.influencer.name}
+        {/* Country flag pill */}
+        <div className="text-center mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-[11px] md:text-xs font-bold uppercase tracking-widest">
+            {country.flag} {country.name}
           </div>
         </div>
 
-        <div className="text-center mt-5">
+        {/* HEADLINE GIGANTE · hero · primer impacto visual */}
+        <div className="text-center mt-2">
           <h1
-            className="font-display text-[44px] sm:text-[64px] md:text-[88px] lg:text-[104px] leading-[0.92] tracking-tightest text-white"
-            style={{ fontWeight: 800, letterSpacing: '-0.04em' }}
+            className="font-display leading-[0.88] tracking-tightest text-white"
+            style={{ fontSize: 'clamp(64px, 14.5vw, 192px)', fontWeight: 800, letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
           >
             {headline.split('.').filter(Boolean).map((part, i) => (
               <span key={i} className="block">

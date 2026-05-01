@@ -1,8 +1,8 @@
 /**
- * Zymplo · Single Source of Truth — 7 países
+ * Zymplo · Single Source of Truth — 13 países (Tier 1 + Tier 2 expansion)
  * Edit ONLY here. UI consumes via `getCountry(slug)`.
  */
-export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py';
+export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py' | 'pe' | 'ec' | 'cl' | 'uy' | 'bo' | 'cr';
 
 export interface Country {
   slug: CountrySlug;
@@ -136,6 +136,102 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     pricing: { free: 'Gratis', starter: '₲ 35.000', pro: '₲ 75.000', gold: '₲ 149.000' },
     videoSrc: '/videos/hero/py.mp4',
   },
+  pe: {
+    slug: 'pe', flag: '🇵🇪', name: 'Perú', locale: 'es-PE',
+    currency: { code: 'PEN', symbol: 'S/', format: fmt('es-PE', 'PEN') },
+    influencer: { name: 'Paolo', tagline: 'Tu secretaria IA en WhatsApp' },
+    personas: [
+      { name: 'Luis', role: 'electricista' },
+      { name: 'Rosa', role: 'estilista' },
+      { name: 'Carlos', role: 'gasfitero' },
+    ],
+    compliance: ['SUNAT', 'RUC', 'IGV', 'Ley 29733'],
+    payments: ['Yape', 'Plin', 'BIM'],
+    slang: ['causa', 'pata', 'chévere', 'jato'],
+    cta: { primary: 'Vamos causa 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: 'S/ 9', pro: 'S/ 19', gold: 'S/ 39' },
+    videoSrc: '/videos/hero/pe.mp4',
+  },
+  ec: {
+    slug: 'ec', flag: '🇪🇨', name: 'Ecuador', locale: 'es-EC',
+    currency: { code: 'USD', symbol: '$', format: fmt('es-EC', 'USD') },
+    influencer: { name: 'Enner', tagline: 'Tu secretaria IA en WhatsApp' },
+    personas: [
+      { name: 'José', role: 'electricista' },
+      { name: 'María', role: 'estilista' },
+      { name: 'Carlos', role: 'plomero' },
+    ],
+    compliance: ['SRI', 'RUC', 'IVA', 'RIMPE Emprendedor', 'LOPDP'],
+    payments: ['DeUna!', 'Pichincha', 'BIM'],
+    slang: ['chévere', 'bacán', 'pana', 'simón'],
+    cta: { primary: 'Dale pana 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: '$5 USD', pro: '$10 USD', gold: '$20 USD' },
+    videoSrc: '/videos/hero/ec.mp4',
+  },
+  cl: {
+    slug: 'cl', flag: '🇨🇱', name: 'Chile', locale: 'es-CL',
+    currency: { code: 'CLP', symbol: '$', format: fmt('es-CL', 'CLP') },
+    influencer: { name: 'Iván', tagline: 'Tu secretaria IA en WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'Pedro', role: 'electricista' },
+      { name: 'Camila', role: 'peluquera' },
+      { name: 'Felipe', role: 'gasfíter' },
+    ],
+    compliance: ['SII', 'RUT', 'IVA', 'Ley 19.628'],
+    payments: ['Webpay', 'Mercado Pago', 'Transferencia'],
+    slang: ['po', 'cachai', 'bacán', 'fome'],
+    cta: { primary: 'Dale po 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: '$4.900 CLP', pro: '$9.900 CLP', gold: '$19.900 CLP' },
+    videoSrc: '/videos/hero/cl.mp4',
+  },
+  uy: {
+    slug: 'uy', flag: '🇺🇾', name: 'Uruguay', locale: 'es-UY',
+    currency: { code: 'UYU', symbol: '$U', format: fmt('es-UY', 'UYU') },
+    influencer: { name: 'Lucho', tagline: 'Tu secretaria IA en WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'Diego', role: 'electricista' },
+      { name: 'Sofía', role: 'peluquera' },
+      { name: 'Mauricio', role: 'plomero' },
+    ],
+    compliance: ['DGI', 'RUT', 'IVA', 'Ley 18.331'],
+    payments: ['Mercado Pago', 'Redpagos', 'Transferencia'],
+    slang: ['bo', 'ta', 'de pinga', 'masa'],
+    cta: { primary: 'Dale bo 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: '$U 200', pro: '$U 400', gold: '$U 800' },
+    videoSrc: '/videos/hero/uy.mp4',
+  },
+  bo: {
+    slug: 'bo', flag: '🇧🇴', name: 'Bolivia', locale: 'es-BO',
+    currency: { code: 'BOB', symbol: 'Bs', format: fmt('es-BO', 'BOB') },
+    influencer: { name: 'Marce', tagline: 'Tu secretaria IA en WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'Marcelo', role: 'electricista' },
+      { name: 'Ana', role: 'peluquera' },
+      { name: 'Roberto', role: 'plomero' },
+    ],
+    compliance: ['SIN', 'NIT', 'IVA', 'Ley 164'],
+    payments: ['Tigo Money', 'Soli', 'Transferencia'],
+    slang: ['pues', 'jaila', 'choco', 'qué pasó'],
+    cta: { primary: 'Vamos pues 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: 'Bs 35', pro: 'Bs 75', gold: 'Bs 149' },
+    videoSrc: '/videos/hero/bo.mp4',
+  },
+  cr: {
+    slug: 'cr', flag: '🇨🇷', name: 'Costa Rica', locale: 'es-CR',
+    currency: { code: 'CRC', symbol: '₡', format: fmt('es-CR', 'CRC') },
+    influencer: { name: 'Keylo', tagline: 'Tu secretaria IA en WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'Carlos', role: 'electricista' },
+      { name: 'Andrea', role: 'estilista' },
+      { name: 'Mario', role: 'fontanero' },
+    ],
+    compliance: ['Hacienda', 'Cédula Jurídica', 'IVA', 'Ley 8968'],
+    payments: ['SINPE Móvil', 'Transferencia'],
+    slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
+    cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Gratis', starter: '₡ 2.500', pro: '₡ 4.900', gold: '₡ 9.900' },
+    videoSrc: '/videos/hero/cr.mp4',
+  },
 };
 
 export const COUNTRY_SLUGS = Object.keys(COUNTRIES) as CountrySlug[];
@@ -154,6 +250,12 @@ const WA_TEXT: Record<CountrySlug, string> = {
   es: '¡Hola! Quiero empezar con Zymplo gratis.',
   ar: '¡Hola! Quiero empezar con Zymplo gratis.',
   py: '¡Hola! Quiero empezar con Zymplo gratis.',
+  pe: '¡Hola causa! Quiero empezar con Zymplo gratis.',
+  ec: '¡Hola pana! Quiero empezar con Zymplo gratis.',
+  cl: '¡Hola! Quiero empezar con Zymplo gratis po.',
+  uy: '¡Hola bo! Quiero empezar con Zymplo gratis.',
+  bo: '¡Hola pues! Quiero empezar con Zymplo gratis.',
+  cr: '¡Pura vida! Quiero empezar con Zymplo gratis.',
 };
 export const waLink = (slug: CountrySlug, planLabel?: string): string => {
   const baseText = WA_TEXT[slug] ?? WA_TEXT.br;

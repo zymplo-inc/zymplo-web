@@ -1,15 +1,14 @@
 ---
 import CountryLayout from '@layouts/CountryLayout.astro';
 import Onboarding5Steps from '@components/Onboarding5Steps/Onboarding5Steps.tsx';
-import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { COUNTRIES, COUNTRY_SLUGS, WA_NUMBER, type CountrySlug } from '@data/countries';
 
 export function getStaticPaths() {
   return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
 }
 const { country: slug } = Astro.params as { country: CountrySlug };
 const c = COUNTRIES[slug];
-const waNumber = '5511999999999';
 ---
 <CountryLayout slug={slug} title={`Zymplo ${c.flag} — Onboarding 90s`}>
-  <Onboarding5Steps client:load country={c} whatsappNumber={waNumber} />
+  <Onboarding5Steps client:load country={c} whatsappNumber={WA_NUMBER} />
 </CountryLayout>

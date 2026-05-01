@@ -1,0 +1,79 @@
+---
+import type { CountrySlug } from '@data/countries';
+import type { Dict } from '@i18n/index';
+interface Props { slug: CountrySlug; dict: Dict }
+const { dict } = Astro.props;
+const v = (dict as any).video_testimonials ?? {};
+const eyebrow = v.eyebrow ?? 'Real stories';
+const title = v.title ?? 'They got their time back';
+const subtitle = v.subtitle ?? 'Real microentrepreneurs · 15-second clips · zero scripts.';
+const items: Array<{ name: string; role: string; city: string; quote: string; metric: string; emoji: string; gradient: string }> = v.items ?? [
+  { name: 'Diego', role: 'Electrician', city: 'São Paulo', quote: '40 minutes a day saved.', metric: '+R$ 4.800/mo', emoji: '⚡', gradient: 'from-turquesa via-turquesa-dark to-azul' },
+  { name: 'Luana', role: 'Hairstylist', city: 'Belo Horizonte', quote: 'No more chasing clients.', metric: '+R$ 2.100/mo', emoji: '💇', gradient: 'from-purple via-turquesa to-azul' },
+  { name: 'Raimundo', role: 'Plumber', city: 'Recife', quote: 'Bills auto-sent · I just work.', metric: '+R$ 3.500/mo', emoji: '🔧', gradient: 'from-azul via-purple to-turquesa-dark' },
+  { name: 'Ana', role: 'Baker', city: 'Curitiba', quote: 'Never forget a client.', metric: '+R$ 1.900/mo', emoji: '🍰', gradient: 'from-turquesa-light via-turquesa to-azul' },
+  { name: 'Carlos', role: 'Mechanic', city: 'Salvador', quote: 'NFS-e in 3 seconds.', metric: '+R$ 2.700/mo', emoji: '🚗', gradient: 'from-purple via-azul to-turquesa' },
+];
+const watchLabel = v.watch_label ?? '▶ Watch';
+const seeMoreLabel = v.see_more ?? 'See all stories';
+---
+<section class="bg-paper pt-10 pb-14 md:pt-14 md:pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-8 md:mb-10">
+      <span class="inline-block px-3 py-1 rounded-full bg-turquesa/10 text-turquesa-deeper text-xs font-bold uppercase tracking-widest">{eyebrow}</span>
+      <h2 class="mt-3 font-display text-4xl md:text-6xl font-bold tracking-tightest leading-[0.95]">{title}</h2>
+      <p class="mt-3 text-base md:text-lg text-slate max-w-xl mx-auto">{subtitle}</p>
+    </div>
+
+    <!-- Horizontal scroll carousel · snap · mobile + desktop -->
+    <div class="relative">
+      <div class="vt-scroll flex gap-4 md:gap-5 overflow-x-auto pb-6 px-1 snap-x snap-mandatory scroll-smooth -mx-2">
+        {items.map((it) => (
+          <button type="button" class={`vt-card snap-start shrink-0 group relative w-[180px] md:w-[220px] aspect-[9/16] rounded-3xl bg-gradient-to-br ${it.gradient} text-white shadow-xl overflow-hidden cursor-pointer transition hover:scale-[1.02] hover:shadow-2xl`}>
+            <!-- Top: emoji + name -->
+            <div class="absolute inset-x-0 top-0 p-4 flex items-start justify-between">
+              <div class="text-3xl md:text-4xl">{it.emoji}</div>
+              <div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/20 backdrop-blur text-[10px] font-bold uppercase tracking-widest">
+                <span class="relative flex h-1.5 w-1.5">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-error opacity-75 animate-ping"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-error"></span>
+                </span>
+                15s
+              </div>
+            </div>
+
+            <!-- Center: play button overlay -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/30 backdrop-blur flex items-center justify-center group-hover:bg-white/40 transition">
+                <svg class="w-7 h-7 md:w-8 md:h-8 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+
+            <!-- Bottom: name + role + city + quote -->
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+              <div class="font-display font-bold text-base md:text-lg leading-tight">{it.name}</div>
+              <div class="text-[11px] md:text-xs opacity-90 leading-snug">{it.role} · {it.city}</div>
+              <div class="mt-1.5 text-xs md:text-sm font-medium leading-snug">"{it.quote}"</div>
+              <div class="mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/15 backdrop-blur text-[10px] font-bold">
+                {it.metric}
+              </div>
+            </div>
+          </button>
+        ))}
+
+        <!-- See more card -->
+        <a href="#cta" class="vt-card snap-start shrink-0 w-[140px] md:w-[180px] aspect-[9/16] rounded-3xl border-2 border-dashed border-ink/15 flex flex-col items-center justify-center text-center px-4 hover:border-turquesa/40 hover:bg-turquesa/5 transition">
+          <div class="text-2xl mb-2">→</div>
+          <div class="text-sm font-semibold text-slate">{seeMoreLabel}</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .vt-scroll::-webkit-scrollbar { height: 6px; }
+    .vt-scroll::-webkit-scrollbar-track { background: transparent; }
+    .vt-scroll::-webkit-scrollbar-thumb { background: rgba(20, 184, 166, 0.2); border-radius: 4px; }
+    .vt-scroll::-webkit-scrollbar-thumb:hover { background: rgba(20, 184, 166, 0.4); }
+  </style>
+</section>

@@ -47,7 +47,7 @@
       "Rosa · San Lorenzo · IRACIS al día",
       "Miguel · Lambaré · agenda organizada"
     ],
-    "live_counter_label": "cobrados hoy",
+    "live_counter_label": "nuevos miembros · últimas 24h · live",
     "joined_today_label": "negocios se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
@@ -62,26 +62,26 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "WhatsApp Business AI",
+        "ERP Tradicional",
         "CRMs con IA para WhatsApp",
-        "Asistentes virtuales tradicionales"
+        "Asistentes IA personales"
       ],
       "rows": [
         {
           "feature": "Sin app · solo WhatsApp",
           "values": [
             true,
-            true,
             false,
-            false
+            true,
+            true
           ]
         },
         {
-          "feature": "IA cobra automático",
+          "feature": "La IA cobra clientes sola",
           "values": [
             true,
             false,
-            true,
+            false,
             false
           ]
         },
@@ -89,40 +89,59 @@
           "feature": "Factura en 3 segundos",
           "values": [
             true,
-            false,
-            false,
-            false
-          ]
-        },
-        {
-          "feature": "Agenda + Recordatorios IA",
-          "values": [
             true,
             false,
-            false,
             false
           ]
         },
         {
-          "feature": "Impuestos automáticos",
+          "feature": "Vertical cuentapropista · DGT · IRACIS",
           "values": [
             true,
-            false,
+            true,
             false,
             false
           ]
         },
         {
-          "feature": "Resumen financiero",
+          "feature": "Agenda + recordatorios IA",
           "values": [
             true,
             false,
             false,
             true
           ]
+        },
+        {
+          "feature": "Resumen financiero real",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Setup en 3 minutos",
+          "values": [
+            true,
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Tigo Money · Personal Pay integrados",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
         }
       ],
-      "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública. Tiene fines informativos y no implica denigración ni asociación comercial."
+      "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública disponible. Fines informativos · sin denigración ni asociación comercial implícita.",
+      "eyebrow": "vs · toda la competencia actual"
     }
   },
   "chat": {

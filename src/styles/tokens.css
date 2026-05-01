@@ -2,6 +2,9 @@
    Zymplo · Design Tokens V2 (canonical)
    Fonts loaded via <link> in CountryLayout.astro head (non-blocking).
    ======================================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   /* ── Brand · turquesa scale ── */
@@ -56,6 +59,29 @@ a { color: inherit; text-decoration: none; }
   -webkit-backdrop-filter: blur(14px) saturate(180%);
   border: 1px solid rgba(20,184,166,0.18);
   box-shadow: inset 0 1px 1px rgba(94,234,212,0.10);
+}
+
+/* ── Motion safety net · garantiza visibilidad si JS falla/lento ── */
+/* framer-motion SSR-rendea con inline style="opacity:0..." y depende de JS para animar a visible.
+   Si JS no carga o tarda, el contenido queda invisible. Esta regla fuerza visibilidad después de 1.5s. */
+@keyframes ensure-visible-fallback {
+  to { opacity: 1 !important; transform: none !important; }
+}
+[style*="opacity:0"][style*="transform"] {
+  animation: ensure-visible-fallback 0.4s ease-out 1.5s forwards;
+}
+/* Si el user prefiere reduced motion, hacer visible inmediatamente */
+@media (prefers-reduced-motion: reduce) {
+  [style*="opacity:0"][style*="transform"] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+/* Si JavaScript está deshabilitado, hacer visible inmediatamente */
+.no-js [style*="opacity:0"][style*="transform"] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,84 @@
+---
+import CountryLayout from '@layouts/CountryLayout.astro';
+import HeroA from '@components/Hero/HeroA';
+import ChatDemo from '@components/ChatDemo/ChatDemo';
+import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
+import PricingTable from '@components/PricingTable/PricingTable';
+import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { getDict } from '@i18n/index';
+
+export function getStaticPaths() {
+  return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
+}
+
+const { country: slug } = Astro.params as { country: CountrySlug };
+const c = COUNTRIES[slug];
+const dict = getDict(slug);
+const faq = (dict as any).faq;
+---
+<CountryLayout slug={slug}>
+  <HeroA client:load slug={slug} country={c} dict={dict} />
+
+  <!-- Payments band · trust signal · Stripe-style -->
+  <section class="bg-paper border-y border-ink/5 py-6">
+    <div class="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-mute text-xs uppercase tracking-widest">
+      <span class="font-semibold">{(dict as any).payments_label ?? 'Accepts all payment methods'}</span>
+      <div class="flex flex-wrap items-center gap-3 text-ink font-bold text-sm normal-case tracking-normal">
+        {c.payments.map((p) => (
+          <span class="px-3 py-1 rounded-full bg-white border border-ink/10">{p}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="bg-paper py-20 md:py-28 border-b border-ink/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tightest text-center max-w-2xl mx-auto">{dict.features?.title ?? ''}</h2>
+      <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {dict.features?.items?.map((it: any) => (
+          <div class="bg-white rounded-2xl p-6 border border-ink/8 hover:border-turquesa/40 hover:shadow-lg transition">
+            <div class="text-3xl">{it.icon}</div>
+            <div class="mt-4 font-display font-bold text-lg">{it.title}</div>
+            <p class="mt-2 text-sm text-slate leading-relaxed">{it.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ChatDemo client:visible slug={slug} country={c} dict={dict} />
+  <ToolsCarousel slug={slug} />
+  <PricingTable client:visible slug={slug} country={c} dict={dict} />
+
+  <!-- FAQ section · anti-objeción pre-CTA -->
+  {faq && (
+    <section id="faq" class="bg-paper py-20 md:py-28 border-t border-ink/5">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">{faq.eyebrow}</span>
+          <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">{faq.title}</h2>
+        </div>
+        <div class="space-y-3">
+          {faq.items?.map((it: any) => (
+            <details class="group bg-white rounded-2xl border border-ink/8 hover:border-turquesa/40 transition">
+              <summary class="flex items-center justify-between cursor-pointer p-5 list-none">
+                <span class="font-semibold text-ink">{it.q}</span>
+                <span class="text-turquesa text-xl group-open:rotate-45 transition">+</span>
+              </summary>
+              <div class="px-5 pb-5 text-slate leading-relaxed">{it.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+</CountryLayout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  :global(.animate-fade-in) { animation: fade-in 0.5s ease-out; }
+</style>

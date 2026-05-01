@@ -8,10 +8,10 @@ interface Props { slug: string; country: Country; dict: Dict }
 
 /** Hero — cinematográfico · SVG procedural "video tubes" + typewriter rotate. */
 export default function Hero({ slug, country, dict }: Props) {
-  if (typeof window !== 'undefined') (window as any).__ZBM = BUILD_MARKER;
   const [idx, setIdx] = useState(0);
   const phrases = dict.hero.rotate;
   useEffect(() => {
+    (window as Window & { __ZBM?: string }).__ZBM = BUILD_MARKER;
     const t = setInterval(() => setIdx((i) => (i + 1) % phrases.length), 3000);
     return () => clearInterval(t);
   }, [phrases.length]);
@@ -24,26 +24,16 @@ export default function Hero({ slug, country, dict }: Props) {
 
       <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-32 md:pt-32 md:pb-40 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs font-bold uppercase tracking-widest text-turquesa-light"
-          >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs font-bold uppercase tracking-widest text-turquesa-light">
             <span className="w-2 h-2 rounded-full bg-turquesa-light animate-breathe" />
-            {country.flag} {country.name} · {country.influencer.name}{country.influencer.status === 'tbd' && <span className="opacity-60">(TBD)</span>}
-          </motion.div>
+            {country.flag} {country.name}
+          </div>
 
           <h1 className="mt-6 font-display font-bold text-5xl md:text-7xl leading-[0.95] tracking-tightest">
             <span className="block text-paper">zymplo</span>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={idx}
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="block bg-gradient-to-r from-turquesa-light via-turquesa to-turquesa-light bg-clip-text text-transparent"
-              >
-                {phrases[idx]}
-              </motion.span>
-            </AnimatePresence>
+            <span className="block bg-gradient-to-r from-turquesa-light via-turquesa to-turquesa-light bg-clip-text text-transparent">
+              {phrases[idx]}
+            </span>
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-paper/70 max-w-xl">{dict.hero.subline}</p>
@@ -60,20 +50,16 @@ export default function Hero({ slug, country, dict }: Props) {
           <p className="mt-8 text-sm text-paper/50">⭐⭐⭐⭐⭐ {dict.hero.trust}</p>
         </div>
 
-        {/* Right column — animated isotipo + persona chip */}
+        {/* Right column — isotipo + persona chip · sin opacity:0 SSR */}
         <div className="relative h-[420px] hidden md:block">
-          <motion.img
+          <img
             src="https://sims.zymplo.com/brand/isotipo.svg" alt="" aria-hidden="true"
-            initial={{ scale: 1.2, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 m-auto w-64 h-64 drop-shadow-[0_0_60px_rgba(20,184,166,0.6)]"
           />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-            className="absolute bottom-4 left-4 liquid-glass rounded-2xl px-4 py-3 text-sm"
-          >
+          <div className="absolute bottom-4 left-4 liquid-glass rounded-2xl px-4 py-3 text-sm">
             <div className="text-turquesa-light text-xs font-bold uppercase tracking-widest">{country.personas[0].role}</div>
-            <div className="text-paper font-semibold mt-1">{country.personas[0].name} · acaba de cobrar</div>
-          </motion.div>
+            <div className="text-paper font-semibold mt-1">{country.personas[0].name} · {(dict.hero as any).persona_badge ?? 'just got paid'}</div>
+          </div>
         </div>
       </div>
     </section>
@@ -120,4 +106,3 @@ function Tubes() {
     </svg>
   );
 }
-// build: 1777587595

@@ -137,16 +137,63 @@ const docByCountry: Record<string, { label: string; placeholder: string; pattern
   py: { label: 'RUC', placeholder: '12345678-9' },
 };
 
+// Phone country codes · pre-selected by current subdomain · user can override (covers travelers / dual-country MEIs)
+type PhoneCountry = { iso: string; flag: string; name: string; code: string; nationalPh: string };
+const PHONE_COUNTRIES: PhoneCountry[] = [
+  // Primary 7 (Zymplo coverage) — pre-fill order
+  { iso: 'br', flag: '🇧🇷', name: 'Brasil', code: '55', nationalPh: '11 99999-9999' },
+  { iso: 'mx', flag: '🇲🇽', name: 'México', code: '52', nationalPh: '55 1234 5678' },
+  { iso: 'us', flag: '🇺🇸', name: 'United States', code: '1', nationalPh: '305 123 4567' },
+  { iso: 'co', flag: '🇨🇴', name: 'Colombia', code: '57', nationalPh: '300 123 4567' },
+  { iso: 'es', flag: '🇪🇸', name: 'España', code: '34', nationalPh: '612 345 678' },
+  { iso: 'ar', flag: '🇦🇷', name: 'Argentina', code: '54', nationalPh: '11 1234-5678' },
+  { iso: 'py', flag: '🇵🇾', name: 'Paraguay', code: '595', nationalPh: '981 234 567' },
+  // Common neighbors / migration corridors
+  { iso: 'pt', flag: '🇵🇹', name: 'Portugal', code: '351', nationalPh: '912 345 678' },
+  { iso: 'cl', flag: '🇨🇱', name: 'Chile', code: '56', nationalPh: '9 1234 5678' },
+  { iso: 'pe', flag: '🇵🇪', name: 'Perú', code: '51', nationalPh: '912 345 678' },
+  { iso: 'uy', flag: '🇺🇾', name: 'Uruguay', code: '598', nationalPh: '99 123 456' },
+  { iso: 'bo', flag: '🇧🇴', name: 'Bolivia', code: '591', nationalPh: '7 1234 5678' },
+  { iso: 've', flag: '🇻🇪', name: 'Venezuela', code: '58', nationalPh: '414 123 4567' },
+  { iso: 'ec', flag: '🇪🇨', name: 'Ecuador', code: '593', nationalPh: '99 123 4567' },
+  { iso: 'do', flag: '🇩🇴', name: 'Rep. Dominicana', code: '1', nationalPh: '809 123 4567' },
+  { iso: 'gt', flag: '🇬🇹', name: 'Guatemala', code: '502', nationalPh: '5123 4567' },
+  { iso: 'cr', flag: '🇨🇷', name: 'Costa Rica', code: '506', nationalPh: '8123 4567' },
+  { iso: 'pa', flag: '🇵🇦', name: 'Panamá', code: '507', nationalPh: '6123 4567' },
+  { iso: 'pr', flag: '🇵🇷', name: 'Puerto Rico', code: '1', nationalPh: '787 123 4567' },
+];
+
+// Strip non-digits and apply a soft national format (groups of 2-4 digits w/ dashes for readability)
+function formatNational(digits: string, isoCode: string): string {
+  const d = digits.replace(/\D/g, '');
+  if (!d) return '';
+  if (isoCode === 'br') {
+    if (d.length <= 2) return d;
+    if (d.length <= 7) return `${d.slice(0, 2)} ${d.slice(2)}`;
+    return `${d.slice(0, 2)} ${d.slice(2, 7)}-${d.slice(7, 11)}`;
+  }
+  // Generic: 3-3-4 or 2-4-4
+  if (d.length <= 3) return d;
+  if (d.length <= 6) return `${d.slice(0, 3)} ${d.slice(3)}`;
+  return `${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6, 11)}`;
+}
+
 export default function Onboarding5Steps({ country, whatsappNumber = '5511999999999' }: Props) {
   const [step, setStep] = useState(0);
   const [oficio, setOficio] = useState<string | null>(null);
   const [name, setName] = useState('');
   const [doc, setDoc] = useState('');
-  const [phone, setPhone] = useState('');
   const [amount, setAmount] = useState(150);
   const [clientName, setClientName] = useState('');
   const [demoSent, setDemoSent] = useState(false);
   const [welcomeReady, setWelcomeReady] = useState(false);
+
+  // Phone state · pre-select country by subdomain · user can override via dropdown
+  const initialPhoneCountry = PHONE_COUNTRIES.find((p) => p.iso === country.slug) ?? PHONE_COUNTRIES[0];
+  const [phoneCountry, setPhoneCountry] = useState<PhoneCountry>(initialPhoneCountry);
+  const [phoneDigits, setPhoneDigits] = useState(''); // raw digits only (national)
+  const [phonePickerOpen, setPhonePickerOpen] = useState(false);
+  const phoneE164 = phoneDigits ? `+${phoneCountry.code}${phoneDigits}` : '';
 
   const lang = langKey(country.locale);
   const t = COPY[lang];
@@ -171,7 +218,7 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
   const canNext =
     (step === 0 && welcomeReady) ||
     (step === 1 && !!oficio) ||
-    (step === 2 && name.length > 1 && doc.length > 4) ||
+    (step === 2 && name.length > 1 && doc.length > 4 && phoneDigits.length >= 7) ||
     (step === 3 && demoSent) ||
     step === 4;
 
@@ -319,14 +366,69 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
               </label>
               <label class="block">
                 <span class="text-sm font-bold text-slate">{t.data_phone}</span>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone((e.target as HTMLInputElement).value)}
-                  placeholder={`+${whatsappNumber.slice(0, 2)} `}
-                  class="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
-                />
-                <span class="mt-1 text-xs text-mute">{t.data_phone_help}</span>
+                <div class="mt-1 flex gap-2 relative">
+                  {/* Country picker · pre-selected by subdomain · user can override */}
+                  <button
+                    type="button"
+                    onClick={() => setPhonePickerOpen((v) => !v)}
+                    aria-haspopup="listbox"
+                    aria-expanded={phonePickerOpen}
+                    aria-label={`Country code: ${phoneCountry.name} +${phoneCountry.code}`}
+                    class="shrink-0 flex items-center gap-1.5 px-3 py-3 rounded-2xl border-2 border-ink/10 bg-paper hover:border-turquesa/40 transition font-bold text-slate"
+                  >
+                    <span class="text-lg leading-none">{phoneCountry.flag}</span>
+                    <span class="font-mono text-sm">+{phoneCountry.code}</span>
+                    <svg class="w-3 h-3 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    value={formatNational(phoneDigits, phoneCountry.iso)}
+                    onChange={(e) => {
+                      const raw = (e.target as HTMLInputElement).value.replace(/\D/g, '').slice(0, 12);
+                      setPhoneDigits(raw);
+                    }}
+                    placeholder={phoneCountry.nationalPh}
+                    aria-label={t.data_phone}
+                    class="flex-1 min-w-0 px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
+                  />
+
+                  {phonePickerOpen && (
+                    <>
+                      <div
+                        class="fixed inset-0 z-30"
+                        onClick={() => setPhonePickerOpen(false)}
+                      />
+                      <ul
+                        role="listbox"
+                        class="absolute z-40 left-0 top-full mt-1.5 w-72 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-ink/10 py-1.5"
+                      >
+                        {PHONE_COUNTRIES.map((p) => (
+                          <li key={p.iso + p.code}>
+                            <button
+                              type="button"
+                              role="option"
+                              aria-selected={phoneCountry.iso === p.iso}
+                              onClick={() => { setPhoneCountry(p); setPhonePickerOpen(false); }}
+                              class={`w-full flex items-center gap-3 px-3.5 py-2.5 text-left hover:bg-turquesa-paler transition ${phoneCountry.iso === p.iso ? 'bg-turquesa-paler/60' : ''}`}
+                            >
+                              <span class="text-lg leading-none">{p.flag}</span>
+                              <span class="flex-1 text-sm font-semibold text-ink truncate">{p.name}</span>
+                              <span class="font-mono text-xs text-mute">+{p.code}</span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+                <div class="mt-1 flex items-center justify-between gap-3">
+                  <span class="text-xs text-mute">{t.data_phone_help}</span>
+                  {phoneE164 && (
+                    <span class="text-xs text-success font-mono font-semibold whitespace-nowrap">{phoneE164}</span>
+                  )}
+                </div>
               </label>
             </div>
           </motion.div>

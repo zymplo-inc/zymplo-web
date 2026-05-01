@@ -41,9 +41,9 @@ export default function ChatDemo({ country, dict }: Props) {
     <section id="chatdemo" className="bg-paper py-24 md:py-32">
       <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">demo · 90s</span>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">{(dict.chat as any).demo_label ?? 'demo · 90s'}</span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">{dict.chat.title}</h2>
-          <p className="mt-4 text-lg text-mute max-w-md">{country.personas[0].name}, {country.personas[0].role}, conversa com o Zymplo como se fosse a sua secretária.</p>
+          <p className="mt-4 text-lg text-mute max-w-md">{((dict.chat as any).persona_intro ?? '{name}, {role}.').replace('{name}', country.personas[0].name).replace('{role}', country.personas[0].role)}</p>
         </div>
 
         <div className="relative mx-auto w-full max-w-sm">
@@ -55,7 +55,7 @@ export default function ChatDemo({ country, dict }: Props) {
                 <div className="w-9 h-9 rounded-full bg-turquesa flex items-center justify-center text-white font-bold text-sm">Z</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-white font-semibold text-sm">Zymplo</div>
-                  <div className="text-[#8696a0] text-xs">online</div>
+                  <div className="text-[#8696a0] text-xs">{(dict.chat as any).online ?? 'online'}</div>
                 </div>
               </div>
               {/* Chat area */}
@@ -67,7 +67,7 @@ export default function ChatDemo({ country, dict }: Props) {
               </div>
               {/* Input */}
               <div className="bg-[#202c33] px-3 py-2 flex items-center gap-2">
-                <div className="flex-1 bg-[#2a3942] rounded-full px-4 py-2 text-[#8696a0] text-sm">Mensagem</div>
+                <div className="flex-1 bg-[#2a3942] rounded-full px-4 py-2 text-[#8696a0] text-sm">{(dict.chat as any).placeholder ?? 'Message'}</div>
                 <div className="w-9 h-9 rounded-full bg-turquesa flex items-center justify-center text-white">▶</div>
               </div>
             </div>

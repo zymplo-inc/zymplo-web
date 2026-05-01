@@ -1,53 +1,28 @@
 ---
 import type { CountrySlug } from '@data/countries';
-interface Props { slug: CountrySlug }
-const { slug: _slug } = Astro.props;
+import { getDict } from '@i18n/index';
 
-const TOOLS = [
-  { icon: '📅', label: 'Agenda' },
-  { icon: '⏰', label: 'Lembretes' },
-  { icon: '✅', label: 'Tarefas' },
-  { icon: '📝', label: 'Notas' },
-  { icon: '💰', label: 'Finanças' },
-  { icon: '🛒', label: 'Gastos' },
-  { icon: '💵', label: 'Rendas' },
-  { icon: '📊', label: 'Resumos' },
-  { icon: '🧾', label: 'NFS-e' },
-  { icon: '💳', label: 'Pix' },
-  { icon: '📩', label: 'Cobranças' },
-  { icon: '📨', label: 'DAS' },
-  { icon: '🌍', label: 'Hora global' },
-  { icon: '🌤️', label: 'Clima' },
-  { icon: '💱', label: 'Moeda' },
-  { icon: '🪙', label: 'Crypto' },
-  { icon: '🎙️', label: 'Áudio' },
-  { icon: '📸', label: 'Foto' },
-  { icon: '📄', label: 'Documento' },
-  { icon: '🔍', label: 'Busca' },
-  { icon: '🌐', label: 'Tradução' },
-  { icon: '🧠', label: 'Memória' },
-  { icon: '📍', label: 'Localização' },
-  { icon: '🆔', label: 'Validação ID' },
-  { icon: '🗂️', label: 'Multi-step' },
-  { icon: '🚨', label: 'Escalação' },
-  { icon: '📈', label: 'Métricas' },
-  { icon: '✨', label: '+ 80 mais' },
-];
+interface Props { slug: CountrySlug }
+const { slug } = Astro.props;
+const dict = getDict(slug);
+
+const ICONS = ['📅', '⏰', '✅', '📝', '💰', '🛒', '💵', '📊', '🧾', '💳', '📩', '📨', '🌍', '🌤️', '💱', '🪙', '🎙️', '📸', '📄', '🔍', '🌐', '🧠', '📍', '🆔', '🗂️', '🚨', '📈', '✨'];
+const TOOLS = (dict.tools?.labels ?? []).map((label: string, i: number) => ({ icon: ICONS[i] ?? '✨', label }));
 const SEQ = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
 ---
 <section class="bg-ink text-paper py-24 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-12">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full liquid-glass text-turquesa-light text-xs font-bold uppercase tracking-widest">100+ ferramentas</span>
-      <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">Tudo dentro do WhatsApp</h2>
-      <p class="mt-3 text-paper/60 max-w-xl mx-auto">Sem app · sem cadastro · sem login · só conversa.</p>
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full liquid-glass text-turquesa-light text-xs font-bold uppercase tracking-widest">{dict.tools?.eyebrow ?? '100+ tools'}</span>
+      <h2 class="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tightest">{dict.tools?.title ?? 'All inside WhatsApp'}</h2>
+      <p class="mt-3 text-paper/60 max-w-xl mx-auto">{dict.tools?.subtitle ?? ''}</p>
     </div>
   </div>
 
   <!-- Marquee row 1 -->
   <div class="tc-marquee" aria-hidden="false" role="list">
     <div class="tc-track tc-track-fwd">
-      {SEQ.map((t, i) => (
+      {SEQ.map((t) => (
         <div class="tc-item liquid-glass" role="listitem">
           <span class="tc-emoji" aria-hidden="true">{t.icon}</span>
           <span class="tc-label">{t.label}</span>
@@ -59,7 +34,7 @@ const SEQ = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
   <!-- Marquee row 2 (reverse) -->
   <div class="tc-marquee mt-4" aria-hidden="true">
     <div class="tc-track tc-track-rev">
-      {SEQ.slice().reverse().map((t, i) => (
+      {SEQ.slice().reverse().map((t) => (
         <div class="tc-item liquid-glass">
           <span class="tc-emoji">{t.icon}</span>
           <span class="tc-label">{t.label}</span>

@@ -47,7 +47,7 @@
       "Sarah · Chicago · payment received",
       "David · Austin · schedule sorted"
     ],
-    "live_counter_label": "collected today",
+    "live_counter_label": "new members · last 24h · live",
     "joined_today_label": "businesses joined today",
     "founding_label": "Founding members · spots left",
     "founding_perk": "−20% for life",
@@ -62,26 +62,26 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "WhatsApp Business AI",
+        "Traditional ERP",
         "AI CRMs for WhatsApp",
-        "Traditional virtual assistants"
+        "Personal AI assistants"
       ],
       "rows": [
         {
           "feature": "No app · WhatsApp only",
           "values": [
             true,
-            true,
             false,
-            false
+            true,
+            true
           ]
         },
         {
-          "feature": "AI auto-collects",
+          "feature": "AI auto-collects from clients",
           "values": [
             true,
             false,
-            true,
+            false,
             false
           ]
         },
@@ -89,7 +89,16 @@
           "feature": "Invoice in 3 seconds",
           "values": [
             true,
+            true,
             false,
+            false
+          ]
+        },
+        {
+          "feature": "Built for small biz · IRS · 50-state tax",
+          "values": [
+            true,
+            true,
             false,
             false
           ]
@@ -100,29 +109,39 @@
             true,
             false,
             false,
-            false
-          ]
-        },
-        {
-          "feature": "Auto-tax filing",
-          "values": [
-            true,
-            false,
-            false,
-            false
-          ]
-        },
-        {
-          "feature": "Financial summary",
-          "values": [
-            true,
-            false,
-            false,
             true
+          ]
+        },
+        {
+          "feature": "Real financial summary",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Setup in 3 minutes",
+          "values": [
+            true,
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "ACH · Zelle · Stripe integrated",
+          "values": [
+            true,
+            true,
+            false,
+            false
           ]
         }
       ],
-      "disclaimer": "Trademarks mentioned are property of their respective owners. Comparison based on publicly available information. For informational purposes only · no denigration or commercial association implied."
+      "disclaimer": "Trademarks mentioned are property of their respective owners. Comparison based on publicly available information. For informational purposes only · no denigration or commercial association implied.",
+      "eyebrow": "vs · all current competition"
     }
   },
   "chat": {

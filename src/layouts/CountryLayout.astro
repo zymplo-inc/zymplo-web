@@ -1,55 +1,89 @@
 ---
 import '../styles/tokens.css';
-import { getCountry, type CountrySlug, COUNTRY_SLUGS, EU_SLUGS } from '@data/countries';
+import { getCountry, type CountrySlug, COUNTRY_SLUGS, EU_SLUGS, waLink } from '@data/countries';
 import { getDict } from '@i18n/index';
 import LangSwitcher from '@components/LangSwitcher/LangSwitcher.tsx';
 import CookieBanner from '@components/CookieBanner/CookieBanner.tsx';
 import Footer from '@components/Footer/Footer.astro';
+import MyAccount from '@components/MyAccount/MyAccount.tsx';
+import ChatWidget from '@components/ChatWidget/ChatWidget.tsx';
+import ExitIntent from '@components/ExitIntent/ExitIntent.tsx';
+import VoiceLangSwitcher from '@components/VoiceLangSwitcher/VoiceLangSwitcher.tsx';
 
-interface Props { slug: CountrySlug; title?: string; description?: string }
-const { slug, title, description } = Astro.props;
+interface Props { slug: CountrySlug; title?: string; description?: string; ogImage?: string }
+const { slug, title, description, ogImage } = Astro.props;
 const country = getCountry(slug)!;
 const dict = getDict(slug);
 const isEU = EU_SLUGS.includes(slug);
 
-const pageTitle = title ?? `Zymplo ${country.flag} — ${dict.hero.eyebrow}`;
-const pageDesc = description ?? dict.hero.subline;
-const canonical = `https://zymplo.com/${slug}/`;
+const headlineC = (dict.hero as any).headline_c ?? dict.hero.eyebrow;
+const subAI = (dict.hero as any).subheadline_ai ?? dict.hero.subline;
+const trust = dict.hero.trust;
+
+const pageTitle = title ?? `Zymplo · ${headlineC} ${country.flag}`;
+const pageDesc = description ?? `${subAI} · ${trust} · ${country.name}.`;
+const canonical = `https://${slug}.zymplo.com/`;
+const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
 ---
 <!doctype html>
-<html lang={country.locale}>
+<html lang={country.locale} data-country={slug}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14B8A6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Zymplo" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDesc} />
+    <meta name="author" content="Zymplo" />
+
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
     <link rel="icon" type="image/x-icon" href="https://sims.zymplo.com/brand/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://sims.zymplo.com/brand/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sims.zymplo.com/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     {COUNTRY_SLUGS.map((s) => (
-      <link rel="alternate" hreflang={getCountry(s)!.locale} href={`https://zymplo.com/${s}/`} />
+      <link rel="alternate" hreflang={getCountry(s)!.locale} href={`https://${s}.zymplo.com/`} />
     ))}
     <link rel="alternate" hreflang="x-default" href="https://zymplo.com/" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zymplo" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDesc} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://sims.zymplo.com/brand/og-default.png" />
+    <meta property="og:image" content={ogImg} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={country.locale.replace('-', '_')} />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@zymplo" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDesc} />
+    <meta name="twitter:image" content={ogImg} />
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       name: "Zymplo",
+      url: canonical,
       applicationCategory: "BusinessApplication",
       operatingSystem: "WhatsApp",
-      offers: { "@type": "Offer", price: "0", priceCurrency: country.currency.code },
+      description: pageDesc,
+      offers: { "@type": "Offer", price: "0", priceCurrency: country.currency.code, availability: "https://schema.org/InStock" },
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "12847" },
+      inLanguage: country.locale,
     })} />
 
+    <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://wa.me" />
     <link
       rel="preload"
       as="style"
@@ -68,21 +102,23 @@ const canonical = `https://zymplo.com/${slug}/`;
   <body class="font-body bg-paper text-ink">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-ink focus:text-paper focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
-    <header class="sticky top-0 z-40 backdrop-blur bg-paper/80 border-b border-ink/5">
-      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href={`/${slug}/`} class="flex items-center gap-2">
-          <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-7 w-7" />
-          <span class="font-display font-bold text-xl tracking-tighter">zymplo</span>
+    <header class="sticky top-0 z-40 backdrop-blur bg-paper/85 border-b border-ink/5">
+      <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-9 w-9 group-hover:scale-110 transition" />
+          <span class="font-display font-bold text-2xl tracking-tighter text-turquesa">zymplo</span>
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate">
-          <a href="#features">{dict.nav.product}</a>
-          <a href="#pricing">{dict.nav.pricing}</a>
-          <a href="#">{dict.nav.integrations}</a>
-          <a href="#">{dict.nav.resources}</a>
+          <a href="#features" class="hover:text-turquesa-deeper transition">{dict.nav.product}</a>
+          <a href="#pricing" class="hover:text-turquesa-deeper transition">{dict.nav.pricing}</a>
+          <a href="#vs" class="hover:text-turquesa-deeper transition">{dict.nav.solutions}</a>
+          <a href="#faq" class="hover:text-turquesa-deeper transition">{dict.nav.resources}</a>
         </nav>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 md:gap-2.5">
+          <VoiceLangSwitcher client:idle currentSlug={slug} dict={dict} />
           <LangSwitcher client:load currentSlug={slug} />
-          <a href="#cta" class="hidden sm:inline-flex bg-turquesa hover:bg-turquesa-dark text-white font-semibold text-sm px-4 py-2 rounded-full transition">{dict.nav.cta}</a>
+          <MyAccount client:idle slug={slug} dict={dict} />
+          <a href={waLink(slug)} target="_blank" rel="noopener" class="hidden sm:inline-flex bg-turquesa hover:bg-turquesa-dark text-white font-semibold text-sm px-4 py-2 rounded-full transition shadow-md hover:shadow-lg">{dict.nav.cta}</a>
         </div>
       </div>
     </header>
@@ -90,6 +126,11 @@ const canonical = `https://zymplo.com/${slug}/`;
     <main id="main"><slot /></main>
 
     <Footer slug={slug} />
+
+    <ChatWidget client:idle slug={slug} dict={dict} />
+
+    <!-- Exit-intent recovery (Sonnet idea) · only triggers after 12s + once per session -->
+    <ExitIntent client:idle slug={slug} dict={dict} />
 
     {isEU && <CookieBanner client:idle />}
   </body>

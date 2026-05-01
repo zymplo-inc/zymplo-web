@@ -31,7 +31,7 @@ export default function LangSwitcher({ currentSlug }: Props) {
             const c = COUNTRIES[s];
             const active = s === currentSlug;
             return (
-              <a key={s} href={`/${s}/`} role="menuitem"
+              <a key={s} href={`https://${s}.zymplo.com/`} role="menuitem"
                  className={`flex items-center gap-3 px-4 py-2 text-sm hover:bg-ink/5 ${active ? 'font-bold' : ''}`}>
                 <span className="text-lg">{c.flag}</span>
                 <span className="flex-1">{c.name}</span>

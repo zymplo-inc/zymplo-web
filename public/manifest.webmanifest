@@ -1,0 +1,21 @@
+{
+  "name": "Zymplo",
+  "short_name": "Zymplo",
+  "description": "Tu secretaria IA en WhatsApp · Cobra · factura · organiza · agenda. Sin app, sin signup.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFBFF",
+  "theme_color": "#14B8A6",
+  "orientation": "portrait",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "https://sims.zymplo.com/brand/favicon.ico", "sizes": "any", "type": "image/x-icon" },
+    { "src": "https://sims.zymplo.com/brand/isotipo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "https://sims.zymplo.com/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Brasil", "url": "https://br.zymplo.com/" },
+    { "name": "México", "url": "https://mx.zymplo.com/" },
+    { "name": "United States", "url": "https://us.zymplo.com/" }
+  ]
+}

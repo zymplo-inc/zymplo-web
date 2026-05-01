@@ -1,18 +1,319 @@
 ---
-/**
- * Root index — geo-IP redirect to country-specific landing.
- * On Cloudflare Pages, `request.cf.country` is available; locally falls back to BR.
- */
-import { COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
-
-const CF_TO_SLUG: Record<string, CountrySlug> = {
-  BR: 'br', MX: 'mx', US: 'us', CO: 'co', ES: 'es', AR: 'ar', PY: 'py',
-};
-
-let target: CountrySlug = 'br';
-const cf = (Astro.request as any)?.cf;
-const cc: string | undefined = cf?.country;
-if (cc && CF_TO_SLUG[cc]) target = CF_TO_SLUG[cc];
-
-return Astro.redirect(`/${target}/`, 302);
+const title = 'Zymplo · Tu secretaria IA en WhatsApp · 7 países · 12.847 MEIs';
+const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. 12.847 microempresarios ya usan Zymplo en BR · MX · US · CO · ES · AR · PY.';
+const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 ---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14B8A6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href="https://zymplo.com/" />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="icon" type="image/x-icon" href="https://sims.zymplo.com/brand/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sims.zymplo.com/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <link rel="alternate" hreflang="pt-BR" href="https://br.zymplo.com/" />
+    <link rel="alternate" hreflang="es-MX" href="https://mx.zymplo.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://us.zymplo.com/" />
+    <link rel="alternate" hreflang="es-CO" href="https://co.zymplo.com/" />
+    <link rel="alternate" hreflang="es-ES" href="https://es.zymplo.com/" />
+    <link rel="alternate" hreflang="es-AR" href="https://ar.zymplo.com/" />
+    <link rel="alternate" hreflang="es-PY" href="https://py.zymplo.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://zymplo.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zymplo" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://zymplo.com/" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Zymplo",
+      url: "https://zymplo.com",
+      logo: "https://sims.zymplo.com/brand/isotipo.svg",
+      sameAs: ["https://www.instagram.com/zymplo", "https://twitter.com/zymplo", "https://www.tiktok.com/@zymplo", "https://www.linkedin.com/company/zymplo"],
+      description: description,
+    })} />
+
+    <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
+
+    <style is:inline>
+      :root { --turquesa: #14B8A6; --turquesa-light: #5EEAD4; --turquesa-deeper: #0B6B62; --turquesa-paler: #CCFBF1; --ink: #0A0B14; --paper: #FAFBFF; --slate: #1F2937; --mute: #6B7280; --warning: #F59E0B; --purple: #623AE6; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Manrope', sans-serif; background: var(--turquesa); color: white; min-height: 100vh; overflow-x: hidden; position: relative; }
+
+      .mesh::before, .mesh::after, .mesh > .blob { content: ''; position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; z-index: 0; }
+      .mesh::before { top: -200px; right: -150px; width: 700px; height: 700px; background: radial-gradient(circle at 30% 30%, var(--turquesa-light) 0%, var(--turquesa) 60%, transparent 80%); opacity: 0.5; animation: float-x 14s ease-in-out infinite; }
+      .mesh::after { bottom: -200px; left: -150px; width: 600px; height: 600px; background: radial-gradient(circle at 30% 30%, var(--turquesa-paler) 0%, var(--turquesa-light) 50%, transparent 80%); opacity: 0.35; animation: float-y 18s ease-in-out infinite; }
+      .mesh > .blob { top: 30%; left: 25%; width: 300px; height: 300px; background: radial-gradient(circle, white 0%, transparent 70%); opacity: 0.18; animation: float-x 11s ease-in-out infinite reverse; }
+      @keyframes float-x { 0%,100% { transform: translate(0,0) } 50% { transform: translate(50px, -30px) } }
+      @keyframes float-y { 0%,100% { transform: translate(0,0) } 50% { transform: translate(-30px, 40px) } }
+
+      body::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 32px 32px; opacity: 0.04; pointer-events: none; }
+
+      .top-banner { position: relative; z-index: 10; background: rgba(10,11,20,0.4); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 16px; text-align: center; font-size: 13px; font-weight: 500; }
+      .top-banner .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22C55E; margin-right: 8px; vertical-align: middle; animation: pulse 1.5s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7) } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0) } }
+      .top-banner .num { font-weight: 800; font-variant-numeric: tabular-nums; }
+
+      header.zh { position: relative; z-index: 5; padding: 16px 24px; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+      header.zh a.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; font-weight: 800; }
+      header.zh a.brand img { height: 32px; }
+      header.zh a.brand span { color: white; font-family: 'Sora', sans-serif; font-size: 22px; }
+      header.zh nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      header.zh nav a.detected { padding: 8px 14px; background: white; color: var(--turquesa-deeper); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+      .hero { position: relative; z-index: 2; padding: 64px 24px 80px; max-width: 1100px; margin: 0 auto; text-align: center; }
+      .live-counter { display: inline-flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
+      .live-counter .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.85; font-weight: 800; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 8px; }
+      .live-counter .pulse-warn { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--warning); animation: pulse-warn 1.5s ease-in-out infinite; }
+      @keyframes pulse-warn { 0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.8) } 70% { box-shadow: 0 0 0 8px rgba(245,158,11,0) } }
+      .live-counter .num { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; font-size: clamp(56px, 12vw, 144px); text-shadow: 0 6px 80px rgba(0,0,0,0.2); font-variant-numeric: tabular-nums; }
+
+      .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; }
+
+      h1 { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; line-height: 0.93; font-size: clamp(44px, 8vw, 104px); margin-top: 18px; }
+      .sub-ai { margin-top: 20px; font-size: clamp(16px, 2vw, 22px); font-weight: 600; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.3; }
+      .sub-line { margin-top: 12px; font-size: clamp(14px, 1.6vw, 18px); opacity: 0.85; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+      .ctas { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+      .btn { padding: 16px 32px; border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 16px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; }
+      .btn.primary { background: white; color: var(--turquesa-deeper); box-shadow: 0 14px 60px rgba(0,0,0,0.18); }
+      .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 20px 80px rgba(0,0,0,0.22); }
+      .btn.outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.4); }
+      .btn.outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+      .btn-micro { display: block; text-align: center; margin-top: 6px; font-size: 12px; opacity: 0.75; font-weight: 500; }
+
+      .stats-row { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; max-width: 720px; margin-left: auto; margin-right: auto; }
+      .stat { text-align: left; border-left: 2px solid rgba(255,255,255,0.4); padding-left: 14px; }
+      .stat .v { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.025em; font-size: clamp(20px, 3vw, 32px); }
+      .stat .l { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.72; margin-top: 4px; line-height: 1.2; }
+
+      .country-section { position: relative; z-index: 2; background: var(--ink); color: white; padding: 80px 24px; }
+      .country-section .inner { max-width: 1200px; margin: 0 auto; }
+      .country-section h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.04em; line-height: 1; text-align: center; }
+      .country-section .h2-sub { color: rgba(255,255,255,0.7); margin-top: 16px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 17px; }
+      .country-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+      .country-card { display: flex; flex-direction: column; padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; text-decoration: none; color: white; transition: all 0.2s; position: relative; overflow: hidden; }
+      .country-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--turquesa) 0%, var(--purple) 100%); opacity: 0; transition: opacity 0.25s; pointer-events: none; }
+      .country-card:hover { transform: translateY(-4px); border-color: rgba(20,184,166,0.5); }
+      .country-card:hover::before { opacity: 0.08; }
+      .country-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+      .country-card .flag { font-size: 56px; line-height: 1; }
+      .country-card .arrow { font-size: 24px; opacity: 0.4; }
+      .country-card .name { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 22px; margin-top: 18px; letter-spacing: -0.02em; }
+      .country-card .meta { color: rgba(255,255,255,0.55); font-size: 12px; margin-top: 6px; line-height: 1.4; }
+      .country-card .pricing { margin-top: 18px; display: inline-flex; padding: 4px 10px; background: rgba(20,184,166,0.15); border: 1px solid rgba(20,184,166,0.3); border-radius: 999px; font-size: 11px; color: var(--turquesa-light); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+
+      footer.zf { position: relative; z-index: 2; background: var(--ink); color: rgba(255,255,255,0.5); padding: 32px 24px 64px; text-align: center; font-size: 13px; }
+      footer.zf .links { margin-top: 12px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+      footer.zf .links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+      footer.zf .links a:hover { color: white; }
+
+      @media (max-width: 768px) {
+        .hero { padding-top: 36px; padding-bottom: 56px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mesh"><div class="blob"></div></div>
+
+    <div class="top-banner">
+      <span class="pulse"></span>
+      <span class="num" id="counter-joined">847</span> MEIs joined today · <span style="opacity:.7;">growing</span>
+    </div>
+
+    <header class="zh">
+      <a class="brand" href="https://zymplo.com/">
+        <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />
+        <span>zymplo</span>
+      </a>
+      <nav>
+        <a class="detected" id="detected-link" href="https://br.zymplo.com/">
+          <span id="detected-flag">🌎</span>
+          <span id="detected-name" style="margin-left:6px;">Detectando…</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="live-counter">
+        <span class="label"><span class="pulse-warn"></span> cobrados hoy · live</span>
+        <span class="num" id="counter-money">$ 47.28M</span>
+      </div>
+
+      <div class="pill">⚡ 7 países · 3 idiomas · 12.847 MEIs activos</div>
+
+      <h1>
+        Cobra. Sin perseguir.<br/>
+        <span style="background: linear-gradient(120deg, white, var(--turquesa-paler)); -webkit-background-clip: text; background-clip: text; color: transparent;">La IA hace todo.</span>
+      </h1>
+
+      <p class="sub-ai">Tu secretaria IA dentro de WhatsApp. Cobra · factura · agenda · organiza. Sin app, sin signup, sin fricción.</p>
+      <p class="sub-line">Detectando tu país y idioma automáticamente · 7 países · 3 idiomas perfectos.</p>
+
+      <div class="ctas">
+        <div>
+          <a class="btn primary" id="cta-primary" href="https://br.zymplo.com/">Empezar gratis →</a>
+          <span class="btn-micro">Gratis · sin tarjeta · 7 días</span>
+        </div>
+        <a class="btn outline" href="https://sims.zymplo.com/web/social/c-radical/">📱 Ver social templates</a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat"><div class="v">$ 47M</div><div class="l">cobrados este mes</div></div>
+        <div class="stat"><div class="v">12.847</div><div class="l">MEIs activos</div></div>
+        <div class="stat"><div class="v">3 min</div><div class="l">setup completo</div></div>
+        <div class="stat"><div class="v">7</div><div class="l">países LATAM + US</div></div>
+      </div>
+    </main>
+
+    <section class="country-section">
+      <div class="inner">
+        <h2>Tu país. Tu idioma.<br/>Tu Zymplo.</h2>
+        <p class="h2-sub">Detección automática inteligente. Si querés ir directo, elegí tu país. 100% adaptado: idioma · moneda · payments · personajes locales.</p>
+
+        <div class="country-grid">
+          <a class="country-card" href="https://br.zymplo.com/">
+            <div class="top"><span class="flag">🇧🇷</span><span class="arrow">→</span></div>
+            <div class="name">Brasil</div>
+            <div class="meta">PT-BR · MEI · NFS-e · Pix · DAS</div>
+            <div class="pricing">desde R$ 19/mês</div>
+          </a>
+          <a class="country-card" href="https://mx.zymplo.com/">
+            <div class="top"><span class="flag">🇲🇽</span><span class="arrow">→</span></div>
+            <div class="name">México</div>
+            <div class="meta">ES-MX · CFDI 4.0 · SAT · SPEI · OXXO</div>
+            <div class="pricing">desde $99 MXN</div>
+          </a>
+          <a class="country-card" href="https://us.zymplo.com/">
+            <div class="top"><span class="flag">🇺🇸</span><span class="arrow">→</span></div>
+            <div class="name">United States</div>
+            <div class="meta">EN-US · IRS 1099 · ACH · Zelle · Stripe</div>
+            <div class="pricing">from $5 USD</div>
+          </a>
+          <a class="country-card" href="https://co.zymplo.com/">
+            <div class="top"><span class="flag">🇨🇴</span><span class="arrow">→</span></div>
+            <div class="name">Colombia</div>
+            <div class="meta">ES-CO · DIAN · PSE · Wompi · Nequi</div>
+            <div class="pricing">desde $19.000 COP</div>
+          </a>
+          <a class="country-card" href="https://es.zymplo.com/">
+            <div class="top"><span class="flag">🇪🇸</span><span class="arrow">→</span></div>
+            <div class="name">España</div>
+            <div class="meta">ES-ES · AEAT · SII · SEPA · Bizum</div>
+            <div class="pricing">desde €4</div>
+          </a>
+          <a class="country-card" href="https://ar.zymplo.com/">
+            <div class="top"><span class="flag">🇦🇷</span><span class="arrow">→</span></div>
+            <div class="name">Argentina</div>
+            <div class="meta">ES-AR · AFIP · CAE · MercadoPago</div>
+            <div class="pricing">desde $4.000 ARS</div>
+          </a>
+          <a class="country-card" href="https://py.zymplo.com/">
+            <div class="top"><span class="flag">🇵🇾</span><span class="arrow">→</span></div>
+            <div class="name">Paraguay</div>
+            <div class="meta">ES-PY · DGT · IRACIS · Tigo Money</div>
+            <div class="pricing">desde ₲ 35.000</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="zf">
+      <p>Zymplo © 2026 · Tu secretaria IA en WhatsApp · Hecho con ❤ para microempresarios LATAM + US.</p>
+      <div class="links">
+        <a href="https://sims.zymplo.com/web/social/c-radical/">Social templates</a>
+        <a href="https://sims.zymplo.com/brand/2026-04-29_Brand-Field-Manual-V2.0/">Brand</a>
+        <a href="https://br.zymplo.com/contiq/">Contiq B2B</a>
+        <a href="mailto:info@zymplo.com">info@zymplo.com</a>
+      </div>
+    </footer>
+
+    <script>
+      const COUNTRIES = {
+        br: { url: 'https://br.zymplo.com/', flag: '🇧🇷', name: 'Brasil', match: ['BR', 'pt-BR', 'pt'] },
+        mx: { url: 'https://mx.zymplo.com/', flag: '🇲🇽', name: 'México', match: ['MX', 'es-MX'] },
+        us: { url: 'https://us.zymplo.com/', flag: '🇺🇸', name: 'United States', match: ['US', 'en-US', 'en'] },
+        co: { url: 'https://co.zymplo.com/', flag: '🇨🇴', name: 'Colombia', match: ['CO', 'es-CO'] },
+        es: { url: 'https://es.zymplo.com/', flag: '🇪🇸', name: 'España', match: ['ES', 'es-ES'] },
+        ar: { url: 'https://ar.zymplo.com/', flag: '🇦🇷', name: 'Argentina', match: ['AR', 'es-AR'] },
+        py: { url: 'https://py.zymplo.com/', flag: '🇵🇾', name: 'Paraguay', match: ['PY', 'es-PY'] },
+      };
+      function applyCountry(slug, source) {
+        const c = COUNTRIES[slug]; if (!c) return;
+        const link = document.getElementById('detected-link');
+        const flag = document.getElementById('detected-flag');
+        const name = document.getElementById('detected-name');
+        const cta = document.getElementById('cta-primary');
+        if (link) link.href = c.url;
+        if (cta) cta.href = c.url;
+        if (flag) flag.textContent = c.flag;
+        if (name) name.textContent = 'Ir a ' + c.name;
+        const isReturning = sessionStorage.getItem('zy-stay');
+        const referrer = document.referrer || '';
+        const fromExternal = referrer && !referrer.includes('zymplo.com');
+        const noQuery = window.location.search === '' && window.location.hash === '';
+        if (!isReturning && noQuery && fromExternal) {
+          setTimeout(() => { window.location.href = c.url + '?ref=auto-' + source; }, 1200);
+        }
+      }
+      async function detectCountry() {
+        try {
+          const r = await fetch('https://www.cloudflare.com/cdn-cgi/trace', { signal: AbortSignal.timeout(2000) });
+          const t = await r.text();
+          const m = t.match(/loc=([A-Z]{2})/);
+          if (m) {
+            for (const [slug, c] of Object.entries(COUNTRIES)) {
+              if (c.match.includes(m[1])) { applyCountry(slug, 'cf'); return; }
+            }
+          }
+        } catch (e) {}
+        const lang = navigator.language || '';
+        for (const [slug, c] of Object.entries(COUNTRIES)) {
+          if (c.match.includes(lang)) { applyCountry(slug, 'lang'); return; }
+        }
+        const base = lang.split('-')[0];
+        if (base === 'pt') { applyCountry('br', 'lang-base'); return; }
+        if (base === 'en') { applyCountry('us', 'lang-base'); return; }
+        if (base === 'es') { applyCountry('mx', 'lang-base'); return; }
+        applyCountry('br', 'fallback');
+      }
+      let counter = 47280000, joined = 847;
+      function tickCounters() {
+        counter += Math.floor(Math.random() * 200) + 50;
+        joined += Math.random() < 0.18 ? 1 : 0;
+        const fmt = (n) => '$ ' + (n / 1_000_000).toFixed(2) + 'M';
+        const el = document.getElementById('counter-money');
+        const j = document.getElementById('counter-joined');
+        if (el) el.textContent = fmt(counter);
+        if (j) j.textContent = joined.toLocaleString();
+      }
+      setInterval(tickCounters, 2500);
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', detectCountry);
+      else detectCountry();
+      document.querySelectorAll('.country-card, a.detected').forEach(a => {
+        a.addEventListener('click', () => sessionStorage.setItem('zy-stay', '1'));
+      });
+    </script>
+  </body>
+</html>

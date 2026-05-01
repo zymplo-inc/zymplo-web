@@ -1,0 +1,46 @@
+---
+import type { CountrySlug } from '@data/countries';
+import type { Dict } from '@i18n/index';
+interface Props { slug: CountrySlug; dict: Dict }
+const { dict } = Astro.props;
+const tb = (dict as any).trust_bar ?? {};
+const items: Array<{ icon: string; text: string }> = tb.items ?? [
+  { icon: '🔥', text: '12,847 MEIs active today' },
+  { icon: '⚡', text: 'Setup in 3 min' },
+  { icon: '🛡️', text: '100% safe & free' },
+  { icon: '💚', text: 'No app · just WhatsApp' },
+  { icon: '📈', text: '$47M billed this month' },
+  { icon: '⭐', text: '4.9 rating' },
+];
+// Triple the array so the marquee loops seamlessly
+const looped = [...items, ...items, ...items];
+---
+<section class="relative bg-white border-y border-ink/8 overflow-hidden" aria-label="Live stats">
+  <div class="trust-marquee flex gap-10 whitespace-nowrap py-3.5 will-change-transform">
+    {looped.map((it, i) => (
+      <div class="flex items-center gap-2.5 text-sm text-slate font-semibold shrink-0" aria-hidden={i >= items.length}>
+        <span class="text-base leading-none">{it.icon}</span>
+        <span>{it.text}</span>
+        <span class="text-mute/50 ml-3">·</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Edge fades · gives the impression items emerge from / fade into background -->
+  <div class="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent" aria-hidden="true"></div>
+
+  <style>
+    @keyframes trust-marquee {
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(-33.3333%,0,0); }
+    }
+    .trust-marquee {
+      animation: trust-marquee 38s linear infinite;
+    }
+    .trust-marquee:hover { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .trust-marquee { animation: none; }
+    }
+  </style>
+</section>

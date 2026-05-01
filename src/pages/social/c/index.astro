@@ -1,0 +1,312 @@
+---
+const title = 'Zymplo · Social templates · Variante C bold';
+const description = 'Templates bold cinematográficos. Hooks emocionales y virales consensuados por 6 LLMs (Claude · GPT · Grok · Qwen 72B). Para campañas de awareness, redes orgánicas, viral.';
+
+const TEMPLATES = [
+  {
+    platform: 'Instagram · Bold',
+    icon: '📷',
+    color: '#E1306C',
+    gradient: 'linear-gradient(135deg, #E1306C 0%, #F77737 50%, #FCAF45 100%)',
+    formats: [
+      {
+        size: '1080×1080 · post',
+        hook: 'Você passa 2h/dia\ncobrando clientes?\n\nEssa IA faz isso\nem 2 minutos.',
+        copy: 'Carrusel 5 slides · pain → solution → result → stats → CTA · Sora ExtraBold',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '1/1',
+      },
+      {
+        size: '1080×1920 · reel cover',
+        hook: 'Sua rotina de MEI\nem 60 segundos 🤯',
+        copy: 'Before/After 60s · caos sin Zymplo vs sereno con Zymplo · trending audio',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '9/16',
+      },
+      {
+        size: '1080×1080 · post',
+        hook: 'Cobrar.\nSem perseguir.\nCliente.',
+        copy: 'Typography play · turquesa bg · Sora ExtraBold 96px · 1 word per line',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '1/1',
+      },
+    ],
+  },
+  {
+    platform: 'TikTok · Viral',
+    icon: '🎵',
+    color: '#000000',
+    gradient: 'linear-gradient(135deg, #000000 0%, #FE2C55 50%, #25F4EE 100%)',
+    formats: [
+      {
+        size: '1080×1920 · short',
+        hook: 'POV:\nSua secretária IA\nnunca dorme 😴',
+        copy: 'Before/After MEI · sin IA cobrando vs with IA · "Enquanto você dorme, a IA cobra"',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '9/16',
+      },
+      {
+        size: '1080×1920 · short',
+        hook: 'Meu IA secretária\ncobra enquanto eu\ntomo café ☕💰',
+        copy: 'Day-in-life MEI · pago automático mientras está en la calle · Vibes relajadas',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '9/16',
+      },
+      {
+        size: '1080×1920 · short',
+        hook: '"No vuelvo a\ncobrar igual"',
+        copy: 'Antes/después · Manual invoicing vs IA · sonido money · "De 2 horas a 2 minutos"',
+        bg: '#FFFFFF', text: '#0A0B14', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '9/16',
+      },
+    ],
+  },
+  {
+    platform: 'X / Twitter · Viral thread',
+    icon: '𝕏',
+    color: '#000000',
+    gradient: '#000000',
+    formats: [
+      {
+        size: '1200×675 · card',
+        hook: 'La verdad incómoda\nde ser MEI en 2026:\nperseguir 30 clientes\npor R$5 ☠️',
+        copy: 'Thread 4-5 tweets · ironic/sarcastic · viral-shareable · last = CTA landing',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '16/9',
+      },
+      {
+        size: '1200×675 · card',
+        hook: '"El 73% dice\n\'me da vergüenza cobrar\'."\n\nAcá va cómo lo resolvimos:',
+        copy: 'Viral thread · educational · 12.847 MEI data · empathy hook',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '16/9',
+      },
+    ],
+  },
+  {
+    platform: 'LinkedIn · Bold',
+    icon: '💼',
+    color: '#0A66C2',
+    gradient: 'linear-gradient(135deg, #0A66C2 0%, #1E4AD4 100%)',
+    formats: [
+      {
+        size: '1080×1080 · post',
+        hook: 'A máquina cobra\nmelhor que humano?\n\nAqui está a resposta...',
+        copy: 'Thought leadership · 12K MEI BR · cómo IA optimiza cobranza · educational',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '1/1',
+      },
+      {
+        size: '1080×1080 · carousel',
+        hook: '12.847\nMEIs ya\nautomatizan\ncobros con IA.',
+        copy: '5 slides · stats grandes · #00 al #04 · last slide CTA',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '1/1',
+      },
+    ],
+  },
+  {
+    platform: 'YouTube Shorts · Bold',
+    icon: '▶️',
+    color: '#FF0000',
+    gradient: '#FF0000',
+    formats: [
+      {
+        size: '1080×1920 · short',
+        hook: 'Vejo meu MEI colega\ncobrar sem fazer nada... 🤯',
+        copy: 'Screencast real · WhatsApp IA cobrando · sped 2x · "R$800 em 2 min"',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '9/16',
+      },
+      {
+        size: '1080×1920 · short',
+        hook: 'Deixa a IA cobrar\n(você vai amar)',
+        copy: 'Demo rápida · testimonial MEI background · music trending',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '9/16',
+      },
+    ],
+  },
+  {
+    platform: 'WhatsApp Status · Punchy',
+    icon: '💬',
+    color: '#25D366',
+    gradient: 'linear-gradient(135deg, #075E54 0%, #25D366 100%)',
+    formats: [
+      {
+        size: '1080×1920 · status',
+        hook: 'Tá pagando\nsecretária?\n\nDespede. 🚀',
+        copy: 'Micro-story 3 frames · IA cobra solo · CTA link',
+        bg: '#14B8A6', text: '#FFFFFF', accent: '#FFFFFF', isoColor: '#FFFFFF',
+        ratio: '9/16',
+      },
+      {
+        size: '1080×1920 · status',
+        hook: 'Seu cliente:\n"Cobrou?" 🙄\n\nSeu IA:\n"Já recebeu!" ✅',
+        copy: '3-story sequence · pain → solution → CTA · 5-8 seg cada frame',
+        bg: '#0A0B14', text: '#FFFFFF', accent: '#14B8A6', isoColor: '#14B8A6',
+        ratio: '9/16',
+      },
+    ],
+  },
+];
+
+const TOP_HOOKS_VIRAL = [
+  '"POV: Sua secretária IA nunca dorme 😴" · TikTok',
+  '"Você passa 2h/dia cobrando clientes? Essa IA faz isso em 2 minutos." · Instagram',
+  '"La verdad incómoda de ser MEI en 2026: perseguir 30 clientes por R$5 ☠️" · X',
+  '"Tá pagando secretária? Despede. 🚀" · WhatsApp Status',
+  '"Vejo meu MEI colega cobrar sem fazer nada... 🤯" · YouTube Shorts',
+  '"A máquina cobra melhor que humano?" · LinkedIn',
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
+    <style is:inline>
+      :root { --turquesa: #14B8A6; --turquesa-light: #5EEAD4; --turquesa-deeper: #0B6B62; --ink: #0A0B14; --paper: #FAFBFF; --slate: #1F2937; --mute: #6B7280; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Manrope', sans-serif; background: var(--ink); color: var(--paper); line-height: 1.5; min-height: 100vh; }
+      .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+      .top-nav { position: sticky; top: 0; background: rgba(10,11,20,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 10; }
+      .top-nav .inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; max-width: 1280px; margin: 0 auto; }
+      .top-nav a.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--paper); font-weight: 800; }
+      .top-nav a.brand img { height: 28px; }
+      .top-nav a.brand span.wm { color: var(--turquesa); font-family: 'Sora', sans-serif; }
+      .top-nav .links { display: flex; gap: 12px; align-items: center; font-size: 13px; flex-wrap: wrap; }
+      .top-nav .links a { color: rgba(255,255,255,0.6); text-decoration: none; }
+      .top-nav .links a:hover { color: var(--paper); }
+      .top-nav .switch a { padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+      .top-nav .switch a.on { background: var(--turquesa); color: white; }
+      .top-nav .switch a.off { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); }
+
+      header { padding: 64px 0 40px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; }
+      header::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, var(--turquesa) 0%, transparent 70%); opacity: 0.3; filter: blur(40px); }
+      header h1 { font-family: 'Sora', sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; position: relative; }
+      header h1 .accent { color: var(--turquesa-light); }
+      header p { margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 18px; max-width: 720px; position: relative; }
+      .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(20,184,166,0.15); color: var(--turquesa-light); border: 1px solid rgba(20,184,166,0.3); border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+
+      .meta-info { background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.15); border-radius: 12px; padding: 18px 22px; margin-top: 28px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.75); position: relative; }
+      .meta-info strong { color: var(--paper); }
+
+      .hooks-band { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 0; margin: 48px 0 0; }
+      .hooks-band .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+      .hooks-band .hook-pill { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: rgba(255,255,255,0.85); }
+
+      .platform-section { margin-top: 56px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .platform-header { display: flex; align-items: center; gap: 16px; padding: 16px 0; }
+      .platform-header .ic { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+      .platform-header h2 { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; color: var(--paper); }
+
+      .templates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 16px; }
+      .template-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; background: rgba(255,255,255,0.02); transition: transform 0.2s, border-color 0.2s; }
+      .template-card:hover { transform: translateY(-2px); border-color: rgba(20,184,166,0.4); }
+      .template-meta { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.3); }
+      .template-meta .size { font-size: 11px; font-weight: 700; color: var(--turquesa-light); text-transform: uppercase; letter-spacing: 0.12em; }
+      .template-meta .copy { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.45; }
+
+      .template-preview { padding: 36px 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+      .template-preview.r-9-16 { aspect-ratio: 9/16; min-height: 380px; }
+      .template-preview.r-1-1 { aspect-ratio: 1/1; min-height: 320px; }
+      .template-preview.r-16-9 { aspect-ratio: 16/9; min-height: 220px; }
+      .template-preview .hook { font-family: 'Sora', sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.035em; font-size: 32px; white-space: pre-wrap; }
+      .template-preview .iso { position: absolute; bottom: 14px; right: 14px; opacity: 0.85; }
+      .template-preview .badge-zy { position: absolute; bottom: 16px; left: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.55; }
+
+      footer { padding: 48px 0 80px; color: rgba(255,255,255,0.5); font-size: 13px; }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 44px; }
+        .platform-header h2 { font-size: 24px; }
+        .template-preview .hook { font-size: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="inner">
+        <a class="brand" href="https://br.zymplo.com/v3/">
+          <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />
+          <span class="wm">zymplo</span>
+          <span style="color: rgba(255,255,255,0.4); font-weight: 500;">/ social · C</span>
+        </a>
+        <div class="links">
+          <span class="switch">
+            <a class="off" href="https://sims.zymplo.com/web/social/" style="color: rgba(255,255,255,0.7);">A · Warm</a>
+            <a class="on" style="color: white;">C · Bold</a>
+          </span>
+          <a href="https://br.zymplo.com/v3/">🇧🇷</a>
+          <a href="https://mx.zymplo.com/v3/">🇲🇽</a>
+          <a href="https://us.zymplo.com/v3/">🇺🇸</a>
+          <a href="https://co.zymplo.com/v3/">🇨🇴</a>
+          <a href="https://es.zymplo.com/v3/">🇪🇸</a>
+          <a href="https://ar.zymplo.com/v3/">🇦🇷</a>
+          <a href="https://py.zymplo.com/v3/">🇵🇾</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header>
+        <span class="badge">⚡ bold cinematográfico · ratificado 6 LLMs</span>
+        <h1 style="margin-top: 16px;">Templates <span class="accent">virales</span><br/>que detienen scroll.</h1>
+        <p>Hooks emocionales y cinematográficos consensuados por debate multi-LLM (Claude · GPT-4o · Grok · Qwen 72B). Diseñados para Variante C bold · turquesa full-bleed · tipografía masiva. Para campañas de awareness, redes orgánicas, viral.</p>
+        <div class="meta-info">
+          <strong>Cuándo usar Variante C:</strong> redes sociales orgánicas, ads paid en Meta/TikTok, awareness campaigns, audiencias jóvenes, hype/launch moments. Para conversión MEI directa, mejor Variante A. Para inversores, Variante B.
+        </div>
+      </header>
+
+      <div class="hooks-band">
+        <div class="container">
+          {TOP_HOOKS_VIRAL.map((h) => <div class="hook-pill">🔥 {h}</div>)}
+        </div>
+      </div>
+
+      {TEMPLATES.map((t) => (
+        <section class="platform-section">
+          <div class="platform-header">
+            <div class="ic" style={`background: ${t.gradient}; color: white;`}>{t.icon}</div>
+            <h2>{t.platform}</h2>
+          </div>
+          <div class="templates-grid">
+            {t.formats.map((f) => (
+              <div class="template-card">
+                <div class={`template-preview r-${f.ratio.replace('/','-')}`} style={`background: ${f.bg}; color: ${f.text};`}>
+                  <div class="badge-zy" style={`color: ${f.text};`}>zymplo</div>
+                  <div class="hook" style={`color: ${f.text};`}>{f.hook}</div>
+                  <div class="iso">
+                    <svg width="36" height="36" viewBox="0 0 96 96">
+                      <g fill="none" stroke={f.isoColor} stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M26 44 L40 28 L54 44 L72 22"/>
+                        <path d="M22 56 Q48 86 74 56"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div class="template-meta">
+                  <span class="size">{f.size}</span>
+                  <span class="copy">{f.copy}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <footer>
+        <p>Zymplo · Social Templates V1 (Variante C Bold) · 6 LLMs debate · 2026-04-30</p>
+        <p style="margin-top: 8px;">Brand: turquesa #14B8A6 · Sora ExtraBold · Manrope SemiBold · Adaptá copy/imagery por país.</p>
+      </footer>
+    </div>
+  </body>
+</html>

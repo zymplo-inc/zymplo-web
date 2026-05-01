@@ -1,48 +1,178 @@
 ---
-import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { COUNTRIES, COUNTRY_SLUGS, SOCIAL, LEGAL, BRAND, type CountrySlug } from '@data/countries';
 import { getDict } from '@i18n/index';
+import FooterTestimonials from '@components/FooterTestimonials/FooterTestimonials.tsx';
 interface Props { slug: CountrySlug }
 const { slug } = Astro.props;
 const c = COUNTRIES[slug];
 const dict = getDict(slug);
+const f = (dict as any).footer ?? {};
 const year = new Date().getFullYear();
+const ftEyebrow = f.testimonial_eyebrow ?? 'What our users say';
+const ftQuotes = f.testimonial_quotes ?? [];
+
+const socials: Array<{ name: string; href: string; svg: string }> = [
+  { name: 'Instagram', href: SOCIAL.instagram, svg: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>' },
+  { name: 'TikTok', href: SOCIAL.tiktok, svg: '<path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z" fill="currentColor" stroke="none"/>' },
+  { name: 'Facebook', href: SOCIAL.facebook, svg: '<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>' },
+  { name: 'X', href: SOCIAL.x, svg: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor" stroke="none"/>' },
+  { name: 'YouTube', href: SOCIAL.youtube, svg: '<path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="currentColor" stroke="none"/>' },
+  { name: 'LinkedIn', href: SOCIAL.linkedin, svg: '<path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>' },
+];
+
+const allCountries: Array<{ slug: CountrySlug; flag: string; name: string; locale: string; currency: string }> = COUNTRY_SLUGS.map((s) => ({
+  slug: s, flag: COUNTRIES[s].flag, name: COUNTRIES[s].name, locale: COUNTRIES[s].locale, currency: `${COUNTRIES[s].currency.symbol} ${COUNTRIES[s].currency.code}`
+}));
 ---
-<footer class="bg-ink text-paper/70 py-16 mt-24">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
-    <div>
-      <div class="flex items-center gap-2">
-        <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-7 w-7" />
-        <span class="font-display font-bold text-xl text-paper tracking-tighter">zymplo</span>
+<footer class="bg-ink text-paper/70" role="contentinfo">
+  <!-- Top: 5 columns -->
+  <div class="max-w-7xl mx-auto px-6 pt-16 pb-12 grid gap-10 md:grid-cols-12">
+    <!-- Col 1 · Brand -->
+    <div class="md:col-span-4">
+      <div class="flex items-center gap-2.5">
+        <img src={BRAND.logoIso} alt="Zymplo" class="h-9 w-9" width="36" height="36" />
+        <span class="font-display font-bold text-2xl text-turquesa tracking-tighter">zymplo</span>
       </div>
-      <p class="mt-4 text-sm">{dict.footer.tagline}</p>
-      <p class="mt-2 text-xs text-paper/40">{c.flag} {c.name} · {c.locale}</p>
-    </div>
-    <div>
-      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Produto</div>
-      <ul class="space-y-2 text-sm">
-        <li><a href={`/${slug}/`}>Início</a></li>
-        <li><a href={`/${slug}/precios/`}>Preços</a></li>
-        <li><a href={`/${slug}/onboarding/`}>Onboarding</a></li>
-        {slug === 'br' && <li><a href={`/${slug}/contiq/`}>Contiq B2B</a></li>}
-      </ul>
-    </div>
-    <div>
-      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Compliance</div>
-      <ul class="space-y-2 text-sm">
-        {c.compliance.map((x) => <li>{x}</li>)}
-      </ul>
-    </div>
-    <div>
-      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">Países</div>
-      <ul class="space-y-2 text-sm">
-        {COUNTRY_SLUGS.map((s) => (
-          <li><a href={`/${s}/`}>{COUNTRIES[s].flag} {COUNTRIES[s].name}</a></li>
+      <p class="mt-4 text-sm leading-relaxed max-w-sm">{f.tagline ?? 'Your AI secretary on WhatsApp'}</p>
+
+      <!-- Social row -->
+      <div class="mt-5 flex flex-wrap items-center gap-2.5">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener"
+            aria-label={s.name}
+            class="w-10 h-10 rounded-full bg-white/5 hover:bg-turquesa hover:text-white border border-white/10 hover:border-turquesa transition flex items-center justify-center text-paper/80"
+          >
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={s.svg} />
+          </a>
         ))}
+      </div>
+
+      <!-- Country/locale pill (current) · GoDaddy-style -->
+      <div class="mt-6">
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition rounded-full px-3.5 py-2 text-xs font-semibold text-paper"
+          aria-haspopup="listbox"
+          data-country-pill
+        >
+          <span class="text-base leading-none">{c.flag}</span>
+          <span>{c.name} · {c.locale}</span>
+          <span class="text-paper/50">·</span>
+          <span class="text-paper">{c.currency.symbol} {c.currency.code}</span>
+          <svg class="w-3 h-3 text-paper/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Col 2 · Product -->
+    <div class="md:col-span-2">
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">{f.section_product ?? 'Product'}</div>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="/" class="hover:text-turquesa-light transition">{f.link_home ?? 'Home'}</a></li>
+        <li><a href="#features" class="hover:text-turquesa-light transition">{f.link_features ?? 'Features'}</a></li>
+        <li><a href="#pricing" class="hover:text-turquesa-light transition">{f.link_pricing ?? 'Pricing'}</a></li>
+        <li><a href="/onboarding/" class="hover:text-turquesa-light transition">{f.link_onboarding ?? 'Onboarding'}</a></li>
+        {slug === 'br' && <li><a href="/contiq/" class="hover:text-turquesa-light transition">{f.link_contiq ?? 'Contiq B2B'}</a></li>}
+      </ul>
+    </div>
+
+    <!-- Col 3 · Company -->
+    <div class="md:col-span-2">
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">{f.section_company ?? 'Company'}</div>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="/about/" class="hover:text-turquesa-light transition">{f.link_about ?? 'About'}</a></li>
+        <li><a href="/careers/" class="hover:text-turquesa-light transition">{f.link_careers ?? 'Careers'}</a></li>
+        <li><a href={LEGAL.press} class="hover:text-turquesa-light transition">{f.link_press ?? 'Press'}</a></li>
+        <li><a href="/blog/" class="hover:text-turquesa-light transition">{f.link_blog ?? 'Blog'}</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4 · Support + legal -->
+    <div class="md:col-span-2">
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">{f.section_support ?? 'Support'}</div>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href={LEGAL.support} class="hover:text-turquesa-light transition">{f.link_help ?? 'Help center'}</a></li>
+        <li><a href={LEGAL.contact} class="hover:text-turquesa-light transition">{f.link_contact ?? 'Contact'}</a></li>
+        <li><a href="/status/" class="hover:text-turquesa-light transition">{f.link_status ?? 'Status'}</a></li>
+        <li><a href="/security/" class="hover:text-turquesa-light transition">{f.link_security ?? 'Security'}</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 5 · Compliance -->
+    <div class="md:col-span-2">
+      <div class="text-xs font-bold uppercase tracking-widest text-paper mb-4">{f.section_compliance ?? 'Compliance'}</div>
+      <ul class="space-y-2.5 text-sm">
+        {c.compliance.map((x) => <li class="text-paper/60">{x}</li>)}
       </ul>
     </div>
   </div>
-  <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-paper/10 flex flex-wrap justify-between gap-4 text-xs text-paper/40">
-    <span>© {year} Zymplo · {dict.footer.rights}</span>
-    <span>{c.payments.join(' · ')}</span>
+
+  <!-- Mid: app badges + countries · GoDaddy/Uber inspired -->
+  <div class="max-w-7xl mx-auto px-6 pb-10">
+    <div class="grid md:grid-cols-2 gap-6 items-center bg-white/[0.03] border border-white/10 rounded-3xl p-6 md:p-7">
+      <!-- App badges -->
+      <div>
+        <div class="text-xs font-bold uppercase tracking-widest text-paper mb-3">{f.section_apps ?? 'Get the app'}</div>
+        <p class="text-sm text-paper/60 mb-4 max-w-md">{f.apps_subtitle ?? 'Mobile apps coming soon. For now, just open WhatsApp.'}</p>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-paper/70 text-xs font-semibold px-3.5 py-2.5 rounded-xl select-none">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c0-2.4 1.97-3.55 2.06-3.61-1.12-1.65-2.87-1.87-3.5-1.9-1.49-.15-2.91.88-3.66.88-.77 0-1.93-.86-3.18-.83-1.63.02-3.14.95-3.98 2.4-1.7 2.95-.43 7.3 1.21 9.69.81 1.17 1.76 2.48 3.01 2.43 1.21-.05 1.67-.78 3.13-.78 1.45 0 1.87.78 3.15.75 1.3-.02 2.12-1.18 2.91-2.36.92-1.36 1.3-2.69 1.32-2.76-.03-.01-2.51-.96-2.54-3.81zm-2.4-7c.66-.81 1.11-1.93 1-3.04-.95.04-2.11.64-2.8 1.44-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.14-.54 2.81-1.34z"/></svg>
+            App Store · {f.soon_label ?? 'Soon'}
+          </span>
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-paper/70 text-xs font-semibold px-3.5 py-2.5 rounded-xl select-none">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a1 1 0 01-.61-.92V2.734a1 1 0 01.61-.92zM14.499 12.708l2.43 2.43-11.155 6.343zM17.847 8.916l2.952 1.68a1 1 0 010 1.808l-2.952 1.68L15.207 12zM5.774 1.814l11.155 6.343-2.43 2.43z"/></svg>
+            Google Play · {f.soon_label ?? 'Soon'}
+          </span>
+        </div>
+      </div>
+
+      <!-- All countries grid -->
+      <div>
+        <div class="text-xs font-bold uppercase tracking-widest text-paper mb-3">{f.section_countries ?? 'Countries'}</div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          {allCountries.map((co) => (
+            <a
+              href={`https://${co.slug}.zymplo.com/`}
+              class={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition border ${co.slug === slug ? 'bg-turquesa text-white border-turquesa' : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/10 text-paper/80 hover:text-paper'}`}
+              aria-current={co.slug === slug ? 'true' : undefined}
+            >
+              <span class="text-base leading-none">{co.flag}</span>
+              <span class="truncate">{co.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anonymous testimonial carousel (Grok contrarian · MEI quotes with metrics) -->
+  {ftQuotes && ftQuotes.length > 0 && (
+    <div class="max-w-7xl mx-auto px-6 pb-10">
+      <FooterTestimonials client:visible eyebrow={ftEyebrow} quotes={ftQuotes} />
+    </div>
+  )}
+
+  <!-- Bottom legal bar (GoDaddy-style) -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between text-xs text-paper/55 leading-relaxed">
+      <div class="lg:max-w-3xl">
+        <p>
+          © {year} Zymplo Inc. {f.rights ?? 'All rights reserved.'} {f.brand_legal ?? 'Zymplo is a registered trademark of Zymplo Inc. in the United States and other countries.'} {f.use_terms ?? 'Use of this site is subject to the express terms.'} <a href={LEGAL.terms} class="underline hover:text-turquesa-light transition">{f.universal_terms ?? 'Universal terms of service'}</a>.
+        </p>
+        <p class="mt-2 text-paper/40">
+          {f.payments_supported ?? 'Supported payments'}: <span class="text-paper/60">{c.payments.join(' · ')}</span>
+        </p>
+      </div>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+        <li><a href={LEGAL.terms} class="hover:text-turquesa-light transition">{f.legal_terms ?? 'Terms'}</a></li>
+        <li><a href={LEGAL.privacy} class="hover:text-turquesa-light transition">{f.legal_privacy ?? 'Privacy'}</a></li>
+        <li><a href={LEGAL.cookies} class="hover:text-turquesa-light transition">{f.legal_cookies ?? 'Cookies'}</a></li>
+        <li><a href={LEGAL.lgpd} class="hover:text-turquesa-light transition">{f.legal_lgpd ?? 'LGPD/GDPR'}</a></li>
+        <li><a href="/sitemap.xml" class="hover:text-turquesa-light transition">{f.legal_sitemap ?? 'Sitemap'}</a></li>
+      </ul>
+    </div>
   </div>
 </footer>

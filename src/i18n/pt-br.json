@@ -47,7 +47,7 @@
       "Ana · Curitiba · DAS pago no prazo",
       "Carlos · Salvador · agenda organizada"
     ],
-    "live_counter_label": "cobrados hoje",
+    "live_counter_label": "novos membros · últimas 24h · live",
     "joined_today_label": "MEIs se juntaram hoje",
     "founding_label": "Founding members · vagas restantes",
     "founding_perk": "−20% de por vida",
@@ -62,26 +62,26 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "WhatsApp Business AI",
+        "ERP Tradicional",
         "CRMs com IA para WhatsApp",
-        "Assistentes virtuais tradicionais"
+        "Assistentes IA pessoais"
       ],
       "rows": [
         {
           "feature": "Sem app · só WhatsApp",
           "values": [
             true,
-            true,
             false,
-            false
+            true,
+            true
           ]
         },
         {
-          "feature": "IA cobra automático",
+          "feature": "IA cobra clientes sozinha",
           "values": [
             true,
             false,
-            true,
+            false,
             false
           ]
         },
@@ -89,40 +89,59 @@
           "feature": "NFS-e em 3 segundos",
           "values": [
             true,
-            false,
-            false,
-            false
-          ]
-        },
-        {
-          "feature": "Agenda + Lembretes IA",
-          "values": [
             true,
             false,
-            false,
             false
           ]
         },
         {
-          "feature": "DAS automático MEI",
+          "feature": "Vertical MEI · DAS · IR",
           "values": [
             true,
-            false,
+            true,
             false,
             false
           ]
         },
         {
-          "feature": "Resumo financeiro",
+          "feature": "Agenda + lembretes inteligentes",
           "values": [
             true,
             false,
             false,
             true
           ]
+        },
+        {
+          "feature": "Resumo financeiro real",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Setup em 3 minutos",
+          "values": [
+            true,
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "feature": "Pix · Boleto · Cartão integrados",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
         }
       ],
-      "disclaimer": "As marcas mencionadas são propriedade dos respectivos titulares. Comparação baseada em informação pública. Tem fins informativos e não implica denigração nem associação comercial."
+      "disclaimer": "As marcas mencionadas são propriedade dos respectivos titulares. Comparação baseada em informação pública disponível. Tem fins informativos · sem denigração nem associação comercial implícita.",
+      "eyebrow": "vs · toda a concorrência atual"
     }
   },
   "chat": {

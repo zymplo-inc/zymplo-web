@@ -41,11 +41,11 @@
       }
     ],
     "live_activity": [
-      "Antonio · Madrid · cobró €240",
-      "Carmen · Barcelona · factura emitida",
-      "Pablo · Valencia · 3 cobros automáticos",
-      "María · Sevilla · IVA presentado",
-      "Javier · Bilbao · agenda organizada"
+      "🔥 San José · 3 microempresarios se sumaron hace minutos",
+      "🔥 Cartago · 3 microempresarios se sumaron hace minutos",
+      "🔥 Heredia · 3 microempresarios se sumaron hace minutos",
+      "🔥 Alajuela · 3 microempresarios se sumaron hace minutos",
+      "🔥 Liberia · 3 microempresarios se sumaron hace minutos"
     ],
     "live_counter_label": "nuevos miembros · últimas 24h · live",
     "joined_today_label": "negocios se sumaron hoy",
@@ -63,7 +63,7 @@
       "headers": [
         "Zymplo",
         "ERP Tradicional",
-        "CRM con IA para WhatsApp",
+        "CRMs con IA para WhatsApp",
         "Asistentes IA personales"
       ],
       "rows": [
@@ -77,7 +77,7 @@
           ]
         },
         {
-          "feature": "IA cobra a clientes sola",
+          "feature": "La IA cobra clientes sola",
           "values": [
             true,
             false,
@@ -95,7 +95,7 @@
           ]
         },
         {
-          "feature": "Vertical autónomo · IVA · IRPF · RETA",
+          "feature": "Vertical microempresario · Hacienda · Cédula",
           "values": [
             true,
             true,
@@ -131,7 +131,7 @@
           ]
         },
         {
-          "feature": "SEPA · Bizum integrados",
+          "feature": "SINPE Móvil · Transferencia integrados",
           "values": [
             true,
             true,
@@ -345,7 +345,7 @@
     "items": [
       {
         "icon": "🔥",
-        "text": "12.847 autónomos activos hoy"
+        "text": "12.847 cuentapropistas activos hoy"
       },
       {
         "icon": "⚡",
@@ -353,7 +353,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "100% RGPD compliant"
+        "text": "100% DGT compliant"
       },
       {
         "icon": "💚",
@@ -361,60 +361,60 @@
       },
       {
         "icon": "📈",
-        "text": "€2M facturados este mes"
+        "text": "₲ 5.000 millones facturados este mes"
       },
       {
         "icon": "⭐",
-        "text": "4.9 de media (12.4k reseñas)"
+        "text": "4.9 promedio (12.4k reseñas)"
       },
       {
-        "icon": "🇪🇸",
-        "text": "Hecho para España"
+        "icon": "🇵🇾",
+        "text": "Hecho en Paraguay · metele"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "En tiempo real · tu región",
-    "title": "Autónomos ganando más cerca de ti",
+    "title": "Ganando cerca tuyo",
     "items": [
       {
-        "city": "Madrid",
-        "state": "MAD",
+        "city": "San José",
+        "state": "CAP",
         "count": 234,
-        "metric": "ganaron €1.2k extra este mes",
+        "metric": "+₡ 110.000/mes",
         "emoji": "💰"
       },
       {
-        "city": "Barcelona",
-        "state": "CAT",
+        "city": "Cartago",
+        "state": "ALT",
         "count": 187,
-        "metric": "facturaron en 3 segundos",
+        "metric": "+₡ 145.000/mes",
         "emoji": "🧾"
       },
       {
-        "city": "Valencia",
-        "state": "VLC",
+        "city": "Heredia",
+        "state": "ITA",
         "count": 142,
-        "metric": "automatizaron sus cobros",
+        "metric": "+₡ 95.000/mes",
         "emoji": "⚡"
       },
       {
-        "city": "Sevilla",
-        "state": "AND",
+        "city": "Alajuela",
+        "state": "CEN",
         "count": 98,
-        "metric": "recuperaron clientes olvidados",
+        "metric": "+₡ 165.000/mes",
         "emoji": "💚"
       },
       {
-        "city": "Bilbao",
-        "state": "PV",
+        "city": "Liberia",
+        "state": "AMA",
         "count": 121,
-        "metric": "presentaron IVA al día",
+        "metric": "+₡ 128.000/mes",
         "emoji": "📅"
       },
       {
-        "city": "Málaga",
-        "state": "AND",
+        "city": "Lambaré",
+        "state": "CEN",
         "count": 89,
         "metric": "cerraron mes organizados",
         "emoji": "🚀"
@@ -429,47 +429,47 @@
     "see_more": "Ver todas las historias",
     "items": [
       {
-        "name": "Antonio",
+        "name": "José",
         "role": "Electricista",
-        "city": "Madrid",
-        "quote": "40 minutos al día recuperados.",
-        "metric": "+€2.400/mes",
+        "city": "Asunción",
+        "quote": "40 minutos al día recuperados, ¡pio!",
+        "metric": "+₲ 7M/mes",
         "emoji": "⚡",
         "gradient": "from-turquesa via-turquesa-dark to-azul"
       },
       {
         "name": "Carmen",
         "role": "Peluquera",
-        "city": "Barcelona",
-        "quote": "No persigo a clientes nunca más.",
-        "metric": "+€1.300/mes",
+        "city": "Ciudad del Este",
+        "quote": "No corro atrás del cliente nunca más.",
+        "metric": "+₲ 4M/mes",
         "emoji": "💇",
         "gradient": "from-purple via-turquesa to-azul"
       },
       {
-        "name": "Pablo",
-        "role": "Fontanero",
-        "city": "Valencia",
-        "quote": "Las facturas se mandan solas.",
-        "metric": "+€1.900/mes",
+        "name": "Luis",
+        "role": "Plomero",
+        "city": "Encarnación",
+        "quote": "Las cuentas salen solas · yo solo trabajo.",
+        "metric": "+₲ 5.5M/mes",
         "emoji": "🔧",
         "gradient": "from-azul via-purple to-turquesa-dark"
       },
       {
-        "name": "María",
-        "role": "Pastelera",
-        "city": "Sevilla",
-        "quote": "Nunca me olvido de un cliente.",
-        "metric": "+€1.100/mes",
+        "name": "Rosa",
+        "role": "Repostera",
+        "city": "San Lorenzo",
+        "quote": "Nunca más me olvido de un cliente.",
+        "metric": "+₲ 3.5M/mes",
         "emoji": "🍰",
         "gradient": "from-turquesa-light via-turquesa to-azul"
       },
       {
-        "name": "Javier",
+        "name": "Miguel",
         "role": "Mecánico",
-        "city": "Bilbao",
-        "quote": "Factura en 3 segundos.",
-        "metric": "+€1.700/mes",
+        "city": "Lambaré",
+        "quote": "Factura en 3 segundos · increíble.",
+        "metric": "+₲ 5M/mes",
         "emoji": "🚗",
         "gradient": "from-purple via-azul to-turquesa"
       }
@@ -546,46 +546,46 @@
     "legal_cookies": "Cookies",
     "legal_lgpd": "LGPD/GDPR",
     "legal_sitemap": "Sitemap",
-    "testimonial_eyebrow": "Más de 12 mil autónomos hablando",
+    "testimonial_eyebrow": "Más de 12 mil cuentapropistas hablando",
     "testimonial_quotes": [
       {
-        "initials": "AG",
-        "name_short": "Antonio G.",
-        "role": "Electricista · Madrid",
-        "quote": "Recuperé 40 minutos al día. Vale, en serio.",
-        "metric": "+€2.400/mes",
+        "initials": "JG",
+        "name_short": "José G.",
+        "role": "Electricista · Asunción",
+        "quote": "Recuperé 40 minutos al día. En serio, metele.",
+        "metric": "+₲ 7M/mes",
         "color": "#14B8A6"
       },
       {
-        "initials": "CL",
-        "name_short": "Carmen L.",
-        "role": "Peluquera · Barcelona",
-        "quote": "El cliente paga solo · ya no pido.",
-        "metric": "+€1.300/mes",
+        "initials": "CO",
+        "name_short": "Carmen O.",
+        "role": "Peluquera · CDE",
+        "quote": "El cliente paga solo · no pido nada.",
+        "metric": "+₲ 4M/mes",
         "color": "#623AE6"
       },
       {
-        "initials": "PR",
-        "name_short": "Pablo R.",
-        "role": "Fontanero · Valencia",
-        "quote": "Factura en 3 segundos. No me lo creía.",
-        "metric": "+€1.900/mes",
+        "initials": "LR",
+        "name_short": "Luis R.",
+        "role": "Plomero · Encarnación",
+        "quote": "Factura en 3 segundos · no lo podía creer.",
+        "metric": "+₲ 5.5M/mes",
         "color": "#1E4AD4"
       },
       {
-        "initials": "MS",
-        "name_short": "María S.",
-        "role": "Pastelera · Sevilla",
-        "quote": "Olvidé el IVA una vez. Nunca más.",
-        "metric": "+€1.100/mes",
+        "initials": "RA",
+        "name_short": "Rosa A.",
+        "role": "Repostera · San Lorenzo",
+        "quote": "Olvidé pagar IRACIS una vez. Nunca más.",
+        "metric": "+₲ 3.5M/mes",
         "color": "#5EEAD4"
       },
       {
-        "initials": "JM",
-        "name_short": "Javier M.",
-        "role": "Mecánico · Bilbao",
-        "quote": "Es absurdo de fácil. Solo conversar.",
-        "metric": "+€1.700/mes",
+        "initials": "MM",
+        "name_short": "Miguel M.",
+        "role": "Mecánico · Lambaré",
+        "quote": "Es muy fácil · solo conversar.",
+        "metric": "+₲ 5M/mes",
         "color": "#F59E0B"
       }
     ]

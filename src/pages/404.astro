@@ -1,0 +1,66 @@
+---
+const title = 'Zymplo · Página não encontrada';
+const description = 'Esta página não existe. Mas a Zymplo continua cobrando para 12.847 MEIs · 24/7.';
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14B8A6" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
+    <style is:inline>
+      :root { --turquesa: #14B8A6; --turquesa-light: #5EEAD4; --ink: #0A0B14; --paper: #FAFBFF; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Manrope', sans-serif; background: var(--ink); color: var(--paper); min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow-x: hidden; position: relative; }
+      body::before, body::after { content: ''; position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; }
+      body::before { top: -150px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, var(--turquesa) 0%, transparent 70%); opacity: 0.35; }
+      body::after { bottom: -150px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, var(--turquesa-light) 0%, transparent 70%); opacity: 0.25; }
+      .wrap { text-align: center; max-width: 720px; padding: 24px; position: relative; z-index: 1; }
+      .ic { width: 96px; height: 96px; margin: 0 auto 32px; opacity: 0.9; }
+      h1 { font-family: 'Sora', sans-serif; font-size: clamp(80px, 18vw, 200px); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; background: linear-gradient(120deg, var(--turquesa-light), var(--turquesa)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; margin-top: 16px; letter-spacing: -0.025em; line-height: 1.05; }
+      p { color: rgba(255,255,255,0.7); margin-top: 16px; font-size: 17px; line-height: 1.5; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .cta-row { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      a.btn { padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+      a.primary { background: white; color: var(--ink); }
+      a.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
+      a.outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.25); }
+      a.outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+      .countries { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+      .countries a { padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); font-size: 12px; text-decoration: none; transition: all 0.15s; }
+      .countries a:hover { background: rgba(20,184,166,0.2); border-color: rgba(20,184,166,0.5); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <svg class="ic" viewBox="0 0 96 96">
+        <g fill="none" stroke="#14B8A6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M26 44 L40 28 L54 44 L72 22"/>
+          <path d="M22 56 Q48 86 74 56"/>
+        </g>
+      </svg>
+      <h1>404</h1>
+      <h2>Esta página não existe.<br/>Mas a Zymplo continua cobrando.</h2>
+      <p>12.847 MEIs estão usando Zymplo agora · em 7 países · 24/7. Voltar pra ação?</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://br.zymplo.com/">→ Voltar pra Zymplo</a>
+        <a class="btn outline" href="https://sims.zymplo.com/web/social/c-radical/">📱 Social templates</a>
+      </div>
+      <div class="countries">
+        <a href="https://br.zymplo.com/">🇧🇷 Brasil</a>
+        <a href="https://mx.zymplo.com/">🇲🇽 México</a>
+        <a href="https://us.zymplo.com/">🇺🇸 United States</a>
+        <a href="https://co.zymplo.com/">🇨🇴 Colombia</a>
+        <a href="https://es.zymplo.com/">🇪🇸 España</a>
+        <a href="https://ar.zymplo.com/">🇦🇷 Argentina</a>
+        <a href="https://py.zymplo.com/">🇵🇾 Paraguay</a>
+      </div>
+    </div>
+  </body>
+</html>
