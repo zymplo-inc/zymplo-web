@@ -1,20 +1,574 @@
 {
-  "nav": { "product": "Produto", "pricing": "Preços", "integrations": "Integrações", "solutions": "Soluções", "resources": "Recursos", "login": "Entrar", "cta": "Começar grátis" },
+  "nav": {
+    "product": "Produto",
+    "pricing": "Preços",
+    "integrations": "Integrações",
+    "solutions": "Soluções",
+    "resources": "Recursos",
+    "login": "Entrar",
+    "cta": "Começar grátis"
+  },
   "hero": {
     "eyebrow": "Sua secretária IA no WhatsApp",
-    "rotate": ["Sua secretária IA no WhatsApp", "Cobre clientes sem esforço", "Emita NFS-e do WhatsApp"],
-    "subline": "Sem app. Sem cadastro. Apenas WhatsApp.",
-    "trust": "Mais de 12.000 microempreendedores"
+    "headline_a": "Cobre, organize, fature. Tudo no WhatsApp.",
+    "headline_b": "WhatsApp com IA. Pronto para o seu negócio.",
+    "headline_c": "Cobre. Sem perseguir cliente.",
+    "rotate": [
+      "Cobre clientes sem esforço",
+      "Emita NFS-e do WhatsApp",
+      "Organize sua agenda no chat",
+      "Saiba quanto entrou no mês"
+    ],
+    "subline": "Sua secretária IA. Sem app, sem cadastro. Só conversa.",
+    "subline_premium": "Cobranças, NFS-e, agenda e DAS — tudo gerenciado por uma IA dentro do seu WhatsApp.",
+    "subline_bold": "12.847 MEIs já cobram melhor com a Zymplo.",
+    "trust": "Mais de 12.847 microempreendedores",
+    "persona_badge": "acaba de cobrar",
+    "subheadline_ai": "A IA cobra. Você não persegue cliente nunca mais.",
+    "cta_microcopy": "Grátis · sem cartão · 7 dias",
+    "stats": [
+      {
+        "value": "R$ 47M",
+        "label": "cobrados este mês"
+      },
+      {
+        "value": "12.847",
+        "label": "MEIs ativos"
+      },
+      {
+        "value": "3 min",
+        "label": "setup completo"
+      }
+    ],
+    "live_activity": [
+      "Diego · São Paulo · cobrou R$ 480",
+      "Luana · Belo Horizonte · NFS-e emitida",
+      "Raimundo · Recife · 3 cobranças automáticas",
+      "Ana · Curitiba · DAS pago no prazo",
+      "Carlos · Salvador · agenda organizada"
+    ],
+    "live_counter_label": "cobrados hoje",
+    "joined_today_label": "MEIs se juntaram hoje",
+    "founding_label": "Founding members · vagas restantes",
+    "founding_perk": "−20% de por vida",
+    "referral_banner": "🎁 Convida 3 amigos · ganha Pro grátis 1 ano",
+    "share_label": "Compartilhar",
+    "challenge_label": "#ZymploChallenge",
+    "challenge_prize": "R$10.000 para o melhor vídeo",
+    "watch_demo": "Ver demo · 90s",
+    "scan_label": "Escaneie",
+    "scan_on_phone": "no celular",
+    "vs_label": "Por que Zymplo > resto",
+    "comparison": {
+      "headers": [
+        "Zymplo",
+        "WhatsApp Business (Meta)",
+        "CRMs com IA genérica",
+        "Assistentes virtuais tradicionais"
+      ],
+      "rows": [
+        {
+          "feature": "Sem app · só WhatsApp",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "IA cobra automático",
+          "values": [
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          "feature": "NFS-e em 3 segundos",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Agenda + Lembretes IA",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "DAS automático MEI",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Resumo financeiro",
+          "values": [
+            true,
+            false,
+            false,
+            true
+          ]
+        }
+      ],
+      "disclaimer": "Comparativa baseada em funcionalidades públicas em maio/2026. Sujeita a evolução dos provedores."
+    }
   },
   "chat": {
     "title": "Veja como funciona",
+    "online": "online",
+    "demo_label": "demo · 90s",
+    "persona_intro": "{name}, {role}, conversa com a Zymplo como se fosse sua secretária.",
+    "placeholder": "Mensagem",
     "messages": [
-      { "from": "user", "text": "Recebi R$480 da Maria" },
-      { "from": "bot", "text": "Anotei! ✅ R$480 de Maria — venda registrada. Quer emitir NFS-e?" },
-      { "from": "user", "text": "Pode emitir sim" },
-      { "from": "bot", "text": "Pronto, NFS-e #00231 emitida e enviada para Maria 🧾" }
+      {
+        "from": "user",
+        "text": "Recebi R$480 da Maria"
+      },
+      {
+        "from": "bot",
+        "text": "Anotei! ✅ R$480 de Maria — venda registrada. Quer emitir NFS-e?"
+      },
+      {
+        "from": "user",
+        "text": "Pode emitir sim"
+      },
+      {
+        "from": "bot",
+        "text": "Pronto, NFS-e #00231 emitida e enviada para Maria 🧾"
+      }
     ]
   },
-  "pricing": { "title": "Planos simples, sem letrinha miúda", "free_label": "Grátis para sempre", "starter_label": "Starter", "pro_label": "Pro", "gold_label": "Gold", "month": "/mês" },
-  "footer": { "tagline": "Tua secretária IA no WhatsApp", "rights": "Todos os direitos reservados" }
+  "features": {
+    "title": "Tudo que o seu negócio precisa, no WhatsApp",
+    "items": [
+      {
+        "icon": "💰",
+        "title": "Cobranças automáticas",
+        "desc": "Mande lembretes do Pix sem digitar uma palavra."
+      },
+      {
+        "icon": "🧾",
+        "title": "NFS-e em 3 segundos",
+        "desc": "Emita nota fiscal pelo chat. Sem login, sem certificado."
+      },
+      {
+        "icon": "📊",
+        "title": "Resumo financeiro",
+        "desc": "Saiba quanto entrou e quanto falta receber."
+      },
+      {
+        "icon": "📅",
+        "title": "Agenda inteligente",
+        "desc": "Marque clientes, lembretes e DAS pelo WhatsApp."
+      }
+    ]
+  },
+  "tools": {
+    "eyebrow": "100+ ferramentas",
+    "title": "Tudo dentro do WhatsApp",
+    "subtitle": "Sem app · sem cadastro · sem login · só conversa.",
+    "labels": [
+      "Agenda",
+      "Lembretes",
+      "Tarefas",
+      "Notas",
+      "Finanças",
+      "Gastos",
+      "Receitas",
+      "Resumos",
+      "NFS-e",
+      "Pix",
+      "Cobranças",
+      "DAS",
+      "Hora global",
+      "Clima",
+      "Moeda",
+      "Cripto",
+      "Áudio",
+      "Foto",
+      "Documento",
+      "Busca",
+      "Tradução",
+      "Memória",
+      "Localização",
+      "Validação ID",
+      "Multi-etapa",
+      "Escalação",
+      "Métricas",
+      "+ 80 mais"
+    ]
+  },
+  "pricing": {
+    "title": "Planos simples, sem letrinha miúda",
+    "subtitle": "Comece grátis. Pague só quando crescer.",
+    "eyebrow": "preços",
+    "free_label": "Grátis para sempre",
+    "starter_label": "Starter",
+    "pro_label": "Pro",
+    "gold_label": "Gold",
+    "month": "/mês",
+    "popular": "Mais popular",
+    "cta_secondary": "Conhecer Contiq",
+    "features_free": [
+      "100 mensagens/mês",
+      "5 cobranças",
+      "1 nota"
+    ],
+    "features_starter": [
+      "500 mensagens/mês",
+      "20 cobranças",
+      "10 notas"
+    ],
+    "features_pro": [
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
+      "Lembretes IA"
+    ],
+    "features_gold": [
+      "Tudo do Pro",
+      "Multi-equipe",
+      "API",
+      "Prioridade"
+    ],
+    "b2b_label": "B2B · Brasil",
+    "b2b_desc": "A camada B2B para escritórios de contabilidade que atendem MEI em escala."
+  },
+  "faq": {
+    "eyebrow": "perguntas frequentes",
+    "title": "Tudo que você quer saber",
+    "items": [
+      {
+        "q": "Preciso instalar algum app?",
+        "a": "Não. Zymplo funciona dentro do WhatsApp que você já usa. Sem download, sem cadastro chato."
+      },
+      {
+        "q": "Como conecto meus clientes?",
+        "a": "Você não precisa fazer nada. Eles te mandam mensagem como sempre, e a IA cuida do resto."
+      },
+      {
+        "q": "É seguro? Meus dados ficam protegidos?",
+        "a": "Sim. LGPD compliant, criptografia ponta-a-ponta, dados hospedados no Brasil. Nenhum cliente vê dados de outro."
+      },
+      {
+        "q": "E se eu não gostar?",
+        "a": "Cancela quando quiser. Sem fidelidade, sem multa. 7 dias grátis pra testar tudo."
+      },
+      {
+        "q": "Funciona se eu não tenho CNPJ?",
+        "a": "Funciona. MEI, autônomo, profissional liberal. Se você cobra clientes, Zymplo serve pra você."
+      }
+    ]
+  },
+  "payments_label": "Aceita todos os meios de pagamento do Brasil",
+  "footer": {
+    "tagline": "Sua secretária IA no WhatsApp · sem app · sem cadastro · só conversa.",
+    "rights": "Todos os direitos reservados.",
+    "made_in": "Feito com ❤ para microempreendedores brasileiros",
+    "brand_legal": "Zymplo é uma marca registrada da Zymplo Inc. nos Estados Unidos e em outros países.",
+    "use_terms": "O uso deste site está sujeito aos termos expressos.",
+    "universal_terms": "Termos universais de serviço",
+    "payments_supported": "Meios de pagamento suportados",
+    "soon_label": "Em breve",
+    "apps_subtitle": "Os apps móveis estão chegando. Por enquanto, é só abrir o WhatsApp.",
+    "section_product": "Produto",
+    "section_company": "Empresa",
+    "section_support": "Suporte",
+    "section_compliance": "Compliance",
+    "section_countries": "Países",
+    "section_apps": "Baixe o app",
+    "link_home": "Início",
+    "link_features": "Recursos",
+    "link_pricing": "Preços",
+    "link_onboarding": "Onboarding",
+    "link_contiq": "Contiq B2B",
+    "link_about": "Sobre",
+    "link_careers": "Trabalhe conosco",
+    "link_press": "Imprensa",
+    "link_blog": "Blog",
+    "link_help": "Central de ajuda",
+    "link_contact": "Contato",
+    "link_status": "Status",
+    "link_security": "Segurança",
+    "legal_terms": "Termos",
+    "legal_privacy": "Privacidade",
+    "legal_cookies": "Cookies",
+    "legal_lgpd": "LGPD",
+    "legal_sitemap": "Sitemap",
+    "testimonial_eyebrow": "Mais de 12 mil MEIs falando",
+    "testimonial_quotes": [
+      {
+        "initials": "DS",
+        "name_short": "Diego S.",
+        "role": "Eletricista · SP",
+        "quote": "Recuperei 40 minutos por dia. Sério.",
+        "metric": "+R$ 4.800/mo",
+        "color": "#14B8A6"
+      },
+      {
+        "initials": "LO",
+        "name_short": "Luana O.",
+        "role": "Cabeleireira · BH",
+        "quote": "Cliente paga sozinho · não preciso pedir.",
+        "metric": "+R$ 2.100/mo",
+        "color": "#623AE6"
+      },
+      {
+        "initials": "RC",
+        "name_short": "Raimundo C.",
+        "role": "Encanador · Recife",
+        "quote": "NFS-e em 3 segundos. Não acreditei até ver.",
+        "metric": "+R$ 3.500/mo",
+        "color": "#1E4AD4"
+      },
+      {
+        "initials": "AM",
+        "name_short": "Ana M.",
+        "role": "Confeiteira · Curitiba",
+        "quote": "Esqueci do DAS uma vez. Nunca mais.",
+        "metric": "+R$ 1.900/mo",
+        "color": "#5EEAD4"
+      },
+      {
+        "initials": "JS",
+        "name_short": "Júnior S.",
+        "role": "Pintor · Salvador",
+        "quote": "É absurdo de fácil. Só conversa.",
+        "metric": "+R$ 2.700/mo",
+        "color": "#F59E0B"
+      }
+    ]
+  },
+  "chat_widget": {
+    "title": "Falar com a Zymplo",
+    "persona": "Zé · sua secretária IA",
+    "greeting": "Oi! Sou o Zé, sua secretária IA. Posso te ajudar com cobranças, NFS-e, agenda e mais. O que você precisa?",
+    "tagline": "Resposta no seu WhatsApp · 100% grátis",
+    "ask_placeholder": "Pergunte qualquer coisa…",
+    "quick": [
+      {
+        "icon": "🚀",
+        "text": "Quero começar grátis",
+        "intent": "start"
+      },
+      {
+        "icon": "💰",
+        "text": "Como funciona o preço?",
+        "intent": "pricing"
+      },
+      {
+        "icon": "🤝",
+        "text": "Preciso de ajuda pra escolher",
+        "intent": "help"
+      }
+    ]
+  },
+  "my_account": {
+    "label": "Minha conta",
+    "title": "Abra a Zymplo no seu WhatsApp",
+    "subtitle": "Sua conta vive dentro do WhatsApp · sem app · sem login.",
+    "scan_label": "Escaneie com seu celular",
+    "or_label": "ou",
+    "open_cta": "Abrir WhatsApp",
+    "help": "Já é cliente? Só nos mande mensagem · a gente te reconhece."
+  },
+  "qr_connect": {
+    "eyebrow": "Comece em 30 segundos",
+    "title": "Escaneia · abre o WhatsApp · pronto",
+    "subtitle": "Sem app · sem cadastro · sem cartão. Só conversa.",
+    "wa_label": "WhatsApp",
+    "wa_sub": "Escaneia para começar a conversar com sua secretária IA",
+    "app_label": "App móvel",
+    "app_sub": "Em breve",
+    "app_eyebrow": "Em breve",
+    "app_title": "Apps nativos · iOS · Android",
+    "app_intro": "Por enquanto sua conta vive no WhatsApp. Os apps trazem notificações, dashboard e modo offline.",
+    "open_cta": "Abrir WhatsApp agora",
+    "soon_label": "Em breve",
+    "notify_label": "Me avise quando lançar",
+    "notify_help": "A gente manda uma única mensagem no WhatsApp quando iOS / Android forem lançados."
+  },
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "🔥",
+        "text": "12.847 MEIs ativos hoje"
+      },
+      {
+        "icon": "⚡",
+        "text": "Setup em 3 minutos"
+      },
+      {
+        "icon": "🛡️",
+        "text": "100% LGPD compliant"
+      },
+      {
+        "icon": "💚",
+        "text": "Grátis para sempre"
+      },
+      {
+        "icon": "📈",
+        "text": "R$ 47M cobrados este mês"
+      },
+      {
+        "icon": "⭐",
+        "text": "4.9 de média (12.4k reviews)"
+      },
+      {
+        "icon": "🇧🇷",
+        "text": "Feito no Brasil"
+      }
+    ]
+  },
+  "geo_testimonials": {
+    "eyebrow": "Em tempo real · sua região",
+    "title": "MEIs ganhando mais perto de você",
+    "items": [
+      {
+        "city": "São Paulo",
+        "state": "SP",
+        "count": 234,
+        "metric": "ganharam R$ 1.2k extras este mês",
+        "emoji": "💰"
+      },
+      {
+        "city": "Rio de Janeiro",
+        "state": "RJ",
+        "count": 187,
+        "metric": "emitiram NFS-e em 3 segundos",
+        "emoji": "🧾"
+      },
+      {
+        "city": "Belo Horizonte",
+        "state": "MG",
+        "count": 142,
+        "metric": "automatizaram cobranças",
+        "emoji": "⚡"
+      },
+      {
+        "city": "Salvador",
+        "state": "BA",
+        "count": 98,
+        "metric": "recuperaram clientes esquecidos",
+        "emoji": "💚"
+      },
+      {
+        "city": "Curitiba",
+        "state": "PR",
+        "count": 121,
+        "metric": "pagaram DAS no prazo",
+        "emoji": "📅"
+      },
+      {
+        "city": "Recife",
+        "state": "PE",
+        "count": 89,
+        "metric": "fecharam o mês organizados",
+        "emoji": "🚀"
+      }
+    ]
+  },
+  "video_testimonials": {
+    "eyebrow": "Histórias reais",
+    "title": "Eles recuperaram o tempo deles",
+    "subtitle": "MEIs reais · clipes de 15 segundos · sem roteiro.",
+    "watch_label": "▶ Assistir",
+    "see_more": "Ver todas histórias",
+    "items": [
+      {
+        "name": "Diego",
+        "role": "Eletricista",
+        "city": "São Paulo",
+        "quote": "40 minutos por dia salvos.",
+        "metric": "+R$ 4.800/mês",
+        "emoji": "⚡",
+        "gradient": "from-turquesa via-turquesa-dark to-azul"
+      },
+      {
+        "name": "Luana",
+        "role": "Cabeleireira",
+        "city": "Belo Horizonte",
+        "quote": "Não persigo cliente nunca mais.",
+        "metric": "+R$ 2.100/mês",
+        "emoji": "💇",
+        "gradient": "from-purple via-turquesa to-azul"
+      },
+      {
+        "name": "Raimundo",
+        "role": "Encanador",
+        "city": "Recife",
+        "quote": "Conta sai sozinha · eu só trabalho.",
+        "metric": "+R$ 3.500/mês",
+        "emoji": "🔧",
+        "gradient": "from-azul via-purple to-turquesa-dark"
+      },
+      {
+        "name": "Ana",
+        "role": "Confeiteira",
+        "city": "Curitiba",
+        "quote": "Nunca mais esqueço cliente.",
+        "metric": "+R$ 1.900/mês",
+        "emoji": "🍰",
+        "gradient": "from-turquesa-light via-turquesa to-azul"
+      },
+      {
+        "name": "Carlos",
+        "role": "Mecânico",
+        "city": "Salvador",
+        "quote": "NFS-e em 3 segundos.",
+        "metric": "+R$ 2.700/mês",
+        "emoji": "🚗",
+        "gradient": "from-purple via-azul to-turquesa"
+      }
+    ]
+  },
+  "exit_intent": {
+    "eyebrow": "Espera!",
+    "title": "Fala com a gente · 2 minutos · sem compromisso",
+    "subtitle": "Conversa rápida no WhatsApp. Mostramos como Zymplo funciona pro seu caso · você decide.",
+    "cta": "Sim · 2 minutos",
+    "dismiss": "Agora não",
+    "perks": [
+      "Sem cartão · sem instalar · sem pressão",
+      "Pessoa real · responde no WhatsApp",
+      "100% grátis · hoje"
+    ]
+  },
+  "microbiz_score": {
+    "eyebrow": "✨ Score grátis · 30 segundos",
+    "title": "Zymplo é pra você?",
+    "subtitle": "3 perguntas · score na hora. Sem login. Sem spam.",
+    "label_billing": "Quanto fatura por mês?",
+    "label_clients": "Quantos clientes tem?",
+    "label_hours": "Horas/semana cobrando ou faturando?",
+    "place_billing": "ex: R$ 5.000",
+    "place_clients": "ex: 25",
+    "place_hours": "ex: 8",
+    "calculate": "Calcular meu score",
+    "your_score": "Seu score de fit",
+    "recap": "Economia mensal estimada",
+    "fit_low": "Tá começando · Zymplo cresce com você.",
+    "fit_mid": "Match forte · vai economizar tempo desde o dia 1.",
+    "fit_high": "Match perfeito · Zymplo se paga na 1ª semana.",
+    "cta": "Bora começar"
+  },
+  "voice_lang": {
+    "tooltip": "Fale para mudar de idioma",
+    "listening": "Ouvindo · diga uma palavra no seu idioma",
+    "detected": "Detectado",
+    "no_match": "Não consegui identificar · tente de novo",
+    "unsupported": "Voz não suportada neste navegador"
+  }
 }

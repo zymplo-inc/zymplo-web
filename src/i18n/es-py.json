@@ -1,7 +1,574 @@
 {
-  "nav": { "product": "Producto", "pricing": "Precios", "integrations": "Integraciones", "solutions": "Soluciones", "resources": "Recursos", "login": "Entrar", "cta": "Empezar gratis" },
-  "hero": { "eyebrow": "Tu secretaria IA en WhatsApp", "rotate": ["Tu secretaria IA en WhatsApp", "Cobrá sin vueltas", "Emití facturas desde WhatsApp"], "subline": "Sin app. Sin registro. Solo WhatsApp.", "trust": "Más de 5.000 emprendedores" },
-  "chat": { "title": "Mirá cómo funciona", "messages": [{ "from": "user", "text": "Recibí ₲ 480.000 de María" }, { "from": "bot", "text": "¡Anotado che mau! ✅ ₲ 480.000 de María." }] },
-  "pricing": { "title": "Planes simples, sin letra chica", "free_label": "Gratis para siempre", "starter_label": "Starter", "pro_label": "Pro", "gold_label": "Gold", "month": "/mes" },
-  "footer": { "tagline": "Tu secretaria IA en WhatsApp", "rights": "Todos los derechos reservados" }
+  "nav": {
+    "product": "Producto",
+    "pricing": "Precios",
+    "integrations": "Integraciones",
+    "solutions": "Soluciones",
+    "resources": "Recursos",
+    "login": "Entrar",
+    "cta": "Empezar gratis"
+  },
+  "hero": {
+    "eyebrow": "Tu secretaria IA en WhatsApp",
+    "headline_a": "Cobra, organiza, factura. Todo en WhatsApp.",
+    "headline_b": "WhatsApp con IA. Listo para tu negocio.",
+    "headline_c": "Cobra. Sin perseguir clientes.",
+    "rotate": [
+      "Cobra a clientes sin esfuerzo",
+      "Emite facturas desde WhatsApp",
+      "Organiza tu agenda en el chat",
+      "Mira cuánto entró en el mes"
+    ],
+    "subline": "Tu secretaria IA. Sin app, sin registro. Solo conversación.",
+    "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
+    "subline_bold": "12.847 microempresarios ya cobran mejor con Zymplo.",
+    "trust": "Más de 12.847 microempresarios",
+    "persona_badge": "acaba de cobrar",
+    "subheadline_ai": "La IA cobra. Tú no persigues clientes nunca más.",
+    "cta_microcopy": "Gratis · sin tarjeta · 7 días",
+    "stats": [
+      {
+        "value": "$ 47M",
+        "label": "cobrados este mes"
+      },
+      {
+        "value": "12.847",
+        "label": "negocios activos"
+      },
+      {
+        "value": "3 min",
+        "label": "setup completo"
+      }
+    ],
+    "live_activity": [
+      "José · Asunción · cobró ₲ 600.000",
+      "Carmen · Ciudad del Este · factura emitida",
+      "Luis · Encarnación · 3 cobros automáticos",
+      "Rosa · San Lorenzo · IRACIS al día",
+      "Miguel · Lambaré · agenda organizada"
+    ],
+    "live_counter_label": "cobrados hoy",
+    "joined_today_label": "negocios se sumaron hoy",
+    "founding_label": "Founding members · lugares restantes",
+    "founding_perk": "−20% de por vida",
+    "referral_banner": "🎁 Invita 3 amigos · llevate Pro gratis 1 año",
+    "share_label": "Compartir",
+    "challenge_label": "#ZymploChallenge",
+    "challenge_prize": "$10.000 para el mejor video",
+    "watch_demo": "Ver demo · 90s",
+    "scan_label": "Escanea",
+    "scan_on_phone": "con tu celular",
+    "vs_label": "Por qué Zymplo gana",
+    "comparison": {
+      "headers": [
+        "Zymplo",
+        "WhatsApp Business (Meta)",
+        "CRMs con IA genérica",
+        "Asistentes virtuales tradicionales"
+      ],
+      "rows": [
+        {
+          "feature": "Sin app · solo WhatsApp",
+          "values": [
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "IA cobra automático",
+          "values": [
+            true,
+            false,
+            true,
+            false
+          ]
+        },
+        {
+          "feature": "Factura en 3 segundos",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Agenda + Recordatorios IA",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Impuestos automáticos",
+          "values": [
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "feature": "Resumen financiero",
+          "values": [
+            true,
+            false,
+            false,
+            true
+          ]
+        }
+      ],
+      "disclaimer": "Comparativa basada en funcionalidades públicas a mayo/2026. Sujeta a cambios por parte de los proveedores."
+    }
+  },
+  "chat": {
+    "title": "Mira cómo funciona",
+    "online": "en línea",
+    "demo_label": "demo · 90s",
+    "persona_intro": "{name}, {role}, conversa con Zymplo como si fuera su secretaria.",
+    "placeholder": "Mensaje",
+    "messages": [
+      {
+        "from": "user",
+        "text": "Recibí $480 de María"
+      },
+      {
+        "from": "bot",
+        "text": "¡Anotado! ✅ $480 de María. ¿Quieres emitir factura?"
+      },
+      {
+        "from": "user",
+        "text": "Sí, dale"
+      },
+      {
+        "from": "bot",
+        "text": "Listo, factura #00231 emitida y enviada 🧾"
+      }
+    ]
+  },
+  "features": {
+    "title": "Todo lo que tu negocio necesita, en WhatsApp",
+    "items": [
+      {
+        "icon": "💰",
+        "title": "Cobros automáticos",
+        "desc": "Envía recordatorios de pago sin escribir una palabra."
+      },
+      {
+        "icon": "🧾",
+        "title": "Facturas en 3 segundos",
+        "desc": "Emite factura desde el chat. Sin login, sin certificado."
+      },
+      {
+        "icon": "📊",
+        "title": "Resumen financiero",
+        "desc": "Sabe cuánto entró y cuánto falta cobrar."
+      },
+      {
+        "icon": "📅",
+        "title": "Agenda inteligente",
+        "desc": "Agenda clientes, recordatorios e impuestos por WhatsApp."
+      }
+    ]
+  },
+  "tools": {
+    "eyebrow": "100+ herramientas",
+    "title": "Todo dentro de WhatsApp",
+    "subtitle": "Sin app · sin registro · sin login · solo conversación.",
+    "labels": [
+      "Agenda",
+      "Recordatorios",
+      "Tareas",
+      "Notas",
+      "Finanzas",
+      "Gastos",
+      "Ingresos",
+      "Resúmenes",
+      "Facturas",
+      "Pagos",
+      "Cobros",
+      "Impuestos",
+      "Hora global",
+      "Clima",
+      "Moneda",
+      "Cripto",
+      "Audio",
+      "Foto",
+      "Documento",
+      "Búsqueda",
+      "Traducción",
+      "Memoria",
+      "Ubicación",
+      "Validación ID",
+      "Multi-paso",
+      "Escalación",
+      "Métricas",
+      "+ 80 más"
+    ]
+  },
+  "pricing": {
+    "title": "Planes simples, sin letra chica",
+    "subtitle": "Empieza gratis. Paga solo cuando crezcas.",
+    "eyebrow": "precios",
+    "free_label": "Gratis para siempre",
+    "starter_label": "Starter",
+    "pro_label": "Pro",
+    "gold_label": "Gold",
+    "month": "/mes",
+    "popular": "Más popular",
+    "cta_secondary": "Conocer Contiq",
+    "features_free": [
+      "100 mensajes/mes",
+      "5 cobros",
+      "1 nota"
+    ],
+    "features_starter": [
+      "500 mensajes/mes",
+      "20 cobros",
+      "10 notas"
+    ],
+    "features_pro": [
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
+      "Recordatorios IA"
+    ],
+    "features_gold": [
+      "Todo de Pro",
+      "Multi-equipo",
+      "API",
+      "Prioridad"
+    ],
+    "b2b_label": "B2B · Brasil",
+    "b2b_desc": "La capa B2B para despachos de contadores que atienden a microempresarios a escala."
+  },
+  "faq": {
+    "eyebrow": "preguntas frecuentes",
+    "title": "Todo lo que quieres saber",
+    "items": [
+      {
+        "q": "¿Necesito instalar alguna app?",
+        "a": "No. Zymplo funciona dentro del WhatsApp que ya usás. Sin descarga, sin registro complicado."
+      },
+      {
+        "q": "¿Cómo conecto a mis clientes?",
+        "a": "Vos no hacés nada. Ellos te escriben como siempre, y la IA se encarga del resto."
+      },
+      {
+        "q": "¿Es seguro? ¿Mis datos están protegidos?",
+        "a": "Sí. Cumple con LGPD/RGPD, encriptación punta a punta. Ningún cliente ve los datos de otro."
+      },
+      {
+        "q": "¿Y si no me gusta?",
+        "a": "Cancelás cuando quieras. Sin permanencia, sin multas. 7 días gratis para probar todo."
+      },
+      {
+        "q": "¿Funciona si no tengo registro fiscal?",
+        "a": "Funciona. Autónomo, freelancer, profesional. Si cobrás a clientes, Zymplo te sirve."
+      }
+    ]
+  },
+  "payments_label": "Acepta todos los medios de pago",
+  "chat_widget": {
+    "title": "Habla con Zymplo",
+    "persona": "Zé · tu secretaria IA",
+    "greeting": "¡Hola! Soy Zé, tu secretaria IA. Puedo ayudarte con cobros, facturas, agenda y más. ¿Qué necesitas?",
+    "tagline": "Respondemos en tu WhatsApp · 100% gratis",
+    "ask_placeholder": "Pregunta lo que sea…",
+    "quick": [
+      {
+        "icon": "🚀",
+        "text": "Quiero empezar gratis",
+        "intent": "start"
+      },
+      {
+        "icon": "💰",
+        "text": "¿Cómo funciona el precio?",
+        "intent": "pricing"
+      },
+      {
+        "icon": "🤝",
+        "text": "Ayúdame a elegir plan",
+        "intent": "help"
+      }
+    ]
+  },
+  "my_account": {
+    "label": "Mi cuenta",
+    "title": "Abre Zymplo en tu WhatsApp",
+    "subtitle": "Tu cuenta vive dentro de WhatsApp · sin app · sin login.",
+    "scan_label": "Escanea con tu celular",
+    "or_label": "o",
+    "open_cta": "Abrir WhatsApp",
+    "help": "¿Ya eres cliente? Solo envíanos un mensaje · te reconocemos."
+  },
+  "qr_connect": {
+    "eyebrow": "Empieza en 30 segundos",
+    "title": "Escanea · abre WhatsApp · listo",
+    "subtitle": "Sin app · sin registro · sin tarjeta. Solo conversa.",
+    "wa_label": "WhatsApp",
+    "wa_sub": "Escanea para empezar a chatear con tu secretaria IA",
+    "app_label": "App móvil",
+    "app_sub": "Próximamente",
+    "app_eyebrow": "Próximamente",
+    "app_title": "Apps nativas · iOS · Android",
+    "app_intro": "Por ahora tu cuenta vive en WhatsApp. Las apps suman notificaciones, dashboard y modo offline.",
+    "open_cta": "Abrir WhatsApp ahora",
+    "soon_label": "Próximamente",
+    "notify_label": "Avísame cuando lance",
+    "notify_help": "Te enviamos un único mensaje en WhatsApp cuando iOS / Android estén disponibles."
+  },
+  "trust_bar": {
+    "items": [
+      {
+        "icon": "🔥",
+        "text": "12.847 cuentapropistas activos hoy"
+      },
+      {
+        "icon": "⚡",
+        "text": "Setup en 3 minutos"
+      },
+      {
+        "icon": "🛡️",
+        "text": "100% DGT compliant"
+      },
+      {
+        "icon": "💚",
+        "text": "Gratis para siempre"
+      },
+      {
+        "icon": "📈",
+        "text": "₲ 5.000 millones facturados este mes"
+      },
+      {
+        "icon": "⭐",
+        "text": "4.9 promedio (12.4k reseñas)"
+      },
+      {
+        "icon": "🇵🇾",
+        "text": "Hecho en Paraguay · che mau"
+      }
+    ]
+  },
+  "geo_testimonials": {
+    "eyebrow": "En tiempo real · tu región",
+    "title": "Cuentapropistas ganando más cerca tuyo",
+    "items": [
+      {
+        "city": "Asunción",
+        "state": "CAP",
+        "count": 234,
+        "metric": "ganaron ₲ 8 millones extras este mes",
+        "emoji": "💰"
+      },
+      {
+        "city": "Ciudad del Este",
+        "state": "ALT",
+        "count": 187,
+        "metric": "facturaron en 3 segundos",
+        "emoji": "🧾"
+      },
+      {
+        "city": "Encarnación",
+        "state": "ITA",
+        "count": 142,
+        "metric": "automatizaron sus cobros",
+        "emoji": "⚡"
+      },
+      {
+        "city": "San Lorenzo",
+        "state": "CEN",
+        "count": 98,
+        "metric": "recuperaron clientes olvidados",
+        "emoji": "💚"
+      },
+      {
+        "city": "Pedro J. Caballero",
+        "state": "AMA",
+        "count": 121,
+        "metric": "pagaron IRACIS al día",
+        "emoji": "📅"
+      },
+      {
+        "city": "Lambaré",
+        "state": "CEN",
+        "count": 89,
+        "metric": "cerraron mes organizados",
+        "emoji": "🚀"
+      }
+    ]
+  },
+  "video_testimonials": {
+    "eyebrow": "Historias reales",
+    "title": "Recuperaron su tiempo",
+    "subtitle": "Microempresarios reales · clips de 15 segundos · sin guion.",
+    "watch_label": "▶ Ver",
+    "see_more": "Ver todas las historias",
+    "items": [
+      {
+        "name": "José",
+        "role": "Electricista",
+        "city": "Asunción",
+        "quote": "40 minutos al día recuperados, ¡pio!",
+        "metric": "+₲ 7M/mes",
+        "emoji": "⚡",
+        "gradient": "from-turquesa via-turquesa-dark to-azul"
+      },
+      {
+        "name": "Carmen",
+        "role": "Peluquera",
+        "city": "Ciudad del Este",
+        "quote": "No corro atrás del cliente nunca más.",
+        "metric": "+₲ 4M/mes",
+        "emoji": "💇",
+        "gradient": "from-purple via-turquesa to-azul"
+      },
+      {
+        "name": "Luis",
+        "role": "Plomero",
+        "city": "Encarnación",
+        "quote": "Las cuentas salen solas · yo solo trabajo.",
+        "metric": "+₲ 5.5M/mes",
+        "emoji": "🔧",
+        "gradient": "from-azul via-purple to-turquesa-dark"
+      },
+      {
+        "name": "Rosa",
+        "role": "Repostera",
+        "city": "San Lorenzo",
+        "quote": "Nunca más me olvido de un cliente.",
+        "metric": "+₲ 3.5M/mes",
+        "emoji": "🍰",
+        "gradient": "from-turquesa-light via-turquesa to-azul"
+      },
+      {
+        "name": "Miguel",
+        "role": "Mecánico",
+        "city": "Lambaré",
+        "quote": "Factura en 3 segundos · increíble.",
+        "metric": "+₲ 5M/mes",
+        "emoji": "🚗",
+        "gradient": "from-purple via-azul to-turquesa"
+      }
+    ]
+  },
+  "exit_intent": {
+    "eyebrow": "¡Espera!",
+    "title": "Habla con un humano · 2 minutos · sin compromiso",
+    "subtitle": "Conversación rápida en WhatsApp. Te mostramos cómo Zymplo funciona en tu caso · luego decides.",
+    "cta": "Sí · 2 minutos",
+    "dismiss": "Ahora no",
+    "perks": [
+      "Sin tarjeta · sin instalar · sin presión",
+      "Persona real · responde en WhatsApp",
+      "100% gratis · hoy"
+    ]
+  },
+  "microbiz_score": {
+    "eyebrow": "✨ Score gratis · 30 segundos",
+    "title": "¿Zymplo es para ti?",
+    "subtitle": "3 preguntas · score al instante. Sin login. Sin spam.",
+    "label_billing": "¿Cuánto facturas al mes?",
+    "label_clients": "¿Cuántos clientes tienes?",
+    "label_hours": "Horas/semana cobrando o facturando?",
+    "place_billing": "ej: $5,000",
+    "place_clients": "ej: 25",
+    "place_hours": "ej: 8",
+    "calculate": "Calcular mi score",
+    "your_score": "Tu score de fit",
+    "recap": "Ahorro mensual estimado",
+    "fit_low": "Estás empezando · Zymplo crece contigo.",
+    "fit_mid": "Match fuerte · ahorrarás tiempo desde el día 1.",
+    "fit_high": "Match perfecto · Zymplo se paga en la 1ra semana.",
+    "cta": "Vamos a empezar"
+  },
+  "voice_lang": {
+    "tooltip": "Habla para cambiar idioma",
+    "listening": "Escuchando · di una palabra en tu idioma",
+    "detected": "Detectado",
+    "no_match": "No te identifiqué · intenta de nuevo",
+    "unsupported": "Voz no soportada en este navegador"
+  },
+  "footer": {
+    "tagline": "Tu secretaria IA en WhatsApp · sin app · sin registro · solo conversa.",
+    "rights": "Todos los derechos reservados.",
+    "made_in": "Hecho con ❤ para microempresarios",
+    "brand_legal": "Zymplo es una marca registrada de Zymplo Inc. en Estados Unidos y otros países.",
+    "use_terms": "El uso de este sitio está sujeto a los términos expresos.",
+    "universal_terms": "Términos universales del servicio",
+    "payments_supported": "Medios de pago soportados",
+    "soon_label": "Próximamente",
+    "apps_subtitle": "Las apps móviles están en camino. Por ahora, solo abre WhatsApp.",
+    "section_product": "Producto",
+    "section_company": "Empresa",
+    "section_support": "Soporte",
+    "section_compliance": "Compliance",
+    "section_countries": "Países",
+    "section_apps": "Descarga la app",
+    "link_home": "Inicio",
+    "link_features": "Funciones",
+    "link_pricing": "Precios",
+    "link_onboarding": "Onboarding",
+    "link_contiq": "Contiq B2B",
+    "link_about": "Sobre nosotros",
+    "link_careers": "Trabaja con nosotros",
+    "link_press": "Prensa",
+    "link_blog": "Blog",
+    "link_help": "Centro de ayuda",
+    "link_contact": "Contacto",
+    "link_status": "Status",
+    "link_security": "Seguridad",
+    "legal_terms": "Términos",
+    "legal_privacy": "Privacidad",
+    "legal_cookies": "Cookies",
+    "legal_lgpd": "LGPD/GDPR",
+    "legal_sitemap": "Sitemap",
+    "testimonial_eyebrow": "Más de 12 mil cuentapropistas hablando",
+    "testimonial_quotes": [
+      {
+        "initials": "JG",
+        "name_short": "José G.",
+        "role": "Electricista · Asunción",
+        "quote": "Recuperé 40 minutos al día. En serio, che mau.",
+        "metric": "+₲ 7M/mes",
+        "color": "#14B8A6"
+      },
+      {
+        "initials": "CO",
+        "name_short": "Carmen O.",
+        "role": "Peluquera · CDE",
+        "quote": "El cliente paga solo · no pido nada.",
+        "metric": "+₲ 4M/mes",
+        "color": "#623AE6"
+      },
+      {
+        "initials": "LR",
+        "name_short": "Luis R.",
+        "role": "Plomero · Encarnación",
+        "quote": "Factura en 3 segundos · no lo podía creer.",
+        "metric": "+₲ 5.5M/mes",
+        "color": "#1E4AD4"
+      },
+      {
+        "initials": "RA",
+        "name_short": "Rosa A.",
+        "role": "Repostera · San Lorenzo",
+        "quote": "Olvidé pagar IRACIS una vez. Nunca más.",
+        "metric": "+₲ 3.5M/mes",
+        "color": "#5EEAD4"
+      },
+      {
+        "initials": "MM",
+        "name_short": "Miguel M.",
+        "role": "Mecánico · Lambaré",
+        "quote": "Es muy fácil · solo conversar.",
+        "metric": "+₲ 5M/mes",
+        "color": "#F59E0B"
+      }
+    ]
+  }
 }
