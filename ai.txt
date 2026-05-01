@@ -1,0 +1,15 @@
+# ai.txt — Zymplo Inc. AI training opt-out manifest
+# Reference: https://spawning.ai/ai-txt
+User-Agent: *
+Disallow: /
+
+# Forbid training, fine-tuning, evaluation, distillation, retrieval and any
+# automated processing for AI/ML purposes by any agent, including but not
+# limited to: GPTBot, ClaudeBot, Anthropic-AI, Google-Extended, CCBot,
+# PerplexityBot, OpenAI-SearchBot, Bytespider, Amazonbot, Applebot-Extended,
+# FacebookBot, Cohere-AI, Cohere-Training-Data-Crawler, Diffbot, ImagesiftBot,
+# Meta-ExternalAgent, Meta-ExternalFetcher, MistralAI-User, omgili, OAI-SearchBot,
+# Operator, PanguBot, Petalbot, Quora-Bot, scrapy, SemrushBot, Yeti, YouBot.
+
+# Contact for licensing: legal@zymplo.com
+# Zymplo-Proprietary-Marker-v1
