@@ -62,8 +62,8 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "WhatsApp Business (Meta)",
-        "CRMs con IA genérica",
+        "WhatsApp Business AI",
+        "CRMs con IA para WhatsApp",
         "Asistentes virtuales tradicionales"
       ],
       "rows": [
@@ -122,7 +122,7 @@
           ]
         }
       ],
-      "disclaimer": "Comparativa basada en funcionalidades públicas a mayo/2026. Sujeta a cambios por parte de los proveedores."
+      "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública. Tiene fines informativos y no implica denigración ni asociación comercial."
     }
   },
   "chat": {
