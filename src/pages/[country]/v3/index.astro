@@ -3,12 +3,6 @@ import CountryLayout from '@layouts/CountryLayout.astro';
 import HeroC from '@components/Hero/HeroC';
 import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
 import PricingTable from '@components/PricingTable/PricingTable';
-import QRConnect from '@components/QRConnect/QRConnect.astro';
-import TrustBar from '@components/TrustBar/TrustBar.astro';
-import GeoTestimonials from '@components/GeoTestimonials/GeoTestimonials';
-import VideoTestimonials from '@components/VideoTestimonials/VideoTestimonials.astro';
-import MicrobizScore from '@components/MicrobizScore/MicrobizScore';
-import FeatureIcon from '@components/FeatureIcon/FeatureIcon.astro';
 import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
 import { getDict } from '@i18n/index';
 
@@ -24,16 +18,9 @@ const cmp = (dict.hero as any).comparison;
 const vsLabel = (dict.hero as any).vs_label ?? 'Why Zymplo wins';
 const challengeLabel = (dict.hero as any).challenge_label ?? '#ZymploChallenge';
 const challengePrize = (dict.hero as any).challenge_prize ?? '$10,000 for the best video';
-const geo = (dict as any).geo_testimonials ?? {};
 ---
 <CountryLayout slug={slug}>
   <HeroC client:load slug={slug} country={c} dict={dict} />
-
-  <!-- Trust bar · Stripe-style ticker (Sonnet + Haiku consensus) -->
-  <TrustBar slug={slug} dict={dict} />
-
-  <!-- Geo-testimonials · 5-LLM consensus (rotating regional metrics) -->
-  <GeoTestimonials client:visible items={geo.items ?? []} eyebrow={geo.eyebrow ?? 'Live · your region'} title={geo.title ?? 'Winning near you'} />
 
   <!-- Payments band · dark mode -->
   <section class="bg-ink border-b border-white/10 py-6">
@@ -54,21 +41,13 @@ const geo = (dict as any).geo_testimonials ?? {};
         <h2 class="mt-4 font-display text-5xl md:text-7xl font-bold tracking-tightest leading-[0.95]">{dict.features?.title ?? ''}</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {dict.features?.items?.map((it: any) => {
-          const emojiToName: any = {
-            '💰': 'money', '🧾': 'receipt', '📊': 'chart', '📅': 'calendar',
-            '💵': 'money', '🛒': 'money', '⏰': 'calendar', '✅': 'receipt',
-            '📝': 'receipt', '📈': 'chart',
-          };
-          const iconName = emojiToName[it.icon] || (it.icon && it.icon.length > 2 ? it.icon : 'money');
-          return (
-            <div class="bg-white/5 backdrop-blur rounded-3xl p-7 border border-white/10 hover:bg-white/10 hover:border-turquesa/40 transition">
-              <FeatureIcon name={iconName} size={56} />
-              <div class="mt-5 font-display font-bold text-xl text-paper">{it.title}</div>
-              <p class="mt-3 text-sm text-paper/60 leading-relaxed">{it.desc}</p>
-            </div>
-          );
-        })}
+        {dict.features?.items?.map((it: any) => (
+          <div class="bg-white/5 backdrop-blur rounded-3xl p-7 border border-white/10 hover:bg-white/10 hover:border-turquesa/40 transition">
+            <div class="text-4xl">{it.icon}</div>
+            <div class="mt-5 font-display font-bold text-xl text-paper">{it.title}</div>
+            <p class="mt-3 text-sm text-paper/60 leading-relaxed">{it.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -136,17 +115,7 @@ const geo = (dict as any).geo_testimonials ?? {};
   </section>
 
   <ToolsCarousel slug={slug} />
-
-  <!-- Microbiz Score · Grok contrarian idea · personalized fit calculator -->
-  <MicrobizScore client:visible slug={slug} country={c} dict={dict} />
-
-  <!-- Video testimonials · 15s vertical clips carousel (Sonnet + Qwen + GPT consensus) -->
-  <VideoTestimonials slug={slug} dict={dict} />
-
   <PricingTable client:visible slug={slug} country={c} dict={dict} />
-
-  <!-- Pre-footer · Apps band (mobile apps coming soon teaser) -->
-  <QRConnect slug={slug} dict={dict} />
 
   {faq && (
     <section id="faq" class="bg-ink text-paper py-20 md:py-28 border-t border-white/10">
