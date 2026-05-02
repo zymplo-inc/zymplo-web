@@ -253,17 +253,22 @@ export default function HeroC({ slug, country, dict }: Props) {
             </div>
           </div>
 
-          {/* Stats hero */}
-          {stats.length > 0 && (
-            <div className="mt-10 grid grid-cols-3 gap-3 md:gap-8 max-w-2xl mx-auto">
-              {stats.map((s, i) => (
-                <div key={i} className="border-l-2 border-white/40 pl-3 md:pl-4 text-left">
-                  <div className="font-display text-lg md:text-2xl font-bold text-white tracking-tightest">{s.value}</div>
-                  <div className="text-[10px] md:text-xs text-white/70 mt-0.5 uppercase tracking-wider leading-tight">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Stats hero · skeleton fallback (Linear/Cal-style) si i18n no provee stats o JS lento */}
+          <div className="mt-10 grid grid-cols-3 gap-3 md:gap-8 max-w-2xl mx-auto">
+            {stats.length > 0
+              ? stats.map((s, i) => (
+                  <div key={i} className="border-l-2 border-white/40 pl-3 md:pl-4 text-left">
+                    <div className="font-display text-lg md:text-2xl font-bold text-white tracking-tightest">{s.value}</div>
+                    <div className="text-[10px] md:text-xs text-white/70 mt-0.5 uppercase tracking-wider leading-tight">{s.label}</div>
+                  </div>
+                ))
+              : [0, 1, 2].map((i) => (
+                  <div key={i} className="border-l-2 border-white/40 pl-3 md:pl-4 text-left" aria-hidden="true">
+                    <div className="skeleton h-7 md:h-8 w-20 md:w-24" />
+                    <div className="skeleton h-3 w-16 mt-1.5" />
+                  </div>
+                ))}
+          </div>
 
           {/* Live activity ticker */}
           {liveActivity.length > 0 && (
