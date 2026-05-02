@@ -103,7 +103,8 @@ export default function ExitIntent({ slug, dict }: Props) {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close"
-            className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-paper hover:bg-ink/10 transition flex items-center justify-center"
+            className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-paper hover:bg-ink/10 hover:scale-110 active:scale-95 flex items-center justify-center"
+            style={{ transition: 'transform 0.35s var(--ease-spring), background-color 0.2s var(--ease-out-expo)' }}
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
           </button>
@@ -135,7 +136,8 @@ export default function ExitIntent({ slug, dict }: Props) {
               target="_blank"
               rel="noopener"
               onClick={() => setOpen(false)}
-              className="mt-5 block w-full bg-turquesa hover:bg-turquesa-dark text-white font-bold text-base py-3.5 rounded-full transition shadow-md"
+              className="mt-5 block w-full bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-base py-3.5 rounded-full shadow-md hover:shadow-lg"
+              style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
             >
               {cta}
             </a>

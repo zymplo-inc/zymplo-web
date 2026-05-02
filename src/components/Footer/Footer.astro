@@ -44,7 +44,7 @@ const allCountries: Array<{ slug: CountrySlug; flag: string; name: string; local
             target="_blank"
             rel="noopener"
             aria-label={s.name}
-            class="w-10 h-10 rounded-full bg-white/5 hover:bg-turquesa hover:text-white border border-white/10 hover:border-turquesa transition flex items-center justify-center text-paper/80"
+            class="zy-social-link w-10 h-10 rounded-full bg-white/5 hover:bg-turquesa hover:text-white border border-white/10 hover:border-turquesa flex items-center justify-center text-paper/80"
           >
             <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" set:html={s.svg} />
           </a>
@@ -177,3 +177,19 @@ const allCountries: Array<{ slug: CountrySlug; flag: string; name: string; local
     </div>
   </div>
 </footer>
+
+<style>
+  /* R-spring · social icons · spring lift on hover */
+  .zy-social-link {
+    transition: transform 0.35s var(--ease-spring), background-color 0.2s var(--ease-out-expo), border-color 0.2s var(--ease-out-expo), color 0.2s var(--ease-out-expo);
+    will-change: transform;
+  }
+  .zy-social-link:hover { transform: translateY(-2px) scale(1.06); }
+  .zy-social-link:active { transform: translateY(0) scale(0.96); }
+  @media (prefers-reduced-motion: reduce) {
+    .zy-social-link, .zy-social-link:hover, .zy-social-link:active {
+      transition: none;
+      transform: none !important;
+    }
+  }
+</style>

@@ -12,7 +12,7 @@ const c = COUNTRIES[slug];
 const dict = getDict(slug);
 ---
 <CountryLayout slug={slug} title={`Zymplo · ${dict.pricing.title}`}>
-  <section class="max-w-7xl mx-auto px-6 py-24">
+  <section class="organic-bg relative max-w-7xl mx-auto px-6 py-24">
     <h1 class="font-display text-5xl md:text-6xl font-bold tracking-tightest text-center">{dict.pricing.title}</h1>
     <PricingTable client:load slug={slug} country={c} dict={dict} />
   </section>

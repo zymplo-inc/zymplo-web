@@ -35,10 +35,19 @@ export default function Hero({ slug, country, dict }: Props) {
           <p className="mt-6 text-lg md:text-xl text-paper/70 max-w-xl">{dict.hero.subline}</p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a id="cta" href="#" className="bg-turquesa hover:bg-turquesa-dark text-white font-semibold text-base px-7 py-4 rounded-full transition shadow-[0_8px_30px_rgba(20,184,166,0.4)]">
+            <a
+              id="cta"
+              href="#"
+              className="bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-semibold text-base px-7 py-4 rounded-full shadow-[0_8px_30px_rgba(20,184,166,0.4)] hover:shadow-[0_14px_40px_rgba(20,184,166,0.55)]"
+              style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
+            >
               {country.cta.primary}
             </a>
-            <a href="#chatdemo" className="liquid-glass text-paper font-semibold text-base px-7 py-4 rounded-full hover:bg-paper/10 transition">
+            <a
+              href="#chatdemo"
+              className="liquid-glass text-paper font-semibold text-base px-7 py-4 rounded-full hover:bg-paper/10 hover:-translate-y-0.5 active:translate-y-0"
+              style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo)' }}
+            >
               {country.cta.secondary}
             </a>
           </div>

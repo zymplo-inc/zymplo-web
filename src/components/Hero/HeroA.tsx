@@ -51,7 +51,8 @@ export default function HeroA({ slug, country, dict }: Props) {
                 href={waLink(slug as CountrySlug)}
                 target="_blank"
                 rel="noopener"
-                className="bg-ink text-paper font-semibold text-base px-7 py-3.5 rounded-full hover:bg-slate transition shadow-lg inline-flex items-center justify-center"
+                className="bg-ink text-paper font-semibold text-base px-7 py-3.5 rounded-full hover:bg-slate hover:-translate-y-0.5 active:translate-y-0 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
+                style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
               >
                 {country.cta.primary}
               </a>
@@ -59,7 +60,8 @@ export default function HeroA({ slug, country, dict }: Props) {
             </div>
             <a
               href="#chatdemo"
-              className="bg-white border-2 border-ink/10 text-ink font-semibold text-base px-7 py-3.5 rounded-full hover:border-turquesa transition inline-flex items-center gap-2"
+              className="bg-white border-2 border-ink/10 text-ink font-semibold text-base px-7 py-3.5 rounded-full hover:border-turquesa hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-2"
+              style={{ transition: 'transform 0.4s var(--ease-spring), border-color 0.2s var(--ease-out-expo)' }}
             >
               <svg className="w-3.5 h-3.5 text-turquesa" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
               {country.cta.secondary}

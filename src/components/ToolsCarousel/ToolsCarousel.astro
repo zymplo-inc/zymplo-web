@@ -77,6 +77,12 @@ const SEQ = [...TOOLS, ...TOOLS]; // duplicate for seamless loop
     padding: 0.85rem 1.25rem;
     border-radius: 999px;
     flex-shrink: 0;
+    transition: transform 0.4s var(--ease-spring), border-color 0.25s var(--ease-out-expo);
+    will-change: transform;
+  }
+  .tc-item:hover { transform: translateY(-3px) scale(1.04); }
+  @media (prefers-reduced-motion: reduce) {
+    .tc-item, .tc-item:hover { transition: none; transform: none !important; }
   }
   .tc-emoji { font-size: 1.5rem; line-height: 1; }
   .tc-label {

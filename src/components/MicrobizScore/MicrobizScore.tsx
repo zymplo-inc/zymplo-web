@@ -158,7 +158,8 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
               </div>
               <button
                 type="submit"
-                className="w-full bg-turquesa hover:bg-turquesa-dark text-white font-bold text-base py-3.5 rounded-full transition shadow-md"
+                className="w-full bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-base py-3.5 rounded-full shadow-md hover:shadow-lg"
+                style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
               >
                 {calculate}
               </button>
@@ -184,7 +185,8 @@ export default function MicrobizScore({ slug, country, dict }: Props) {
                   href={waLink(slug)}
                   target="_blank"
                   rel="noopener"
-                  className="bg-turquesa hover:bg-turquesa-dark text-white font-bold text-base px-7 py-3.5 rounded-full transition shadow-md"
+                  className="bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-base px-7 py-3.5 rounded-full shadow-md hover:shadow-lg"
+                  style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
                 >
                   {ctaText}
                 </a>

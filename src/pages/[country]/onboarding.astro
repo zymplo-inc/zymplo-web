@@ -10,5 +10,7 @@ const { country: slug } = Astro.params as { country: CountrySlug };
 const c = COUNTRIES[slug];
 ---
 <CountryLayout slug={slug} title={`Zymplo ${c.flag} — Onboarding 90s`}>
-  <Onboarding5Steps client:load country={c} whatsappNumber={WA_NUMBER} />
+  <section class="organic-bg relative py-12 md:py-20">
+    <Onboarding5Steps client:load country={c} whatsappNumber={WA_NUMBER} />
+  </section>
 </CountryLayout>

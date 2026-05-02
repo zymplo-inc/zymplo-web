@@ -31,13 +31,15 @@ export default function HeroB({ slug, country, dict }: Props) {
             href={waLink(slug as CountrySlug)}
             target="_blank"
             rel="noopener"
-            className="bg-azul text-white font-semibold text-base px-7 py-3.5 rounded-full hover:bg-purple transition"
+            className="bg-azul text-white font-semibold text-base px-7 py-3.5 rounded-full hover:bg-purple hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg"
+            style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
           >
             {country.cta.primary}
           </a>
           <a
             href="#chatdemo"
-            className="bg-white text-ink font-semibold text-base px-7 py-3.5 rounded-full border border-ink/15 hover:border-ink/40 transition inline-flex items-center gap-2"
+            className="bg-white text-ink font-semibold text-base px-7 py-3.5 rounded-full border border-ink/15 hover:border-ink/40 hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-2"
+            style={{ transition: 'transform 0.4s var(--ease-spring), border-color 0.2s var(--ease-out-expo)' }}
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
             {country.cta.secondary}

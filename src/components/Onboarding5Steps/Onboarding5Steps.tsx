@@ -304,10 +304,11 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     type="button"
                     key={o.id}
                     onClick={() => setOficio(o.id)}
-                    class={`group flex flex-col items-center gap-1 p-3 rounded-2xl border-2 transition-all duration-200 ${
+                    style={{ transition: 'transform 0.4s var(--ease-spring), border-color 0.25s var(--ease-out-expo), background-color 0.25s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
+                    class={`group flex flex-col items-center gap-1 p-3 rounded-2xl border-2 ${
                       selected
                         ? 'border-turquesa bg-turquesa-paler shadow-[0_8px_24px_-8px_rgba(20,184,166,0.5)] scale-105'
-                        : 'border-ink/5 bg-paper hover:border-turquesa/40 hover:bg-turquesa-paler/40'
+                        : 'border-ink/5 bg-paper hover:border-turquesa/40 hover:bg-turquesa-paler/40 hover:-translate-y-0.5'
                     }`}
                   >
                     <span class="text-3xl" aria-hidden="true">{o.emoji}</span>
@@ -474,7 +475,8 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     type="button"
                     onClick={() => setDemoSent(true)}
                     disabled={!clientName || amount < 1}
-                    class="w-full px-6 py-4 rounded-2xl bg-turquesa hover:bg-turquesa-dark text-white font-bold text-lg shadow-[0_12px_32px_-12px_rgba(20,184,166,0.6)] transition disabled:opacity-40 disabled:cursor-not-allowed"
+                    style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
+                    class="w-full px-6 py-4 rounded-2xl bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_12px_32px_-12px_rgba(20,184,166,0.6)] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     {t.demo_send}
                   </button>
@@ -562,7 +564,8 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-success hover:bg-[#1BA651] text-white font-bold text-lg shadow-[0_16px_40px_-12px_rgba(34,197,94,0.6)] transition"
+              style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
+              class="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-success hover:bg-[#1BA651] hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_16px_40px_-12px_rgba(34,197,94,0.6)]"
             >
               {t.done_cta}
             </a>
@@ -585,7 +588,8 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             type="button"
             onClick={goNext}
             disabled={!canNext}
-            class="px-6 py-2.5 rounded-full bg-ink hover:bg-slate text-paper text-sm font-bold transition disabled:opacity-30 disabled:cursor-not-allowed"
+            style={{ transition: 'transform 0.35s var(--ease-spring), background-color 0.2s var(--ease-out-expo)' }}
+            class="px-6 py-2.5 rounded-full bg-ink hover:bg-slate hover:-translate-y-0.5 active:translate-y-0 text-paper text-sm font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
             {t.next} →
           </button>

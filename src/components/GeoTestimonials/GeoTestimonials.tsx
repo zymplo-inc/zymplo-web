@@ -95,7 +95,8 @@ export default function GeoTestimonials({ items, eyebrow, title, intervalMs = 35
               aria-selected={i === idx}
               aria-label={`Slide ${i + 1}`}
               onClick={() => setIdx(i)}
-              className={`h-1.5 rounded-full transition-all ${i === idx ? 'w-6 bg-turquesa' : 'w-1.5 bg-ink/20 hover:bg-ink/40'}`}
+              style={{ transition: 'width 0.4s var(--ease-spring), transform 0.35s var(--ease-spring), background-color 0.25s var(--ease-out-expo)' }}
+              className={`h-1.5 rounded-full active:scale-90 ${i === idx ? 'w-6 bg-turquesa' : 'w-1.5 bg-ink/20 hover:bg-ink/40 hover:scale-125'}`}
             />
           ))}
         </div>
