@@ -143,7 +143,56 @@
       ],
       "disclaimer": "Trademarks mentioned are property of their respective owners. Comparison based on publicly available information. For informational purposes only · no denigration or commercial association implied.",
       "eyebrow": "vs · all current competition"
-    }
+    },
+    "headline_d": "Your business runs itself. Just by chatting on WhatsApp.",
+    "subline_d": "Automatic invoicing · receipts in seconds · smart scheduling · reports. No app to install. Just chat.",
+    "cta_primary_v2": "Try FREE on WhatsApp",
+    "cta_demo_v2": "Watch demo · 47s",
+    "fomo_bar": "+18,000 businesses automating with Zymplo",
+    "superpowers": [
+      {
+        "icon": "💰",
+        "title": "Auto-collections",
+        "desc": "Reminders without typing a word"
+      },
+      {
+        "icon": "📄",
+        "title": "Invoices in 3 seconds",
+        "desc": "Right from chat · no login"
+      },
+      {
+        "icon": "📊",
+        "title": "Your business answers",
+        "desc": "Ask anything · instant reply"
+      },
+      {
+        "icon": "📅",
+        "title": "Smart scheduling",
+        "desc": "Clients and reminders on autopilot"
+      }
+    ],
+    "demo_lines": [
+      {
+        "from": "user",
+        "text": "How much did I sell today?",
+        "time": "2:32 PM"
+      },
+      {
+        "from": "bot",
+        "text": "You collected $2,341 today · 12 invoices pending · Send them payment links?",
+        "time": "2:32 PM"
+      },
+      {
+        "from": "user",
+        "text": "Yes",
+        "time": "2:33 PM"
+      },
+      {
+        "from": "bot",
+        "text": "✅ 12 links sent · 8 paid in 6 min · $1,560 collected 🎉",
+        "time": "2:39 PM"
+      }
+    ]
   },
   "chat": {
     "title": "See how it works",

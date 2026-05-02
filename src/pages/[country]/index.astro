@@ -1,6 +1,6 @@
 ---
 import CountryLayout from '@layouts/CountryLayout.astro';
-import HeroD from '@components/Hero/HeroD';
+import HeroE from '@components/Hero/HeroE';
 import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
 import PricingTable from '@components/PricingTable/PricingTable';
 import QRConnect from '@components/QRConnect/QRConnect.astro';
@@ -27,7 +27,7 @@ const challengePrize = (dict.hero as any).challenge_prize ?? '$10,000 for the be
 const geo = (dict as any).geo_testimonials ?? {};
 ---
 <CountryLayout slug={slug}>
-  <HeroD client:load slug={slug} country={c} dict={dict} />
+  <HeroE client:load slug={slug} country={c} dict={dict} />
 
   <!-- Trust bar · Stripe-style ticker (Sonnet + Haiku consensus) -->
   <TrustBar slug={slug} dict={dict} />

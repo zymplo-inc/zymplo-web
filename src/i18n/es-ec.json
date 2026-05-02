@@ -143,7 +143,56 @@
       ],
       "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública disponible. Fines informativos · sin denigración ni asociación comercial implícita.",
       "eyebrow": "vs · toda la competencia actual"
-    }
+    },
+    "headline_d": "Tu negocio funciona solo. Hablando por WhatsApp.",
+    "subline_d": "Cobros automáticos · facturas en segundos · agenda inteligente · reportes. Sin instalar nada. Solo chatea.",
+    "cta_primary_v2": "Probar GRATIS en WhatsApp",
+    "cta_demo_v2": "Ver demo · 47s",
+    "fomo_bar": "+18.000 negocios automatizando con Zymplo",
+    "superpowers": [
+      {
+        "icon": "💰",
+        "title": "Cobros automáticos",
+        "desc": "Recordatorios sin escribir una palabra"
+      },
+      {
+        "icon": "📄",
+        "title": "Facturas en 3 segundos",
+        "desc": "Desde el chat · sin certificado"
+      },
+      {
+        "icon": "📊",
+        "title": "Tu negocio te responde",
+        "desc": "Preguntale cualquier cosa · al toque"
+      },
+      {
+        "icon": "📅",
+        "title": "Agenda inteligente",
+        "desc": "Clientes y recordatorios solos"
+      }
+    ],
+    "demo_lines": [
+      {
+        "from": "user",
+        "text": "¿Cuánto vendí hoy?",
+        "time": "14:32"
+      },
+      {
+        "from": "bot",
+        "text": "Hoy entraron $2.341.000 · 12 cobros pendientes · ¿Les mando link de pago?",
+        "time": "14:32"
+      },
+      {
+        "from": "user",
+        "text": "Sí dale",
+        "time": "14:33"
+      },
+      {
+        "from": "bot",
+        "text": "✅ 12 links enviados · 8 ya pagaron en 6 min · $1.560.000 cobrados 🎉",
+        "time": "14:39"
+      }
+    ]
   },
   "chat": {
     "title": "Mira cómo funciona",

@@ -143,7 +143,56 @@
       ],
       "disclaimer": "As marcas mencionadas são propriedade dos respectivos titulares. Comparação baseada em informação pública disponível. Tem fins informativos · sem denigração nem associação comercial implícita.",
       "eyebrow": "vs · toda a concorrência atual"
-    }
+    },
+    "headline_d": "Seu negócio funciona sozinho. Conversando pelo WhatsApp.",
+    "subline_d": "Cobranças automáticas · NFS-e em segundos · agenda inteligente · relatórios. Sem instalar nada. Só conversa.",
+    "cta_primary_v2": "Testar GRÁTIS no WhatsApp",
+    "cta_demo_v2": "Ver demo · 47s",
+    "fomo_bar": "+18.000 negócios automatizando com Zymplo",
+    "superpowers": [
+      {
+        "icon": "💰",
+        "title": "Cobranças automáticas",
+        "desc": "Lembretes sem digitar uma palavra"
+      },
+      {
+        "icon": "📄",
+        "title": "NFS-e em 3 segundos",
+        "desc": "Direto do chat · sem certificado"
+      },
+      {
+        "icon": "📊",
+        "title": "Seu negócio responde",
+        "desc": "Pergunta qualquer coisa · na hora"
+      },
+      {
+        "icon": "📅",
+        "title": "Agenda inteligente",
+        "desc": "Clientes e lembretes sozinhos"
+      }
+    ],
+    "demo_lines": [
+      {
+        "from": "user",
+        "text": "Quanto vendi hoje?",
+        "time": "14:32"
+      },
+      {
+        "from": "bot",
+        "text": "Entraram R$ 2.341 hoje · 12 cobranças pendentes · Mando link de pagamento?",
+        "time": "14:32"
+      },
+      {
+        "from": "user",
+        "text": "Manda",
+        "time": "14:33"
+      },
+      {
+        "from": "bot",
+        "text": "✅ 12 links enviados · 8 já pagaram em 6 min · R$ 1.560 recebidos 🎉",
+        "time": "14:39"
+      }
+    ]
   },
   "chat": {
     "title": "Veja como funciona",
