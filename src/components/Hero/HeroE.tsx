@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { Country, CountrySlug } from '@data/countries';
-import { waLink } from '@data/countries';
+import { waLink, BRAND } from '@data/countries';
 import type { Dict } from '@i18n/index';
 
 interface Props { slug: string; country: Country; dict: Dict }
@@ -299,12 +299,14 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
         {/* Phone notch */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-20" />
 
-        {/* WA header · fixed height */}
-        <div className="flex items-center gap-3 px-4 pt-10 pb-3 relative z-10" style={{ background: '#202C33', height: '74px' }}>
-          <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-lg" style={{ background: '#14B8A6', color: 'white' }}>Z</div>
-          <div className="flex-1 min-w-0">
-            <div className="text-white font-semibold text-sm leading-tight">Zymplo</div>
-            <div className="text-[10px] flex items-center gap-1" style={{ color: '#8696A0' }}>
+        {/* WA header · R93aa · isotipo Zymplo real (R51) + fix padding · avatar+text alineados left como WhatsApp real */}
+        <div className="flex items-center gap-3 px-3.5 relative z-10" style={{ background: '#202C33', paddingTop: '38px', paddingBottom: '10px' }}>
+          <div className="w-9 h-9 rounded-full flex items-center justify-center shadow-lg shrink-0" style={{ background: '#14B8A6' }}>
+            <img src={BRAND.logoIso} alt="Zymplo" className="w-5 h-5" width="20" height="20" style={{ filter: 'brightness(0) invert(1)' }} />
+          </div>
+          <div className="flex-1 min-w-0 text-left">
+            <div className="text-white font-semibold text-[15px] leading-tight">Zymplo</div>
+            <div className="text-[10px] flex items-center gap-1 mt-0.5" style={{ color: '#8696A0' }}>
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-success" />
