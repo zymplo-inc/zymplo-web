@@ -123,11 +123,11 @@ export default function HeroD({ slug, country, dict }: Props) {
           </div>
         </div>
 
-        <div className="text-center mt-2 grid lg:grid-cols-[1.2fr_1fr] gap-x-12 gap-y-10 items-center lg:text-left">
+        <div className="text-center mt-2 grid lg:grid-cols-[1.15fr_0.85fr] gap-x-16 xl:gap-x-24 2xl:gap-x-28 gap-y-10 items-center lg:text-left">
           <div className="lg:max-w-2xl mx-auto lg:mx-0">
             <h1
               className="font-display leading-[0.88] tracking-tightest text-white"
-              style={{ fontSize: 'clamp(56px, 11vw, 156px)', fontWeight: 800, letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
+              style={{ fontSize: 'clamp(48px, 9vw, 132px)', fontWeight: 800, letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
             >
               {headline.split('.').filter(Boolean).map((part, i) => (
                 <span
@@ -271,7 +271,7 @@ function WhatsAppMockup({ country, slug }: { country: Country; slug: string }) {
       ];
 
   return (
-    <div className="hidden lg:block relative max-w-sm mx-auto">
+    <div className="hidden lg:block relative max-w-[300px] xl:max-w-[330px] mx-auto lg:ml-6 xl:ml-10">
       <div
         className="relative rounded-[2.2rem] overflow-hidden shadow-2xl"
         style={{
