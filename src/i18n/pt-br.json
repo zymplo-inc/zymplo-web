@@ -23,7 +23,7 @@
     "subline": "Seu assistente IA. Sem app, sem cadastro. Só conversa.",
     "subline_premium": "Cobranças, NFS-e, agenda e DAS — tudo gerenciado por uma IA dentro do seu WhatsApp.",
     "subline_bold": "O Zymplo cuida · você curte seu tempo.",
-    "trust": "Mais de 12.847 microempreendedores",
+    "trust": "Mais de 12.847 pessoas como você",
     "persona_badge": "acaba de cobrar",
     "subheadline_ai": "A IA cobra. Você não persegue cliente nunca mais.",
     "cta_microcopy": "Grátis · sem cartão · 7 dias",
@@ -34,11 +34,11 @@
       },
       {
         "value": "12.847",
-        "label": "MEIs ativos"
+        "label": "pessoas ativas"
       },
       {
-        "value": "3 min",
-        "label": "setup completo"
+        "value": "Sem app",
+        "label": "nem cadastro"
       }
     ],
     "live_activity": [
@@ -48,8 +48,8 @@
       "Ana · Curitiba · DAS pago no prazo",
       "Carlos · Salvador · agenda organizada"
     ],
-    "live_counter_label": "novos membros · últimas 24h · live",
-    "joined_today_label": "MEIs se juntaram hoje",
+    "live_counter_label": "novos · últimas 24h",
+    "joined_today_label": "se juntaram hoje",
     "founding_label": "Founding members · vagas restantes",
     "founding_perk": "−20% de por vida",
     "referral_banner": "🎁 Convida 3 amigos · ganha Pro grátis 1 ano",
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "feature": "Vertical MEI · DAS · IR",
+          "feature": "Feito pra você · Receita · DAS",
           "values": [
             true,
             true,
@@ -123,7 +123,7 @@
           ]
         },
         {
-          "feature": "Setup em 3 minutos",
+          "feature": "Funciona desde o primeiro 'oi'",
           "values": [
             true,
             false,
@@ -299,7 +299,7 @@
   "footer": {
     "tagline": "Sua secretária IA no WhatsApp · sem app · sem cadastro · só conversa.",
     "rights": "Todos os direitos reservados.",
-    "made_in": "Feito com ❤ para microempreendedores brasileiros",
+    "made_in": "Feito com ❤ para gente como você · Brasil",
     "brand_legal": "Zymplo é uma marca registrada da Zymplo Inc. nos Estados Unidos e em outros países.",
     "use_terms": "O uso deste site está sujeito aos termos expressos.",
     "universal_terms": "Termos universais de serviço",
@@ -330,7 +330,7 @@
     "legal_cookies": "Cookies",
     "legal_lgpd": "LGPD",
     "legal_sitemap": "Sitemap",
-    "testimonial_eyebrow": "Mais de 12 mil MEIs falando",
+    "testimonial_eyebrow": "Mais de 12 mil pessoas como você falando",
     "testimonial_quotes": [
       {
         "initials": "DS",
@@ -427,11 +427,11 @@
     "items": [
       {
         "icon": "🔥",
-        "text": "12.847 MEIs ativos hoje"
+        "text": "12.847 pessoas como você ativos hoje"
       },
       {
         "icon": "⚡",
-        "text": "Setup em 3 minutos"
+        "text": "Funciona desde o primeiro 'oi'"
       },
       {
         "icon": "🛡️",
@@ -456,8 +456,8 @@
     ]
   },
   "geo_testimonials": {
-    "eyebrow": "Em tempo real · sua região",
-    "title": "MEIs ganhando mais perto de você",
+    "eyebrow": "AO VIVO · PERTO DE VOCÊ",
+    "title": "Gente como você ganhando perto de você",
     "items": [
       {
         "city": "São Paulo",
@@ -506,7 +506,7 @@
   "video_testimonials": {
     "eyebrow": "Histórias reais",
     "title": "Eles recuperaram o tempo deles",
-    "subtitle": "MEIs reais · clipes de 15 segundos · sem roteiro.",
+    "subtitle": "pessoas como você reais · clipes de 15 segundos · sem roteiro.",
     "watch_label": "▶ Assistir",
     "see_more": "Ver todas histórias",
     "items": [

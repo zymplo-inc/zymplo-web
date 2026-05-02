@@ -23,7 +23,7 @@
     "subline": "Your AI assistant. No app, no signup. Just conversation.",
     "subline_premium": "Invoicing, payments, scheduling, and taxes — all handled by an AI inside your WhatsApp.",
     "subline_bold": "Zymplo handles it · you enjoy your time.",
-    "trust": "12,847+ small business owners",
+    "trust": "12,847+ people like you",
     "persona_badge": "just got paid",
     "subheadline_ai": "The AI collects. You never chase clients again.",
     "cta_microcopy": "Free · no card · 7 days",
@@ -34,11 +34,11 @@
       },
       {
         "value": "12,847",
-        "label": "active businesses"
+        "label": "active people"
       },
       {
-        "value": "3 min",
-        "label": "complete setup"
+        "value": "No app",
+        "label": "no signup"
       }
     ],
     "live_activity": [
@@ -48,8 +48,8 @@
       "Sarah · Chicago · payment received",
       "David · Austin · schedule sorted"
     ],
-    "live_counter_label": "new members · last 24h · live",
-    "joined_today_label": "businesses joined today",
+    "live_counter_label": "new · last 24h",
+    "joined_today_label": "joined today",
     "founding_label": "Founding members · spots left",
     "founding_perk": "−20% for life",
     "referral_banner": "🎁 Invite 3 friends · get Pro free for 1 year",
@@ -123,7 +123,7 @@
           ]
         },
         {
-          "feature": "Setup in 3 minutes",
+          "feature": "Works from the first 'hi'",
           "values": [
             true,
             false,
@@ -353,7 +353,7 @@
       },
       {
         "icon": "⚡",
-        "text": "Setup in 3 minutes"
+        "text": "Works from the first 'hi'"
       },
       {
         "icon": "🛡️",
@@ -378,8 +378,8 @@
     ]
   },
   "geo_testimonials": {
-    "eyebrow": "Live · your region",
-    "title": "Small business owners winning near you",
+    "eyebrow": "LIVE · NEAR YOU",
+    "title": "People like you winning near you",
     "items": [
       {
         "city": "Miami",
@@ -519,7 +519,7 @@
   "footer": {
     "tagline": "Your AI secretary on WhatsApp · no app · no signup · just chat.",
     "rights": "All rights reserved.",
-    "made_in": "Built with ❤ for small business owners",
+    "made_in": "Made with ❤ for people like you · USA",
     "brand_legal": "Zymplo is a registered trademark of Zymplo Inc. in the United States and other countries.",
     "use_terms": "Use of this site is subject to the express terms.",
     "universal_terms": "Universal terms of service",
@@ -550,7 +550,7 @@
     "legal_cookies": "Cookies",
     "legal_lgpd": "GDPR/CCPA",
     "legal_sitemap": "Sitemap",
-    "testimonial_eyebrow": "12,000+ small business owners speaking",
+    "testimonial_eyebrow": "12,000+ people like you talking",
     "testimonial_quotes": [
       {
         "initials": "MK",

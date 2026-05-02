@@ -23,7 +23,7 @@
     "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
     "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
     "subline_bold": "Zymplo se encarga · tú disfrutas tu tiempo.",
-    "trust": "Más de 12.847 microempresarios",
+    "trust": "Más de 12.847 personas como tú",
     "persona_badge": "acaba de cobrar",
     "subheadline_ai": "La IA cobra. Tú no persigues clientes nunca más.",
     "cta_microcopy": "Gratis · sin tarjeta · 7 días",
@@ -34,11 +34,11 @@
       },
       {
         "value": "12.847",
-        "label": "negocios activos"
+        "label": "personas activas"
       },
       {
-        "value": "3 min",
-        "label": "setup completo"
+        "value": "Sin app",
+        "label": "ni registro"
       }
     ],
     "live_activity": [
@@ -48,8 +48,8 @@
       "Ana · Barranquilla · RUT al día",
       "Juan · Cartagena · agenda organizada"
     ],
-    "live_counter_label": "nuevos miembros · últimas 24h · live",
-    "joined_today_label": "negocios se sumaron hoy",
+    "live_counter_label": "se sumaron · últimas 24h",
+    "joined_today_label": "se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
     "referral_banner": "🎁 Invita 3 amigos · llevate Pro gratis 1 año",
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "feature": "Vertical microempresario · DIAN · RUT",
+          "feature": "Hecho para ti · DIAN · NIT",
           "values": [
             true,
             true,
@@ -123,7 +123,7 @@
           ]
         },
         {
-          "feature": "Setup en 3 minutos",
+          "feature": "Funciona desde el primer 'hola'",
           "values": [
             true,
             false,
@@ -264,7 +264,7 @@
       "Prioridad"
     ],
     "b2b_label": "B2B · Brasil",
-    "b2b_desc": "La capa B2B para despachos de contadores que atienden a microempresarios a escala.",
+    "b2b_desc": "La capa B2B para despachos de contadores que atienden a personas como tú a escala.",
     "headline_feature": "Todo ilimitado.",
     "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
@@ -349,11 +349,11 @@
     "items": [
       {
         "icon": "🔥",
-        "text": "12.847 microempresarios activos hoy"
+        "text": "12.847 personas como tú activos hoy"
       },
       {
         "icon": "⚡",
-        "text": "Setup en 3 minutos"
+        "text": "Funciona desde el primer 'hola'"
       },
       {
         "icon": "🛡️",
@@ -378,8 +378,8 @@
     ]
   },
   "geo_testimonials": {
-    "eyebrow": "En tiempo real · tu región",
-    "title": "Microempresarios ganando más cerca de ti",
+    "eyebrow": "EN VIVO · CERCA DE TI",
+    "title": "Gente como tú ganando cerca de ti",
     "items": [
       {
         "city": "Bogotá",
@@ -428,7 +428,7 @@
   "video_testimonials": {
     "eyebrow": "Historias reales",
     "title": "Recuperaron su tiempo",
-    "subtitle": "Microempresarios reales · clips de 15 segundos · sin guion.",
+    "subtitle": "Personas como tú reales · clips de 15 segundos · sin guion.",
     "watch_label": "▶ Ver",
     "see_more": "Ver todas las historias",
     "items": [
@@ -519,7 +519,7 @@
   "footer": {
     "tagline": "Tu secretaria IA en WhatsApp · sin app · sin registro · solo conversa.",
     "rights": "Todos los derechos reservados.",
-    "made_in": "Hecho con ❤ para microempresarios",
+    "made_in": "Hecho con ❤ para gente como tú · Colombia",
     "brand_legal": "Zymplo es una marca registrada de Zymplo Inc. en Estados Unidos y otros países.",
     "use_terms": "El uso de este sitio está sujeto a los términos expresos.",
     "universal_terms": "Términos universales del servicio",
@@ -550,7 +550,7 @@
     "legal_cookies": "Cookies",
     "legal_lgpd": "LGPD/GDPR",
     "legal_sitemap": "Sitemap",
-    "testimonial_eyebrow": "Más de 12 mil microempresarios hablando",
+    "testimonial_eyebrow": "Más de 12 mil personas como tú hablando",
     "testimonial_quotes": [
       {
         "initials": "CM",

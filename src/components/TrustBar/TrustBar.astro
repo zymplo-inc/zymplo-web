@@ -4,11 +4,12 @@ import type { Dict } from '@i18n/index';
 interface Props { slug: CountrySlug; dict: Dict }
 const { dict } = Astro.props;
 const tb = (dict as any).trust_bar ?? {};
+// R93 (2026-05-02): warm copy + no setup-time claim · works from first message
 const items: Array<{ icon: string; text: string }> = tb.items ?? [
-  { icon: '🔥', text: '12,847 MEIs active today' },
-  { icon: '⚡', text: 'Setup in 3 min' },
+  { icon: '🔥', text: '12,847 people active today' },
+  { icon: '⚡', text: 'No app · no signup' },
   { icon: '🛡️', text: '100% safe & free' },
-  { icon: '💚', text: 'No app · just WhatsApp' },
+  { icon: '💚', text: 'Just WhatsApp' },
   { icon: '📈', text: '$47M billed this month' },
   { icon: '⭐', text: '4.9 rating' },
 ];
