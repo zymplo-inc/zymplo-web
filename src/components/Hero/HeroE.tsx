@@ -17,6 +17,9 @@ export default function HeroE({ slug, country, dict }: Props) {
   const ctaDemo = h.cta_demo_v2 ?? 'Demo · 47s';
   const fomoBar = h.fomo_bar ?? '+18,000 businesses automating with Zymplo';
   const ctaMicro = h.cta_microcopy ?? 'No app · no signup · free forever';
+  // R93z · 2 líneas con jerarquía visual · main 18-20px font-semibold · sub 14-15px font-medium
+  const ctaMicroMain = h.cta_micro_main ?? 'Free forever';
+  const ctaMicroSub = h.cta_micro_sub ?? 'Start in under 10 seconds';
   const liveCounterLabel = h.live_counter_label ?? 'collected today';
   const stats: Array<{ value: string; label: string }> = h.stats ?? [];
   const taglineWarm = h.tagline_warm ?? '';
@@ -188,7 +191,15 @@ export default function HeroE({ slug, country, dict }: Props) {
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.157 5.335 5.493 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.413c-.003 6.557-5.339 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.999 5.945L1.998 22l5.656-1.81z"/></svg>
                   {ctaPrimary}
                 </a>
-                <span className="text-xs text-white/75 text-center self-center block max-w-[280px] sm:max-w-md leading-snug mt-1">{ctaMicro}</span>
+                {/* R93z · 2 líneas con jerarquía · centrado exacto bajo el botón · más espacio vertical */}
+                <div className="self-center text-center mt-3 flex flex-col items-center gap-1 max-w-[320px] sm:max-w-md">
+                  <span className="text-lg md:text-xl text-white font-semibold leading-tight tracking-tight">
+                    {ctaMicroMain}
+                  </span>
+                  <span className="text-[14px] md:text-[15px] text-white/75 font-medium leading-snug">
+                    {ctaMicroSub}
+                  </span>
+                </div>
               </div>
               <a
                 href="#chatdemo"

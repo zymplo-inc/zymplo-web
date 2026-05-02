@@ -26,7 +26,7 @@
     "trust": "Más de 12.847 personas como tú",
     "persona_badge": "acaba de cobrar",
     "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
-    "cta_microcopy": "Gratis para siempre · empiezas en segundos · funciona desde WhatsApp",
+    "cta_microcopy": "Gratis para siempre · Empiezas en menos de 10 segundos",
     "stats": [
       {
         "value": "$ 47M",
@@ -319,7 +319,9 @@
       }
     ],
     "tagline_warm": "Zymplo se encarga. Tú recuperas tu tiempo.",
-    "trust_strip_label": "13 PAÍSES · 1 MISMO BOT"
+    "trust_strip_label": "13 PAÍSES · 1 MISMO BOT",
+    "cta_micro_main": "Gratis para siempre",
+    "cta_micro_sub": "Empiezas en menos de 10 segundos"
   },
   "chat": {
     "title": "Mira cómo funciona",

@@ -26,7 +26,7 @@
     "trust": "12,847+ people like you",
     "persona_badge": "just got paid",
     "subheadline_ai": "Your life simpler · just chatting · no app · no signup",
-    "cta_microcopy": "Free forever · start in seconds · works from WhatsApp",
+    "cta_microcopy": "Free forever · Start in under 10 seconds",
     "stats": [
       {
         "value": "$ 47M",
@@ -319,7 +319,9 @@
       }
     ],
     "tagline_warm": "Zymplo handles it. You get your time back.",
-    "trust_strip_label": "13 COUNTRIES · 1 SAME BOT"
+    "trust_strip_label": "13 COUNTRIES · 1 SAME BOT",
+    "cta_micro_main": "Free forever",
+    "cta_micro_sub": "Start in under 10 seconds"
   },
   "chat": {
     "title": "See how it works",
