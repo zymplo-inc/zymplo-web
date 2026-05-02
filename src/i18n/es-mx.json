@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Pix detectado · Pedro pagó $ 850 · CFDI #0234 emitida automatic",
+        "text": "💳 SPEI detectado · Pedro pagó $ 850 MXN · CFDI #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -229,7 +229,7 @@
       },
       {
         "from": "bot",
-        "text": "✅ Link enviado a Roberto · $ 1.200",
+        "text": "✅ Link enviado a Roberto · $ 1.200 MXN",
         "time": "13:45"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: $ 4.250 · 6 CFDI · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: $ 4.250 MXN · 6 CFDI · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,7 +294,7 @@
       },
       {
         "from": "bot",
-        "text": "🔔 CFDI vence mañana 09:00 · $ 458",
+        "text": "🔔 CFDI vence mañana 09:00 · $ 458 MXN",
         "time": "21:00"
       },
       {

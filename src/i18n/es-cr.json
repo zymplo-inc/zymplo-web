@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · DAS vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · IVA vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Pix detectado · Pedro pagó ₡ 65.000 · factura #0234 emitida automatic",
+        "text": "💳 SINPE Móvil detectado · Pedro pagó ₡ 65.000 · factura #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: ₡ 325.000 · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: ₡ 325.000 · 6 factura · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 DAS vence mañana 09:00 · ₡ 35.000",
+        "text": "🔔 IVA vence mañana 09:00 · ₡ 35.000",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el DAS",
+        "text": "Pagué el IVA",
         "time": "21:15"
       },
       {

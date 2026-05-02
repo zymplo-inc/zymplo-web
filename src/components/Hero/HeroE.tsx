@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { Country, CountrySlug } from '@data/countries';
 import { waLink } from '@data/countries';
 import type { Dict } from '@i18n/index';
@@ -251,11 +251,15 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
   const onlineLabel = isPT ? 'online · digitando…' : isEN ? 'online · typing…' : 'en línea · escribiendo…';
   const inputPlaceholder = isPT ? 'Mensagem' : isEN ? 'Message' : 'Mensaje';
 
-  // Auto-scroll chat ref to bottom on each new message · smooth UX
-  const chatScrollRef = (() => {
-    if (typeof window === 'undefined') return null;
-    return null;
-  })();
+  // R93k · ref + useLayoutEffect · NO remount on each msg · NO parpadeo
+  const chatRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const el = chatRef.current;
+    if (!el) return;
+    if (el.scrollHeight > el.clientHeight) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }, [visibleLines, typing]);
 
   return (
     <div className="relative w-[320px] xl:w-[340px] mx-auto lg:ml-4 xl:ml-8" style={{ contain: 'layout' }}>
@@ -287,16 +291,9 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
           </div>
         </div>
 
-        {/* Chat area · FIXED height + overflow-y hidden when few msgs · scroll only when needed · NO jitter NO smooth-scroll bug */}
+        {/* Chat area · FIXED height · ref + useLayoutEffect (NO key remount · NO parpadeo) */}
         <div
-          ref={(el) => {
-            if (!el) return;
-            // Only auto-scroll if content overflows · prevents fake-scroll jitter on early messages
-            if (el.scrollHeight > el.clientHeight) {
-              el.scrollTop = el.scrollHeight;
-            }
-          }}
-          key={`chat-${visibleLines}`}
+          ref={chatRef}
           className="flex flex-col gap-2 px-3 py-4"
           style={{
             background: '#0B141A',
@@ -305,6 +302,7 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
             overflowY: 'auto',
             scrollBehavior: 'auto',
             scrollbarWidth: 'none',
+            contain: 'strict',
           }}
         >
           {lines.slice(0, visibleLines).map((line, i) => (

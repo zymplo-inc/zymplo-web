@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · SII vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · IVA vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Pix detectado · Pedro pagó $ 215.000 CLP · factura #0234 emitida automatic",
+        "text": "💳 Transferencia detectada · Pedro pagó $ 215.000 CLP · boleta #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -234,7 +234,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Roberto pagó · factura #0235 emitida 🎉",
+        "text": "💸 Roberto pagó · boleta #0235 emitida 🎉",
         "time": "14:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: $ 1.080.000 CLP · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: $ 1.080.000 CLP · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 SII vence mañana 09:00 · $ 116.000 CLP",
+        "text": "🔔 IVA vence mañana 09:00 · $ 116.000 CLP",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el SII",
+        "text": "Pagué el IVA",
         "time": "21:15"
       },
       {

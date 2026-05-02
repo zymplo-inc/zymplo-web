@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 SEPA detectado · Pedro pagó 55 € · factura #0234 emitida automatic",
+        "text": "💳 Bizum detectado · Pedro pagó 55 € · factura #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: 278 € · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: 278 € · 6 factura · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {

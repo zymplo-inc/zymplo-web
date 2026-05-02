@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Yape detectado · Pedro pagó S/ 215 · factura #0234 emitida automatic",
+        "text": "💳 Yape detectado · Pedro pagó S/ 215 · boleta #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -234,7 +234,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Roberto pagó · factura #0235 emitida 🎉",
+        "text": "💸 Roberto pagó · boleta #0235 emitida 🎉",
         "time": "14:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: S/ 1.080 · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: S/ 1.080 · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {

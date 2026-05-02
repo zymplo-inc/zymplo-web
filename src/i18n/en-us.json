@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Pix detected · Pedro paid $250 · invoice #0234 sent automatic",
+        "text": "💳 Zelle detected · Pedro paid $250 · invoice #0234 sent automatic",
         "time": "7:32 AM"
       },
       {
@@ -209,7 +209,7 @@
       },
       {
         "from": "bot",
-        "text": "📩 New Instagram lead · Carla asked via DM · I sent your info · booked Mon 3pm ⭐",
+        "text": "📩 New Instagram lead · Carla asked via DM · I replied · booked Mon 3pm ⭐",
         "time": "9:48 AM"
       },
       {
@@ -294,7 +294,7 @@
       },
       {
         "from": "bot",
-        "text": "🔔 Taxes due tomorrow 9 AM · $185",
+        "text": "🔔 IRS taxes due tomorrow 9 AM · $185",
         "time": "9:00 PM"
       },
       {

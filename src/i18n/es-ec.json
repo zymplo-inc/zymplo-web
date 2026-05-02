@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · SRI vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · IVA vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Pix detectado · Pedro pagó $ 215 · factura #0234 emitida automatic",
+        "text": "💳 Pagos detectado · Pedro pagó $ 215 · factura #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: $ 1.080 · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: $ 1.080 · 6 factura · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 SRI vence mañana 09:00 · $ 116",
+        "text": "🔔 IVA vence mañana 09:00 · $ 116",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el SRI",
+        "text": "Pagué el IVA",
         "time": "21:15"
       },
       {
