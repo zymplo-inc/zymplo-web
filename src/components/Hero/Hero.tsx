@@ -24,11 +24,7 @@ export default function Hero({ slug, country, dict }: Props) {
 
       <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-32 md:pt-32 md:pb-40 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full liquid-glass text-xs font-bold uppercase tracking-widest text-turquesa-light">
-            <span className="w-2 h-2 rounded-full bg-turquesa-light animate-breathe" />
-            {country.flag} {country.name}
-          </div>
-
+          {/* R93 country pill removed 2026-05-02 */}
           <h1 className="mt-6 font-display font-bold text-5xl md:text-7xl leading-[0.95] tracking-tightest">
             <span className="block text-paper">zymplo</span>
             <span className="block bg-gradient-to-r from-turquesa-light via-turquesa to-turquesa-light bg-clip-text text-transparent">

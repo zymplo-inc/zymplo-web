@@ -125,14 +125,7 @@ export default function HeroC({ slug, country, dict }: Props) {
           </div>
         </div>
 
-        {/* Country flag pill */}
-        <div className="text-center mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-[11px] md:text-xs font-bold uppercase tracking-widest">
-            {country.flag} {country.name}
-          </div>
-        </div>
-
-        {/* HEADLINE GIGANTE · hero · primer impacto visual */}
+        {/* HEADLINE GIGANTE · hero · primer impacto visual · R93 country pill removed 2026-05-02 */}
         <div className="text-center mt-2">
           <h1
             className="font-display leading-[0.88] tracking-tightest text-white"
@@ -279,30 +272,14 @@ export default function HeroC({ slug, country, dict }: Props) {
 }
 
 function FloatingShapes() {
+  // R93 (2026-05-02): floating globos removed across all countries · keep only subtle dotted texture
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <div
-        className="absolute -top-20 -right-32 w-[500px] h-[500px] rounded-full opacity-30 hidden md:block"
-        style={{ background: 'radial-gradient(circle at 30% 30%, #5EEAD4 0%, #14B8A6 60%, #0F9488 100%)', filter: 'blur(2px)', animation: 'float-slow 14s ease-in-out infinite' }}
-      />
-      <div
-        className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full opacity-25 hidden md:block"
-        style={{ background: 'radial-gradient(circle at 30% 30%, #CCFBF1 0%, #5EEAD4 60%, transparent 100%)', filter: 'blur(2px)', animation: 'float-slow 18s ease-in-out infinite reverse' }}
-      />
-      <div
-        className="absolute top-1/3 left-1/4 w-[120px] h-[120px] rounded-full opacity-50 hidden lg:block"
-        style={{ background: 'radial-gradient(circle at 30% 30%, #FFFFFF 0%, #CCFBF1 70%, transparent 100%)', filter: 'blur(1px)', animation: 'float-slow 11s ease-in-out infinite' }}
-      />
-      <div
-        className="absolute inset-0 md:hidden opacity-30"
-        style={{ background: 'radial-gradient(circle at 80% 20%, #5EEAD4 0%, transparent 50%), radial-gradient(circle at 20% 80%, #CCFBF1 0%, transparent 50%)', filter: 'blur(20px)' }}
-      />
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }}
       />
       <style>{`
-        @keyframes float-slow { 0%,100% { transform: translate(0,0) } 33% { transform: translate(20px,-30px) } 66% { transform: translate(-20px,15px) } }
         .hero-cta-spring:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 24px 48px -12px rgba(20, 184, 166, 0.45); }
         .hero-cta-spring:active { transform: translateY(0) scale(0.98); }
         @media (prefers-reduced-motion: reduce) { .hero-cta-spring, .hero-cta-spring:hover, .hero-cta-spring:active { transform: none !important; transition: none !important; } }

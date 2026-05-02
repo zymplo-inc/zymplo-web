@@ -10,12 +10,11 @@ export default function HeroB({ slug, country, dict }: Props) {
   const subline = dict.hero.subline_premium ?? dict.hero.subline;
   return (
     <section className="relative bg-paper overflow-hidden">
-      {/* Stripe-style gradient mesh background */}
-      <GradientMesh />
+      {/* R93: globos + country flag removed 2026-05-02 */}
       <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-20 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-ink/10 text-xs font-bold uppercase tracking-widest text-turquesa-deeper">
           <span className="w-1.5 h-1.5 rounded-full bg-turquesa animate-pulse" />
-          {country.flag} {dict.hero.eyebrow}
+          {dict.hero.eyebrow}
         </div>
         <h1
           className="mt-8 font-display text-[48px] sm:text-[72px] md:text-[104px] leading-[0.95] tracking-tightest text-ink max-w-5xl mx-auto"
@@ -68,25 +67,7 @@ function splitHeadline(text: string) {
   );
 }
 
-/** Stripe-style gradient mesh · soft animated */
-function GradientMesh() {
-  return (
-    <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
-      <div
-        className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-50 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #5EEAD4 0%, transparent 70%)' }}
-      />
-      <div
-        className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full opacity-40 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #623AE6 0%, transparent 70%)' }}
-      />
-      <div
-        className="absolute bottom-0 right-1/4 w-[450px] h-[450px] rounded-full opacity-35 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #1E4AD4 0%, transparent 70%)' }}
-      />
-    </div>
-  );
-}
+/** R93 (2026-05-02): GradientMesh globos removed across all countries · clean paper bg */
 
 /** WhatsApp chat mockup · product as hero */
 function ChatMockup({ country, dict }: { country: Country; dict: Dict }) {

@@ -27,9 +27,7 @@ export default function HeroA({ slug, country, dict }: Props) {
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
         {/* Left · text */}
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-turquesa animate-pulse" /> {country.flag} {country.name}
-          </div>
+          {/* R93 country pill removed 2026-05-02 */}
           <h1
             className="mt-5 font-display text-[40px] sm:text-[60px] md:text-[76px] leading-[0.95] tracking-tightest text-ink"
             style={{ fontWeight: 700 }}
