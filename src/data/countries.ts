@@ -17,7 +17,6 @@ export interface Country {
   slang: string[];
   cta: { primary: string; secondary: string };
   pricing: { free: string; starter: string; pro: string; gold: string; b2b?: string };
-  videoSrc: string; // hero loop, country-specific
 }
 
 const fmt = (locale: string, code: string) => (n: number) =>
@@ -38,7 +37,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['véi', 'oxe', 'uai', 'tchê'],
     cta: { primary: 'Bora começar 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Grátis', starter: 'R$ 19', pro: 'R$ 39', gold: 'R$ 79' },
-    videoSrc: '/videos/hero/br.mp4',
   },
   mx: {
     slug: 'mx', flag: '🇲🇽', name: 'México', locale: 'es-MX',
@@ -54,7 +52,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['chido', 'güey', 'órale', 'neta'],
     cta: { primary: 'Vamos a empezar 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$ 119 MXN', pro: '$ 249 MXN', gold: '$ 499 MXN' },
-    videoSrc: '/videos/hero/mx.mp4',
   },
   us: {
     slug: 'us', flag: '🇺🇸', name: 'United States', locale: 'en-US',
@@ -70,7 +67,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ["y'all", 'gonna', 'totally'],
     cta: { primary: "Let's go 💪", secondary: 'Watch demo 90s ▶' },
     pricing: { free: 'Free', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
-    videoSrc: '/videos/hero/us.mp4',
   },
   co: {
     slug: 'co', flag: '🇨🇴', name: 'Colombia', locale: 'es-CO',
@@ -86,7 +82,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['bacano', 'parce', 'rumba'],
     cta: { primary: 'Dale parce 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$ 15.000 COP', pro: '$ 29.000 COP', gold: '$ 59.000 COP' },
-    videoSrc: '/videos/hero/co.mp4',
   },
   es: {
     slug: 'es', flag: '🇪🇸', name: 'España', locale: 'es-ES',
@@ -102,7 +97,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['tío', 'vale', 'majo', 'guay'],
     cta: { primary: 'A por ello 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '€ 3.99', pro: '€ 7.99', gold: '€ 15.99' },
-    videoSrc: '/videos/hero/es.mp4',
   },
   ar: {
     slug: 'ar', flag: '🇦🇷', name: 'Argentina', locale: 'es-AR',
@@ -118,7 +112,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['che', 'boludo', 'viste', 're'],
     cta: { primary: 'Dale que 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$ 5.519 ARS (USD-pegged)', pro: '$ 11.039 ARS (USD-pegged)', gold: '$ 22.089 ARS (USD-pegged)' },
-    videoSrc: '/videos/hero/ar.mp4',
   },
   py: {
     slug: 'py', flag: '🇵🇾', name: 'Paraguay', locale: 'es-PY',
@@ -134,7 +127,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['metele', 'dale que', 'estamos arreglando', 'pio'],
     cta: { primary: 'Metele 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '₲ 14.000', pro: '₲ 29.000', gold: '₲ 59.000' },
-    videoSrc: '/videos/hero/py.mp4',
   },
   pe: {
     slug: 'pe', flag: '🇵🇪', name: 'Perú', locale: 'es-PE',
@@ -150,7 +142,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['causa', 'pata', 'chévere', 'jato'],
     cta: { primary: 'Vamos causa 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: 'S/ 14', pro: 'S/ 29', gold: 'S/ 59' },
-    videoSrc: '/videos/hero/pe.mp4',
   },
   ec: {
     slug: 'ec', flag: '🇪🇨', name: 'Ecuador', locale: 'es-EC',
@@ -166,7 +157,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['chévere', 'bacán', 'pana', 'simón'],
     cta: { primary: 'Dale pana 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
-    videoSrc: '/videos/hero/ec.mp4',
   },
   cl: {
     slug: 'cl', flag: '🇨🇱', name: 'Chile', locale: 'es-CL',
@@ -182,7 +172,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['po', 'cachai', 'bacán', 'fome'],
     cta: { primary: 'Dale po 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$ 3.490 CLP', pro: '$ 6.990 CLP', gold: '$ 13.990 CLP' },
-    videoSrc: '/videos/hero/cl.mp4',
   },
   uy: {
     slug: 'uy', flag: '🇺🇾', name: 'Uruguay', locale: 'es-UY',
@@ -198,7 +187,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['bo', 'ta', 'de pinga', 'masa'],
     cta: { primary: 'Dale bo 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: '$U 159', pro: '$U 329', gold: '$U 649' },
-    videoSrc: '/videos/hero/uy.mp4',
   },
   bo: {
     slug: 'bo', flag: '🇧🇴', name: 'Bolivia', locale: 'es-BO',
@@ -214,7 +202,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['pues', 'jaila', 'choco', 'qué pasó'],
     cta: { primary: 'Vamos pues 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Gratis', starter: 'Bs 29', pro: 'Bs 59', gold: 'Bs 109' },
-    videoSrc: '/videos/hero/bo.mp4',
   },
   cr: {
     slug: 'cr', flag: '🇨🇷', name: 'Costa Rica', locale: 'es-CR',
@@ -230,7 +217,6 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
     cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Pura vida', starter: '₡ 1.990', pro: '₡ 3.990', gold: '₡ 7.990' },
-    videoSrc: '/videos/hero/cr.mp4',
   },
 };
 
