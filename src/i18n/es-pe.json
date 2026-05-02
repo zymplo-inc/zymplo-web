@@ -174,23 +174,53 @@
     "demo_lines": [
       {
         "from": "user",
-        "text": "¿Cuánto vendí hoy?",
-        "time": "14:32"
+        "text": "¿Cómo arranco hoy?",
+        "time": "09:14"
       },
       {
         "from": "bot",
-        "text": "Hoy entraron $2.341.000 · 12 cobros pendientes · ¿Les mando link de pago?",
-        "time": "14:32"
+        "text": "¡Buen día! 3 citas + 12 cobros pendientes · SUNAT vence mañana 🔔",
+        "time": "09:14"
       },
       {
         "from": "user",
-        "text": "Sí dale",
-        "time": "14:33"
+        "text": "Manda link a los que deben",
+        "time": "09:15"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links enviados · 8 ya pagaron en 6 min · $1.560.000 cobrados 🎉",
-        "time": "14:39"
+        "text": "✅ 12 links enviados · te aviso apenas paguen",
+        "time": "09:15"
+      },
+      {
+        "from": "bot",
+        "text": "💸 María pagó S/ 850 · SUNAT #0234 emitido automatic 🎉",
+        "time": "10:42"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Cliente nuevo · Ana Rodríguez pidió presupuesto · le respondí que la contactas hoy",
+        "time": "12:20"
+      },
+      {
+        "from": "user",
+        "text": "Agrega cita: Pedro · viernes 9am",
+        "time": "14:08"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Pedro · viernes 9:00 am · le aviso el jueves 6pm",
+        "time": "14:08"
+      },
+      {
+        "from": "user",
+        "text": "¿Cuánto facturé este mes?",
+        "time": "17:42"
+      },
+      {
+        "from": "bot",
+        "text": "Este mes: S/ 9.235 · 47 SUNAT · 12 clientes nuevos · +23% vs el mes pasado 📈",
+        "time": "17:42"
       }
     ]
   },

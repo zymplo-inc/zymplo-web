@@ -76,25 +76,25 @@ export default function HeroE({ slug, country, dict }: Props) {
     let timers: number[] = [];
     const cycle = () => {
       setVisibleLines(0);
-      // delay between messages
-      const delays = [800, 2200, 1600, 2400];
+      // delays per message · escalonado para feel real (timestamps simulan paso del día)
+      const delays = [1300, 2200, 1300, 1800, 2600, 1500, 1900, 1500, 2800];
       let acc = 600;
       demoLines.forEach((line, idx) => {
         if (line.from === 'bot') {
           // typing indicator before bot reply
           timers.push(window.setTimeout(() => setTyping(true), acc));
-          acc += 1100;
+          acc += 900;
           timers.push(window.setTimeout(() => setTyping(false), acc));
         }
         timers.push(window.setTimeout(() => setVisibleLines(idx + 1), acc));
         acc += delays[idx] || 1500;
       });
       // restart loop after pause
-      timers.push(window.setTimeout(cycle, acc + 4000));
+      timers.push(window.setTimeout(cycle, acc + 4500));
     };
     cycle();
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [demoLines.length]);
 
   return (
     <section
@@ -132,24 +132,25 @@ export default function HeroE({ slug, country, dict }: Props) {
               className="font-display leading-[0.92] tracking-tightest text-white"
               style={{ fontSize: 'clamp(40px, 7.5vw, 108px)', fontWeight: 800, letterSpacing: '-0.04em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
             >
-              {headline.split('. ').filter(Boolean).map((part: string, i: number) => (
-                  <span
-                    key={i}
-                    className="block"
-                    style={i === 0
-                      ? undefined
-                      : {
-                          backgroundImage: 'linear-gradient(135deg, #5EEAD4 0%, #A7F3D0 35%, #BAE6FD 75%, #DBEAFE 100%)',
-                          WebkitBackgroundClip: 'text',
-                          backgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          color: 'transparent',
-                        }
-                    }
-                  >
-                    {part.endsWith('.') ? part : part + '.'}
-                  </span>
-                ))}
+              {headline.split('. ').filter(Boolean).map((part: string, i: number) => {
+                  const fullPart = part.endsWith('.') ? part : part + '.';
+                  // R93g · WhatsApp en verde brand #25D366 (3/3 LLMs convergence)
+                  const waIdx = fullPart.indexOf('WhatsApp');
+                  if (waIdx !== -1) {
+                    return (
+                      <span key={i} className="block">
+                        {fullPart.slice(0, waIdx)}
+                        <span style={{ color: '#25D366' }}>WhatsApp</span>
+                        {fullPart.slice(waIdx + 'WhatsApp'.length)}
+                      </span>
+                    );
+                  }
+                  return (
+                    <span key={i} className="block">
+                      {fullPart}
+                    </span>
+                  );
+                })}
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-white/85 lg:max-w-xl leading-relaxed">
@@ -260,7 +261,8 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
           style={{
             background: '#0B141A',
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M40 10l8 16 16 2-12 12 4 16-16-8-16 8 4-16-12-12 16-2z\' fill=\'%23182229\' opacity=\'0.4\'/%3E%3C/svg%3E")',
-            minHeight: '440px',
+            minHeight: '560px',
+            maxHeight: '600px',
           }}
         >
           {lines.slice(0, visibleLines).map((line, i) => (

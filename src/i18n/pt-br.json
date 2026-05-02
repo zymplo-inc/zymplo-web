@@ -174,23 +174,53 @@
     "demo_lines": [
       {
         "from": "user",
-        "text": "Quanto vendi hoje?",
-        "time": "14:32"
+        "text": "Como tá meu dia?",
+        "time": "09:14"
       },
       {
         "from": "bot",
-        "text": "Entraram R$ 2.341 hoje · 12 cobranças pendentes · Mando link de pagamento?",
-        "time": "14:32"
+        "text": "Bom dia! 3 horários + 12 cobranças pendentes · DAS vence amanhã 🔔",
+        "time": "09:14"
       },
       {
         "from": "user",
-        "text": "Manda",
-        "time": "14:33"
+        "text": "Manda link pros que devem",
+        "time": "09:15"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links enviados · 8 já pagaram em 6 min · R$ 1.560 recebidos 🎉",
-        "time": "14:39"
+        "text": "✅ 12 links enviados · aviso assim que pagam",
+        "time": "09:15"
+      },
+      {
+        "from": "bot",
+        "text": "💸 Luana pagou R$ 250 · NFS-e #0234 emitida automatic 🎉",
+        "time": "10:42"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Cliente novo · Ana Rodrigues pediu orçamento · respondi que você contata hoje",
+        "time": "12:20"
+      },
+      {
+        "from": "user",
+        "text": "Marca: Pedro · sexta 9h",
+        "time": "14:08"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Pedro · sexta 09:00 · aviso quinta 18h",
+        "time": "14:08"
+      },
+      {
+        "from": "user",
+        "text": "Quanto faturei esse mês?",
+        "time": "17:42"
+      },
+      {
+        "from": "bot",
+        "text": "Esse mês: R$ 3.847 · 47 NFS-e · 12 clientes novos · +23% vs mês passado 📈",
+        "time": "17:42"
       }
     ]
   },
