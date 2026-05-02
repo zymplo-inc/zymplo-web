@@ -135,17 +135,20 @@ export default function HeroE({ slug, country, dict }: Props) {
             >
               {headline.split('. ').filter(Boolean).map((part: string, i: number) => {
                   const fullPart = part.endsWith('.') ? part : part + '.';
-                  // R93s · gradient text Apple/Vercel/Linear-style · white → turquesa-light → soft sky-blue · alta contraste arriba (visibilidad) + elegancia abajo · sustituye verde sólido que se perdía contra fondo turquesa
+                  // R93t · "En WhatsApp." MUCHO MÁS llamativo · gradient animado Apple "Wonderful"-style · sheen blanco viajando + glow pulsante turquesa · WhatsApp brand green accent en mid-stop
                   const waIdx = fullPart.indexOf('WhatsApp');
                   if (waIdx !== -1) {
                     return (
                       <span
                         key={i}
-                        className="block whitespace-nowrap bg-clip-text text-transparent"
+                        className="block whitespace-nowrap zymplo-wa-shimmer"
                         style={{
-                          backgroundImage: 'linear-gradient(160deg, #FFFFFF 0%, #5EEAD4 55%, #93C5FD 100%)',
+                          backgroundImage: 'linear-gradient(110deg, #FFFFFF 0%, #5EEAD4 22%, #FFFFFF 38%, #25D366 50%, #FFFFFF 62%, #5EEAD4 78%, #FFFFFF 100%)',
+                          backgroundSize: '300% 100%',
                           WebkitBackgroundClip: 'text',
                           WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
+                          color: 'transparent',
                         }}
                       >
                         {fullPart}
@@ -386,6 +389,21 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
         .dot2 { animation-delay: 0.15s; }
         .dot3 { animation-delay: 0.3s; }
         .animate-bounce-soft { animation: bounce-soft 2s ease-in-out infinite; }
+        /* R93t · "En WhatsApp." Apple "Wonderful"-style · sheen white viajando + glow pulsante */
+        @keyframes zymplo-wa-shimmer-anim {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        @keyframes zymplo-wa-glow-anim {
+          0%, 100% { filter: drop-shadow(0 4px 24px rgba(94, 234, 212, 0.55)) drop-shadow(0 0 32px rgba(255, 255, 255, 0.35)); }
+          50% { filter: drop-shadow(0 6px 38px rgba(94, 234, 212, 0.85)) drop-shadow(0 0 56px rgba(37, 211, 102, 0.4)) drop-shadow(0 0 28px rgba(255, 255, 255, 0.55)); }
+        }
+        .zymplo-wa-shimmer {
+          animation: zymplo-wa-shimmer-anim 5.5s ease-in-out infinite, zymplo-wa-glow-anim 3.8s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .zymplo-wa-shimmer { animation: none !important; }
+        }
       `}</style>
     </div>
   );
