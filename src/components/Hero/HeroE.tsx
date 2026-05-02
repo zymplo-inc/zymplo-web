@@ -135,13 +135,13 @@ export default function HeroE({ slug, country, dict }: Props) {
             >
               {headline.split('. ').filter(Boolean).map((part: string, i: number) => {
                   const fullPart = part.endsWith('.') ? part : part + '.';
-                  // R93g · WhatsApp en verde brand #25D366 (3/3 LLMs convergence)
+                  // R93p · WhatsApp verde elegante #22C55E (Zymplo success token · -12% saturación vs neon WA brand · más premium menos promo)
                   const waIdx = fullPart.indexOf('WhatsApp');
                   if (waIdx !== -1) {
                     return (
                       <span key={i} className="block">
                         {fullPart.slice(0, waIdx)}
-                        <span style={{ color: '#25D366' }}>WhatsApp</span>
+                        <span style={{ color: '#22C55E' }}>WhatsApp</span>
                         {fullPart.slice(waIdx + 'WhatsApp'.length)}
                       </span>
                     );
