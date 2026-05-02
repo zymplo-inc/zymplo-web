@@ -132,24 +132,7 @@ export default function HeroE({ slug, country, dict }: Props) {
               className="font-display leading-[0.92] tracking-tightest text-white"
               style={{ fontSize: 'clamp(40px, 7.5vw, 108px)', fontWeight: 800, letterSpacing: '-0.04em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
             >
-              {(() => {
-                const ANCHORS = ['WhatsApp'];
-                const renderEmph = (txt: string) => {
-                  for (const a of ANCHORS) {
-                    const idx = txt.indexOf(a);
-                    if (idx !== -1) {
-                      return (
-                        <>
-                          {txt.slice(0, idx)}
-                          <em className="serif-emph not-italic">{a}</em>
-                          {txt.slice(idx + a.length)}
-                        </>
-                      );
-                    }
-                  }
-                  return txt;
-                };
-                return headline.split('. ').filter(Boolean).map((part: string, i: number) => (
+              {headline.split('. ').filter(Boolean).map((part: string, i: number) => (
                   <span
                     key={i}
                     className="block"
@@ -164,10 +147,9 @@ export default function HeroE({ slug, country, dict }: Props) {
                         }
                     }
                   >
-                    {renderEmph(part.endsWith('.') ? part : part + '.')}
+                    {part.endsWith('.') ? part : part + '.'}
                   </span>
-                ));
-              })()}
+                ))}
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-white/85 lg:max-w-xl leading-relaxed">
