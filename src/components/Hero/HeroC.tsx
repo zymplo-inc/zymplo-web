@@ -90,7 +90,13 @@ export default function HeroC({ slug, country, dict }: Props) {
   const shareText = encodeURIComponent(`${headline} → Zymplo`);
 
   return (
-    <section className="relative bg-turquesa text-white overflow-hidden flex flex-col">
+    <section
+      className="relative text-white overflow-hidden flex flex-col"
+      style={{
+        backgroundColor: '#14B8A6',
+        backgroundImage: 'radial-gradient(ellipse 80% 60% at 20% 20%, rgba(94,234,212,0.35) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 80% 75%, rgba(30,74,212,0.30) 0%, transparent 65%), linear-gradient(135deg, #14B8A6 0%, #0F9488 60%, #1E4AD4 100%)',
+      }}
+    >
       {/* Top live signup banner sticky */}
       <div className="relative z-20 bg-ink/40 backdrop-blur border-b border-white/10 py-2">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 text-xs md:text-sm font-medium">
@@ -131,8 +137,22 @@ export default function HeroC({ slug, country, dict }: Props) {
             className="font-display leading-[0.88] tracking-tightest text-white"
             style={{ fontSize: 'clamp(64px, 14.5vw, 192px)', fontWeight: 800, letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
           >
+            {/* Demo C bicolor: 1ª línea blanco sólido · siguientes gradient turquesa-light → blue light */}
             {headline.split('.').filter(Boolean).map((part, i) => (
-              <span key={i} className="block">
+              <span
+                key={i}
+                className="block"
+                style={i === 0
+                  ? undefined
+                  : {
+                      backgroundImage: 'linear-gradient(135deg, #5EEAD4 0%, #A7F3D0 35%, #BAE6FD 75%, #DBEAFE 100%)',
+                      WebkitBackgroundClip: 'text',
+                      backgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      color: 'transparent',
+                    }
+                }
+              >
                 {part.trim()}.
               </span>
             ))}
