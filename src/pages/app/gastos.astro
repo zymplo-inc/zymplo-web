@@ -1,0 +1,94 @@
+---
+const title = 'Zymplo · Gastos';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <link rel="icon" href="https://sims.zymplo.com/brand/isotipo.svg">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Manrope, system-ui, sans-serif; background: #FAFBFF; color: #0A0B14; margin: 0; min-height: 100vh; }
+    header { background: white; border-bottom: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+    header img { width: 32px; height: 32px; }
+    header strong { color: #14B8A6; font-size: 18px; }
+    nav { background: white; border-bottom: 1px solid #E2E8F0; padding: 0 20px; display: flex; gap: 6px; overflow-x: auto; }
+    nav a { padding: 14px 16px; color: #475569; text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; }
+    nav a.active { color: #14B8A6; border-bottom-color: #14B8A6; }
+    main { max-width: 1080px; margin: 0 auto; padding: 24px 20px; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .stat-card { background: white; padding: 16px; border-radius: 10px; border: 1px solid #E2E8F0; }
+    .label { color: #94A3B8; font-size: 12px; text-transform: uppercase; }
+    .stat { font-size: 22px; font-weight: 800; color: #EF4444; }
+    .cat { background: white; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid #E2E8F0; }
+    .cat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #F1F5F9; }
+    .cat-row:last-child { border-bottom: none; }
+    .bar { height: 8px; background: #F1F5F9; border-radius: 4px; overflow: hidden; margin-top: 4px; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #14B8A6, #5EEAD4); }
+  </style>
+</head>
+<body>
+  <header><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo"><strong>zymplo</strong></header>
+  <nav>
+    <a href="/app/dashboard">Inicio</a>
+    <a href="/app/agenda">Agenda</a>
+    <a href="/app/cobranzas">Cobranzas</a>
+    <a href="/app/gastos" class="active">Gastos</a>
+    <a href="/app/clientes">Clientes</a>
+  </nav>
+
+  <main>
+    <h1 style="margin:0 0 24px;font-size:24px">Gastos · este mes</h1>
+
+    <div class="summary">
+      <div class="stat-card"><div class="label">Total mes</div><div class="stat">₲ 3.245.000</div></div>
+      <div class="stat-card"><div class="label">Mes anterior</div><div class="stat" style="color:#94A3B8">₲ 2.890.000</div></div>
+      <div class="stat-card"><div class="label">Variación</div><div class="stat" style="color:#F59E0B">+12%</div></div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-row" style="border:none">
+        <strong>Materiales</strong>
+        <span class="amount">₲ 1.450.000 · 45%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-row" style="border:none">
+        <strong>Combustible</strong>
+        <span class="amount">₲ 680.000 · 21%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:21%"></div></div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-row" style="border:none">
+        <strong>Herramientas</strong>
+        <span class="amount">₲ 520.000 · 16%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:16%"></div></div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-row" style="border:none">
+        <strong>Marketing · ads</strong>
+        <span class="amount">₲ 295.000 · 9%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:9%"></div></div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-row" style="border:none">
+        <strong>Otros</strong>
+        <span class="amount">₲ 300.000 · 9%</span>
+      </div>
+      <div class="bar"><div class="bar-fill" style="width:9%"></div></div>
+    </div>
+
+    <p style="text-align:center;color:#94A3B8;font-size:13px;margin-top:24px">Mandá foto del recibo a Zé bot · él lo categoriza solo · acá ves el resumen</p>
+  </main>
+</body>
+</html>

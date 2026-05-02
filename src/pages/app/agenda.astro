@@ -1,0 +1,71 @@
+---
+const title = 'Zymplo · Agenda';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <link rel="icon" href="https://sims.zymplo.com/brand/isotipo.svg">
+  <link rel="apple-touch-icon" href="https://sims.zymplo.com/brand/apple-touch-icon.png">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Manrope, system-ui, sans-serif; background: #FAFBFF; color: #0A0B14; margin: 0; min-height: 100vh; }
+    header { background: white; border-bottom: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+    header .brand { display: flex; align-items: center; gap: 10px; }
+    header img { width: 32px; height: 32px; }
+    header strong { color: #14B8A6; font-size: 18px; }
+    nav { background: white; border-bottom: 1px solid #E2E8F0; padding: 0 20px; display: flex; gap: 6px; overflow-x: auto; }
+    nav a { padding: 14px 16px; color: #475569; text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; }
+    nav a.active { color: #14B8A6; border-bottom-color: #14B8A6; }
+    main { max-width: 1080px; margin: 0 auto; padding: 24px 20px; }
+    .day { background: white; border-radius: 12px; padding: 16px 20px; border: 1px solid #E2E8F0; margin-bottom: 12px; }
+    .day h3 { margin: 0 0 12px; font-size: 16px; color: #14B8A6; }
+    .item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F1F5F9; }
+    .item:last-child { border-bottom: none; }
+    .time { font-weight: 700; min-width: 56px; color: #14B8A6; }
+    .title { flex: 1; }
+    .badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; background: #D1FAE5; color: #065F46; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo">
+      <strong>zymplo</strong>
+    </div>
+  </header>
+  <nav>
+    <a href="/app/dashboard">Inicio</a>
+    <a href="/app/agenda" class="active">Agenda</a>
+    <a href="/app/cobranzas">Cobranzas</a>
+    <a href="/app/gastos">Gastos</a>
+    <a href="/app/clientes">Clientes</a>
+  </nav>
+
+  <main>
+    <h1 style="margin:0 0 24px;font-size:24px">Agenda · esta semana</h1>
+
+    <div class="day">
+      <h3>Hoy · sábado 2 mayo</h3>
+      <div class="item"><div class="time">09:30</div><div class="title">Diego · revisión instalación eléctrica</div><span class="badge">confirmado</span></div>
+      <div class="item"><div class="time">14:30</div><div class="title">Luana · presupuesto reforma cocina</div><span class="badge">confirmado</span></div>
+      <div class="item"><div class="time">17:00</div><div class="title">Cobrar a Raimundo · trabajo terminado</div><span class="badge">recordatorio</span></div>
+    </div>
+
+    <div class="day">
+      <h3>Mañana · domingo 3 mayo</h3>
+      <div class="item"><div class="time">10:00</div><div class="title">Pintura casa Carlos · presupuesto</div><span class="badge">tentativo</span></div>
+    </div>
+
+    <div class="day">
+      <h3>Lunes 4 mayo</h3>
+      <div class="item"><div class="time">08:00</div><div class="title">DAS · pagar antes del 20</div><span class="badge">recordatorio</span></div>
+      <div class="item"><div class="time">15:00</div><div class="title">Reunión proveedor materiales</div><span class="badge">confirmado</span></div>
+    </div>
+
+    <p style="text-align:center;color:#94A3B8;font-size:13px;margin-top:24px">Mandale "agendar X" al bot Zé para agregar nuevos · él lo confirma acá</p>
+  </main>
+</body>
+</html>

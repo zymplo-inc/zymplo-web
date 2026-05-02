@@ -1,0 +1,104 @@
+---
+const title = 'Zymplo · Dashboard';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <link rel="icon" href="https://sims.zymplo.com/brand/isotipo.svg">
+  <link rel="apple-touch-icon" href="https://sims.zymplo.com/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://sims.zymplo.com/brand/brand-guidelines/brand-tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Manrope, system-ui, sans-serif; background: #FAFBFF; color: #0A0B14; margin: 0; min-height: 100vh; }
+    header { background: white; border-bottom: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    header .brand { display: flex; align-items: center; gap: 10px; }
+    header img { width: 32px; height: 32px; }
+    header strong { color: #14B8A6; font-size: 18px; }
+    nav { background: white; border-bottom: 1px solid #E2E8F0; padding: 0 20px; display: flex; gap: 6px; overflow-x: auto; }
+    nav a { padding: 14px 16px; color: #475569; text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; }
+    nav a.active { color: #14B8A6; border-bottom-color: #14B8A6; }
+    main { max-width: 1080px; margin: 0 auto; padding: 24px 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: white; border-radius: 12px; padding: 20px; border: 1px solid #E2E8F0; }
+    .card h3 { margin: 0 0 12px; font-size: 16px; color: #0A0B14; display: flex; align-items: center; gap: 8px; }
+    .stat { font-size: 28px; font-weight: 800; color: #14B8A6; margin: 4px 0; }
+    .label { color: #94A3B8; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .empty { padding: 32px; text-align: center; color: #94A3B8; }
+    .empty p { margin: 0 0 12px; }
+    .cta { background: #14B8A6; color: white; padding: 10px 20px; border-radius: 8px; display: inline-block; text-decoration: none; font-weight: 600; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .badge.ok { background: #D1FAE5; color: #065F46; }
+    .badge.warn { background: #FEF3C7; color: #92400E; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo">
+      <strong>zymplo</strong>
+    </div>
+    <a href="/app/perfil" style="color:#475569;text-decoration:none;font-weight:600;font-size:14px">Carlos Rejala ▾</a>
+  </header>
+  <nav>
+    <a href="/app/dashboard" class="active">Inicio</a>
+    <a href="/app/agenda">Agenda</a>
+    <a href="/app/cobranzas">Cobranzas</a>
+    <a href="/app/gastos">Gastos</a>
+    <a href="/app/clientes">Clientes</a>
+    <a href="/app/reportes">Reportes</a>
+  </nav>
+
+  <main>
+    <h1 style="margin:0 0 24px;font-size:24px">Resumen del día</h1>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📅 Hoy</h3>
+        <div class="label">Compromisos</div>
+        <div class="stat">3</div>
+        <div style="font-size:13px;color:#475569">Próximo: <strong>14:30</strong> · cliente Diego</div>
+      </div>
+
+      <div class="card">
+        <h3>💰 Cobranzas pendientes</h3>
+        <div class="label">Esperando pago</div>
+        <div class="stat">5</div>
+        <div style="font-size:13px;color:#475569">Total: <strong>₲ 1.450.000</strong></div>
+      </div>
+
+      <div class="card">
+        <h3>🧾 NFS-e este mes</h3>
+        <div class="label">Emitidas</div>
+        <div class="stat">12</div>
+        <div style="font-size:13px;color:#475569">Faltan: <strong>3</strong> · plan Pro</div>
+      </div>
+
+      <div class="card">
+        <h3>📊 Entró este mes</h3>
+        <div class="label">Ingresos confirmados</div>
+        <div class="stat">₲ 8.940.000</div>
+        <div style="font-size:13px;color:#22C55E">+18% vs mes anterior</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>🚀 Bot WhatsApp Zé</h3>
+      <p style="margin:0 0 12px;color:#475569">Tu asistente IA cobra · agenda · emite · todo desde WhatsApp</p>
+      <span class="badge ok">● Activo</span>
+      <span style="color:#94A3B8;font-size:13px;margin-left:8px">Plan Pro · ₲ 29.000/mes</span>
+    </div>
+
+    <div class="empty" style="margin-top:24px">
+      <p>📲 La mayoría de tu actividad pasa por WhatsApp · esto es solo un panel rápido</p>
+      <a href="https://wa.me/14155238886?text=Hola" class="cta">Abrir chat con Zé</a>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:32px 20px;color:#94A3B8;font-size:12px;border-top:1px solid #E2E8F0;margin-top:48px">
+    Zymplo Inc. · agente operacional WhatsApp · <a href="/" style="color:#14B8A6">zymplo.com</a>
+  </footer>
+</body>
+</html>

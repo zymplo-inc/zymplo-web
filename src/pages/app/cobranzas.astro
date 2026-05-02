@@ -1,0 +1,68 @@
+---
+const title = 'Zymplo · Cobranzas';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{title}</title>
+  <link rel="icon" href="https://sims.zymplo.com/brand/isotipo.svg">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Manrope, system-ui, sans-serif; background: #FAFBFF; color: #0A0B14; margin: 0; min-height: 100vh; }
+    header { background: white; border-bottom: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+    header img { width: 32px; height: 32px; }
+    header strong { color: #14B8A6; font-size: 18px; }
+    nav { background: white; border-bottom: 1px solid #E2E8F0; padding: 0 20px; display: flex; gap: 6px; overflow-x: auto; }
+    nav a { padding: 14px 16px; color: #475569; text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; }
+    nav a.active { color: #14B8A6; border-bottom-color: #14B8A6; }
+    main { max-width: 1080px; margin: 0 auto; padding: 24px 20px; }
+    table { width: 100%; background: white; border-radius: 12px; border-collapse: collapse; border: 1px solid #E2E8F0; overflow: hidden; }
+    th, td { padding: 14px; text-align: left; border-bottom: 1px solid #F1F5F9; }
+    th { background: #F8FAFC; font-size: 13px; color: #475569; }
+    .amount { font-weight: 700; color: #14B8A6; }
+    .badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .badge.pending { background: #FEF3C7; color: #92400E; }
+    .badge.due { background: #FEE2E2; color: #991B1B; }
+    .badge.paid { background: #D1FAE5; color: #065F46; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .stat-card { background: white; padding: 16px; border-radius: 10px; border: 1px solid #E2E8F0; }
+    .label { color: #94A3B8; font-size: 12px; text-transform: uppercase; }
+    .stat { font-size: 24px; font-weight: 800; color: #14B8A6; }
+  </style>
+</head>
+<body>
+  <header><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo"><strong>zymplo</strong></header>
+  <nav>
+    <a href="/app/dashboard">Inicio</a>
+    <a href="/app/agenda">Agenda</a>
+    <a href="/app/cobranzas" class="active">Cobranzas</a>
+    <a href="/app/gastos">Gastos</a>
+    <a href="/app/clientes">Clientes</a>
+  </nav>
+
+  <main>
+    <h1 style="margin:0 0 24px;font-size:24px">Cobranzas</h1>
+
+    <div class="summary">
+      <div class="stat-card"><div class="label">Pendiente</div><div class="stat">₲ 1.450.000</div></div>
+      <div class="stat-card"><div class="label">Cobrado este mes</div><div class="stat">₲ 8.940.000</div></div>
+      <div class="stat-card"><div class="label">Vencidas</div><div class="stat" style="color:#EF4444">₲ 320.000</div></div>
+    </div>
+
+    <table>
+      <thead><tr><th>Cliente</th><th>Concepto</th><th>Monto</th><th>Vence</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Diego Silva</td><td>Instalación eléctrica oficina</td><td class="amount">₲ 580.000</td><td>5 may</td><td><span class="badge pending">esperando</span></td></tr>
+        <tr><td>Luana Oliveira</td><td>Reforma baño · materiales</td><td class="amount">₲ 320.000</td><td>30 abr</td><td><span class="badge due">vencida</span></td></tr>
+        <tr><td>Raimundo Costa</td><td>Reparación cañerías</td><td class="amount">₲ 250.000</td><td>4 may</td><td><span class="badge pending">esperando</span></td></tr>
+        <tr><td>María González</td><td>Mantenimiento mensual</td><td class="amount">₲ 150.000</td><td>10 may</td><td><span class="badge pending">esperando</span></td></tr>
+        <tr><td>Pedro Méndez</td><td>Pintura cocina</td><td class="amount">₲ 150.000</td><td>15 may</td><td><span class="badge pending">esperando</span></td></tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center;color:#94A3B8;font-size:13px;margin-top:24px">Zé bot manda recordatorios automáticos por WhatsApp · vos no perseguís a nadie</p>
+  </main>
+</body>
+</html>
