@@ -37,7 +37,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Pix', 'Boleto', 'Cartão'],
     slang: ['véi', 'oxe', 'uai', 'tchê'],
     cta: { primary: 'Bora começar 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Grátis', starter: 'R$ 19', pro: 'R$ 39', gold: 'R$ 79', b2b: 'R$ 149' },
+    pricing: { free: 'Grátis', starter: 'R$ 19', pro: 'R$ 39', gold: 'R$ 79' },
     videoSrc: '/videos/hero/br.mp4',
   },
   mx: {
@@ -53,7 +53,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SPEI', 'CoDi', 'OXXO'],
     slang: ['chido', 'güey', 'órale', 'neta'],
     cta: { primary: 'Vamos a empezar 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$99 MXN', pro: '$199 MXN', gold: '$399 MXN' },
+    pricing: { free: 'Gratis', starter: '$ 119 MXN', pro: '$ 249 MXN', gold: '$ 499 MXN' },
     videoSrc: '/videos/hero/mx.mp4',
   },
   us: {
@@ -69,7 +69,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['ACH', 'Zelle', 'Stripe'],
     slang: ["y'all", 'gonna', 'totally'],
     cta: { primary: "Let's go 💪", secondary: 'Watch demo 90s ▶' },
-    pricing: { free: 'Free', starter: '$5 USD', pro: '$10 USD', gold: '$20 USD' },
+    pricing: { free: 'Free', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
     videoSrc: '/videos/hero/us.mp4',
   },
   co: {
@@ -85,7 +85,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['PSE', 'Wompi', 'Nequi'],
     slang: ['bacano', 'parce', 'rumba'],
     cta: { primary: 'Dale parce 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$19.000 COP', pro: '$39.000 COP', gold: '$79.000 COP' },
+    pricing: { free: 'Gratis', starter: '$ 15.000 COP', pro: '$ 29.000 COP', gold: '$ 59.000 COP' },
     videoSrc: '/videos/hero/co.mp4',
   },
   es: {
@@ -101,7 +101,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SEPA', 'Bizum'],
     slang: ['tío', 'vale', 'majo', 'guay'],
     cta: { primary: 'A por ello 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '€4', pro: '€9', gold: '€19' },
+    pricing: { free: 'Gratis', starter: '€ 3.99', pro: '€ 7.99', gold: '€ 15.99' },
     videoSrc: '/videos/hero/es.mp4',
   },
   ar: {
@@ -117,7 +117,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['MercadoPago', 'Transferencia'],
     slang: ['che', 'boludo', 'viste', 're'],
     cta: { primary: 'Dale que 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$4.000 ARS', pro: '$9.000 ARS', gold: '$19.000 ARS' },
+    pricing: { free: 'Gratis', starter: '$ 5.519 ARS (USD-pegged)', pro: '$ 11.039 ARS (USD-pegged)', gold: '$ 22.089 ARS (USD-pegged)' },
     videoSrc: '/videos/hero/ar.mp4',
   },
   py: {
@@ -133,7 +133,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Personal Pay'],
     slang: ['metele', 'dale que', 'estamos arreglando', 'pio'],
     cta: { primary: 'Metele 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '₲ 35.000', pro: '₲ 75.000', gold: '₲ 149.000' },
+    pricing: { free: 'Gratis', starter: '₲ 14.000', pro: '₲ 29.000', gold: '₲ 59.000' },
     videoSrc: '/videos/hero/py.mp4',
   },
   pe: {
@@ -149,7 +149,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Yape', 'Plin', 'BIM'],
     slang: ['causa', 'pata', 'chévere', 'jato'],
     cta: { primary: 'Vamos causa 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'S/ 9', pro: 'S/ 19', gold: 'S/ 39' },
+    pricing: { free: 'Gratis', starter: 'S/ 14', pro: 'S/ 29', gold: 'S/ 59' },
     videoSrc: '/videos/hero/pe.mp4',
   },
   ec: {
@@ -165,7 +165,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['DeUna!', 'Pichincha', 'BIM'],
     slang: ['chévere', 'bacán', 'pana', 'simón'],
     cta: { primary: 'Dale pana 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$5 USD', pro: '$10 USD', gold: '$20 USD' },
+    pricing: { free: 'Gratis', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
     videoSrc: '/videos/hero/ec.mp4',
   },
   cl: {
@@ -181,7 +181,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Webpay', 'Mercado Pago', 'Transferencia'],
     slang: ['po', 'cachai', 'bacán', 'fome'],
     cta: { primary: 'Dale po 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$4.900 CLP', pro: '$9.900 CLP', gold: '$19.900 CLP' },
+    pricing: { free: 'Gratis', starter: '$ 3.490 CLP', pro: '$ 6.990 CLP', gold: '$ 13.990 CLP' },
     videoSrc: '/videos/hero/cl.mp4',
   },
   uy: {
@@ -197,7 +197,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Mercado Pago', 'Redpagos', 'Transferencia'],
     slang: ['bo', 'ta', 'de pinga', 'masa'],
     cta: { primary: 'Dale bo 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$U 200', pro: '$U 400', gold: '$U 800' },
+    pricing: { free: 'Gratis', starter: '$U 159', pro: '$U 329', gold: '$U 649' },
     videoSrc: '/videos/hero/uy.mp4',
   },
   bo: {
@@ -213,7 +213,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Soli', 'Transferencia'],
     slang: ['pues', 'jaila', 'choco', 'qué pasó'],
     cta: { primary: 'Vamos pues 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'Bs 35', pro: 'Bs 75', gold: 'Bs 149' },
+    pricing: { free: 'Gratis', starter: 'Bs 29', pro: 'Bs 59', gold: 'Bs 109' },
     videoSrc: '/videos/hero/bo.mp4',
   },
   cr: {
@@ -229,7 +229,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SINPE Móvil', 'Transferencia'],
     slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
     cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '₡ 2.500', pro: '₡ 4.900', gold: '₡ 9.900' },
+    pricing: { free: 'Pura vida', starter: '₡ 1.990', pro: '₡ 3.990', gold: '₡ 7.990' },
     videoSrc: '/videos/hero/cr.mp4',
   },
 };
