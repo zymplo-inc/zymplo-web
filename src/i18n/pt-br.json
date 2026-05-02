@@ -193,7 +193,8 @@
         "title": "Agenda inteligente",
         "desc": "Marque clientes, lembretes e DAS pelo WhatsApp."
       }
-    ]
+    ],
+    "eyebrow": "Funcionalidades"
   },
   "tools": {
     "eyebrow": "100+ ferramentas",
@@ -212,8 +213,6 @@
       "Pix",
       "Cobranças",
       "DAS",
-      "Hora global",
-      "Clima",
       "Moeda",
       "Cripto",
       "Áudio",

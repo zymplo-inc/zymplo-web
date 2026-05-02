@@ -50,7 +50,7 @@ const geo = (dict as any).geo_testimonials ?? {};
   <section id="features" class="organic-bg bg-ink text-paper py-24 md:py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
-        <span class="inline-block px-3 py-1 rounded-full bg-turquesa/15 text-turquesa-light text-xs font-bold uppercase tracking-widest">Features</span>
+        <span class="inline-block px-3 py-1 rounded-full bg-turquesa/15 text-turquesa-light text-xs font-bold uppercase tracking-widest">{(dict.features as any)?.eyebrow ?? 'Funciones'}</span>
         <h2 class="mt-4 font-display text-5xl md:text-7xl font-bold tracking-tightest leading-[0.95]">{dict.features?.title ?? ''}</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

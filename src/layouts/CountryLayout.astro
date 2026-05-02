@@ -146,5 +146,59 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
     <ExitIntent client:idle slug={slug} dict={dict} />
 
     {isEU && <CookieBanner client:idle />}
+
+    <!-- R93c · Twemoji parser · industry-standard emoji rendering · consistent across Chrome/Safari/iOS/Android/Windows -->
+    <script is:inline>
+      (function () {
+        // Defer to idle so it doesn't block paint
+        var run = function () {
+          var s = document.createElement('script');
+          s.crossOrigin = 'anonymous';
+          s.src = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js';
+          s.onload = function () {
+            try {
+              if (window.twemoji && window.twemoji.parse) {
+                window.twemoji.parse(document.body, {
+                  folder: 'svg',
+                  ext: '.svg',
+                  base: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/',
+                  className: 'zymplo-emoji'
+                });
+                // Re-parse on dynamic mutations (React hydration · ticker rotations · live activity)
+                if ('MutationObserver' in window) {
+                  var mo = new MutationObserver(function (muts) {
+                    var nodes = [];
+                    for (var i = 0; i < muts.length; i++) {
+                      for (var j = 0; j < muts[i].addedNodes.length; j++) {
+                        var n = muts[i].addedNodes[j];
+                        if (n.nodeType === 1 && !n.classList.contains('zymplo-emoji')) nodes.push(n);
+                      }
+                    }
+                    if (nodes.length) {
+                      for (var k = 0; k < nodes.length; k++) {
+                        try { window.twemoji.parse(nodes[k], { folder:'svg', ext:'.svg', base:'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/', className:'zymplo-emoji' }); } catch (e) {}
+                      }
+                    }
+                  });
+                  mo.observe(document.body, { childList: true, subtree: true });
+                }
+              }
+            } catch (e) {}
+          };
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 1500 });
+        else setTimeout(run, 200);
+      })();
+    </script>
+    <style is:global>
+      img.zymplo-emoji {
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        margin: 0 0.05em 0 0.1em;
+        vertical-align: -0.1em;
+      }
+    </style>
   </body>
 </html>

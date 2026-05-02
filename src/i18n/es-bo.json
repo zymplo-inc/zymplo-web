@@ -193,7 +193,8 @@
         "title": "Agenda inteligente",
         "desc": "Agenda clientes, recordatorios e impuestos por WhatsApp."
       }
-    ]
+    ],
+    "eyebrow": "Funciones"
   },
   "tools": {
     "eyebrow": "100+ herramientas",
@@ -212,8 +213,6 @@
       "Pagos",
       "Cobros",
       "Impuestos",
-      "Hora global",
-      "Clima",
       "Moneda",
       "Cripto",
       "Audio",

@@ -193,7 +193,8 @@
         "title": "Smart scheduling",
         "desc": "Schedule clients, reminders, and taxes via WhatsApp."
       }
-    ]
+    ],
+    "eyebrow": "Features"
   },
   "tools": {
     "eyebrow": "100+ tools",
@@ -213,7 +214,6 @@
       "Collections",
       "Taxes",
       "World clock",
-      "Weather",
       "Currency",
       "Crypto",
       "Audio",
