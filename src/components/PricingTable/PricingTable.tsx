@@ -4,7 +4,14 @@ import type { Dict } from '@i18n/index';
 
 interface Props { slug: string; country: Country; dict: Dict }
 
-/** PricingTable — 4 planes (+ Contiq B2B opcional para BR). */
+/**
+ * PricingTable v3 — Features-first (Notion-style).
+ *  - Big feature anchor at the top (the value prop, not the price)
+ *  - 4 plan cards: features list FIRST, price below
+ *  - Hover lift (-8px) + shadow-pop on highlight
+ *  - Dark-mode aware via semantic tokens (--bg-raised, --fg-primary, etc.)
+ *  - Optional B2B Contiq strip (BR only)
+ */
 export default function PricingTable({ country, dict }: Props) {
   const p: any = dict.pricing as any;
   const fFree = p.features_free ?? ['100 messages/mo', '5 payments', '1 note'];
@@ -16,59 +23,173 @@ export default function PricingTable({ country, dict }: Props) {
   const ctaSecondary = p.cta_secondary ?? 'Learn about Contiq';
   const b2bLabel = p.b2b_label ?? 'B2B';
   const b2bDesc = p.b2b_desc ?? '';
+  const headlineFeature = p.headline_feature ?? p.features_pro?.[0] ?? 'Unlimited everything';
+  const headlineCaption = p.headline_caption ?? p.subtitle ?? '';
+  const fromLabel = p.from_label ?? 'from';
 
   const plans = [
-    { key: 'free', label: dict.pricing.free_label, price: country.pricing.free, highlight: false, features: fFree },
+    { key: 'free',    label: dict.pricing.free_label,    price: country.pricing.free,    highlight: false, features: fFree    },
     { key: 'starter', label: dict.pricing.starter_label, price: country.pricing.starter, highlight: false, features: fStarter },
-    { key: 'pro', label: dict.pricing.pro_label, price: country.pricing.pro, highlight: true, features: fPro },
-    { key: 'gold', label: dict.pricing.gold_label, price: country.pricing.gold, highlight: false, features: fGold },
+    { key: 'pro',     label: dict.pricing.pro_label,     price: country.pricing.pro,     highlight: true,  features: fPro     },
+    { key: 'gold',    label: dict.pricing.gold_label,    price: country.pricing.gold,    highlight: false, features: fGold    },
   ];
 
   return (
-    <section id="pricing" className="bg-paper py-14 md:py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest">{eyebrow}</span>
-          <h2 className="mt-4 font-display text-4xl md:text-6xl font-bold tracking-tightest">{dict.pricing.title}</h2>
+    <section
+      id="pricing"
+      className="organic-bg relative py-14 md:py-20"
+      style={{ background: 'var(--bg-base)', color: 'var(--fg-primary)' }}
+    >
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* HEADER · features-first (the VALUE before the PRICE) */}
+        <div className="text-center mb-14 md:mb-20">
+          <span
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+            style={{ background: 'var(--paler)', color: 'var(--turquesa-deeper)' }}
+          >
+            {eyebrow}
+          </span>
+          <h2
+            className="mt-4 font-display font-bold tracking-tightest leading-[0.95]"
+            style={{ fontSize: 'clamp(40px, 7vw, 88px)' }}
+          >
+            {headlineFeature}
+          </h2>
+          {headlineCaption && (
+            <p
+              className="mt-4 max-w-2xl mx-auto text-base md:text-lg"
+              style={{ color: 'var(--fg-secondary)' }}
+            >
+              {headlineCaption}
+            </p>
+          )}
+          <p className="mt-3 text-sm" style={{ color: 'var(--fg-mute)' }}>
+            {fromLabel} <span className="font-semibold" style={{ color: 'var(--fg-primary)' }}>{country.pricing.free}</span>
+            {' · '}
+            {dict.pricing.title}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {plans.map((pl) => (
-            <div
-              key={pl.key}
-              className={`relative rounded-3xl p-7 border ${pl.highlight ? 'bg-ink text-paper border-ink shadow-[0_30px_60px_-20px_rgba(20,184,166,0.4)]' : 'bg-white border-ink/10'}`}
-            >
-              {pl.highlight && (
-                <span className="absolute -top-3 left-7 bg-turquesa text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">{popular}</span>
-              )}
-              <div className={`text-sm font-bold uppercase tracking-widest ${pl.highlight ? 'text-turquesa-light' : 'text-mute'}`}>{pl.label}</div>
-              <div className="mt-3 flex items-baseline gap-1">
-                <span className="font-display text-4xl font-bold tracking-tightest">{pl.price}</span>
-                {pl.key !== 'free' && <span className={pl.highlight ? 'text-paper/60' : 'text-mute'}>{dict.pricing.month}</span>}
+          {plans.map((pl) => {
+            const isHi = pl.highlight;
+            return (
+              <div
+                key={pl.key}
+                className="pricing-card relative rounded-3xl p-7 flex flex-col"
+                data-highlight={isHi ? 'true' : 'false'}
+                style={{
+                  background: isHi ? 'var(--ink)' : 'var(--bg-raised)',
+                  color: isHi ? 'var(--paper)' : 'var(--fg-primary)',
+                  border: '1px solid ' + (isHi ? 'var(--ink)' : 'var(--border-subtle)'),
+                  boxShadow: isHi ? 'var(--shadow-pop)' : 'var(--shadow-card)',
+                  transition: 'transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-out-expo)',
+                }}
+              >
+                {isHi && (
+                  <span
+                    className="absolute -top-3 left-7 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                    style={{ background: 'var(--turquesa)', color: '#fff' }}
+                  >
+                    {popular}
+                  </span>
+                )}
+
+                {/* PLAN LABEL */}
+                <div
+                  className="text-xs font-bold uppercase tracking-widest"
+                  style={{ color: isHi ? 'var(--turquesa-light)' : 'var(--fg-mute)' }}
+                >
+                  {pl.label}
+                </div>
+
+                {/* FEATURES FIRST · the value */}
+                <ul className="mt-5 space-y-2.5 text-sm flex-1">
+                  {pl.features.map((f: string, i: number) => (
+                    <li key={f} className="flex gap-2 items-start">
+                      <span
+                        className="mt-0.5"
+                        style={{ color: isHi ? 'var(--turquesa-light)' : 'var(--turquesa)' }}
+                      >
+                        ✓
+                      </span>
+                      <span
+                        className={i === 0 ? 'font-semibold' : ''}
+                        style={i === 0
+                          ? { color: isHi ? 'var(--paper)' : 'var(--fg-primary)' }
+                          : { color: isHi ? 'rgba(250,251,255,0.85)' : 'var(--fg-secondary)' }}
+                      >
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* PRICE · secondary, smaller, separator above */}
+                <div
+                  className="mt-6 pt-5"
+                  style={{ borderTop: '1px solid ' + (isHi ? 'rgba(250,251,255,0.10)' : 'var(--border-subtle)') }}
+                >
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-display text-3xl font-bold tracking-tightest">{pl.price}</span>
+                    {pl.key !== 'free' && (
+                      <span style={{ color: isHi ? 'rgba(250,251,255,0.55)' : 'var(--fg-mute)' }}>
+                        {dict.pricing.month}
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={waLink(country.slug, pl.label)}
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-4 block text-center font-semibold text-sm py-3 rounded-full transition"
+                    style={{
+                      background: isHi ? 'var(--turquesa)' : 'var(--bg-overlay)',
+                      color: isHi ? '#fff' : 'var(--fg-primary)',
+                    }}
+                  >
+                    {country.cta.primary}
+                  </a>
+                </div>
               </div>
-              <ul className="mt-6 space-y-2 text-sm">
-                {pl.features.map((f: string) => (
-                  <li key={f} className="flex gap-2 items-start"><span className="text-turquesa">✓</span><span>{f}</span></li>
-                ))}
-              </ul>
-              <a href={waLink(country.slug, pl.label)} target="_blank" rel="noopener" className={`mt-7 block text-center font-semibold text-sm py-3 rounded-full transition ${pl.highlight ? 'bg-turquesa text-white hover:bg-turquesa-dark' : 'bg-ink/5 text-ink hover:bg-ink/10'}`}>
-                {country.cta.primary}
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {country.slug === 'br' && country.pricing.b2b && (
-          <div className="mt-10 rounded-3xl border border-azul/20 bg-gradient-to-br from-azul/5 via-purple/5 to-transparent p-7 flex flex-wrap items-center gap-6 justify-between">
+          <div
+            className="mt-10 rounded-3xl p-7 flex flex-wrap items-center gap-6 justify-between"
+            style={{
+              border: '1px solid color-mix(in oklab, var(--azul) 30%, transparent)',
+              background: 'linear-gradient(135deg, color-mix(in oklab, var(--azul) 8%, transparent), color-mix(in oklab, var(--purple) 6%, transparent), transparent)',
+            }}
+          >
             <div>
-              <div className="text-xs font-bold uppercase tracking-widest text-azul">{b2bLabel}</div>
-              <div className="font-display text-2xl font-bold tracking-tightest mt-1">Contiq · {country.pricing.b2b}{dict.pricing.month}</div>
-              <p className="text-mute text-sm mt-1 max-w-md">{b2bDesc}</p>
+              <div className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--azul)' }}>{b2bLabel}</div>
+              <div className="font-display text-2xl font-bold tracking-tightest mt-1">
+                Contiq · {country.pricing.b2b}{dict.pricing.month}
+              </div>
+              <p className="text-sm mt-1 max-w-md" style={{ color: 'var(--fg-mute)' }}>{b2bDesc}</p>
             </div>
-            <a href="/br/contiq/" className="bg-azul text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-purple transition">{ctaSecondary}</a>
+            <a
+              href="/br/contiq/"
+              className="font-semibold text-sm px-6 py-3 rounded-full transition"
+              style={{ background: 'var(--azul)', color: '#fff' }}
+            >
+              {ctaSecondary}
+            </a>
           </div>
         )}
       </div>
+
+      <style>{`
+        .pricing-card:hover { transform: translateY(-8px); }
+        .pricing-card[data-highlight="true"]:hover { transform: translateY(-12px) scale(1.01); }
+        @media (prefers-reduced-motion: reduce) {
+          .pricing-card { transition: none !important; }
+          .pricing-card:hover { transform: none !important; }
+        }
+      `}</style>
     </section>
   );
 }

@@ -47,33 +47,23 @@ const geo = (dict as any).geo_testimonials ?? {};
     </div>
   </section>
 
-  <section id="features" class="bg-ink text-paper py-24 md:py-32">
+  <section id="features" class="organic-bg bg-ink text-paper py-24 md:py-32 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <span class="inline-block px-3 py-1 rounded-full bg-turquesa/15 text-turquesa-light text-xs font-bold uppercase tracking-widest">Features</span>
         <h2 class="mt-4 font-display text-5xl md:text-7xl font-bold tracking-tightest leading-[0.95]">{dict.features?.title ?? ''}</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {dict.features?.items?.map((it: any, idx: number) => {
+        {dict.features?.items?.map((it: any) => {
           const emojiToName: any = {
             '💰': 'money', '🧾': 'receipt', '📊': 'chart', '📅': 'calendar',
             '💵': 'money', '🛒': 'money', '⏰': 'calendar', '✅': 'receipt',
             '📝': 'receipt', '📈': 'chart',
           };
           const iconName = emojiToName[it.icon] || (it.icon && it.icon.length > 2 ? it.icon : 'money');
-          // Demo C · Stripe-style 3D-rendered gradient icons · color-coded per feature
-          const gradients = [
-            'linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%)',  // golden
-            'linear-gradient(135deg, #86EFAC 0%, #22C55E 100%)',  // green
-            'linear-gradient(135deg, #5EEAD4 0%, #14B8A6 100%)',  // turquesa
-            'linear-gradient(135deg, #C7D2FE 0%, #6366F1 100%)',  // indigo
-            'linear-gradient(135deg, #FDA4AF 0%, #E11D48 100%)',  // rose
-            'linear-gradient(135deg, #DDD6FE 0%, #7C3AED 100%)',  // violet
-          ];
-          const gradient = gradients[idx % gradients.length];
           return (
-            <div class="feat-card bg-white/5 backdrop-blur rounded-3xl p-7 border border-white/10 flex flex-col items-center text-center" style="transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), background-color 320ms cubic-bezier(0.16, 1, 0.3, 1), border-color 320ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1);">
-              <div class="flex items-center justify-center w-16 h-16 rounded-2xl text-white shadow-lg" style={`background: ${gradient}; box-shadow: 0 8px 24px -8px ${gradient.includes('FCD34D') ? 'rgba(245,158,11,0.5)' : gradient.includes('86EFAC') ? 'rgba(34,197,94,0.5)' : gradient.includes('5EEAD4') ? 'rgba(20,184,166,0.5)' : gradient.includes('C7D2FE') ? 'rgba(99,102,241,0.5)' : gradient.includes('FDA4AF') ? 'rgba(225,29,72,0.5)' : 'rgba(124,58,237,0.5)'};`}>
+            <div class="bg-white/5 backdrop-blur rounded-3xl p-7 border border-white/10 hover:bg-white/10 hover:border-turquesa/40 transition flex flex-col items-center text-center">
+              <div class="flex items-center justify-center w-16 h-16 rounded-2xl bg-turquesa/10 ring-1 ring-turquesa/20">
                 <FeatureIcon name={iconName} size={40} />
               </div>
               <div class="mt-5 font-display font-bold text-xl text-paper">{it.title}</div>
@@ -82,14 +72,6 @@ const geo = (dict as any).geo_testimonials ?? {};
           );
         })}
       </div>
-      <style>
-        .feat-card:hover {
-          transform: translateY(-4px) scale(1.01);
-          background-color: rgba(255,255,255,0.10) !important;
-          border-color: rgba(20,184,166,0.4) !important;
-          box-shadow: 0 24px 48px -12px rgba(20,184,166,0.25);
-        }
-      </style>
     </div>
   </section>
 
@@ -181,7 +163,9 @@ const geo = (dict as any).geo_testimonials ?? {};
   <!-- Video testimonials · 15s vertical clips carousel (Sonnet + Qwen + GPT consensus) -->
   <VideoTestimonials slug={slug} dict={dict} />
 
-  <PricingTable client:visible slug={slug} country={c} dict={dict} />
+  <div class="organic-bg overflow-hidden">
+    <PricingTable client:visible slug={slug} country={c} dict={dict} />
+  </div>
 
   <!-- Pre-footer · Apps band (mobile apps coming soon teaser) -->
   <QRConnect slug={slug} dict={dict} />

@@ -6,25 +6,26 @@
     "solutions": "Soluções",
     "resources": "Recursos",
     "login": "Entrar",
-    "cta": "Começar grátis"
+    "cta": "Começar grátis",
+    "theme_toggle": "Trocar tema"
   },
   "hero": {
-    "eyebrow": "Seu assistente IA",
+    "eyebrow": "Sua secretária IA no WhatsApp",
     "headline_a": "Cobre, organize, fature. Tudo no WhatsApp.",
     "headline_b": "WhatsApp com IA. Pronto para o seu negócio.",
-    "headline_c": "Seu dia. Mais leve.",
+    "headline_c": "Cobre. Sem perseguir cliente.",
     "rotate": [
       "Cobre clientes sem esforço",
       "Emita NFS-e do WhatsApp",
       "Organize sua agenda no chat",
       "Saiba quanto entrou no mês"
     ],
-    "subline": "O Zymplo cuida · você curte seu tempo.",
+    "subline": "Sua secretária IA. Sem app, sem cadastro. Só conversa.",
     "subline_premium": "Cobranças, NFS-e, agenda e DAS — tudo gerenciado por uma IA dentro do seu WhatsApp.",
-    "subline_bold": "Seu assistente IA no WhatsApp · sempre perto · sempre simples.",
+    "subline_bold": "12.847 MEIs já cobram melhor com a Zymplo.",
     "trust": "Mais de 12.847 microempreendedores",
     "persona_badge": "acaba de cobrar",
-    "subheadline_ai": "O Zymplo cuida de tudo. Você vive o que importa.",
+    "subheadline_ai": "A IA cobra. Você não persegue cliente nunca mais.",
     "cta_microcopy": "Grátis · sem cartão · 7 dias",
     "stats": [
       {
@@ -148,7 +149,7 @@
     "title": "Veja como funciona",
     "online": "online",
     "demo_label": "demo · 90s",
-    "persona_intro": "{name}, {role}, conversa com a Zymplo como se fosse seu assistente.",
+    "persona_intro": "{name}, {role}, conversa com a Zymplo como se fosse sua secretária.",
     "placeholder": "Mensagem",
     "messages": [
       {
@@ -263,7 +264,10 @@
       "Prioridade"
     ],
     "b2b_label": "B2B · Brasil",
-    "b2b_desc": "A camada B2B para escritórios de contabilidade que atendem MEI em escala."
+    "b2b_desc": "A camada B2B para escritórios de contabilidade que atendem MEI em escala.",
+    "headline_feature": "Tudo ilimitado.",
+    "headline_caption": "Mensagens, cobranças, notas. Sem teto, sem surpresa.",
+    "from_label": "a partir de"
   },
   "faq": {
     "eyebrow": "perguntas frequentes",
@@ -293,7 +297,7 @@
   },
   "payments_label": "Aceita todos os meios de pagamento do Brasil",
   "footer": {
-    "tagline": "Sua assistente IA no WhatsApp · sem app · sem cadastro · só conversa.",
+    "tagline": "Sua secretária IA no WhatsApp · sem app · sem cadastro · só conversa.",
     "rights": "Todos os direitos reservados.",
     "made_in": "Feito com ❤ para microempreendedores brasileiros",
     "brand_legal": "Zymplo é uma marca registrada da Zymplo Inc. nos Estados Unidos e em outros países.",
@@ -372,8 +376,8 @@
   },
   "chat_widget": {
     "title": "Falar com a Zymplo",
-    "persona": "Zé · sua assistente IA",
-    "greeting": "Oi! Sou o Zé, sua assistente IA. Posso te ajudar com cobranças, NFS-e, agenda e mais. O que você precisa?",
+    "persona": "Zé · sua secretária IA",
+    "greeting": "Oi! Sou o Zé, sua secretária IA. Posso te ajudar com cobranças, NFS-e, agenda e mais. O que você precisa?",
     "tagline": "Resposta no seu WhatsApp · 100% grátis",
     "ask_placeholder": "Pergunte qualquer coisa…",
     "quick": [
@@ -408,7 +412,7 @@
     "title": "Escaneia · abre o WhatsApp · pronto",
     "subtitle": "Sem app · sem cadastro · sem cartão. Só conversa.",
     "wa_label": "WhatsApp",
-    "wa_sub": "Escaneia para começar a conversar com sua assistente IA",
+    "wa_sub": "Escaneia para começar a conversar com sua secretária IA",
     "app_label": "App móvel",
     "app_sub": "Em breve",
     "app_eyebrow": "Em breve",

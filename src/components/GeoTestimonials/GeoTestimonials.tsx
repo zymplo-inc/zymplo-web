@@ -14,6 +14,14 @@ interface Props {
   intervalMs?: number;
 }
 
+const ACCENT_GRADIENTS = [
+  'linear-gradient(135deg, #14B8A6 0%, #1E4AD4 100%)',
+  'linear-gradient(135deg, #5EEAD4 0%, #14B8A6 100%)',
+  'linear-gradient(135deg, #1E4AD4 0%, #623AE6 100%)',
+  'linear-gradient(135deg, #14B8A6 0%, #623AE6 100%)',
+  'linear-gradient(135deg, #0F9488 0%, #14B8A6 100%)',
+];
+
 /**
  * Geo-testimonios dinámicos · Uber-inspired social proof per region.
  * Rotates an array of city-level success metrics every ~3s.
@@ -29,9 +37,11 @@ export default function GeoTestimonials({ items, eyebrow, title, intervalMs = 35
 
   if (!items || items.length === 0) return null;
   const cur = items[idx];
+  const cityInitial = (cur.city || '?').trim().charAt(0).toUpperCase();
+  const gradient = ACCENT_GRADIENTS[idx % ACCENT_GRADIENTS.length];
 
   return (
-    <section className="bg-paper py-14 md:py-20 border-y border-ink/5">
+    <section className="gt-section relative bg-paper py-14 md:py-20 border-y border-ink/5 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <span className="inline-block px-3 py-1 rounded-full bg-success/10 text-success text-[11px] font-bold uppercase tracking-widest">
           <span className="inline-flex items-center gap-1.5">
@@ -48,20 +58,30 @@ export default function GeoTestimonials({ items, eyebrow, title, intervalMs = 35
 
         <div
           key={idx}
-          className="mt-8 inline-block bg-white rounded-3xl border-2 border-turquesa/15 px-6 py-5 md:px-8 md:py-6 shadow-lg max-w-xl"
-          style={{ animation: 'gt-fade 0.5s ease-out' }}
+          className="gt-card mt-8 inline-flex items-center gap-4 bg-white rounded-3xl border-2 border-turquesa/15 px-5 py-4 md:px-7 md:py-5 shadow-lg max-w-xl text-left"
+          style={{ animation: 'gt-fade 0.5s var(--ease-spring)' }}
         >
-          <div className="flex items-center justify-center gap-3 text-xl md:text-2xl">
-            <span>{cur.emoji ?? '🚀'}</span>
-            <span className="font-display font-bold text-turquesa-deeper">
-              {cur.count.toLocaleString()}
+          <div
+            className="shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center font-display font-bold text-white text-lg md:text-xl ring-2 ring-white shadow-md relative"
+            style={{ background: gradient }}
+            aria-hidden="true"
+          >
+            {cityInitial}
+            <span className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white shadow flex items-center justify-center text-base">
+              {cur.emoji ?? '🚀'}
             </span>
-            <span className="text-ink/80">·</span>
-            <span className="font-semibold text-ink">{cur.city}</span>
-            {cur.state && <span className="text-ink/40 text-sm hidden sm:inline">{cur.state}</span>}
           </div>
-          <div className="mt-2 text-base md:text-lg text-slate font-medium">
-            {cur.metric}
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-baseline gap-x-2 text-lg md:text-xl">
+              <span className="font-display font-bold text-turquesa-deeper">
+                {cur.count.toLocaleString()}
+              </span>
+              <span className="font-semibold text-ink">{cur.city}</span>
+              {cur.state && <span className="text-ink/40 text-xs hidden sm:inline">{cur.state}</span>}
+            </div>
+            <div className="mt-1 text-sm md:text-base text-slate font-medium leading-snug">
+              {cur.metric}
+            </div>
           </div>
         </div>
 

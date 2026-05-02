@@ -9,6 +9,7 @@ import MyAccount from '@components/MyAccount/MyAccount.tsx';
 import ChatWidget from '@components/ChatWidget/ChatWidget.tsx';
 import ExitIntent from '@components/ExitIntent/ExitIntent.tsx';
 import VoiceLangSwitcher from '@components/VoiceLangSwitcher/VoiceLangSwitcher.tsx';
+import ThemeToggle from '@components/ThemeToggle/ThemeToggle.tsx';
 
 interface Props { slug: CountrySlug; title?: string; description?: string; ogImage?: string }
 const { slug, title, description, ogImage } = Astro.props;
@@ -98,11 +99,22 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
     </noscript>
+    <script is:inline>
+      // FOUC-free dark mode: applies before first paint.
+      (function () {
+        try {
+          var saved = localStorage.getItem('zymplo-theme');
+          var prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var theme = (saved === 'light' || saved === 'dark') ? saved : prefers;
+          if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="font-body bg-paper text-ink">
+  <body class="font-body" style="background:var(--bg-base);color:var(--fg-primary)">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-ink focus:text-paper focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
-    <header class="sticky top-0 z-40 backdrop-blur bg-paper/85 border-b border-ink/5">
+    <header class="sticky top-0 z-40 backdrop-blur" style="background:color-mix(in oklab, var(--bg-base) 85%, transparent);border-bottom:1px solid var(--border-subtle)">
       <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
         <a href="/" class="flex items-center gap-2.5 group">
           <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-9 w-9 group-hover:scale-110 transition" />
@@ -115,6 +127,7 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
           <a href="#faq" class="hover:text-turquesa-deeper transition">{dict.nav.resources}</a>
         </nav>
         <div class="flex items-center gap-1.5 md:gap-2.5">
+          <ThemeToggle client:idle ariaLabel={(dict.nav as any).theme_toggle ?? 'Toggle theme'} />
           <VoiceLangSwitcher client:idle currentSlug={slug} dict={dict} />
           <LangSwitcher client:load currentSlug={slug} />
           <MyAccount client:idle slug={slug} dict={dict} />

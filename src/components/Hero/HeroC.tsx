@@ -90,9 +90,7 @@ export default function HeroC({ slug, country, dict }: Props) {
   const shareText = encodeURIComponent(`${headline} → Zymplo`);
 
   return (
-    <section className="relative text-white overflow-hidden flex flex-col" style={{
-      background: 'radial-gradient(ellipse 80% 60% at 20% 20%, rgba(94,234,212,0.35) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 80% 70%, rgba(30,74,212,0.25) 0%, transparent 60%), linear-gradient(135deg, #14B8A6 0%, #0F9488 50%, #0D7C72 100%)',
-    }}>
+    <section className="relative bg-turquesa text-white overflow-hidden flex flex-col">
       {/* Top live signup banner sticky */}
       <div className="relative z-20 bg-ink/40 backdrop-blur border-b border-white/10 py-2">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 text-xs md:text-sm font-medium">
@@ -134,31 +132,17 @@ export default function HeroC({ slug, country, dict }: Props) {
           </div>
         </div>
 
-        {/* HEADLINE GIGANTE · Demo C: Linear-style emphasis + bg-clip gradient en última frase */}
+        {/* HEADLINE GIGANTE · hero · primer impacto visual */}
         <div className="text-center mt-2">
           <h1
             className="font-display leading-[0.88] tracking-tightest text-white"
             style={{ fontSize: 'clamp(64px, 14.5vw, 192px)', fontWeight: 800, letterSpacing: '-0.05em', textShadow: '0 4px 60px rgba(0,0,0,0.18)' }}
           >
-            {(() => {
-              const parts = headline.split('.').filter(Boolean);
-              const lastIdx = parts.length - 1;
-              return parts.map((part, i) => (
-                <span
-                  key={i}
-                  className="block"
-                  style={i === lastIdx ? {
-                    background: 'linear-gradient(90deg, #5EEAD4 0%, #ffffff 60%, #CCFBF1 100%)',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    fontStyle: 'italic',
-                  } : {}}
-                >
-                  {part.trim()}.
-                </span>
-              ));
-            })()}
+            {headline.split('.').filter(Boolean).map((part, i) => (
+              <span key={i} className="block">
+                {part.trim()}.
+              </span>
+            ))}
           </h1>
 
           {subheadlineAI && (
@@ -179,10 +163,8 @@ export default function HeroC({ slug, country, dict }: Props) {
                 href={waLink(slug as CountrySlug)}
                 target="_blank"
                 rel="noopener"
-                className="bg-white text-turquesa-deeper font-bold text-base md:text-lg px-8 md:px-10 py-4 rounded-full shadow-2xl will-change-transform"
-                style={{ transition: 'transform 320ms cubic-bezier(0.16, 1, 0.3, 1), background-color 320ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1)' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 24px 48px -12px rgba(0,0,0,0.35)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+                className="bg-white text-turquesa-deeper font-bold text-base md:text-lg px-8 md:px-10 py-4 rounded-full hover:bg-paper shadow-2xl hero-cta-spring"
+                style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
               >
                 {country.cta.primary}
               </a>
@@ -297,7 +279,12 @@ function FloatingShapes() {
         className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '32px 32px' }}
       />
-      <style>{`@keyframes float-slow { 0%,100% { transform: translate(0,0) } 33% { transform: translate(20px,-30px) } 66% { transform: translate(-20px,15px) } }`}</style>
+      <style>{`
+        @keyframes float-slow { 0%,100% { transform: translate(0,0) } 33% { transform: translate(20px,-30px) } 66% { transform: translate(-20px,15px) } }
+        .hero-cta-spring:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 24px 48px -12px rgba(20, 184, 166, 0.45); }
+        .hero-cta-spring:active { transform: translateY(0) scale(0.98); }
+        @media (prefers-reduced-motion: reduce) { .hero-cta-spring, .hero-cta-spring:hover, .hero-cta-spring:active { transform: none !important; transition: none !important; } }
+      `}</style>
     </div>
   );
 }

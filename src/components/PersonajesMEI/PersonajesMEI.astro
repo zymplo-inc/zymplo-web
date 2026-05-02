@@ -56,7 +56,7 @@ const fallback = ROLE_VIBE.eletricista;
         const vibe = ROLE_VIBE[p.role] ?? fallback;
         const initial = p.name.charAt(0);
         return (
-          <article class="bg-white rounded-3xl p-6 border border-ink/5 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <article class="persona-card bg-white rounded-3xl p-6 border border-ink/5 shadow-sm">
             <div class={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${vibe.bg} mb-4 relative overflow-hidden`}>
               <svg viewBox="0 0 400 300" class="absolute inset-0 w-full h-full" aria-label={`Ilustração de ${p.name}, ${p.role}`}>
                 {/* Símbolo de oficio · accent color · semi-transparente fondo */}
@@ -87,3 +87,18 @@ const fallback = ROLE_VIBE.eletricista;
     </div>
   </div>
 </section>
+
+<style>
+  .persona-card {
+    transition: transform 0.4s var(--ease-spring), box-shadow 0.3s var(--ease-out-expo);
+    will-change: transform;
+  }
+  .persona-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -12px rgba(20, 184, 166, 0.18);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .persona-card { transition: none; }
+    .persona-card:hover { transform: none; }
+  }
+</style>
