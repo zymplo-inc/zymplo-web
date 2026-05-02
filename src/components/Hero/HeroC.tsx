@@ -152,7 +152,25 @@ export default function HeroC({ slug, country, dict }: Props) {
           )}
 
           <p className="mt-3 text-sm md:text-lg text-white/80 max-w-2xl mx-auto">
-            {subline}
+            {/* Subtle serif emphasis on the brand-anchor word (Notion-style intelligence cue) */}
+            {(() => {
+              const anchors = ['WhatsApp', 'IA', 'AI'];
+              let rendered: any = subline;
+              for (const a of anchors) {
+                if (typeof rendered === 'string' && rendered.includes(a)) {
+                  const idx = rendered.indexOf(a);
+                  rendered = (
+                    <>
+                      {rendered.slice(0, idx)}
+                      <em className="serif-emph not-italic">{a}</em>
+                      {rendered.slice(idx + a.length)}
+                    </>
+                  );
+                  break;
+                }
+              }
+              return rendered;
+            })()}
           </p>
 
           {/* CTAs · big primary + watch demo + share buttons inline + QR (desktop only · scan to start) */}
