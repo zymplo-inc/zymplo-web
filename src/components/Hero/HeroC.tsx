@@ -145,33 +145,37 @@ export default function HeroC({ slug, country, dict }: Props) {
             ))}
           </h1>
 
-          {subheadlineAI && (
-            <p className="mt-5 text-base md:text-xl text-white font-semibold max-w-2xl mx-auto">
-              {subheadlineAI}
-            </p>
-          )}
-
-          <p className="mt-3 text-sm md:text-lg text-white/80 max-w-2xl mx-auto">
-            {/* Subtle serif emphasis on the brand-anchor word (Notion-style intelligence cue) */}
-            {(() => {
-              const anchors = ['WhatsApp', 'IA', 'AI'];
-              let rendered: any = subline;
-              for (const a of anchors) {
-                if (typeof rendered === 'string' && rendered.includes(a)) {
-                  const idx = rendered.indexOf(a);
-                  rendered = (
+          {/* Notion-style serif emphasis: wraps brand-anchor words (IA · WhatsApp · AI) in italic Lora gradient */}
+          {(() => {
+            const ANCHORS = ['WhatsApp', 'IA', 'AI'];
+            const emph = (text: string) => {
+              for (const a of ANCHORS) {
+                const idx = text.indexOf(a);
+                if (idx !== -1) {
+                  return (
                     <>
-                      {rendered.slice(0, idx)}
+                      {text.slice(0, idx)}
                       <em className="serif-emph not-italic">{a}</em>
-                      {rendered.slice(idx + a.length)}
+                      {text.slice(idx + a.length)}
                     </>
                   );
-                  break;
                 }
               }
-              return rendered;
-            })()}
-          </p>
+              return text;
+            };
+            return (
+              <>
+                {subheadlineAI && (
+                  <p className="mt-5 text-base md:text-xl text-white font-semibold max-w-2xl mx-auto">
+                    {emph(subheadlineAI)}
+                  </p>
+                )}
+                <p className="mt-3 text-sm md:text-lg text-white/80 max-w-2xl mx-auto">
+                  {emph(subline)}
+                </p>
+              </>
+            );
+          })()}
 
           {/* CTAs · big primary + watch demo + share buttons inline + QR (desktop only · scan to start) */}
           <div className="mt-8 flex flex-wrap gap-x-3 gap-y-4 justify-center items-center">
