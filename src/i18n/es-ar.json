@@ -175,54 +175,106 @@
       {
         "from": "user",
         "text": "¿Cómo arranco hoy?",
-        "time": "09:14"
+        "time": "06:42"
       },
       {
         "from": "bot",
-        "text": "Buen día! 3 citas + 12 cobros pendientes · DAS vence mañana 🔔",
-        "time": "09:14"
+        "text": "Buen día! 4 citas + 8 cobros pendientes · DAS vence mañana 🔔",
+        "time": "06:42"
       },
       {
         "from": "user",
         "text": "Mandá link a los que deben",
-        "time": "09:15"
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links enviados · te aviso apenas paguen",
-        "time": "09:15"
+        "text": "✅ 8 links enviados · te aviso apenas paguen",
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "💸 María pagó $ 185.000 · factura #0234 emitida automatic 🎉",
-        "time": "10:42"
+        "text": "💸 Pedro pagó $ 85.000 · factura #0234 emitida automatic",
+        "time": "07:32"
+      },
+      {
+        "from": "user",
+        "text": "Ya voy a casa de María",
+        "time": "08:15"
       },
       {
         "from": "bot",
-        "text": "📩 Cliente nuevo · Ana Rodríguez pidió presupuesto · le respondí que la contactás hoy",
+        "text": "🚗 Llegada estimada 08:35 · siguiente cliente Ana confirmada 11:00",
+        "time": "08:15"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Cliente nuevo · Ana López pidió presupuesto · le respondí que la contactás hoy",
         "time": "12:20"
       },
       {
         "from": "user",
-        "text": "Sumá cita: Pedro · viernes 9am",
-        "time": "14:08"
+        "text": "Cobrale a Roberto",
+        "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "✅ Pedro · viernes 09:00 · le aviso el jueves 18hs",
-        "time": "14:08"
+        "text": "✅ Link enviado a Roberto · $ 120.000",
+        "time": "13:45"
+      },
+      {
+        "from": "bot",
+        "text": "💸 Roberto pagó · factura #0235 emitida 🎉",
+        "time": "14:32"
       },
       {
         "from": "user",
-        "text": "¿Cuánto facturé este mes?",
-        "time": "17:42"
+        "text": "Sumá Pedro Sosa · viernes 9am",
+        "time": "15:08"
       },
       {
         "from": "bot",
-        "text": "Este mes: $ 1.438.000 · 47 facturas · 12 clientes nuevos · +23% vs el mes pasado 📈",
-        "time": "17:42"
+        "text": "✅ Pedro Sosa · viernes 09:00 · le aviso el jueves 18hs",
+        "time": "15:08"
+      },
+      {
+        "from": "user",
+        "text": "¿Cuánto facturé hoy?",
+        "time": "18:42"
+      },
+      {
+        "from": "bot",
+        "text": "Hoy: $ 425.000 · 6 facturas · 1 cliente nuevo (Ana) 📊",
+        "time": "18:42"
+      },
+      {
+        "from": "user",
+        "text": "Recordame llamar a Carlos mañana",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "📌 Listo · te aviso mañana 09:00",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 Recordatorio · DAS vence mañana · $ 45.800",
+        "time": "21:00"
+      },
+      {
+        "from": "user",
+        "text": "Buenas noches",
+        "time": "23:14"
+      },
+      {
+        "from": "bot",
+        "text": "Hasta mañana! Mañana 4 citas + 5 cobros · descansá 😴",
+        "time": "23:14"
       }
-    ]
+    ],
+    "tagline_warm": "Zymplo se encarga · vos disfrutás tu tiempo.",
+    "trust_strip_label": "13 PAÍSES · 1 MISMO BOT"
   },
   "chat": {
     "title": "Mira cómo funciona",

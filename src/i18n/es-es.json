@@ -175,54 +175,106 @@
       {
         "from": "user",
         "text": "¿Cómo arranco hoy?",
-        "time": "09:14"
+        "time": "06:42"
       },
       {
         "from": "bot",
-        "text": "¡Buen día! 3 citas + 12 cobros pendientes · IVA vence mañana 🔔",
-        "time": "09:14"
+        "text": "¡Buen día! 4 citas + 8 cobros pendientes · IVA vence mañana 🔔",
+        "time": "06:42"
       },
       {
         "from": "user",
         "text": "Manda link a los que deben",
-        "time": "09:15"
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links enviados · te aviso apenas paguen",
-        "time": "09:15"
+        "text": "✅ 8 links enviados · te aviso apenas paguen",
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "💸 María pagó 250 € · factura #0234 emitido automatic 🎉",
-        "time": "10:42"
+        "text": "💸 Pedro pagó 55 € · factura #0234 emitido automatic",
+        "time": "07:32"
+      },
+      {
+        "from": "user",
+        "text": "Ya voy a casa de María",
+        "time": "08:15"
       },
       {
         "from": "bot",
-        "text": "📩 Cliente nuevo · Ana Rodríguez pidió presupuesto · le respondí que la contactas hoy",
+        "text": "🚗 Llegada estimada 08:35 · siguiente cliente Ana confirmada 11:00",
+        "time": "08:15"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Cliente nuevo · Ana López pidió presupuesto · le respondí que la contactas hoy",
         "time": "12:20"
       },
       {
         "from": "user",
-        "text": "Agrega cita: Pedro · viernes 9am",
-        "time": "14:08"
+        "text": "Cóbrale a Roberto",
+        "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "✅ Pedro · viernes 9:00 am · le aviso el jueves 6pm",
-        "time": "14:08"
+        "text": "✅ Link enviado a Roberto · 78 €",
+        "time": "13:45"
+      },
+      {
+        "from": "bot",
+        "text": "💸 Roberto pagó · factura #0235 emitido 🎉",
+        "time": "14:32"
       },
       {
         "from": "user",
-        "text": "¿Cuánto facturé este mes?",
-        "time": "17:42"
+        "text": "Agrega Pedro Sosa · viernes 9am",
+        "time": "15:08"
       },
       {
         "from": "bot",
-        "text": "Este mes: 3.847 € · 47 factura · 12 clientes nuevos · +23% vs el mes pasado 📈",
-        "time": "17:42"
+        "text": "✅ Pedro Sosa · viernes 9:00 am · le aviso el jueves 6pm",
+        "time": "15:08"
+      },
+      {
+        "from": "user",
+        "text": "¿Cuánto facturé hoy?",
+        "time": "18:42"
+      },
+      {
+        "from": "bot",
+        "text": "Hoy: 278 € · 6 factura · 1 cliente nuevo (Ana) 📊",
+        "time": "18:42"
+      },
+      {
+        "from": "user",
+        "text": "Recuérdame llamar a Carlos mañana",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "📌 Listo · te aviso mañana 9:00",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 Recordatorio · IVA vence mañana · 30 €",
+        "time": "21:00"
+      },
+      {
+        "from": "user",
+        "text": "Buenas noches",
+        "time": "23:14"
+      },
+      {
+        "from": "bot",
+        "text": "¡Hasta mañana! Mañana 4 citas + 5 cobros · descansa 😴",
+        "time": "23:14"
       }
-    ]
+    ],
+    "tagline_warm": "Zymplo se encarga · tú disfrutas tu tiempo.",
+    "trust_strip_label": "13 PAÍSES · 1 MISMO BOT"
   },
   "chat": {
     "title": "Mira cómo funciona",

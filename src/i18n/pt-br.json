@@ -175,27 +175,37 @@
       {
         "from": "user",
         "text": "Como tá meu dia?",
-        "time": "09:14"
+        "time": "06:42"
       },
       {
         "from": "bot",
-        "text": "Bom dia! 3 horários + 12 cobranças pendentes · DAS vence amanhã 🔔",
-        "time": "09:14"
+        "text": "Bom dia! 4 horários + 8 cobranças pendentes · DAS vence amanhã 🔔",
+        "time": "06:42"
       },
       {
         "from": "user",
         "text": "Manda link pros que devem",
-        "time": "09:15"
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links enviados · aviso assim que pagam",
-        "time": "09:15"
+        "text": "✅ 8 links enviados · aviso assim que pagam",
+        "time": "06:43"
       },
       {
         "from": "bot",
-        "text": "💸 Luana pagou R$ 250 · NFS-e #0234 emitida automatic 🎉",
-        "time": "10:42"
+        "text": "💸 Pedro pagou R$ 250 · NFS-e #0234 emitida",
+        "time": "07:32"
+      },
+      {
+        "from": "user",
+        "text": "Tô indo na Luana",
+        "time": "08:15"
+      },
+      {
+        "from": "bot",
+        "text": "🚗 Chegada 08:35 · próximo cliente Ana confirmada 11:00",
+        "time": "08:15"
       },
       {
         "from": "bot",
@@ -204,25 +214,67 @@
       },
       {
         "from": "user",
-        "text": "Marca: Pedro · sexta 9h",
-        "time": "14:08"
+        "text": "Cobra do Roberto",
+        "time": "13:45"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Link pro Roberto · R$ 380",
+        "time": "13:45"
+      },
+      {
+        "from": "bot",
+        "text": "💸 Roberto pagou · NFS-e #0235 🎉",
+        "time": "14:32"
+      },
+      {
+        "from": "user",
+        "text": "Marca Pedro · sexta 9h",
+        "time": "15:08"
       },
       {
         "from": "bot",
         "text": "✅ Pedro · sexta 09:00 · aviso quinta 18h",
-        "time": "14:08"
+        "time": "15:08"
       },
       {
         "from": "user",
-        "text": "Quanto faturei esse mês?",
-        "time": "17:42"
+        "text": "Quanto faturei hoje?",
+        "time": "18:42"
       },
       {
         "from": "bot",
-        "text": "Esse mês: R$ 3.847 · 47 NFS-e · 12 clientes novos · +23% vs mês passado 📈",
-        "time": "17:42"
+        "text": "Hoje: R$ 1.250 · 6 NFS-e · 1 cliente novo 📊",
+        "time": "18:42"
+      },
+      {
+        "from": "user",
+        "text": "Lembra eu de ligar pro Carlos amanhã",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "📌 Aviso amanhã 09:00",
+        "time": "19:30"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 DAS vence amanhã · R$ 75",
+        "time": "21:00"
+      },
+      {
+        "from": "user",
+        "text": "Boa noite",
+        "time": "23:14"
+      },
+      {
+        "from": "bot",
+        "text": "Até amanhã! Amanhã 4 horários + 5 cobranças · descansa 😴",
+        "time": "23:14"
       }
-    ]
+    ],
+    "tagline_warm": "Zymplo cuida de tudo · você curte seu tempo.",
+    "trust_strip_label": "13 PAÍSES · 1 MESMO BOT"
   },
   "chat": {
     "title": "Veja como funciona",

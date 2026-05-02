@@ -19,6 +19,9 @@ export default function HeroE({ slug, country, dict }: Props) {
   const ctaMicro = h.cta_microcopy ?? 'No app · no signup · free forever';
   const liveCounterLabel = h.live_counter_label ?? 'collected today';
   const stats: Array<{ value: string; label: string }> = h.stats ?? [];
+  const taglineWarm = h.tagline_warm ?? '';
+  const trustStripLabel = h.trust_strip_label ?? '13 COUNTRIES · 1 SAME BOT';
+  const COUNTRY_FLAGS = ['🇧🇷','🇲🇽','🇺🇸','🇨🇴','🇪🇸','🇦🇷','🇵🇾','🇵🇪','🇨🇱','🇺🇾','🇧🇴','🇪🇨','🇨🇷'];
 
   const superpowers: Superpower[] = h.superpowers ?? [
     { icon: '💰', title: 'Auto-collections', desc: 'Reminders without typing a word' },
@@ -157,6 +160,13 @@ export default function HeroE({ slug, country, dict }: Props) {
               {subline}
             </p>
 
+            {/* Tagline warm · cierre emocional · italic sutil */}
+            {taglineWarm && (
+              <p className="mt-4 text-sm md:text-base text-white/75 italic font-medium lg:max-w-xl">
+                {taglineWarm}
+              </p>
+            )}
+
             {/* CTAs · 1 primary + 1 demo */}
             <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start items-center">
               <div className="flex flex-col gap-1.5 items-center lg:items-start">
@@ -199,6 +209,22 @@ export default function HeroE({ slug, country, dict }: Props) {
                 </div>
               ))}
             </div>
+
+            {/* Trust strip · 13 países · banderitas · social proof geográfico */}
+            <div className="mt-7 flex flex-wrap gap-2 items-center justify-center lg:justify-start">
+              <span className="text-[11px] uppercase tracking-widest text-white/65 font-bold mr-2">
+                {trustStripLabel}
+              </span>
+              {COUNTRY_FLAGS.map((flag, i) => (
+                <span
+                  key={i}
+                  className="text-base md:text-lg opacity-80 hover:opacity-100 transition"
+                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
+                >
+                  {flag}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* RIGHT · animated WhatsApp mockup demo */}
@@ -227,21 +253,29 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
   const onlineLabel = isPT ? 'online · digitando…' : isEN ? 'online · typing…' : 'en línea · escribiendo…';
   const inputPlaceholder = isPT ? 'Mensagem' : isEN ? 'Message' : 'Mensaje';
 
+  // Auto-scroll chat ref to bottom on each new message · smooth UX
+  const chatScrollRef = (() => {
+    if (typeof window === 'undefined') return null;
+    return null;
+  })();
+
   return (
-    <div className="relative max-w-[340px] xl:max-w-[360px] mx-auto lg:ml-4 xl:ml-8">
+    <div className="relative w-[320px] xl:w-[340px] mx-auto lg:ml-4 xl:ml-8" style={{ contain: 'layout' }}>
+      {/* Phone frame · FIXED dimensions · NO aspectRatio (kills jitter R93h fix B) */}
       <div
         className="relative rounded-[2.4rem] overflow-hidden shadow-2xl"
         style={{
           background: '#0B141A',
           border: '9px solid #1F2C33',
-          aspectRatio: '9/19',
+          width: '320px',
+          height: '660px',
         }}
       >
         {/* Phone notch */}
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-full z-20" />
 
-        {/* WA header · pulsing live status */}
-        <div className="flex items-center gap-3 px-4 pt-10 pb-3 relative z-10" style={{ background: '#202C33' }}>
+        {/* WA header · fixed height */}
+        <div className="flex items-center gap-3 px-4 pt-10 pb-3 relative z-10" style={{ background: '#202C33', height: '74px' }}>
           <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-lg" style={{ background: '#14B8A6', color: 'white' }}>Z</div>
           <div className="flex-1 min-w-0">
             <div className="text-white font-semibold text-sm leading-tight">Zymplo</div>
@@ -255,14 +289,18 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
           </div>
         </div>
 
-        {/* Chat area */}
+        {/* Chat area · FIXED height + overflow-y auto · scroll smooth · NO jitter */}
         <div
-          className="flex flex-col gap-2 px-3 py-4 overflow-hidden"
+          ref={(el) => { if (el) el.scrollTop = el.scrollHeight; }}
+          key={`chat-${visibleLines}`}
+          className="flex flex-col gap-2 px-3 py-4"
           style={{
             background: '#0B141A',
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M40 10l8 16 16 2-12 12 4 16-16-8-16 8 4-16-12-12 16-2z\' fill=\'%23182229\' opacity=\'0.4\'/%3E%3C/svg%3E")',
-            minHeight: '560px',
-            maxHeight: '600px',
+            height: '510px',
+            overflowY: 'auto',
+            scrollBehavior: 'smooth',
+            scrollbarWidth: 'none',
           }}
         >
           {lines.slice(0, visibleLines).map((line, i) => (

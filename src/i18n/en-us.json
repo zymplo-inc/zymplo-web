@@ -174,55 +174,107 @@
     "demo_lines": [
       {
         "from": "user",
-        "text": "How's my day looking?",
-        "time": "9:14 AM"
+        "text": "How's my day?",
+        "time": "6:42 AM"
       },
       {
         "from": "bot",
-        "text": "Morning! 3 appointments + 12 pending invoices · taxes due tomorrow 🔔",
-        "time": "9:14 AM"
+        "text": "Morning! 4 appts + 8 pending invoices · taxes due tomorrow 🔔",
+        "time": "6:42 AM"
       },
       {
         "from": "user",
         "text": "Send links to anyone who owes",
-        "time": "9:15 AM"
+        "time": "6:43 AM"
       },
       {
         "from": "bot",
-        "text": "✅ 12 links sent · I'll ping you when they pay",
-        "time": "9:15 AM"
+        "text": "✅ 8 links sent · I'll ping you when they pay",
+        "time": "6:43 AM"
       },
       {
         "from": "bot",
-        "text": "💸 Maria paid $450 · invoice #0234 sent automatically 🎉",
-        "time": "10:42 AM"
+        "text": "💸 Pedro paid $250 · invoice #0234 sent",
+        "time": "7:32 AM"
+      },
+      {
+        "from": "user",
+        "text": "Heading to Maria's now",
+        "time": "8:15 AM"
       },
       {
         "from": "bot",
-        "text": "📩 New lead · Ana Rodriguez requested a quote · I told her you'd contact her today",
+        "text": "🚗 ETA 8:35 AM · next client Ana confirmed 11:00",
+        "time": "8:15 AM"
+      },
+      {
+        "from": "bot",
+        "text": "📩 New lead · Ana Lopez requested a quote · I told her you'd call today",
         "time": "12:20 PM"
       },
       {
         "from": "user",
-        "text": "Add appt: Pedro · Friday 9am",
-        "time": "2:08 PM"
+        "text": "Charge Roberto",
+        "time": "1:45 PM"
       },
       {
         "from": "bot",
-        "text": "✅ Pedro · Friday 9:00 AM · I'll remind him Thursday 6pm",
-        "time": "2:08 PM"
+        "text": "✅ Link sent to Roberto · $380",
+        "time": "1:45 PM"
+      },
+      {
+        "from": "bot",
+        "text": "💸 Roberto paid · invoice #0235 sent 🎉",
+        "time": "2:32 PM"
       },
       {
         "from": "user",
-        "text": "How much did I bill this month?",
-        "time": "5:42 PM"
+        "text": "Add Pedro Sosa · Friday 9am",
+        "time": "3:08 PM"
       },
       {
         "from": "bot",
-        "text": "This month: $5,847 · 47 invoices · 12 new clients · +23% vs last month 📈",
-        "time": "5:42 PM"
+        "text": "✅ Pedro Sosa · Friday 9:00 AM · I'll remind him Thursday 6pm",
+        "time": "3:08 PM"
+      },
+      {
+        "from": "user",
+        "text": "How much did I bill today?",
+        "time": "6:42 PM"
+      },
+      {
+        "from": "bot",
+        "text": "Today: $1,250 · 6 invoices · 1 new client (Ana) 📊",
+        "time": "6:42 PM"
+      },
+      {
+        "from": "user",
+        "text": "Remind me to call Carlos tomorrow",
+        "time": "7:30 PM"
+      },
+      {
+        "from": "bot",
+        "text": "📌 Got it · I'll ping you tomorrow 9:00 AM",
+        "time": "7:30 PM"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 Reminder · taxes due tomorrow · $185",
+        "time": "9:00 PM"
+      },
+      {
+        "from": "user",
+        "text": "Good night",
+        "time": "11:14 PM"
+      },
+      {
+        "from": "bot",
+        "text": "Sleep well! Tomorrow 4 appts + 5 invoices 😴",
+        "time": "11:14 PM"
       }
-    ]
+    ],
+    "tagline_warm": "Zymplo handles it · you enjoy your time.",
+    "trust_strip_label": "13 COUNTRIES · 1 SAME BOT"
   },
   "chat": {
     "title": "See how it works",
