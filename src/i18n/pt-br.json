@@ -547,7 +547,10 @@
         "metric": "+R$ 2.700/mo",
         "color": "#F59E0B"
       }
-    ]
+    ],
+    "tagline_v2_line1": "Sua vida, mais simples.",
+    "tagline_v2_line2": "Só conversando.",
+    "subline_v2": "Sem app · sem cadastro · tudo pelo WhatsApp."
   },
   "chat_widget": {
     "title": "Falar com a Zymplo",
