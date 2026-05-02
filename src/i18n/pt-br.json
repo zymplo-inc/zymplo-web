@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Pedro pagou R$ 250 · NFS-e #0234 emitida",
+        "text": "💳 Pix detectado · Pedro pagou R$ 250 · NFS-e #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -209,7 +209,17 @@
       },
       {
         "from": "bot",
-        "text": "📩 Cliente novo · Ana Rodrigues pediu orçamento · respondi que você contata hoje",
+        "text": "📩 Lead novo Instagram · Carla pediu info no DM · agendada segunda 15h ⭐",
+        "time": "09:48"
+      },
+      {
+        "from": "bot",
+        "text": "🎵 Lead TikTok · Roberto viu seu reel · enviei seu link",
+        "time": "11:22"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Lead Facebook · Ana Rodrigues pediu orçamento · respondi que você contata hoje",
         "time": "12:20"
       },
       {
@@ -238,13 +248,23 @@
         "time": "15:08"
       },
       {
+        "from": "bot",
+        "text": "🤝 Indicação · Maria indicou Diego · respondi no Insta dele",
+        "time": "16:14"
+      },
+      {
+        "from": "bot",
+        "text": "📊 Hoje: 6 cobros · 3 leads novos (IG·TikTok·FB) · 1 horário",
+        "time": "17:30"
+      },
+      {
         "from": "user",
         "text": "Quanto faturei hoje?",
         "time": "18:42"
       },
       {
         "from": "bot",
-        "text": "Hoje: R$ 1.250 · 6 NFS-e · 1 cliente novo 📊",
+        "text": "Hoje: R$ 1.250 · 6 NFS-e · 3 leads · +18% vs ontem 📈",
         "time": "18:42"
       },
       {
@@ -259,8 +279,33 @@
       },
       {
         "from": "bot",
+        "text": "🎂 Aniversário da Laura hoje · mandar parabéns?",
+        "time": "20:15"
+      },
+      {
+        "from": "user",
+        "text": "Manda",
+        "time": "20:16"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Enviado · Laura respondeu \"obrigada!\" 💚",
+        "time": "20:16"
+      },
+      {
+        "from": "bot",
         "text": "🔔 DAS vence amanhã · R$ 75",
         "time": "21:00"
+      },
+      {
+        "from": "user",
+        "text": "Paguei o DAS",
+        "time": "21:15"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Registrado · próximo vence 17/junho",
+        "time": "21:15"
       },
       {
         "from": "user",
@@ -269,7 +314,7 @@
       },
       {
         "from": "bot",
-        "text": "Até amanhã! Amanhã 4 horários + 5 cobranças · descansa 😴",
+        "text": "Até amanhã! 4 horários + 5 cobranças · descansa 😴",
         "time": "23:14"
       }
     ],

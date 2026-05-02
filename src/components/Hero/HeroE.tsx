@@ -79,21 +79,19 @@ export default function HeroE({ slug, country, dict }: Props) {
     let timers: number[] = [];
     const cycle = () => {
       setVisibleLines(0);
-      // delays per message · escalonado para feel real (timestamps simulan paso del día)
-      const delays = [1300, 2200, 1300, 1800, 2600, 1500, 1900, 1500, 2800];
-      let acc = 600;
+      let acc = 800;
       demoLines.forEach((line, idx) => {
         if (line.from === 'bot') {
-          // typing indicator before bot reply
           timers.push(window.setTimeout(() => setTyping(true), acc));
-          acc += 900;
+          acc += 1300; // typing visible 1.3s · feels real
           timers.push(window.setTimeout(() => setTyping(false), acc));
         }
         timers.push(window.setTimeout(() => setVisibleLines(idx + 1), acc));
-        acc += delays[idx] || 1500;
+        // R93j · slow down · 3.5s avg per message · readable
+        acc += line.text.length > 60 ? 4200 : line.text.length > 30 ? 3500 : 2800;
       });
-      // restart loop after pause
-      timers.push(window.setTimeout(cycle, acc + 4500));
+      // restart loop after long pause · let user complete read
+      timers.push(window.setTimeout(cycle, acc + 8000));
     };
     cycle();
     return () => timers.forEach(clearTimeout);
@@ -128,7 +126,7 @@ export default function HeroE({ slug, country, dict }: Props) {
       <FloatingShapes />
 
       <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16 w-full z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-x-12 xl:gap-x-20 2xl:gap-x-24 gap-y-12 items-center text-center lg:text-left">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-x-12 xl:gap-x-20 2xl:gap-x-24 gap-y-12 lg:items-start items-center text-center lg:text-left">
           {/* LEFT · Outcome headline + subline + 2 CTAs + 4 superpowers */}
           <div>
             <h1
@@ -289,9 +287,15 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
           </div>
         </div>
 
-        {/* Chat area · FIXED height + overflow-y auto · scroll smooth · NO jitter */}
+        {/* Chat area · FIXED height + overflow-y hidden when few msgs · scroll only when needed · NO jitter NO smooth-scroll bug */}
         <div
-          ref={(el) => { if (el) el.scrollTop = el.scrollHeight; }}
+          ref={(el) => {
+            if (!el) return;
+            // Only auto-scroll if content overflows · prevents fake-scroll jitter on early messages
+            if (el.scrollHeight > el.clientHeight) {
+              el.scrollTop = el.scrollHeight;
+            }
+          }}
           key={`chat-${visibleLines}`}
           className="flex flex-col gap-2 px-3 py-4"
           style={{
@@ -299,7 +303,7 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M40 10l8 16 16 2-12 12 4 16-16-8-16 8 4-16-12-12 16-2z\' fill=\'%23182229\' opacity=\'0.4\'/%3E%3C/svg%3E")',
             height: '510px',
             overflowY: 'auto',
-            scrollBehavior: 'smooth',
+            scrollBehavior: 'auto',
             scrollbarWidth: 'none',
           }}
         >

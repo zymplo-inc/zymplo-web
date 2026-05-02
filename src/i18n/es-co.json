@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "¡Buen día! 4 citas + 8 cobros pendientes · DIAN vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · DIAN vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Pedro pagó $3.420.000 COP · factura #0234 emitido automatic",
+        "text": "💳 Pix detectado · Pedro pagó $ 3.420.000 COP · factura #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -209,7 +209,17 @@
       },
       {
         "from": "bot",
-        "text": "📩 Cliente nuevo · Ana López pidió presupuesto · le respondí que la contactas hoy",
+        "text": "📩 Lead nuevo Instagram · Carla pidió info por DM · le mandé tu mensaje · agendada lunes 15hs ⭐",
+        "time": "09:48"
+      },
+      {
+        "from": "bot",
+        "text": "🎵 Lead TikTok · Roberto vio tu reel · le mandé tu link de cobro",
+        "time": "11:22"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Lead Facebook · Ana López pidió presupuesto · le respondí que la contactas hoy",
         "time": "12:20"
       },
       {
@@ -219,12 +229,12 @@
       },
       {
         "from": "bot",
-        "text": "✅ Link enviado a Roberto · $4.820.000 COP",
+        "text": "✅ Link enviado a Roberto · $ 4.820.000 COP",
         "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "💸 Roberto pagó · factura #0235 emitido 🎉",
+        "text": "💸 Roberto pagó · factura #0235 emitida 🎉",
         "time": "14:32"
       },
       {
@@ -234,8 +244,18 @@
       },
       {
         "from": "bot",
-        "text": "✅ Pedro Sosa · viernes 9:00 am · le aviso el jueves 6pm",
+        "text": "✅ Pedro Sosa · viernes 09:00 · le aviso el jueves 18hs",
         "time": "15:08"
+      },
+      {
+        "from": "bot",
+        "text": "🤝 Referido nuevo · María recomendó a Diego · le respondí en su Insta",
+        "time": "16:14"
+      },
+      {
+        "from": "bot",
+        "text": "📊 Día: 6 cobros · 3 leads nuevos (IG·TikTok·FB) · 1 cita agregada",
+        "time": "17:30"
       },
       {
         "from": "user",
@@ -244,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: $17.080.000 COP · 6 factura · 1 cliente nuevo (Ana) 📊",
+        "text": "Hoy: $ 17.080.000 COP · 6 facturas · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -254,13 +274,38 @@
       },
       {
         "from": "bot",
-        "text": "📌 Listo · te aviso mañana 9:00",
+        "text": "📌 Listo · te aviso mañana 09:00",
         "time": "19:30"
       },
       {
         "from": "bot",
-        "text": "🔔 Recordatorio · DIAN vence mañana · $1.840.000 COP",
+        "text": "🎂 Hoy cumple Laura (cliente desde 2024) · ¿le mando saludo?",
+        "time": "20:15"
+      },
+      {
+        "from": "user",
+        "text": "Sí, dale",
+        "time": "20:16"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Saludo enviado · Laura respondió \"gracias!\" 💚",
+        "time": "20:16"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 DIAN vence mañana 09:00 · $ 1.840.000 COP",
         "time": "21:00"
+      },
+      {
+        "from": "user",
+        "text": "Pagué el DIAN",
+        "time": "21:15"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Registrado · próximo vence 17/junio",
+        "time": "21:15"
       },
       {
         "from": "user",
@@ -269,7 +314,7 @@
       },
       {
         "from": "bot",
-        "text": "¡Hasta mañana! Mañana 4 citas + 5 cobros · descansa 😴",
+        "text": "Hasta mañana! 4 citas + 5 cobros · descansa 😴",
         "time": "23:14"
       }
     ],

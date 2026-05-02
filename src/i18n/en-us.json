@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Pedro paid $250 · invoice #0234 sent",
+        "text": "💳 Pix detected · Pedro paid $250 · invoice #0234 sent automatic",
         "time": "7:32 AM"
       },
       {
@@ -204,12 +204,22 @@
       },
       {
         "from": "bot",
-        "text": "🚗 ETA 8:35 AM · next client Ana confirmed 11:00",
+        "text": "🚗 ETA 8:35 · next client Ana confirmed 11:00",
         "time": "8:15 AM"
       },
       {
         "from": "bot",
-        "text": "📩 New lead · Ana Lopez requested a quote · I told her you'd call today",
+        "text": "📩 New Instagram lead · Carla asked via DM · I sent your info · booked Mon 3pm ⭐",
+        "time": "9:48 AM"
+      },
+      {
+        "from": "bot",
+        "text": "🎵 TikTok lead · Robert saw your reel · I sent your payment link",
+        "time": "11:22 AM"
+      },
+      {
+        "from": "bot",
+        "text": "📩 Facebook lead · Ana Lopez requested a quote · I told her you'd call today",
         "time": "12:20 PM"
       },
       {
@@ -224,7 +234,7 @@
       },
       {
         "from": "bot",
-        "text": "💸 Roberto paid · invoice #0235 sent 🎉",
+        "text": "💸 Roberto paid · invoice #0235 🎉",
         "time": "2:32 PM"
       },
       {
@@ -238,13 +248,23 @@
         "time": "3:08 PM"
       },
       {
+        "from": "bot",
+        "text": "🤝 New referral · Maria referred Diego · I replied on his IG",
+        "time": "4:14 PM"
+      },
+      {
+        "from": "bot",
+        "text": "📊 Today: 6 paid · 3 new leads (IG·TikTok·FB) · 1 booking added",
+        "time": "5:30 PM"
+      },
+      {
         "from": "user",
         "text": "How much did I bill today?",
         "time": "6:42 PM"
       },
       {
         "from": "bot",
-        "text": "Today: $1,250 · 6 invoices · 1 new client (Ana) 📊",
+        "text": "Today: $1,250 · 6 invoices · 3 new leads · +18% vs yesterday 📈",
         "time": "6:42 PM"
       },
       {
@@ -259,8 +279,33 @@
       },
       {
         "from": "bot",
-        "text": "🔔 Reminder · taxes due tomorrow · $185",
+        "text": "🎂 Laura's birthday today · send greeting?",
+        "time": "8:15 PM"
+      },
+      {
+        "from": "user",
+        "text": "Yes",
+        "time": "8:16 PM"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Sent · Laura replied \"thank you!\" 💚",
+        "time": "8:16 PM"
+      },
+      {
+        "from": "bot",
+        "text": "🔔 Taxes due tomorrow 9 AM · $185",
         "time": "9:00 PM"
+      },
+      {
+        "from": "user",
+        "text": "I paid them",
+        "time": "9:15 PM"
+      },
+      {
+        "from": "bot",
+        "text": "✅ Logged · next due June 17",
+        "time": "9:15 PM"
       },
       {
         "from": "user",
@@ -269,7 +314,7 @@
       },
       {
         "from": "bot",
-        "text": "Sleep well! Tomorrow 4 appts + 5 invoices 😴",
+        "text": "Sleep well! 4 appts + 5 invoices tomorrow 😴",
         "time": "11:14 PM"
       }
     ],
