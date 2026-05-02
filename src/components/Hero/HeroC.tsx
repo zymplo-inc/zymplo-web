@@ -237,6 +237,17 @@ export default function HeroC({ slug, country, dict }: Props) {
                   height={110}
                   className="w-[110px] h-[110px] block"
                   loading="eager"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    // Fallback · si qrserver.com falla (CORS · CSP · timeout) → QR code generator alterno
+                    const t = e.currentTarget;
+                    if (!t.dataset.fallback) {
+                      t.dataset.fallback = '1';
+                      const wa = waLink(slug as CountrySlug).split('?')[0];
+                      t.src = `https://chart.googleapis.com/chart?cht=qr&chs=110x110&chld=M|0&chl=${encodeURIComponent(wa)}`;
+                    }
+                  }}
                 />
               </div>
               <div className="text-left leading-tight">

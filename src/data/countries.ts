@@ -294,8 +294,12 @@ export const LEGAL = {
 } as const;
 
 // QR code generator (WhatsApp deep-link · brand colors via api.qrserver.com)
+// PNG (no SVG) · garantiza compat 100% iOS Safari/Chrome/Firefox/Edge mobile + desktop
+// SVG-cross-origin tiene issues silenciosos en algunos browsers · QR aparecía como broken-image icon
+// `data` simplificado al wa.me link sin text param · evita encoding pesado que rompía en algunos clients
 export const qrLink = (slug: CountrySlug, size = 240): string => {
-  const url = waLink(slug);
+  // Strip the ?text=... portion · QR debe contener solo el wa.me clean (texto se aplica al hacer click)
+  const url = waLink(slug).split('?')[0];
   const params = new URLSearchParams({
     size: `${size}x${size}`,
     data: url,
@@ -303,7 +307,8 @@ export const qrLink = (slug: CountrySlug, size = 240): string => {
     bgcolor: 'FFFFFF',
     margin: '8',
     qzone: '1',
-    format: 'svg',
+    format: 'png',
+    ecc: 'M',
   });
   return `https://api.qrserver.com/v1/create-qr-code/?${params.toString()}`;
 };
