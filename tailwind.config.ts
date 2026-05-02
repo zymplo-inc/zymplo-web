@@ -14,10 +14,12 @@ export default {
         },
         azul: '#1E4AD4',
         purple: '#623AE6',
-        ink: 'var(--fg-primary)',
-        paper: 'var(--bg-base)',
-        slate: 'var(--fg-secondary)',
-        mute: 'var(--fg-mute)',
+        // Hardcoded literal · dark mode aplica via CSS overrides selectivos en tokens.css (NO via tailwind bridge global)
+        // Bridge previo causaba text-paper invisible en dark mode (text → bg color cuando era para text)
+        ink: '#0A0B14',
+        paper: '#FAFBFF',
+        slate: '#1F2937',
+        mute: '#6B7280',
         success: '#22C55E',
         warning: '#F59E0B',
         error: '#EF4444',
