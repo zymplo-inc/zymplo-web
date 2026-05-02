@@ -190,43 +190,46 @@ export default function HeroE({ slug, country, dict }: Props) {
               </a>
             </div>
 
-            {/* 4 superpowers · clean grid · NOT 20 chips */}
-            <div className="mt-10 grid grid-cols-2 gap-3">
-              {superpowers.slice(0, 4).map((sp, i) => (
-                <div
-                  key={i}
-                  className="bg-white/8 backdrop-blur rounded-2xl px-4 py-3.5 border border-white/15 text-left hover:bg-white/12 transition"
-                >
-                  <div className="flex items-start gap-2.5">
-                    <span className="text-2xl shrink-0 leading-none mt-0.5">{sp.icon}</span>
-                    <div className="min-w-0">
-                      <div className="font-semibold text-white text-sm leading-snug">{sp.title}</div>
-                      <div className="text-[11px] md:text-xs text-white/65 mt-0.5 leading-snug">{sp.desc}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Trust strip · 13 países · banderitas · social proof geográfico */}
-            <div className="mt-7 flex flex-wrap gap-2 items-center justify-center lg:justify-start">
-              <span className="text-[11px] uppercase tracking-widest text-white/65 font-bold mr-2">
-                {trustStripLabel}
-              </span>
-              {COUNTRY_FLAGS.map((flag, i) => (
-                <span
-                  key={i}
-                  className="text-base md:text-lg opacity-80 hover:opacity-100 transition"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
-                >
-                  {flag}
-                </span>
-              ))}
-            </div>
           </div>
 
-          {/* RIGHT · animated WhatsApp mockup demo */}
+          {/* RIGHT · animated WhatsApp mockup demo · MOBILE: aparece después de CTAs · ANTES de superpoderes (R93m fix) */}
           <AnimatedDemo lines={demoLines} visibleLines={visibleLines} typing={typing} country={country} />
+        </div>
+
+        {/* 4 superpowers + trust strip · FUERA del grid · full-width · mobile order: AFTER iPhone (R93m) */}
+        <div className="mt-10 lg:mt-14 max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
+          <div className="grid grid-cols-2 gap-3">
+            {superpowers.slice(0, 4).map((sp, i) => (
+              <div
+                key={i}
+                className="bg-white/8 backdrop-blur rounded-2xl px-4 py-3.5 border border-white/15 text-left hover:bg-white/12 transition"
+              >
+                <div className="flex items-start gap-2.5">
+                  <span className="text-2xl shrink-0 leading-none mt-0.5">{sp.icon}</span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-white text-sm leading-snug">{sp.title}</div>
+                    <div className="text-[11px] md:text-xs text-white/65 mt-0.5 leading-snug">{sp.desc}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust strip · 13 países · banderitas */}
+          <div className="mt-7 flex flex-wrap gap-2 items-center justify-center">
+            <span className="text-[11px] uppercase tracking-widest text-white/65 font-bold mr-2">
+              {trustStripLabel}
+            </span>
+            {COUNTRY_FLAGS.map((flag, i) => (
+              <span
+                key={i}
+                className="text-base md:text-lg opacity-80 hover:opacity-100 transition"
+                style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))' }}
+              >
+                {flag}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Stats below */}

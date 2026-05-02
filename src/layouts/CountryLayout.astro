@@ -127,11 +127,14 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
           <a href="#faq" class="hover:text-turquesa-deeper transition">{dict.nav.resources}</a>
         </nav>
         <div class="flex items-center gap-1.5 md:gap-2.5">
-          <ThemeToggle client:idle ariaLabel={(dict.nav as any).theme_toggle ?? 'Toggle theme'} />
-          <VoiceLangSwitcher client:idle currentSlug={slug} dict={dict} />
+          {/* Mobile: minimal · solo lang switcher + CTA · resto en hamburger menu (R93m fix) */}
+          <div class="hidden md:flex items-center gap-1.5 md:gap-2.5">
+            <ThemeToggle client:idle ariaLabel={(dict.nav as any).theme_toggle ?? 'Toggle theme'} />
+            <VoiceLangSwitcher client:idle currentSlug={slug} dict={dict} />
+            <MyAccount client:idle slug={slug} dict={dict} />
+          </div>
           <LangSwitcher client:load currentSlug={slug} />
-          <MyAccount client:idle slug={slug} dict={dict} />
-          <a href={waLink(slug)} target="_blank" rel="noopener" class="hidden sm:inline-flex bg-turquesa hover:bg-turquesa-dark text-white font-semibold text-sm px-4 py-2 rounded-full transition shadow-md hover:shadow-lg">{dict.nav.cta}</a>
+          <a href={waLink(slug)} target="_blank" rel="noopener" class="inline-flex bg-turquesa hover:bg-turquesa-dark text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-full transition shadow-md hover:shadow-lg whitespace-nowrap">{dict.nav.cta}</a>
         </div>
       </div>
     </header>

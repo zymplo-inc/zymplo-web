@@ -13,6 +13,15 @@ interface Props {
  */
 export default function ChatWidget({ slug, dict }: Props) {
   const [open, setOpen] = useState(false);
+  // R93m · delay widget visibility on mobile · prevents covering hero content (6s mobile · 2.5s desktop)
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isMobile = window.innerWidth < 768;
+    const delay = isMobile ? 6000 : 2500;
+    const t = setTimeout(() => setVisible(true), delay);
+    return () => clearTimeout(t);
+  }, []);
   const w = (dict.chat_widget ?? {}) as any;
   const greeting = w.greeting ?? 'Hi! How can I help you today?';
   const persona = w.persona ?? 'Zé · your AI secretary';
@@ -39,7 +48,7 @@ export default function ChatWidget({ slug, dict }: Props) {
   };
 
   return (
-    <div className="fixed z-[60] right-4 bottom-4 md:right-6 md:bottom-6 print:hidden" aria-live="polite">
+    <div className={`fixed z-[60] right-4 bottom-4 md:right-6 md:bottom-6 print:hidden transition-opacity duration-500 ${visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} aria-live="polite">
       {/* Collapsed pill */}
       {!open && (
         <button
