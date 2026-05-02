@@ -275,9 +275,9 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
 
   return (
     <div className="relative w-[320px] xl:w-[340px] mx-auto lg:ml-4 xl:ml-8" style={{ contain: 'layout' }}>
-      {/* Phone frame · FIXED dimensions · NO aspectRatio (kills jitter R93h fix B) */}
+      {/* Phone frame · R93u · breathing micro-motion + glow pulsante turquesa · FIXED dims */}
       <div
-        className="relative rounded-[2.4rem] overflow-hidden shadow-2xl"
+        className="zymplo-phone-frame relative rounded-[2.4rem] overflow-hidden"
         style={{
           background: '#0B141A',
           border: '9px solid #1F2C33',
@@ -319,10 +319,11 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
         >
           {lines.slice(0, visibleLines).map((line, i) => (
             <div
-              key={`${i}-${visibleLines}`}
+              key={i}
               className={`max-w-[82%] ${line.from === 'user' ? 'self-end' : 'self-start'}`}
               style={{
-                animation: `wamsg-pop 0.45s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1)) both`,
+                // R93u · stable key + animation SOLO en último mensaje · resto estático · zero parpadeo · entry slower con blur fade-in
+                animation: i === visibleLines - 1 ? 'wamsg-pop-smooth 0.65s cubic-bezier(0.22, 1, 0.36, 1) both' : 'none',
               }}
             >
               <div
@@ -389,6 +390,47 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
         .dot2 { animation-delay: 0.15s; }
         .dot3 { animation-delay: 0.3s; }
         .animate-bounce-soft { animation: bounce-soft 2s ease-in-out infinite; }
+        /* R93u · message entry slower + smoother · blur fade-in + scale */
+        @keyframes wamsg-pop-smooth {
+          from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.94);
+            filter: blur(2px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+          }
+        }
+        /* R93u · phone breathing micro-motion · float + tilt sutil · 7s ciclo */
+        @keyframes phone-breath {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-5px) rotate(0.35deg); }
+        }
+        /* R93u · phone glow turquesa pulsante · halo lit-from-within */
+        @keyframes phone-glow-pulse {
+          0%, 100% {
+            box-shadow:
+              0 30px 80px -15px rgba(0, 0, 0, 0.5),
+              0 0 70px -10px rgba(94, 234, 212, 0.28),
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+          }
+          50% {
+            box-shadow:
+              0 36px 100px -15px rgba(0, 0, 0, 0.55),
+              0 0 130px -10px rgba(94, 234, 212, 0.5),
+              0 0 60px -10px rgba(20, 184, 166, 0.35),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+          }
+        }
+        .zymplo-phone-frame {
+          animation: phone-breath 7s ease-in-out infinite, phone-glow-pulse 4.5s ease-in-out infinite;
+          will-change: transform, box-shadow;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .zymplo-phone-frame { animation: none !important; }
+        }
         /* R93t · "En WhatsApp." Apple "Wonderful"-style · sheen white viajando + glow pulsante */
         @keyframes zymplo-wa-shimmer-anim {
           0%, 100% { background-position: 0% 50%; }
