@@ -135,14 +135,20 @@ export default function HeroE({ slug, country, dict }: Props) {
             >
               {headline.split('. ').filter(Boolean).map((part: string, i: number) => {
                   const fullPart = part.endsWith('.') ? part : part + '.';
-                  // R93r · WhatsApp verde GitHub-style #2DA44E (-14% saturación vs #22C55E · industry-standard elegant green · menos promo) + whitespace-nowrap mantiene "No/En/On WhatsApp." junto sin break
+                  // R93s · gradient text Apple/Vercel/Linear-style · white → turquesa-light → soft sky-blue · alta contraste arriba (visibilidad) + elegancia abajo · sustituye verde sólido que se perdía contra fondo turquesa
                   const waIdx = fullPart.indexOf('WhatsApp');
                   if (waIdx !== -1) {
                     return (
-                      <span key={i} className="block whitespace-nowrap">
-                        {fullPart.slice(0, waIdx)}
-                        <span style={{ color: '#2DA44E' }}>WhatsApp</span>
-                        {fullPart.slice(waIdx + 'WhatsApp'.length)}
+                      <span
+                        key={i}
+                        className="block whitespace-nowrap bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage: 'linear-gradient(160deg, #FFFFFF 0%, #5EEAD4 55%, #93C5FD 100%)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                        }}
+                      >
+                        {fullPart}
                       </span>
                     );
                   }
