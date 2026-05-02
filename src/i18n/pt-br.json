@@ -240,7 +240,7 @@
     "gold_label": "Gold",
     "month": "/mês",
     "popular": "Mais popular",
-    "cta_secondary": "Conhecer Contiq",
+    "cta_secondary": "",
     "features_free": [
       "100 mensagens/mês",
       "5 cobranças",
@@ -316,7 +316,7 @@
     "link_features": "Recursos",
     "link_pricing": "Preços",
     "link_onboarding": "Onboarding",
-    "link_contiq": "Contiq B2B",
+    "link_contiq": "",
     "link_about": "Sobre",
     "link_careers": "Trabalhe conosco",
     "link_press": "Imprensa",

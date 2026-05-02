@@ -1,28 +1,17 @@
 ---
-import CountryLayout from '@layouts/CountryLayout.astro';
-import { COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import CountryLayout from @layouts/CountryLayout.astro;
+import { COUNTRY_SLUGS, type CountrySlug } from @data/countries;
 
 export function getStaticPaths() {
-  // Contiq is BR-only — but we still generate other slugs that 404 gracefully.
   return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
 }
 const { country: slug } = Astro.params as { country: CountrySlug };
-const isBR = slug === 'br';
 ---
-<CountryLayout slug={slug} title="Zymplo Contiq · B2B (Brasil)">
-  <section class="max-w-4xl mx-auto px-6 py-24">
-    {isBR ? (
-      <>
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-wider">B2B · BR only</span>
-        <h1 class="font-display text-5xl md:text-6xl font-bold tracking-tightest mt-4">Contiq</h1>
-        <p class="mt-4 text-xl text-mute">A camada B2B do Zymplo — para escritórios de contabilidade que atendem MEI em escala. R$ 149/mês.</p>
-        <p class="mt-8 text-mute">TODO: detalhes do produto Contiq, cases, demo, formulário de contato.</p>
-      </>
-    ) : (
-      <>
-        <h1 class="font-display text-4xl font-bold">Contiq is only available in Brazil</h1>
-        <a href="/br/contiq/" class="mt-6 inline-flex bg-turquesa text-white px-6 py-3 rounded-full font-semibold">Go to BR</a>
-      </>
-    )}
+<CountryLayout slug={slug} title="Zymplo · Plan B descontinuado">
+  <section class="max-w-3xl mx-auto px-6 py-32 text-center">
+    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-wider">Aviso</span>
+    <h1 class="font-display text-4xl md:text-5xl font-bold tracking-tightest mt-6">Plan B descontinuado</h1>
+    <p class="mt-6 text-xl text-mute">Zymplo agora foca direto no microempreendedor. Confira os 4 planos atuais para o seu país.</p>
+    <a href={`/${slug}/precios/`} class="mt-10 inline-flex bg-turquesa text-white px-8 py-4 rounded-full font-bold">Ver planos atuais</a>
   </section>
 </CountryLayout>
