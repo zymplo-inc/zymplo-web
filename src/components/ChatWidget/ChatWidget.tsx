@@ -15,12 +15,27 @@ export default function ChatWidget({ slug, dict }: Props) {
   const [open, setOpen] = useState(false);
   // R93m · delay widget visibility on mobile · prevents covering hero content (6s mobile · 2.5s desktop)
   const [visible, setVisible] = useState(false);
+  // R93q · IntersectionObserver footer · widget shrink scale 0.75 + bottom-28 cuando footer >5% visible (Intercom/Drift pattern · zero overlap socials)
+  const [footerNear, setFooterNear] = useState(false);
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const isMobile = window.innerWidth < 768;
     const delay = isMobile ? 6000 : 2500;
     const t = setTimeout(() => setVisible(true), delay);
     return () => clearTimeout(t);
+  }, []);
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return;
+    const footerEl = document.querySelector('footer[data-zymplo-footer]') as HTMLElement | null;
+    if (!footerEl) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => setFooterNear(e.intersectionRatio > 0.05));
+      },
+      { threshold: [0, 0.05, 0.3, 1] }
+    );
+    obs.observe(footerEl);
+    return () => obs.disconnect();
   }, []);
   const w = (dict.chat_widget ?? {}) as any;
   const greeting = w.greeting ?? 'Hi! How can I help you today?';
@@ -48,7 +63,11 @@ export default function ChatWidget({ slug, dict }: Props) {
   };
 
   return (
-    <div className={`fixed z-[60] right-4 bottom-4 md:right-6 md:bottom-6 print:hidden transition-opacity duration-500 ${visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} aria-live="polite">
+    <div
+      className={`fixed z-[60] right-4 md:right-6 print:hidden transition-all duration-300 ease-out ${visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} ${footerNear ? 'bottom-28 md:bottom-32 scale-75' : 'bottom-4 md:bottom-6 scale-100'}`}
+      style={{ transformOrigin: 'bottom right' }}
+      aria-live="polite"
+    >
       {/* Collapsed pill */}
       {!open && (
         <button
