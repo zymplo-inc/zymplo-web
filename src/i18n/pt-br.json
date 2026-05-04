@@ -560,7 +560,8 @@
     "link_integrations": "Integrações",
     "link_developers": "Devs",
     "link_community": "Comunidade",
-    "legal_compliance": "Conformidade"
+    "legal_compliance": "Conformidade",
+    "legal_delete_account": "Excluir conta"
   },
   "chat_widget": {
     "title": "Falar com a Zymplo",

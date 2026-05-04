@@ -780,6 +780,7 @@
     "link_integrations": "Integraciones",
     "link_developers": "Devs",
     "link_community": "Comunidad",
-    "legal_compliance": "Cumplimiento"
+    "legal_compliance": "Cumplimiento",
+    "legal_delete_account": "Eliminar cuenta"
   }
 }
