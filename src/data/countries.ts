@@ -273,6 +273,8 @@ export const LEGAL = {
   terms: '/legal/terms/',
   privacy: '/legal/privacy/',
   cookies: '/legal/cookies/',
+  compliance: '/legal/compliance/',
+  delete_account: '/legal/delete-account/',
   lgpd: '/legal/lgpd/',
   contact: '/contact/',
   press: 'mailto:press@zymplo.com',
