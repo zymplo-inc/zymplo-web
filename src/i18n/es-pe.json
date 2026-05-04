@@ -715,12 +715,12 @@
     "link_onboarding": "Onboarding",
     "link_contiq": "Contiq B2B",
     "link_about": "Sobre nosotros",
-    "link_careers": "Trabaja con nosotros",
+    "link_careers": "Carreras",
     "link_press": "Prensa",
     "link_blog": "Blog",
     "link_help": "Centro de ayuda",
     "link_contact": "Contacto",
-    "link_status": "Status",
+    "link_status": "Estado",
     "link_security": "Seguridad",
     "legal_terms": "Términos",
     "legal_privacy": "Privacidad",
@@ -773,6 +773,13 @@
     "tagline_v2_line1": "Tu vida, más simple.",
     "tagline_v2_line2": "Solo conversando.",
     "subline_v2": "Sin app · sin registro · todo desde WhatsApp.",
-    "link_news": "Novedades"
+    "link_news": "Novedades",
+    "warm_made": "hecho con calidez en LATAM",
+    "section_resources": "Recursos",
+    "section_legal": "Legal",
+    "link_integrations": "Integraciones",
+    "link_developers": "Devs",
+    "link_community": "Comunidad",
+    "legal_compliance": "Cumplimiento"
   }
 }
