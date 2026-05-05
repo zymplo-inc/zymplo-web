@@ -1,0 +1,234 @@
+---
+const title = 'Zymplo · Scrollytelling Lab · V12';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAFBFF" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" />
+    <style is:inline>
+      :root { --paper: #FAFBFF; --ink: #0A0B14; --turq: #14B8A6; --turq-light: #5EEAD4; --turq-paler: #CCFBF1; --mute: #6B7280; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+
+      .nav-back { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.1); border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+      .nav-back img { height: 18px; }
+      .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 6px 12px; background: var(--ink); color: var(--paper); border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+
+      /* progress bar */
+      .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--turq); z-index: 99; transition: width 0.05s linear; }
+
+      .scene { position: relative; min-height: 200vh; }
+      .scene-pinned { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 24px; overflow: hidden; }
+
+      /* Scene 1 · headline reveals with scroll */
+      .s1 .stage { max-width: 1200px; width: 100%; text-align: center; }
+      .s1 .pre { font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--turq); font-weight: 800; opacity: 0.85; }
+      .s1 h1 { font-family: 'Sora', sans-serif; font-weight: 900; font-size: clamp(48px, 11vw, 180px); letter-spacing: -0.05em; line-height: 0.9; margin-top: 16px; }
+      .s1 .word { display: inline-block; opacity: 0; transform: translateY(40px); filter: blur(8px); transition: all 0.6s cubic-bezier(0.22,1,0.36,1); margin: 0 0.18em; }
+      .s1 .word.show { opacity: 1; transform: translateY(0); filter: blur(0); }
+      .s1 .word.accent { background: linear-gradient(115deg, var(--turq), var(--turq-light), var(--turq-paler)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+      /* Scene 2 · SVG path drawing */
+      .s2 { background: var(--ink); color: var(--paper); }
+      .s2 .stage { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; }
+      @media (min-width: 900px) { .s2 .stage { grid-template-columns: 1fr 1.2fr; gap: 60px; } }
+      .s2 h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 72px); letter-spacing: -0.04em; line-height: 1.05; }
+      .s2 h2 em { font-style: normal; background: linear-gradient(115deg, var(--turq-light), var(--turq-paler)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .s2 p { margin-top: 18px; font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 480px; }
+      .svg-stage { aspect-ratio: 1; max-width: 480px; margin: 0 auto; width: 100%; }
+      .svg-path { stroke: var(--turq-light); stroke-width: 2.5; fill: none; stroke-dasharray: 1500; stroke-dashoffset: 1500; transition: stroke-dashoffset 0.4s linear; filter: drop-shadow(0 0 8px var(--turq)); }
+      .svg-node { fill: var(--turq-light); opacity: 0; transition: opacity 0.5s ease-out; }
+      .svg-node-label { fill: var(--paper); font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; opacity: 0; transition: opacity 0.5s ease-out 0.2s; }
+
+      /* Scene 3 · stats counter as scroll */
+      .s3 { background: var(--paper); color: var(--ink); }
+      .s3 .stage { max-width: 1200px; width: 100%; text-align: center; }
+      .s3 .pre { font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--turq); font-weight: 800; }
+      .s3 h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.035em; max-width: 720px; margin: 14px auto 60px; line-height: 1.15; }
+      .s3 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; }
+      .s3 .stat .v { font-family: 'Sora', sans-serif; font-weight: 900; font-size: clamp(48px, 8vw, 96px); letter-spacing: -0.045em; line-height: 1; background: linear-gradient(115deg, var(--turq), var(--turq-paler)); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+      .s3 .stat .l { margin-top: 10px; font-size: 12px; color: var(--mute); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
+
+      /* Scene 4 · final CTA mega type */
+      .s4 { background: linear-gradient(180deg, var(--paper) 0%, var(--turq-paler) 100%); }
+      .s4 .stage { max-width: 1200px; width: 100%; text-align: center; padding: 80px 0; }
+      .s4 h2 { font-family: 'Sora', sans-serif; font-weight: 900; font-size: clamp(56px, 13vw, 200px); letter-spacing: -0.06em; line-height: 0.85; }
+      .s4 h2 em { font-style: normal; color: var(--turq); }
+      .s4 p { margin-top: 22px; font-size: clamp(15px, 2vw, 19px); color: var(--mute); max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+      .s4 .cta { display: inline-flex; align-items: center; gap: 12px; padding: 22px 38px; background: var(--ink); color: var(--paper); border-radius: 999px; font-weight: 800; font-size: 18px; text-decoration: none; margin-top: 36px; box-shadow: 0 16px 50px rgba(0,0,0,0.18); transition: transform 0.3s; }
+      .s4 .cta::after { content: '→'; transition: transform 0.3s; }
+      .s4 .cta:hover { transform: translateY(-3px); }
+      .s4 .cta:hover::after { transform: translateX(4px); }
+      .s4 .micro { margin-top: 14px; font-size: 13px; color: var(--mute); }
+
+      .scroll-hint { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 6px 14px; background: rgba(0,0,0,0.7); color: white; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; z-index: 50; opacity: 0.85; pointer-events: none; transition: opacity 0.3s; }
+
+      .footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 32px 20px; font-size: 12px; }
+      .footer a { color: rgba(255,255,255,0.85); text-decoration: none; margin: 0 10px; }
+
+      @media (prefers-reduced-motion: reduce) { .word { opacity: 1 !important; transform: none !important; filter: none !important; } .svg-path { stroke-dashoffset: 0 !important; } .svg-node, .svg-node-label { opacity: 1 !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+    <a class="nav-back" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← Lab</a>
+    <a class="lab-badge" href="/lab/">12 · Scrollytell</a>
+    <div class="scroll-hint" id="hint">↓ scroll para ver la historia</div>
+
+    <section class="scene s1">
+      <div class="scene-pinned">
+        <div class="stage">
+          <span class="pre">— Una historia · scrollá</span>
+          <h1 id="head">
+            <span class="word">Cobrá.</span>
+            <span class="word">Sin</span>
+            <span class="word">perseguir.</span>
+            <br/>
+            <span class="word accent">La</span>
+            <span class="word accent">IA</span>
+            <span class="word accent">hace</span>
+            <span class="word accent">todo.</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene s2">
+      <div class="scene-pinned">
+        <div class="stage">
+          <div>
+            <h2>Un flujo. <em>Cuatro pasos.</em><br/>Plata adentro.</h2>
+            <p>Detecta · escribe · cobra · te avisa. Vos seguís haciendo lo tuyo. La IA hace el resto.</p>
+          </div>
+          <div class="svg-stage">
+            <svg viewBox="0 0 480 480" id="svgFlow">
+              <path class="svg-path" id="flowPath" d="M 60 80 Q 200 60, 280 140 T 420 240 Q 380 360, 240 380 T 60 420" />
+              <g class="svg-node-group">
+                <circle class="svg-node" cx="60" cy="80" r="14"/>
+                <text class="svg-node-label" x="80" y="86">1 · detecta</text>
+                <circle class="svg-node" cx="280" cy="140" r="14"/>
+                <text class="svg-node-label" x="300" y="146">2 · escribe</text>
+                <circle class="svg-node" cx="420" cy="240" r="14"/>
+                <text class="svg-node-label" x="320" y="246" text-anchor="end">3 · cobra</text>
+                <circle class="svg-node" cx="60" cy="420" r="14"/>
+                <text class="svg-node-label" x="80" y="426">4 · avisa</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene s3">
+      <div class="scene-pinned">
+        <div class="stage">
+          <span class="pre">— Cifras · este mes</span>
+          <h2>Gente real cobrando hoy. <strong>Vos podés ser la próxima.</strong></h2>
+          <div class="stats-grid">
+            <div class="stat"><div class="v" data-target="47.28" data-suffix="M" data-prefix="$">$0M</div><div class="l">cobrados / mes</div></div>
+            <div class="stat"><div class="v" data-target="12847" data-decimals="0">0</div><div class="l">activos hoy</div></div>
+            <div class="stat"><div class="v" data-target="13" data-decimals="0">0</div><div class="l">países</div></div>
+            <div class="stat"><div class="v" data-target="847" data-decimals="0">0</div><div class="l">se sumaron hoy</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene s4">
+      <div class="stage">
+        <h2>Tu turno.<br/><em>Empezá ahora.</em></h2>
+        <p>Mandá un mensaje. La IA empieza a trabajar por vos.<br/>Sin app · sin signup · gratis para siempre.</p>
+        <a class="cta" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Empezar gratis</a>
+        <div class="micro">funciona desde tu WhatsApp · empezás en menos de 10 segundos</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 Zymplo · Scrollytelling Edition · <a href="/lab/">Lab</a> · <a href="/">Landing</a> · <a href="/lab/v13/">V13 →</a>
+    </footer>
+
+    <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = document.getElementById('progress');
+      const hint = document.getElementById('hint');
+      const head = document.getElementById('head');
+      const flowPath = document.getElementById('flowPath');
+      const nodes = document.querySelectorAll('.svg-node');
+      const labels = document.querySelectorAll('.svg-node-label');
+      const stats = document.querySelectorAll('.s3 .stat .v');
+      const wordCount = document.querySelectorAll('#head .word').length;
+
+      let pathLength = 0;
+      if (flowPath) { pathLength = flowPath.getTotalLength(); flowPath.style.strokeDasharray = pathLength; flowPath.style.strokeDashoffset = pathLength; }
+
+      const statsAnimated = new Set();
+
+      function onScroll() {
+        const sy = window.scrollY;
+        const sh = document.documentElement.scrollHeight - window.innerHeight;
+        const total = Math.min(1, sy / sh);
+        progress.style.width = (total * 100) + '%';
+        if (sy > 80) hint.style.opacity = '0';
+        if (reduceMotion) return;
+
+        // Scene 1 · word reveals · 0% to 18% scroll
+        const s1 = document.querySelector('.s1');
+        if (s1) {
+          const r = s1.getBoundingClientRect();
+          const sceneH = s1.offsetHeight - window.innerHeight;
+          const p = Math.max(0, Math.min(1, -r.top / sceneH));
+          const showCount = Math.floor(p * (wordCount + 1));
+          document.querySelectorAll('#head .word').forEach((w, i) => {
+            if (i < showCount) w.classList.add('show'); else w.classList.remove('show');
+          });
+        }
+
+        // Scene 2 · path draw + nodes
+        const s2 = document.querySelector('.s2');
+        if (s2 && pathLength) {
+          const r = s2.getBoundingClientRect();
+          const sceneH = s2.offsetHeight - window.innerHeight;
+          const p = Math.max(0, Math.min(1, -r.top / sceneH));
+          flowPath.style.strokeDashoffset = pathLength * (1 - p);
+          nodes.forEach((n, i) => { n.style.opacity = p > (i + 1) / 5 ? '1' : '0'; });
+          labels.forEach((l, i) => { l.style.opacity = p > (i + 1) / 5 ? '1' : '0'; });
+        }
+
+        // Scene 3 · counters
+        const s3 = document.querySelector('.s3');
+        if (s3) {
+          const r = s3.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.5 && r.bottom > 0 && !statsAnimated.has('done')) {
+            statsAnimated.add('done');
+            stats.forEach((v) => {
+              const target = parseFloat(v.dataset.target || '0');
+              const prefix = v.dataset.prefix || '';
+              const suffix = v.dataset.suffix || '';
+              const decimals = parseInt(v.dataset.decimals ?? (target % 1 ? '2' : '0'));
+              const dur = 1500; const t0 = performance.now();
+              function step(t) {
+                const p = Math.min(1, (t - t0) / dur);
+                const eased = 1 - Math.pow(1 - p, 3);
+                v.textContent = prefix + (target * eased).toLocaleString('es-AR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>

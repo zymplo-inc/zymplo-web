@@ -1,0 +1,184 @@
+---
+const title = 'Zymplo · Notion Doc Lab · V13';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAFAFA" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <style is:inline>
+      :root { --bg: #FFFFFF; --bg-2: #F7F6F3; --ink: #37352F; --mute: #787774; --turq: #14B8A6; --turq-bg: #ECFDF5; --hot: #DC2626; --hot-bg: #FEF2F2; --gold: #D97706; --gold-bg: #FFFBEB; --pink: #EC4899; --pink-bg: #FDF2F8; --blue: #2563EB; --blue-bg: #EFF6FF; --gray-bg: #F1F1EF; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.5; }
+
+      .nav-back { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: var(--bg); color: var(--ink); border: 1px solid rgba(55,53,47,0.16); border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+      .nav-back img { height: 16px; }
+      .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 6px 12px; background: var(--bg-2); color: var(--mute); border: 1px solid rgba(55,53,47,0.16); border-radius: 8px; font-size: 11px; font-weight: 600; text-decoration: none; }
+
+      .doc { max-width: 800px; margin: 0 auto; padding: 80px 60px 80px; }
+      @media (max-width: 700px) { .doc { padding: 60px 24px 60px; } }
+
+      .icon-page { font-size: 56px; line-height: 1; margin-bottom: 12px; }
+      h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; }
+      .props { display: grid; grid-template-columns: 120px 1fr; gap: 0; margin-top: 28px; padding: 12px 0; border-top: 1px solid rgba(55,53,47,0.09); border-bottom: 1px solid rgba(55,53,47,0.09); font-size: 14px; }
+      .props .k { color: var(--mute); font-weight: 500; padding: 4px 8px; }
+      .props .v { padding: 4px 8px; }
+      .props .v .tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 12px; margin-right: 4px; font-weight: 500; }
+      .props .v .tag.green { background: var(--turq-bg); color: var(--turq); }
+      .props .v .tag.blue { background: var(--blue-bg); color: var(--blue); }
+      .props .v .tag.pink { background: var(--pink-bg); color: var(--pink); }
+      .props .v .tag.gold { background: var(--gold-bg); color: var(--gold); }
+      .props .v .tag.gray { background: var(--gray-bg); color: var(--mute); }
+
+      h2 { margin-top: 36px; font-size: 28px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
+      h3 { margin-top: 24px; font-size: 20px; font-weight: 700; line-height: 1.3; }
+      p { margin-top: 12px; line-height: 1.65; }
+      p strong { font-weight: 700; background: rgba(94,234,212,0.18); padding: 0 2px; border-radius: 2px; }
+
+      .callout { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 14px 16px; border-radius: 6px; margin-top: 16px; align-items: start; }
+      .callout.green { background: var(--turq-bg); }
+      .callout.gold { background: var(--gold-bg); }
+      .callout.pink { background: var(--pink-bg); }
+      .callout .ic { font-size: 22px; line-height: 1.1; }
+      .callout .body { font-size: 15px; line-height: 1.55; }
+      .callout .body strong { font-weight: 700; }
+
+      .toggle { margin-top: 12px; padding: 6px 0; }
+      .toggle summary { cursor: pointer; font-weight: 600; padding: 4px 6px; border-radius: 3px; display: flex; align-items: center; gap: 6px; list-style: none; user-select: none; }
+      .toggle summary::-webkit-details-marker { display: none; }
+      .toggle summary::before { content: '▶'; font-size: 9px; color: var(--mute); transition: transform 0.18s; }
+      .toggle[open] summary::before { transform: rotate(90deg); }
+      .toggle summary:hover { background: var(--bg-2); }
+      .toggle .toggle-body { padding: 6px 6px 6px 22px; font-size: 15px; line-height: 1.65; color: var(--ink); }
+
+      .table { margin-top: 18px; border: 1px solid rgba(55,53,47,0.14); border-radius: 6px; overflow: hidden; font-size: 14px; }
+      .table .row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; border-bottom: 1px solid rgba(55,53,47,0.08); }
+      .table .row:last-child { border-bottom: 0; }
+      .table .row.head { background: var(--bg-2); font-weight: 600; color: var(--mute); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+      .table .cell { padding: 10px 14px; border-right: 1px solid rgba(55,53,47,0.06); }
+      .table .cell:last-child { border-right: 0; }
+      .table .cell strong { font-weight: 700; }
+      .table .cell .pill { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 12px; font-weight: 500; }
+      .table .cell .pill.green { background: var(--turq-bg); color: var(--turq); }
+
+      ul.bullets { margin-top: 12px; padding-left: 0; list-style: none; }
+      ul.bullets li { padding: 4px 0 4px 24px; position: relative; line-height: 1.55; }
+      ul.bullets li::before { content: '•'; position: absolute; left: 8px; color: var(--mute); font-weight: 700; }
+
+      .check-list { margin-top: 12px; }
+      .check-list li { padding: 4px 0 4px 28px; position: relative; line-height: 1.55; list-style: none; }
+      .check-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 16px; height: 16px; border: 1.5px solid var(--mute); border-radius: 3px; }
+      .check-list li.done::before { background: var(--turq); border-color: var(--turq); }
+      .check-list li.done::after { content: '✓'; position: absolute; left: 3px; top: 4px; color: white; font-size: 12px; font-weight: 700; }
+      .check-list li.done { color: var(--mute); text-decoration: line-through; }
+
+      .cta-row { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
+      .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--ink); color: white; border-radius: 6px; font-weight: 600; font-size: 14px; text-decoration: none; transition: opacity 0.2s; }
+      .btn:hover { opacity: 0.85; }
+      .btn-ghost { background: var(--bg-2); color: var(--ink); border: 1px solid rgba(55,53,47,0.16); }
+
+      .divider { margin: 32px 0; height: 1px; background: rgba(55,53,47,0.09); }
+
+      blockquote { margin-top: 16px; padding: 4px 14px; border-left: 3px solid var(--ink); font-size: 17px; line-height: 1.55; }
+
+      .mention { color: var(--turq); font-weight: 500; }
+      code { font-family: 'SF Mono', Menlo, monospace; background: var(--bg-2); padding: 1px 5px; border-radius: 3px; font-size: 0.92em; color: #EB5757; }
+
+      .footer { padding: 32px 24px; text-align: center; color: var(--mute); font-size: 13px; border-top: 1px solid rgba(55,53,47,0.08); }
+      .footer a { color: var(--ink); text-decoration: none; margin: 0 8px; }
+      .footer a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <a class="nav-back" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← Lab</a>
+    <a class="lab-badge" href="/lab/">13 · Notion</a>
+
+    <article class="doc">
+      <div class="icon-page">💸</div>
+      <h1>Zymplo · cómo funciona, en una página</h1>
+
+      <div class="props">
+        <div class="k">Status</div><div class="v"><span class="tag green">● en vivo</span></div>
+        <div class="k">Categoría</div><div class="v"><span class="tag blue">producto</span><span class="tag pink">consumer ai</span></div>
+        <div class="k">Países</div><div class="v"><span class="tag gold">13 · LATAM + US</span></div>
+        <div class="k">Idiomas</div><div class="v"><span class="tag gray">PT</span><span class="tag gray">ES</span><span class="tag gray">EN</span></div>
+        <div class="k">Plan</div><div class="v"><span class="tag green">gratis para siempre</span></div>
+        <div class="k">Última edición</div><div class="v">hoy · 14:32</div>
+      </div>
+
+      <div class="callout green"><div class="ic">⚡</div><div class="body"><strong>TL;DR.</strong> Zymplo es tu secretaria IA dentro de WhatsApp. <strong>Cobra</strong>, <strong>factura</strong>, <strong>agenda</strong>, <strong>organiza</strong>. Sin app · sin signup · sin fricción. Le hablás como a un amigo.</div></div>
+
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Empezar gratis →</a>
+        <a class="btn btn-ghost" href="#feats">Ver funciones</a>
+      </div>
+
+      <h2>El problema</h2>
+      <p>Tenés un negocio chico. La factura está hecha. El cliente la recibió. Pasó el plazo. Pasó otro plazo. Y vos, en lugar de trabajar, escribís el mensaje incómodo. Otra vez.</p>
+      <p>Eso ya no más. <mark class="mention">@Zé</mark> lo escribe por vos — con cariño, con firmeza, con timing. La plata entra. No te peleás con nadie.</p>
+
+      <blockquote>"No es un CRM. Es como tener un secretario · sin pagarle sueldo · sin que falte." <br/>— <strong>Diego</strong>, eletricista en SP</blockquote>
+
+      <h2 id="feats">Qué hace Zé · 4 cosas, bien hechas</h2>
+
+      <details class="toggle" open>
+        <summary>💸 Cobra sin perseguir</summary>
+        <div class="toggle-body">Detecta facturas vencidas. Manda recordatorios <strong>calientes</strong> que cobran. Te avisa cuando entró la plata. No más Excel. No más planillas. No más mensajes incómodos.</div>
+      </details>
+      <details class="toggle">
+        <summary>🧾 Facturá hablando</summary>
+        <div class="toggle-body">"Hacé factura a Pablo por 850.000". Listo. NFS-e · CFDI · DIAN · AFIP · DGT. Lo que necesite tu país. Sin que lo aprendas vos.</div>
+      </details>
+      <details class="toggle">
+        <summary>📅 Agenda en tu cabeza</summary>
+        <div class="toggle-body">"Recordame mañana 9 ir al taller". Llega el aviso a las 9. Punto. Reuniones · pagos · cumpleaños · visitas médicas. Nunca más se te olvida nada.</div>
+      </details>
+      <details class="toggle">
+        <summary>📊 Resumen al toque</summary>
+        <div class="toggle-body">"¿Cómo voy este mes?". Te muestra entró · falta · gastaste. En segundos. Sin abrir nada.</div>
+      </details>
+
+      <div class="divider"></div>
+
+      <h2>Métricas · este mes</h2>
+      <div class="table">
+        <div class="row head"><div class="cell">métrica</div><div class="cell">valor</div><div class="cell">vs mes anterior</div></div>
+        <div class="row"><div class="cell"><strong>cobrados</strong></div><div class="cell">$ 47.28M</div><div class="cell"><span class="pill green">↑ 38%</span></div></div>
+        <div class="row"><div class="cell"><strong>activos</strong></div><div class="cell">12,847</div><div class="cell"><span class="pill green">↑ 22%</span></div></div>
+        <div class="row"><div class="cell"><strong>países</strong></div><div class="cell">13</div><div class="cell"><span class="pill green">+1 (EC)</span></div></div>
+        <div class="row"><div class="cell"><strong>se sumaron hoy</strong></div><div class="cell">847</div><div class="cell"><span class="pill green">↑ live</span></div></div>
+      </div>
+
+      <h2>Empezar · checklist</h2>
+      <ul class="check-list">
+        <li class="done">Tener WhatsApp instalado (lo tenés)</li>
+        <li class="done">No descargar nada nuevo</li>
+        <li>Escribirle a Zé · dice "hola"</li>
+        <li>Conectar tu primera cobranza</li>
+        <li>Ver la plata entrar · sin perseguirla</li>
+      </ul>
+
+      <h3>Voces · gente que lo usa</h3>
+      <ul class="bullets">
+        <li><strong>Diego</strong> (eletricista, SP) · "En 3 días me organizó las cobranzas atrasadas hace 4 meses. Cobré ₲ 6 millones que daba por perdidos."</li>
+        <li><strong>Luana</strong> (cabeleireira, BH) · "Le hablo como a un amigo. Me hace las facturas, me cobra, me recuerda."</li>
+        <li><strong>Raimundo</strong> (encanador, Recife) · "Es como tener un secretario · pero sin pagarle sueldo."</li>
+      </ul>
+
+      <div class="callout gold"><div class="ic">💡</div><div class="body"><strong>Próximo paso.</strong> Andá a <code>wa.me/zymplo</code> · escribí "hola" · empezá a recuperar tu tiempo. Es así de zymplo.</div></div>
+
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Empezar gratis →</a>
+      </div>
+    </article>
+
+    <footer class="footer">© 2026 Zymplo · Notion Doc Edition · <a href="/lab/">Lab</a> · <a href="/">Landing</a> · <a href="/lab/v14/">V14 →</a></footer>
+  </body>
+</html>

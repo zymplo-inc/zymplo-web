@@ -1,0 +1,140 @@
+---
+const title = 'Zymplo · Magazine Cover Lab · V10';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0A0B14" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" />
+    <style is:inline>
+      :root { --paper: #0A0B14; --cream: #F5F1E8; --ink: #FAFBFF; --turq: #14B8A6; --gold: #C8A34D; --hot: #DC2626; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Inter', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+
+      /* dramatic background photo simulation · gradient + texture */
+      .cover-photo { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 30% 30%, rgba(20,184,166,0.4) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 70% 70%, rgba(200,163,77,0.25) 0%, transparent 70%), linear-gradient(135deg, #1a2332 0%, #0a0b14 100%); z-index: 0; }
+      .cover-photo::after { content: ''; position: absolute; inset: 0; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.5"/></svg>'); opacity: 0.06; mix-blend-mode: overlay; pointer-events: none; }
+
+      .nav-back { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 11px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 6px; letter-spacing: 0.1em; }
+      .nav-back img { height: 16px; }
+      .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 6px 12px; background: var(--gold); color: var(--paper); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; text-decoration: none; }
+
+      .cover { position: relative; min-height: 100vh; padding: 36px 28px 56px; max-width: 1280px; margin: 0 auto; z-index: 2; display: flex; flex-direction: column; }
+
+      .masthead-row { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .masthead { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(56px, 14vw, 200px); line-height: 0.85; letter-spacing: -0.04em; color: var(--ink); }
+      .masthead em { font-style: italic; font-weight: 400; color: var(--gold); }
+      .issue { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.2em; line-height: 1.6; padding-top: 8px; }
+      .issue strong { color: var(--gold); display: block; font-weight: 700; }
+
+      .barcode { display: inline-block; height: 30px; margin-top: 10px; background: repeating-linear-gradient(90deg, var(--ink) 0px, var(--ink) 1px, transparent 1px, transparent 3px, var(--ink) 3px, var(--ink) 5px, transparent 5px, transparent 8px); width: 76px; }
+
+      .credit-line { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+      .credit-line .priced { color: var(--gold); }
+
+      .cover-content { flex: 1; display: grid; grid-template-columns: 1fr; gap: 40px; padding: 60px 0; align-items: center; }
+      @media (min-width: 900px) { .cover-content { grid-template-columns: 1.3fr 1fr; gap: 60px; } }
+
+      .left-block .feature-of { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+      .cover-line { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(48px, 9vw, 132px); line-height: 0.88; letter-spacing: -0.04em; margin-top: 16px; }
+      .cover-line em { font-style: italic; font-weight: 400; color: var(--turq); }
+      .cover-line .red { color: var(--hot); }
+      .cover-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.35; color: rgba(255,255,255,0.85); margin-top: 26px; max-width: 600px; }
+      .byline-mag { margin-top: 32px; padding: 14px 0; border-top: 2px solid rgba(255,255,255,0.18); border-bottom: 2px solid rgba(255,255,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+      .byline-mag strong { color: var(--ink); }
+
+      .right-block { display: flex; flex-direction: column; gap: 14px; }
+      .blurb { padding: 18px 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; }
+      .blurb .num { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--gold); }
+      .blurb h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22px; line-height: 1.15; margin-top: 6px; }
+      .blurb h3 em { font-style: italic; color: var(--turq); }
+      .blurb p { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.7); margin-top: 8px; }
+      .blurb a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; margin-top: 8px; display: inline-block; }
+      .blurb a::after { content: ' →'; }
+      .blurb a:hover { color: var(--ink); }
+
+      .cta-block { margin-top: 12px; padding: 24px; background: var(--turq); color: var(--paper); border-radius: 4px; text-align: center; }
+      .cta-block .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.85; }
+      .cta-block .h { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 28px; margin-top: 6px; line-height: 1; }
+      .cta-block .btn-mag { margin-top: 14px; display: inline-block; padding: 14px 24px; background: var(--paper); color: var(--ink); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: transform 0.18s; }
+      .cta-block .btn-mag:hover { transform: translateY(-2px); }
+      .cta-block .micro { margin-top: 10px; font-size: 11px; opacity: 0.85; font-family: 'Inter', sans-serif; }
+
+      .stats-strip { padding: 18px 24px; border-top: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; font-family: 'Playfair Display', serif; }
+      .stats-strip .item { display: flex; align-items: baseline; gap: 8px; }
+      .stats-strip .v { font-weight: 900; font-size: clamp(20px, 2.4vw, 30px); color: var(--gold); font-variant-numeric: tabular-nums; }
+      .stats-strip .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.55); }
+
+      .bottom-bar { padding: 16px 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.45); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .bottom-bar a { color: var(--ink); text-decoration: none; margin: 0 8px; }
+      .bottom-bar a:hover { color: var(--gold); }
+    </style>
+  </head>
+  <body>
+    <div class="cover-photo"></div>
+    <a class="nav-back" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← LAB</a>
+    <a class="lab-badge" href="/lab/">10 · MAGAZINE</a>
+
+    <div class="cover">
+      <div class="masthead-row">
+        <div class="masthead">Zymplo<em>.</em></div>
+        <div class="issue">
+          <strong>VOL. I · NO. 10</strong>
+          MAYO · MMXXVI<br/>
+          THE LATAM ISSUE<br/>
+          $ 0.00 — FREE FOREVER
+          <div class="barcode"></div>
+        </div>
+      </div>
+
+      <div class="credit-line">
+        <span>Edición especial · 13 países</span>
+        <span class="priced">El número uno · sin app · sin registro</span>
+      </div>
+
+      <div class="cover-content">
+        <div class="left-block">
+          <span class="feature-of">— LA HISTORIA DE PORTADA</span>
+          <h1 class="cover-line">Cobrá<em>.</em><br/>Sin perseguir<span class="red">.</span><br/>La IA hace <em>todo.</em></h1>
+          <p class="cover-deck">Cómo una secretaria IA que vive dentro de WhatsApp resolvió el problema más viejo de los pequeños negocios — que la plata entre, sin pelearse por ella.</p>
+          <div class="byline-mag">
+            <span>POR <strong>LA REDACCIÓN</strong> · ASUNCIÓN / SP</span>
+            <span>COVER STORY · PP. 12-28</span>
+          </div>
+        </div>
+
+        <div class="right-block">
+          <div class="blurb"><div class="num">— 01 / EN VIVO</div><h3>$ 47.28M cobrados <em>este mes</em></h3><p>Cifra creciendo. 12.847 personas activas en 13 países LATAM + US. Solo el día de hoy se sumaron 847.</p><a href="#stats">Ver cifras</a></div>
+          <div class="blurb"><div class="num">— 02 / VOCES</div><h3>"<em>No vuelvo a un Excel.</em>"</h3><p>Diego, eletricista en SP. Cobró ₲ 6 millones que daba por perdidos. En 3 días.</p><a href="#voices">Leer historias</a></div>
+          <div class="blurb"><div class="num">— 03 / ESPECIAL</div><h3>13 países <em>sin reaprender</em></h3><p>PT · ES · EN. Tu moneda. Tus impuestos. Tu jerga local. Cero fricción.</p><a href="#countries">Ver mapa</a></div>
+
+          <div class="cta-block">
+            <div class="label">CÓMO EMPEZAR · 10 SEG</div>
+            <div class="h">Mandá un mensaje.</div>
+            <a class="btn-mag" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">EMPEZAR GRATIS →</a>
+            <div class="micro">Sin app · sin registro · funciona desde tu WhatsApp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-strip" id="stats">
+        <div class="item"><span class="v">$47.28M</span><span class="l">cobrados / mes</span></div>
+        <div class="item"><span class="v">12,847</span><span class="l">activos hoy</span></div>
+        <div class="item"><span class="v">13</span><span class="l">países</span></div>
+        <div class="item"><span class="v">847</span><span class="l">se sumaron hoy</span></div>
+      </div>
+
+      <div class="bottom-bar">
+        <span>© MMXXVI ZYMPLO INC. — TODOS LOS DERECHOS RESERVADOS</span>
+        <span><a href="/lab/">LAB</a><a href="/">LANDING</a><a href="/lab/v11/">V11 →</a></span>
+      </div>
+    </div>
+  </body>
+</html>
