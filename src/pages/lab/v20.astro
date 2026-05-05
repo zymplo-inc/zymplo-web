@@ -1,24 +1,27 @@
 ---
-const title = 'Zymplo · Tu trabajo ya vive en WhatsApp. Ahora también tu negocio.';
-const description = 'Zymplo cobra por ti, agenda turnos, recuerda pagos y responde clientes. Todo desde el chat que ya usás todos los días.';
+const title = 'Zymplo · Todo tu trabajo. Más simple. En WhatsApp.';
+const description = 'Cobra, agenda clientes, responde consultas y organiza todo hablando. Sin instalar nada. Sin aprender nada nuevo. Zymplo se encarga. Tú recuperas tu tiempo.';
 const ogImage = 'https://sims.zymplo.com/web/v20-assets/hero-latam.webp';
 const A = 'https://sims.zymplo.com/web/v20-assets';
+const WA = 'https://wa.me/595981970735?text=%C2%A1Hola!%20Quiero%20empezar%20con%20Zymplo';
+const ISO = 'https://sims.zymplo.com/brand/isotipo.svg';
 ---
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0A0B14" />
+    <meta name="theme-color" content="#14B8A6" />
     <meta name="robots" content="noindex, nofollow" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="icon" type="image/svg+xml" href={ISO} />
     <link rel="apple-touch-icon" href="https://sims.zymplo.com/brand/apple-touch-icon.png" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@500;700;800;900&display=swap" />
@@ -29,11 +32,13 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
         --bg: #0A0B14; --bg-2: #11141F;
         --paper: #FAFBFF; --ink: #0A0B14;
         --turq: #14B8A6; --turq-deep: #0F9488; --turq-light: #5EEAD4; --turq-paler: #CCFBF1;
-        --good: #22C55E; --warm: #F59E0B; --hot: #FB923C;
+        --good: #22C55E; --warm: #F59E0B; --hot: #FB923C; --purple: #623AE6; --azul: #1E4AD4;
         --grad-zy: linear-gradient(115deg, #14B8A6 0%, #5EEAD4 50%, #CCFBF1 100%);
         --grad-cta: linear-gradient(135deg, #14B8A6 0%, #0F9488 100%);
+        --grad-hero: linear-gradient(135deg, #14B8A6 0%, #0F9488 60%, #1E4AD4 100%);
         --grad-glow: radial-gradient(circle, rgba(20,184,166,0.45) 0%, transparent 70%);
-        --r-pill: 999px; --r-24: 24px; --r-16: 16px;
+        --grad-viral: linear-gradient(90deg, var(--purple) 0%, var(--turq) 50%, var(--azul) 100%);
+        --r-pill: 999px; --r-24: 24px; --r-16: 16px; --r-12: 12px;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
@@ -45,194 +50,228 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       .h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.03em; line-height: 1.15; }
       .micro { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; }
 
-      /* PROGRESS BAR */
+      /* PROGRESS + NAV BACK */
       .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--grad-zy); z-index: 999; width: 0%; transition: width 0.05s linear; box-shadow: 0 0 8px var(--turq-light); }
-
-      /* NAV */
-      .nav { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 12px; font-weight: 700; color: var(--paper); text-decoration: none; display: flex; align-items: center; gap: 6px; }
-      .nav img { height: 18px; }
+      .nav-back { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 12px; font-weight: 700; color: var(--paper); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+      .nav-back img { height: 18px; }
       .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 6px 12px; background: rgba(20,184,166,0.18); backdrop-filter: blur(20px); border: 1px solid rgba(94,234,212,0.4); border-radius: var(--r-pill); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--turq-light); text-decoration: none; }
 
-      /* SCROLL HINT */
-      .scroll-hint { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); padding: 7px 16px 7px 14px; background: rgba(0,0,0,0.55); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; z-index: 50; opacity: 0.9; pointer-events: none; transition: opacity 0.4s; display: inline-flex; align-items: center; gap: 8px; }
-      .scroll-hint .arr { animation: bounce-y 1.6s ease-in-out infinite; }
-      @keyframes bounce-y { 50% { transform: translateY(4px); } }
-      .scroll-hint.hidden { opacity: 0; }
+      /* TOP BANNER */
+      .top-banner { position: relative; z-index: 5; padding: 10px 22px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 13px; font-weight: 500; color: var(--paper); }
+      .top-banner .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--good); margin-right: 8px; vertical-align: middle; animation: pulse-d 1.5s ease-in-out infinite; box-shadow: 0 0 8px var(--good); }
+      @keyframes pulse-d { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } }
+      .top-banner strong { color: var(--turq-light); font-weight: 800; }
 
-      /* STICKY MOBILE CTA */
-      .mobile-cta { position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 90; display: none; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: var(--grad-cta); color: white; border-radius: var(--r-pill); font-weight: 800; font-size: 15px; text-decoration: none; text-align: center; box-shadow: 0 14px 40px rgba(20,184,166,0.45); }
-      .mobile-cta::before { content: '💬'; }
-      @media (max-width: 768px) { .mobile-cta { display: flex; } body { padding-bottom: 80px; } .scroll-hint { bottom: 84px; } }
-
-      /* HERO */
-      .hero { position: relative; min-height: 100vh; padding: 100px 22px 60px; max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
-      .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-      .hero-bg::before { content: ''; position: absolute; top: -10%; right: -10%; width: 80vw; height: 80vw; background: var(--grad-glow); filter: blur(80px); animation: float-x 20s ease-in-out infinite; opacity: 0.7; }
-      .hero-bg::after { content: ''; position: absolute; bottom: -10%; left: -15%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(94,234,212,0.25) 0%, transparent 70%); filter: blur(80px); animation: float-y 24s ease-in-out infinite; }
+      /* HERO · turquesa cinematic with mesh */
+      .hero { position: relative; min-height: 100vh; padding: 90px 22px 60px; max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; background: var(--grad-hero); }
+      .hero { background: transparent; }
+      body.hero-bg-active { background: var(--grad-hero); }
+      .hero-bg-fixed { position: fixed; inset: 0; z-index: -1; background: var(--grad-hero); pointer-events: none; }
+      .hero-bg-fixed::before { content: ''; position: absolute; top: -10%; right: -10%; width: 80vw; height: 80vw; background: radial-gradient(ellipse 80% 60% at 20% 20%, rgba(94,234,212,0.35) 0%, transparent 60%); animation: float-x 20s ease-in-out infinite; }
+      .hero-bg-fixed::after { content: ''; position: absolute; bottom: -10%; left: -10%; width: 70vw; height: 70vw; background: radial-gradient(ellipse 70% 50% at 80% 75%, rgba(30,74,212,0.3) 0%, transparent 65%); animation: float-y 24s ease-in-out infinite; }
       @keyframes float-x { 50% { transform: translate(40px, -30px); } }
       @keyframes float-y { 50% { transform: translate(-40px, 30px); } }
 
       .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
       @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 64px; } }
 
-      .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(20,184,166,0.16); border: 1px solid rgba(94,234,212,0.4); border-radius: var(--r-pill); color: var(--turq-light); font-weight: 800; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
-      .pill .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--turq-light); box-shadow: 0 0 0 0 var(--turq-light); animation: pulse-soft 2.4s ease-out infinite; }
-      @keyframes pulse-soft { 0% { box-shadow: 0 0 0 0 rgba(94,234,212,0.7); } 70% { box-shadow: 0 0 0 12px rgba(94,234,212,0); } 100% { box-shadow: 0 0 0 0 rgba(94,234,212,0); } }
+      .countries-strip { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+      .countries-strip .flags { font-size: 18px; letter-spacing: 0.04em; }
 
-      h1.hero-h { margin-top: 22px; }
-      h1.hero-h em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% 200%; animation: shimmer 6s ease-in-out infinite; }
-      @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-      .hero-sub { margin-top: 22px; color: rgba(255,255,255,0.78); max-width: 540px; font-size: clamp(15px, 1.95vw, 19px); line-height: 1.55; font-weight: 500; }
+      h1.hero-h { margin-top: 18px; color: white; text-shadow: 0 2px 24px rgba(0,0,0,0.18); }
+      h1.hero-h em { font-style: normal; color: var(--turq-paler); }
+      .hero-sub { margin-top: 22px; color: rgba(255,255,255,0.92); max-width: 560px; font-size: clamp(15px, 1.95vw, 19px); line-height: 1.55; font-weight: 500; }
 
-      /* FAKE INPUT TYPED */
-      .input-shell { margin-top: 32px; max-width: 540px; }
-      .chat-input { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 18px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); transition: all 0.3s; backdrop-filter: blur(8px); }
-      .chat-input:focus-within, .chat-input:hover { border-color: var(--turq-light); background: rgba(255,255,255,0.08); }
-      .chat-input .icon { width: 28px; height: 28px; border-radius: 50%; background: var(--grad-cta); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-      .chat-input .icon img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
-      .chat-input .text { flex: 1; min-width: 0; font-size: 15px; color: rgba(255,255,255,0.85); padding: 11px 0; }
-      .chat-input .typed { color: var(--paper); font-weight: 500; }
-      .chat-input .cursor-blink { display: inline-block; width: 2px; height: 16px; background: var(--turq-light); margin-left: 1px; vertical-align: -3px; animation: blink-c 1s steps(1) infinite; }
-      @keyframes blink-c { 50% { opacity: 0; } }
-      .chat-input .send-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--grad-cta); color: white; border: 0; cursor: pointer; font-size: 19px; flex-shrink: 0; box-shadow: 0 8px 24px rgba(20,184,166,0.45); transition: all 0.2s; text-decoration: none; }
-      .chat-input .send-btn:hover { transform: scale(1.08); box-shadow: 0 12px 32px rgba(20,184,166,0.6); }
-
-      .hint-pills { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
-      .hint-pills .h { padding: 5px 11px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 12px; color: rgba(255,255,255,0.7); }
-
-      /* CTAs */
-      .cta-row { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-      .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; background: var(--paper); color: var(--ink); border-radius: var(--r-pill); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 16px 50px rgba(20,184,166,0.32); transition: all 0.25s cubic-bezier(0.22,1,0.36,1); }
-      .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 70px rgba(20,184,166,0.5); }
+      /* CTAs hero */
+      .cta-row { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; background: var(--paper); color: var(--ink); border-radius: var(--r-pill); font-weight: 800; font-size: 16px; text-decoration: none; box-shadow: 0 16px 50px rgba(0,0,0,0.25); transition: all 0.25s cubic-bezier(0.22,1,0.36,1); }
+      .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 70px rgba(0,0,0,0.4); }
       .btn-primary::after { content: '→'; transition: transform 0.3s; }
       .btn-primary:hover::after { transform: translateX(4px); }
-      .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 17px 26px; color: rgba(255,255,255,0.85); background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.25s; }
-      .btn-ghost:hover { background: rgba(255,255,255,0.06); color: white; border-color: rgba(255,255,255,0.4); }
+      .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 17px 26px; color: white; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--r-pill); font-weight: 700; font-size: 15px; text-decoration: none; backdrop-filter: blur(10px); transition: all 0.25s; }
+      .btn-ghost:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.5); }
 
-      .micro-text { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
-      .micro-text::before { content: '✓ '; color: var(--turq-light); font-weight: 800; }
+      .micro-text { margin-top: 14px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.85); }
+      .micro-text span { display: inline-flex; align-items: center; gap: 6px; }
+      .micro-text span::before { content: '✓'; color: var(--good); font-weight: 800; }
 
-      /* HERO IMAGE · DALL-E generated */
-      .hero-img-wrap { position: relative; aspect-ratio: 4/5; max-width: 480px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.18); transform: rotate(-1deg); animation: img-breath 7s ease-in-out infinite; }
+      /* HERO image phone composite */
+      .hero-img-wrap { position: relative; aspect-ratio: 4/5; max-width: 460px; margin: 0 auto; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.18); transform: rotate(-1deg); animation: img-breath 7s ease-in-out infinite; }
       @keyframes img-breath { 50% { transform: rotate(-1deg) translateY(-6px); } }
       .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
       .hero-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,11,20,0.6) 100%); pointer-events: none; }
-      .hero-img-bubble { position: absolute; top: 24px; right: 24px; padding: 10px 14px; background: rgba(11,20,26,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(94,234,212,0.4); border-radius: 14px; border-bottom-right-radius: 4px; max-width: 200px; font-size: 13px; line-height: 1.4; color: white; opacity: 0; animation: bubble-pop 0.8s 1.6s cubic-bezier(0.22,1,0.36,1) forwards; }
-      .hero-img-bubble strong { color: var(--turq-light); display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+      .hero-feature-bubble { position: absolute; padding: 12px 16px; background: rgba(11,20,26,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(94,234,212,0.4); border-radius: 14px; font-size: 12.5px; line-height: 1.35; color: white; box-shadow: 0 12px 32px rgba(0,0,0,0.4); opacity: 0; animation: bubble-pop 0.8s cubic-bezier(0.22,1,0.36,1) forwards; }
+      .hero-feature-bubble strong { display: block; color: var(--turq-light); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; font-weight: 800; }
+      .hero-feature-bubble .ic { font-size: 18px; vertical-align: middle; margin-right: 4px; }
+      .hfb-1 { top: 14px; right: 14px; max-width: 200px; animation-delay: 1.0s; }
+      .hfb-2 { bottom: 18%; left: 14px; max-width: 220px; animation-delay: 1.6s; }
+      .hfb-3 { top: 38%; right: 0%; max-width: 200px; animation-delay: 2.2s; }
+      .hfb-4 { bottom: 14px; right: 14px; max-width: 220px; animation-delay: 2.8s; }
       @keyframes bubble-pop { from { opacity: 0; transform: translateY(8px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-      /* AUDIO BUTTON */
-      .audio-btn { position: fixed; bottom: 90px; right: 18px; z-index: 60; width: 48px; height: 48px; border-radius: 50%; background: rgba(11,20,26,0.7); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.15); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.25s; }
-      .audio-btn:hover { background: rgba(20,184,166,0.25); border-color: var(--turq-light); }
-      @media (max-width: 768px) { .audio-btn { display: none; } }
+      /* HERO stats footer line */
+      .hero-stats { margin-top: 36px; display: flex; gap: 28px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.8); }
+      .hero-stats .v { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px; color: white; }
 
-      /* SCROLLY · 8 SCENES */
-      .scrolly-shell { position: relative; }
-      .scene { position: relative; min-height: 200vh; }
-      .scene-pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 22px; overflow: hidden; }
-      .scene .pre { color: var(--turq-light); }
+      /* MARQUEE TRUST BAR */
+      .trust-bar { background: white; color: var(--ink); padding: 14px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
+      .trust-bar .track { display: inline-block; animation: scroll-l 36s linear infinite; }
+      .trust-bar span.item { padding: 0 22px; font-weight: 600; font-size: 14px; }
+      @keyframes scroll-l { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-      /* S1 · El Caos */
-      .s1 .stage { max-width: 1100px; text-align: center; }
-      .s1 h2 { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(34px, 6vw, 76px); letter-spacing: -0.04em; line-height: 1.05; margin-top: 28px; }
-      .s1 .lines p { padding: 14px 0; }
-      .s1 .lines p.dim { color: rgba(255,255,255,0.5); font-weight: 500; font-size: 0.65em; }
-      .s1 .word { display: inline-block; opacity: 0; transform: translateY(30px); filter: blur(8px); transition: all 0.7s cubic-bezier(0.22,1,0.36,1); margin-right: 0.16em; }
-      .s1 .word.show { opacity: 1; transform: translateY(0); filter: blur(0); }
-      .s1 .word.alert { color: var(--hot); }
+      /* LIVE ACTIVITY TICKER */
+      .live-ticker { padding: 56px 22px; max-width: 1280px; margin: 0 auto; }
+      .live-ticker .head { text-align: center; margin-bottom: 28px; }
+      .live-ticker .head .pre { color: var(--turq-light); }
+      .live-ticker .head h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .live-ticker .stage { padding: 22px; background: rgba(20,184,166,0.06); border: 1px solid rgba(94,234,212,0.25); border-radius: var(--r-24); }
+      .live-event { padding: 14px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); display: grid; grid-template-columns: 32px 1fr auto; gap: 12px; align-items: center; transition: opacity 0.4s; }
+      .live-event:last-child { border-bottom: 0; }
+      .live-event .ic { width: 32px; height: 32px; border-radius: 50%; background: var(--grad-cta); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+      .live-event .body .name { font-weight: 700; font-size: 14px; }
+      .live-event .body .what { font-size: 12.5px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+      .live-event .ago { font-size: 11px; color: rgba(94,234,212,0.85); font-weight: 600; }
 
-      /* S2 · WhatsApp es el centro */
-      .s2 .stage { max-width: 800px; text-align: center; }
-      .s2 .icon-big { width: clamp(160px, 30vw, 280px); height: clamp(160px, 30vw, 280px); margin: 0 auto; background: var(--grad-cta); border-radius: clamp(40px, 8vw, 64px); display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 120px rgba(20,184,166,0.5); animation: icon-pulse 3s ease-in-out infinite; }
-      .s2 .icon-big img { width: 60%; height: 60%; filter: brightness(0) invert(1); }
-      @keyframes icon-pulse { 50% { transform: scale(1.04); box-shadow: 0 60px 140px rgba(20,184,166,0.7); } }
-      .s2 h2 { margin-top: 36px; }
+      /* PAYMENTS STRIP */
+      .pay-strip { background: var(--bg); padding: 28px 22px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .pay-strip .inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+      .pay-strip .label { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.55); }
+      .pay-strip .methods { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .pay-strip .pm { padding: 6px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 13px; font-weight: 700; color: white; }
 
-      /* S3 · La Magia · phone with chat */
-      .s3 .stage { max-width: 1100px; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
-      @media (min-width: 900px) { .s3 .stage { grid-template-columns: 1fr 1fr; gap: 50px; } }
-      .s3 h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .s3 p.deck { margin-top: 16px; color: rgba(255,255,255,0.7); max-width: 460px; font-size: 17px; line-height: 1.55; }
-      .phone-stage { display: flex; justify-content: center; }
-      .phone { width: 320px; max-width: 100%; aspect-ratio: 9/19; background: linear-gradient(160deg, #1a1a1d 0%, #0d0e10 100%); border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.18); border: 1.5px solid #2a2a2d; }
-      .phone-screen { width: 100%; height: 100%; border-radius: 36px; background: #0B141A; overflow: hidden; display: flex; flex-direction: column; position: relative; }
-      .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 110px; height: 28px; background: black; border-radius: 16px; z-index: 10; }
-      .wa-top { padding: 38px 14px 10px; background: #1F2C33; display: flex; align-items: center; gap: 10px; }
-      .wa-top .av { width: 36px; height: 36px; border-radius: 50%; background: var(--grad-cta); display: flex; align-items: center; justify-content: center; }
-      .wa-top .av img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
-      .wa-top .id .n { font-size: 14px; font-weight: 700; line-height: 1.1; }
-      .wa-top .id .s { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
-      .wa-top .id .s::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--good); }
-      .wa-body { flex: 1; padding: 14px 10px; display: flex; flex-direction: column; gap: 6px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); }
-      .b { max-width: 80%; padding: 7px 11px 5px; border-radius: 13px; font-size: 13px; line-height: 1.4; opacity: 0; transform: translateY(8px); animation: bub-in 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
-      .b1 { animation-delay: 0.8s; } .b2 { animation-delay: 2.2s; } .b3 { animation-delay: 3.6s; } .b4 { animation-delay: 5.2s; }
-      @keyframes bub-in { to { opacity: 1; transform: translateY(0); } }
-      .b.bot { align-self: flex-start; background: #1F2C33; color: white; border-bottom-left-radius: 4px; }
-      .b.usr { align-self: flex-end; background: var(--turq-deep); color: white; border-bottom-right-radius: 4px; }
-      .b strong { font-weight: 700; }
-      .b em { font-style: normal; color: var(--turq-light); font-weight: 600; }
-      .b .ts { display: block; margin-top: 3px; font-size: 9px; opacity: 0.55; text-align: right; }
-      .b.usr .ts::after { content: ' ✓✓'; color: var(--turq-light); }
+      /* SECTION SHARED */
+      .section-h { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+      .section-h .pre { color: var(--turq-light); }
+      .section-h h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .section-h p { margin-top: 16px; font-size: 17px; color: rgba(255,255,255,0.7); }
 
-      /* S4 · Sistema Invisible */
-      .s4 .stage { max-width: 1100px; text-align: center; }
-      .s4 h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .flow { margin-top: 56px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-      .flow-node { padding: 18px 22px; background: rgba(20,184,166,0.08); border: 1px solid rgba(94,234,212,0.3); border-radius: var(--r-16); display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 140px; transition: all 0.4s; }
-      .flow-node:hover { background: rgba(20,184,166,0.16); transform: translateY(-4px); }
-      .flow-node .ic { font-size: 32px; }
-      .flow-node .l { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px; }
-      .flow-arrow { color: var(--turq-light); font-size: 24px; opacity: 0.6; }
-      @media (max-width: 768px) { .flow-arrow { transform: rotate(90deg); } .flow { flex-direction: column; } }
+      /* FEATURES GRID */
+      .features-section { padding: 96px 22px; max-width: 1280px; margin: 0 auto; }
+      .features-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1100px) { .features-grid { grid-template-columns: repeat(4, 1fr); } }
+      .feat-card { padding: 32px 28px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-24); transition: all 0.4s; }
+      .feat-card:hover { transform: translateY(-4px); border-color: rgba(94,234,212,0.4); background: rgba(20,184,166,0.05); }
+      .feat-card .ic { width: 52px; height: 52px; border-radius: var(--r-16); background: var(--grad-cta); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+      .feat-card .t { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; margin-top: 18px; }
+      .feat-card .d { margin-top: 8px; color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.55; }
 
-      /* S5 · Personas reales · DALL-E images grid */
-      .s5 .stage { max-width: 1280px; width: 100%; }
-      .s5 .head { text-align: center; margin-bottom: 48px; }
-      .s5 h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .oficios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      @media (min-width: 600px) { .oficios-grid { grid-template-columns: repeat(3, 1fr); } }
-      @media (min-width: 1024px) { .oficios-grid { grid-template-columns: repeat(5, 1fr); } }
-      .oficio-card { aspect-ratio: 3/4; border-radius: var(--r-16); overflow: hidden; position: relative; transition: all 0.4s; cursor: pointer; }
-      .oficio-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(20,184,166,0.25); }
-      .oficio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-      .oficio-card:hover img { transform: scale(1.06); }
-      .oficio-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,11,20,0.85) 100%); pointer-events: none; }
-      .oficio-card .label { position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 2; }
-      .oficio-card .label .n { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.1; }
-      .oficio-card .label .q { margin-top: 4px; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.4; opacity: 0; max-height: 0; transition: all 0.3s; }
-      .oficio-card:hover .label .q { opacity: 1; max-height: 60px; }
+      /* VS COMPETITORS TABLE */
+      .vs-section { padding: 96px 22px; max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .vs-table { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--r-24); border: 1px solid rgba(255,255,255,0.08); }
+      .vs-table table { width: 100%; min-width: 720px; border-collapse: collapse; }
+      .vs-table th, .vs-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+      .vs-table thead th { background: rgba(255,255,255,0.03); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+      .vs-table thead th.zy { color: var(--turq-light); background: rgba(20,184,166,0.1); }
+      .vs-table tbody td { color: rgba(255,255,255,0.85); }
+      .vs-table tbody td.zy { background: rgba(20,184,166,0.05); }
+      .vs-table .check { color: var(--good); font-size: 16px; font-weight: 800; }
+      .vs-table .x { color: rgba(255,255,255,0.3); font-size: 16px; }
+      .vs-disclaimer { margin-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); text-align: center; line-height: 1.5; }
 
-      /* S6 · Resultados Humanos */
-      .s6 .stage { max-width: 1100px; text-align: center; }
-      .s6 h2 { max-width: 720px; margin: 16px auto 56px; }
-      .s6 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
-      .s6 .stat .v { font-family: 'Sora', sans-serif; font-weight: 900; font-size: clamp(56px, 10vw, 120px); letter-spacing: -0.05em; line-height: 0.95; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
-      .s6 .stat .l { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
-      .s6 .footnote { margin-top: 36px; font-size: 12px; color: rgba(255,255,255,0.4); }
+      /* ZYMPLO CHALLENGE */
+      .challenge { padding: 60px 22px; background: var(--grad-viral); }
+      .challenge .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+      .challenge .left { flex: 1; min-width: 260px; }
+      .challenge .pre { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 800; }
+      .challenge h2 { margin-top: 8px; font-family: 'Sora', sans-serif; font-weight: 900; font-size: clamp(28px, 4.5vw, 48px); letter-spacing: -0.04em; line-height: 1; color: white; }
+      .challenge .prize { margin-top: 6px; font-size: 17px; color: rgba(255,255,255,0.9); }
+      .challenge .ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+      .challenge .ctas a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.25); color: white; border-radius: var(--r-pill); font-weight: 700; font-size: 14px; text-decoration: none; backdrop-filter: blur(10px); transition: all 0.2s; }
+      .challenge .ctas a:hover { background: rgba(0,0,0,0.5); transform: translateY(-2px); }
 
-      /* S7 · Tu Turno */
-      .s7 .stage { max-width: 920px; text-align: center; }
-      .s7 h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .s7 .options { margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 540px; margin-left: auto; margin-right: auto; }
-      .s7 .opt { padding: 18px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-16); display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 600; font-size: 14.5px; transition: all 0.3s; }
-      .s7 .opt:hover { background: rgba(20,184,166,0.12); border-color: var(--turq-light); transform: translateY(-2px); }
-      .s7 .opt .ic { font-size: 22px; }
+      /* 100+ TOOLS MARQUEE */
+      .tools { padding: 96px 22px; max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .tools-marquee { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-24); padding: 18px 0; overflow: hidden; white-space: nowrap; }
+      .tools-marquee .track { display: inline-block; animation: scroll-l 60s linear infinite; }
+      .tools-marquee .track + .track { animation-direction: reverse; }
+      .tools-marquee span.tool { display: inline-block; padding: 8px 14px; margin: 0 4px; background: rgba(20,184,166,0.08); border: 1px solid rgba(94,234,212,0.2); border-radius: var(--r-pill); font-size: 13px; font-weight: 600; color: var(--paper); }
+      .tools-marquee .row { padding: 4px 0; }
 
-      /* S8 · Onboarding Preview */
-      .s8 .stage { max-width: 920px; text-align: center; }
-      .s8 .pre { color: var(--turq-light); }
-      .s8 h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .s8 p.deck { margin-top: 16px; color: rgba(255,255,255,0.7); max-width: 540px; margin-left: auto; margin-right: auto; }
-      .onb-chat { width: 100%; max-width: 460px; margin: 36px auto 0; padding: 22px; background: rgba(11,20,26,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-24); display: flex; flex-direction: column; gap: 8px; min-height: 360px; }
-      .onb-chat .b { animation: none; opacity: 0; transform: translateY(8px); transition: all 0.5s; max-width: 90%; padding: 9px 12px; border-radius: 13px; font-size: 13.5px; line-height: 1.45; }
-      .onb-chat .b.show { opacity: 1; transform: translateY(0); }
-      .onb-chat .b.bot { align-self: flex-start; background: #1F2C33; color: white; border-bottom-left-radius: 4px; }
-      .onb-chat .b.usr { align-self: flex-end; background: var(--turq-deep); color: white; border-bottom-right-radius: 4px; }
-      .onb-chat .quicks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-      .onb-chat .qr { padding: 6px 12px; background: rgba(20,184,166,0.16); border: 1px solid rgba(94,234,212,0.4); color: var(--turq-light); border-radius: var(--r-pill); font-size: 12px; font-weight: 600; cursor: pointer; }
+      /* SCORE QUIZ */
+      .score-quiz { padding: 96px 22px; max-width: 720px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .score-quiz .head { text-align: center; }
+      .score-quiz .pre { color: var(--turq-light); }
+      .quiz-card { margin-top: 36px; padding: 32px 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); }
+      .quiz-q { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .quiz-q:last-child { border-bottom: 0; }
+      .quiz-q .label { font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+      .quiz-q .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+      .quiz-q .opt { padding: 8px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: white; border-radius: var(--r-pill); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+      .quiz-q .opt:hover, .quiz-q .opt.sel { background: rgba(20,184,166,0.16); border-color: var(--turq-light); color: var(--turq-light); }
+      .quiz-result { margin-top: 22px; padding: 18px; background: rgba(20,184,166,0.1); border: 1px solid rgba(94,234,212,0.4); border-radius: var(--r-16); text-align: center; display: none; }
+      .quiz-result.show { display: block; }
+      .quiz-result .score-num { font-family: 'Sora', sans-serif; font-weight: 900; font-size: 56px; line-height: 1; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .quiz-result .score-label { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.85); }
+      .quiz-cta { margin-top: 18px; display: inline-block; padding: 12px 22px; background: var(--paper); color: var(--ink); border-radius: var(--r-pill); font-weight: 800; font-size: 14px; text-decoration: none; cursor: pointer; }
 
-      /* DEMO INTERACTIVA */
-      .demo { padding: 100px 22px; max-width: 1280px; margin: 0 auto; }
+      /* TESTIMONIOS · DALL-E + España */
+      .test-section { padding: 96px 22px; max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .test-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 700px) { .test-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1100px) { .test-grid { grid-template-columns: repeat(5, 1fr); } }
+      .test-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); overflow: hidden; transition: all 0.3s; cursor: pointer; }
+      .test-card:hover { transform: translateY(-4px); border-color: rgba(94,234,212,0.4); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+      .test-card .img-wrap { aspect-ratio: 1; position: relative; overflow: hidden; }
+      .test-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+      .test-card .img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,11,20,0.7) 100%); }
+      .test-card .img-wrap .duration { position: absolute; top: 10px; right: 10px; padding: 4px 10px; background: rgba(0,0,0,0.7); border-radius: var(--r-pill); font-size: 11px; font-weight: 700; backdrop-filter: blur(10px); }
+      .test-card .img-wrap .play { position: absolute; bottom: 12px; left: 12px; width: 36px; height: 36px; border-radius: 50%; background: white; color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+      .test-card .body { padding: 18px; }
+      .test-card .name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 16px; }
+      .test-card .role { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+      .test-card .quote { margin-top: 12px; font-style: italic; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.92); }
+      .test-card .gain { margin-top: 12px; padding: 6px 12px; background: rgba(34,197,94,0.16); border: 1px solid rgba(34,197,94,0.4); border-radius: var(--r-pill); display: inline-block; font-size: 12px; font-weight: 800; color: var(--good); }
+      .test-footer { margin-top: 32px; text-align: center; }
+      .test-footer a { color: var(--turq-light); text-decoration: none; font-weight: 700; font-size: 14px; }
+      .test-footer a:hover { color: white; }
+
+      /* PRICING 4 PLANES */
+      .pricing { padding: 96px 22px; max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .price-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+      @media (min-width: 700px) { .price-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1100px) { .price-grid { grid-template-columns: repeat(4, 1fr); } }
+      .pcard { padding: 32px 26px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); position: relative; display: flex; flex-direction: column; }
+      .pcard.featured { background: linear-gradient(180deg, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0.06) 100%); border-color: rgba(94,234,212,0.5); box-shadow: 0 24px 60px rgba(20,184,166,0.2); transform: scale(1.02); }
+      .pcard .badge-pop { position: absolute; top: -12px; right: 22px; padding: 4px 12px; background: var(--grad-zy); color: var(--ink); border-radius: var(--r-pill); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+      .pcard .name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; }
+      .pcard .price { margin-top: 14px; display: flex; align-items: baseline; gap: 6px; }
+      .pcard .price .v { font-family: 'Sora', sans-serif; font-weight: 900; font-size: 44px; letter-spacing: -0.045em; line-height: 1; }
+      .pcard .price .v.free { background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .pcard .price .per { color: rgba(255,255,255,0.5); font-size: 12px; }
+      .pcard ul { margin-top: 22px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+      .pcard ul li { padding-left: 24px; position: relative; font-size: 13.5px; line-height: 1.45; }
+      .pcard ul li::before { content: '✓'; position: absolute; left: 0; top: 0; width: 16px; height: 16px; background: rgba(34,197,94,0.18); color: var(--good); border-radius: 50%; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+      .pcard.featured ul li::before { background: var(--grad-zy); color: var(--ink); }
+      .pcard .cta-pricing { margin-top: 24px; display: block; padding: 13px 18px; text-align: center; border-radius: var(--r-pill); font-weight: 800; font-size: 13.5px; text-decoration: none; transition: all 0.25s; }
+      .pcard .cta-pricing { background: rgba(255,255,255,0.08); color: var(--paper); border: 1px solid rgba(255,255,255,0.15); }
+      .pcard .cta-pricing:hover { background: rgba(255,255,255,0.16); }
+      .pcard.featured .cta-pricing { background: var(--paper); color: var(--ink); }
+      .pcard.featured .cta-pricing:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(20,184,166,0.3); }
+
+      /* APPS NATIVAS */
+      .apps-section { padding: 80px 22px; max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
+      .apps-row { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+      @media (min-width: 768px) { .apps-row { grid-template-columns: 1fr 1fr; } }
+      .apps-h .pre { color: var(--turq-light); }
+      .apps-h h2 { margin-top: 14px; font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.03em; }
+      .apps-h h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .apps-h p { margin-top: 16px; font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+      .apps-stores { margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap; }
+      .apps-stores a { padding: 11px 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--r-12); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 13px; transition: all 0.2s; }
+      .apps-stores a:hover { background: rgba(255,255,255,0.12); border-color: var(--turq-light); }
+      .apps-stores .ic { font-size: 22px; }
+      .apps-stores .label small { display: block; font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 500; }
+      .apps-notice { margin-top: 14px; font-size: 12.5px; color: rgba(255,255,255,0.55); }
+      .apps-mock { display: flex; justify-content: center; }
+      .apps-mock-card { padding: 40px 28px; background: rgba(20,184,166,0.06); border: 1px solid rgba(94,234,212,0.25); border-radius: var(--r-24); text-align: center; max-width: 320px; }
+      .apps-mock-card .badge { display: inline-block; padding: 5px 12px; background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.4); border-radius: var(--r-pill); font-size: 11px; font-weight: 800; color: var(--warm); letter-spacing: 0.1em; text-transform: uppercase; }
+      .apps-mock-card .ic-big { font-size: 64px; margin: 18px 0 14px; }
+      .apps-mock-card .name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 22px; }
+      .apps-mock-card .desc { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.65); }
+
+      /* INTERACTIVE DEMO */
+      .demo { padding: 96px 22px; max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
       .demo-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
       @media (min-width: 1024px) { .demo-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
       .demo-h .pre { color: var(--turq-light); }
@@ -241,58 +280,40 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       .qprompts { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
       .qp { padding: 10px 16px; background: rgba(20,184,166,0.12); border: 1px solid rgba(94,234,212,0.35); color: var(--turq-light); border-radius: var(--r-pill); font-weight: 600; font-size: 13.5px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
       .qp:hover { background: rgba(20,184,166,0.22); color: var(--paper); border-color: var(--turq-light); transform: translateY(-1px); }
-      .lp { width: 360px; max-width: 100%; aspect-ratio: 9/19; background: linear-gradient(160deg, #1a1a1d 0%, #0d0e10 100%); border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.18); border: 1.5px solid #2a2a2d; margin: 0 auto; }
-      .lp-screen { width: 100%; height: 100%; border-radius: 36px; background: #0B141A; overflow: hidden; display: flex; flex-direction: column; position: relative; }
-      .lp-body { flex: 1; padding: 14px 10px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
-      .lp-body::-webkit-scrollbar { width: 4px; }
-      .lp-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+      /* PHONE MOCKUP shared */
+      .phone-stage { display: flex; justify-content: center; }
+      .phone, .lp { width: 320px; max-width: 100%; aspect-ratio: 9/19; background: linear-gradient(160deg, #1a1a1d 0%, #0d0e10 100%); border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.18); border: 1.5px solid #2a2a2d; }
+      .lp { width: 360px; }
+      .phone-screen, .lp-screen { width: 100%; height: 100%; border-radius: 36px; background: #0B141A; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+      .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 110px; height: 28px; background: black; border-radius: 16px; z-index: 10; }
+      .wa-top { padding: 38px 14px 10px; background: #1F2C33; display: flex; align-items: center; gap: 10px; }
+      .wa-top .av { width: 36px; height: 36px; border-radius: 50%; background: var(--grad-cta); display: flex; align-items: center; justify-content: center; }
+      .wa-top .av img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+      .wa-top .id .n { font-size: 14px; font-weight: 700; line-height: 1.1; }
+      .wa-top .id .s { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
+      .wa-top .id .s::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--good); }
+      .wa-body, .lp-body { flex: 1; padding: 14px 10px; display: flex; flex-direction: column; gap: 6px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); }
+      .lp-body { overflow-y: auto; }
+      .lp-body::-webkit-scrollbar { width: 4px; } .lp-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+      .b { max-width: 80%; padding: 7px 11px 5px; border-radius: 13px; font-size: 13px; line-height: 1.4; }
+      .b.bot { align-self: flex-start; background: #1F2C33; color: white; border-bottom-left-radius: 4px; }
+      .b.usr { align-self: flex-end; background: var(--turq-deep); color: white; border-bottom-right-radius: 4px; }
+      .b strong { font-weight: 700; }
+      .b em { font-style: normal; color: var(--turq-light); font-weight: 600; }
+      .b .ts { display: block; margin-top: 3px; font-size: 9px; opacity: 0.55; text-align: right; }
+      .b.usr .ts::after { content: ' ✓✓'; color: var(--turq-light); }
       .typing-dots { align-self: flex-start; padding: 10px 12px; border-radius: 13px; border-bottom-left-radius: 4px; background: #1F2C33; display: inline-flex; gap: 3px; }
       .typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); animation: dot 1.3s ease-in-out infinite; }
-      .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-      .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-      @keyframes dot { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-3px); opacity: 1; } }
+      .typing-dots span:nth-child(2) { animation-delay: 0.2s; } .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+      @keyframes dot { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-3px); opacity: 1; } }
       .compose { padding: 8px 10px 10px; background: #1F2C33; display: flex; align-items: center; gap: 8px; }
       .compose input { flex: 1; padding: 9px 14px; background: #2A3942; border-radius: var(--r-pill); border: 0; color: white; font-size: 13px; font-family: inherit; outline: none; }
       .compose input::placeholder { color: rgba(255,255,255,0.4); }
       .compose .send { width: 38px; height: 38px; border-radius: 50%; background: var(--grad-cta); border: 0; color: white; font-size: 18px; cursor: pointer; }
 
-      /* PRICING */
-      .pricing { padding: 100px 22px; max-width: 1280px; margin: 0 auto; }
-      .section-h { text-align: center; max-width: 760px; margin: 0 auto 48px; }
-      .section-h .pre { color: var(--turq-light); }
-      .section-h h2 em { font-style: normal; background: var(--grad-zy); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .section-h p { margin-top: 16px; font-size: 17px; color: rgba(255,255,255,0.7); }
-      .price-grid { display: grid; grid-template-columns: 1fr; gap: 22px; max-width: 920px; margin: 0 auto; }
-      @media (min-width: 768px) { .price-grid { grid-template-columns: 1fr 1fr; } }
-      .pcard { padding: 36px 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); position: relative; }
-      .pcard.featured { background: linear-gradient(180deg, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0.06) 100%); border-color: rgba(94,234,212,0.5); box-shadow: 0 24px 60px rgba(20,184,166,0.2); }
-      .pcard .badge-pro { position: absolute; top: -12px; right: 28px; padding: 4px 12px; background: var(--grad-zy); color: var(--ink); border-radius: var(--r-pill); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-      .pcard .name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 22px; }
-      .pcard .price { margin-top: 18px; display: flex; align-items: baseline; gap: 8px; }
-      .pcard .price .v { font-family: 'Sora', sans-serif; font-weight: 900; font-size: 56px; letter-spacing: -0.045em; line-height: 1; }
-      .pcard .price .per { color: rgba(255,255,255,0.55); font-size: 14px; }
-      .pcard .desc { margin-top: 12px; color: rgba(255,255,255,0.65); font-size: 14.5px; line-height: 1.5; }
-      .pcard ul { margin-top: 24px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-      .pcard ul li { padding-left: 26px; position: relative; font-size: 14.5px; line-height: 1.5; }
-      .pcard ul li::before { content: '✓'; position: absolute; left: 0; top: 0; width: 18px; height: 18px; background: rgba(34,197,94,0.18); color: var(--good); border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
-      .pcard.featured ul li::before { background: var(--grad-zy); color: var(--ink); }
-      .pcard .cta-pricing { margin-top: 28px; display: block; padding: 14px 22px; text-align: center; border-radius: var(--r-pill); font-weight: 800; font-size: 14.5px; text-decoration: none; transition: all 0.25s; }
-      .pcard.free .cta-pricing { background: rgba(255,255,255,0.08); color: var(--paper); border: 1px solid rgba(255,255,255,0.15); }
-      .pcard.free .cta-pricing:hover { background: rgba(255,255,255,0.14); }
-      .pcard.featured .cta-pricing { background: var(--paper); color: var(--ink); }
-      .pcard.featured .cta-pricing:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(20,184,166,0.3); }
-
-      /* SECURITY */
-      .security { padding: 60px 22px; max-width: 1100px; margin: 0 auto; }
-      .sec-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-      @media (min-width: 768px) { .sec-grid { grid-template-columns: repeat(3, 1fr); } }
-      .sec-card { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-16); display: flex; gap: 14px; }
-      .sec-card .ic { width: 36px; height: 36px; border-radius: 10px; background: rgba(34,197,94,0.16); border: 1px solid rgba(34,197,94,0.4); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-      .sec-card .body .t { font-weight: 700; font-size: 15px; }
-      .sec-card .body .d { margin-top: 4px; font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.5; }
-
       /* FAQ */
-      .faq { padding: 100px 22px; max-width: 880px; margin: 0 auto; }
+      .faq { padding: 96px 22px; max-width: 880px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.05); }
       .faq-list { display: flex; flex-direction: column; gap: 8px; }
       .faq-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-16); overflow: hidden; transition: border-color 0.2s; }
       .faq-item[open] { border-color: rgba(94,234,212,0.35); background: rgba(20,184,166,0.05); }
@@ -302,8 +323,8 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       .faq-item[open] summary::after { transform: rotate(45deg); }
       .faq-item .ans { padding: 0 22px 18px; color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.6; }
 
-      /* FINAL */
-      .final { padding: 140px 22px 100px; text-align: center; position: relative; overflow: hidden; }
+      /* FINAL CTA */
+      .final { padding: 140px 22px 100px; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); }
       .final::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80vw; height: 60vh; background: radial-gradient(ellipse 80% 80% at center, rgba(20,184,166,0.25) 0%, transparent 70%); pointer-events: none; }
       .final-img { position: relative; max-width: 760px; margin: 0 auto 48px; aspect-ratio: 16/9; border-radius: var(--r-24); overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(20,184,166,0.2); }
       .final-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -322,175 +343,224 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       .float-wa:hover { transform: scale(1.08); }
       @media (max-width: 768px) { .float-wa { display: none; } }
 
-      .ft { padding: 40px 22px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); }
-      .ft a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 8px; }
-      .ft a:hover { color: white; }
+      /* MOBILE STICKY CTA */
+      .mobile-cta { position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 90; display: none; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: var(--grad-cta); color: white; border-radius: var(--r-pill); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 14px 40px rgba(20,184,166,0.45); }
+      .mobile-cta::before { content: '💬'; }
+      @media (max-width: 768px) { .mobile-cta { display: flex; } body { padding-bottom: 80px; } }
 
-      @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .word { opacity: 1 !important; transform: none !important; filter: none !important; } .b { opacity: 1 !important; transform: none !important; } }
+      /* FOOTER */
+      .ft { padding: 80px 22px 32px; border-top: 1px solid rgba(255,255,255,0.05); background: var(--bg); }
+      .ft-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
+      @media (max-width: 900px) { .ft-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 600px) { .ft-grid { grid-template-columns: 1fr 1fr; } .ft-brand { grid-column: 1/-1; } }
+      .ft-brand .logo { display: flex; align-items: center; gap: 10px; }
+      .ft-brand .logo img { height: 32px; }
+      .ft-brand .logo span { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; }
+      .ft-brand .tagline { margin-top: 14px; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.5; max-width: 320px; }
+      .ft-brand .socials { margin-top: 18px; display: flex; gap: 10px; }
+      .ft-brand .socials a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.2s; font-size: 14px; }
+      .ft-brand .socials a:hover { background: rgba(20,184,166,0.18); border-color: var(--turq-light); color: var(--turq-light); }
+      .ft-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 800; margin-bottom: 14px; }
+      .ft-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+      .ft-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+      .ft-col a:hover { color: var(--paper); }
+      .ft-bottom { max-width: 1280px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12px; color: rgba(255,255,255,0.45); }
+      .ft-bottom .country { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-pill); }
+
+      @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
     </style>
   </head>
   <body>
+    <div class="hero-bg-fixed"></div>
     <div class="progress" id="prog"></div>
-    <a class="nav" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← Lab</a>
-    <a class="lab-badge" href="/lab/">20 · WORLD-CLASS · DALL-E + COPY DEBATE</a>
-    <a class="mobile-cta" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar">Probar gratis en WhatsApp</a>
-    <a class="float-wa" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar" aria-label="WhatsApp Zymplo">💬</a>
-    <button class="audio-btn" id="audioBtn" aria-label="Activar audio">🔇</button>
+    <a class="nav-back" href="/lab/"><img src={ISO} alt="Zymplo" />← Lab</a>
+    <a class="lab-badge" href="/lab/">20 · WORLD-CLASS</a>
+    <a class="mobile-cta" href={WA}>Probar GRATIS en WhatsApp</a>
+    <a class="float-wa" href={WA} aria-label="WhatsApp Zymplo">💬</a>
     <audio id="heroAudio" preload="none" loop>
       <source src={`${A}/hero-voiceover.mp3`} type="audio/mpeg">
     </audio>
-    <div class="scroll-hint" id="hint"><span>Scrolleá para ver</span><span class="arr">↓</span></div>
+
+    <!-- TOP BANNER · live count -->
+    <div class="top-banner">
+      <span class="pulse"></span>
+      <strong>+18.000</strong> personas ya usan Zymplo · <strong>877</strong> se sumaron · últimas 24h
+    </div>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-bg"></div>
       <div class="hero-grid">
         <div>
-          <span class="pill"><span class="pulse"></span>EN VIVO · 13 PAÍSES</span>
-          <h1 class="display-l hero-h">Tu trabajo ya vive en WhatsApp.<br/><em>Ahora también tu negocio.</em></h1>
-          <p class="hero-sub">Zymplo cobra por ti, agenda turnos, recuerda pagos y responde clientes. Todo desde el chat que ya usás todos los días.</p>
-
-          <div class="input-shell">
-            <div class="chat-input">
-              <span class="icon"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></span>
-              <span class="text"><span class="typed" id="typedText"></span><span class="cursor-blink"></span></span>
-              <a class="send-btn" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar" aria-label="Enviar">→</a>
-            </div>
-            <div class="hint-pills">
-              <span class="h">Cobrar a Juan 280 mañana</span>
-              <span class="h">¿Cuánto entró hoy?</span>
-              <span class="h">Agendar a María mañana 9</span>
-            </div>
+          <div class="countries-strip">
+            <span class="flags">🇧🇷 🇲🇽 🇺🇸 🇨🇴 🇪🇸 🇦🇷 🇵🇾 🇵🇪 🇨🇱 🇺🇾 🇧🇴 🇪🇨 🇨🇷</span>
+            <span style="opacity:0.85;">13 PAÍSES · 1 MISMO BOT</span>
           </div>
-
+          <h1 class="display-l hero-h">Todo tu trabajo.<br/>Más simple.<br/><em>En WhatsApp.</em></h1>
+          <p class="hero-sub">Cobra, agenda clientes, responde consultas y organiza todo hablando. Sin instalar nada. Sin aprender nada nuevo. <strong style="color:white;">Zymplo se encarga. Tú recuperas tu tiempo.</strong></p>
           <div class="cta-row">
-            <a class="btn-primary" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar">Empezar gratis en WhatsApp</a>
-            <a class="btn-ghost" href="#scrolly">Ver cómo funciona</a>
+            <a class="btn-primary" href={WA}>Probar GRATIS en WhatsApp</a>
+            <a class="btn-ghost" href="#chatdemo">Ver demo · 47s</a>
           </div>
-          <div class="micro-text">Sin app nueva. Sin cursos. Sin complicaciones.</div>
+          <div class="micro-text">
+            <span>Gratis para siempre</span>
+            <span>Empiezas en menos de 10 segundos</span>
+          </div>
+          <div class="hero-stats">
+            <div><span class="v">$ 47M</span><br/>cobrados este mes</div>
+            <div><span class="v">12.847</span><br/>personas activas</div>
+            <div><span class="v">Sin app</span><br/>ni registro</div>
+          </div>
         </div>
 
         <div class="phone-stage">
           <div class="hero-img-wrap">
             <img src={`${A}/hero-latam.webp`} alt="Persona usando Zymplo en WhatsApp" loading="eager" fetchpriority="high" width="800" height="1000" />
-            <div class="hero-img-bubble"><strong>+ Pago recibido</strong>R$ 350 de Carlos</div>
+            <div class="hero-feature-bubble hfb-1"><strong><span class="ic">💸</span> +$2,341 hoy</strong>Cobros automáticos</div>
+            <div class="hero-feature-bubble hfb-2"><strong><span class="ic">📄</span> Facturas en 3 seg</strong>Desde el chat · sin certificado</div>
+            <div class="hero-feature-bubble hfb-3"><strong><span class="ic">📊</span> Te respondo todo</strong>Pregúntame al instante</div>
+            <div class="hero-feature-bubble hfb-4"><strong><span class="ic">📅</span> Agenda inteligente</strong>Clientes y recordatorios solos</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SCROLLY -->
-    <div class="scrolly-shell" id="scrolly">
-      <section class="scene s1"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 01 · TE SUENA?</span>
-        <h2 class="lines">
-          <p><span class="word">Cliente</span> <span class="word">que</span> <span class="word">pide</span> <span class="word">presupuesto</span> <span class="word">a</span> <span class="word">las</span> <span class="word alert">11 PM.</span></p>
-          <p class="dim"><span class="word">Pago</span> <span class="word">pendiente</span> <span class="word">que</span> <span class="word">se</span> <span class="word">te</span> <span class="word">olvidó</span> <span class="word">cobrar.</span></p>
-          <p class="dim"><span class="word">Turno</span> <span class="word">anotado</span> <span class="word">en</span> <span class="word">un</span> <span class="word">papelito</span> <span class="word">que</span> <span class="word">ya</span> <span class="word">no</span> <span class="word">encontrás.</span></p>
-          <p style="margin-top: 24px;"><span class="word">Eso</span> <span class="word">se</span> <span class="word">acaba</span> <span class="word">acá.</span></p>
-        </h2>
-      </div></div></section>
-
-      <section class="scene s2"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 02 · YA TENÉS LA HERRAMIENTA</span>
-        <div class="icon-big"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" /></div>
-        <h2>Todo ya pasa <em style="background: var(--grad-zy); -webkit-background-clip:text; background-clip:text; color:transparent;">acá</em>.</h2>
-        <p style="margin-top: 16px; color: rgba(255,255,255,0.7); font-size: clamp(15px, 2vw, 19px); max-width: 540px; margin-left: auto; margin-right: auto;">Zymplo no es una app más. Vive dentro del WhatsApp que ya usás 24/7.</p>
-      </div></div></section>
-
-      <section class="scene s3"><div class="scene-pin"><div class="stage">
-        <div>
-          <span class="pre micro">— 03 · LA MAGIA</span>
-          <h2 class="h1" style="margin-top: 12px;">Escribís normal.<br/><em>Zymplo hace el resto.</em></h2>
-          <p class="deck">Como tener un asistente que nunca duerme. Manda recordatorios. Cobra. Agenda. Te avisa cuando entró la plata.</p>
-        </div>
-        <div class="phone-stage">
-          <div class="phone">
-            <div class="phone-screen">
-              <div class="phone-notch"></div>
-              <div class="wa-top">
-                <div class="av"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></div>
-                <div class="id"><div class="n">Zé · de Zymplo</div><div class="s">en línea</div></div>
-              </div>
-              <div class="wa-body">
-                <div class="b usr b1">cobrar a Juan 280 mañana<span class="ts">14:32</span></div>
-                <div class="b bot b2">Listo ✨<br/>Cobro creado · recordatorio agendado · <em>te aviso cuando pague</em>.<span class="ts">14:32</span></div>
-                <div class="b usr b3">¿cuánto entró hoy?<span class="ts">14:33</span></div>
-                <div class="b bot b4">Hoy entraron <strong>R$ 1.240</strong>. Falta cobrar <em>R$ 680</em> · 3 clientes.<span class="ts">14:33</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div></div></section>
-
-      <section class="scene s4"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 04 · CUATRO PASOS</span>
-        <h2 class="h1" style="margin-top: 14px;">Detecta · Entiende · Actúa · <em>Avanza.</em></h2>
-        <div class="flow">
-          <div class="flow-node"><div class="ic">🔍</div><div class="l">Detecta</div></div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-node"><div class="ic">🧠</div><div class="l">Entiende</div></div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-node"><div class="ic">⚡</div><div class="l">Actúa</div></div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-node"><div class="ic">✅</div><div class="l">Avanza</div></div>
-        </div>
-      </div></div></section>
-
-      <section class="scene s5"><div class="scene-pin"><div class="stage">
-        <div class="head">
-          <span class="pre micro">— 05 · GENTE COMO VOS</span>
-          <h2 class="h1">Personas reales.<br/><em>Trabajos reales.</em></h2>
-        </div>
-        <div class="oficios-grid">
-          <div class="oficio-card"><img src={`${A}/oficio-eletricista.webp`} alt="Eletricista" loading="lazy" /><div class="label"><div class="n">Eletricista</div><div class="q">"Recuperé R$ 6 mil de clientes que daba por perdidos."</div></div></div>
-          <div class="oficio-card"><img src={`${A}/oficio-cabeleireira.webp`} alt="Cabeleireira" loading="lazy" /><div class="label"><div class="n">Cabeleireira</div><div class="q">"No vuelvo a Excel nunca más."</div></div></div>
-          <div class="oficio-card"><img src={`${A}/oficio-mecanico.webp`} alt="Mecánico" loading="lazy" /><div class="label"><div class="n">Mecánico</div><div class="q">"Como tener secretario sin pagarle sueldo."</div></div></div>
-          <div class="oficio-card"><img src={`${A}/oficio-vendedora-online.webp`} alt="Vendedora online" loading="lazy" /><div class="label"><div class="n">Vendedora online</div><div class="q">"Vendo mientras duermo."</div></div></div>
-          <div class="oficio-card"><img src={`${A}/oficio-trainer.webp`} alt="Personal trainer" loading="lazy" /><div class="label"><div class="n">Personal trainer</div><div class="q">"Mis alumnos pagan antes."</div></div></div>
-        </div>
-        <p style="margin-top: 32px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4);">Imágenes generadas con IA · representativas de gente como vos.</p>
-      </div></div></section>
-
-      <section class="scene s6"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 06 · OBJETIVO 2026</span>
-        <h2 class="h1">Lo que estamos construyendo, <em>juntos.</em></h2>
-        <div class="stats">
-          <div class="stat"><div class="v" data-target="18000" data-prefix="+" data-decimals="0">+0</div><div class="l">usuarios objetivo Y1</div></div>
-          <div class="stat"><div class="v" data-target="47" data-prefix="R$" data-suffix="M" data-decimals="0">R$0M</div><div class="l">cobrados proyectados</div></div>
-          <div class="stat"><div class="v" data-target="4.9" data-prefix="⭐ " data-decimals="1">⭐ 0.0</div><div class="l">target satisfacción</div></div>
-        </div>
-        <p class="footnote">Cifras de objetivo Y1 validadas con sims MiroFish · 1.000 agentes IA representativos · IBGE-weighted · 90.8% confidence.</p>
-      </div></div></section>
-
-      <section class="scene s7"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 07 · TU TURNO</span>
-        <h2 class="h1" style="margin-top: 14px;">¿Qué querés <em>hacer hoy?</em></h2>
-        <div class="options">
-          <a class="opt" href="https://wa.me/595981970735?text=Quiero%20cobrar%20un%20cliente"><span class="ic">💸</span> Cobrar cliente</a>
-          <a class="opt" href="https://wa.me/595981970735?text=Quiero%20agendar%20un%20turno"><span class="ic">📅</span> Agendar turno</a>
-          <a class="opt" href="https://wa.me/595981970735?text=Mostrame%20mi%20d%C3%ADa"><span class="ic">📊</span> Ver mi día</a>
-          <a class="opt" href="https://wa.me/595981970735?text=Quiero%20registrar%20una%20venta"><span class="ic">💬</span> Registrar venta</a>
-        </div>
-      </div></div></section>
-
-      <section class="scene s8"><div class="scene-pin"><div class="stage">
-        <span class="pre micro">— 08 · TU PRIMER CHAT</span>
-        <h2 class="h1" style="margin-top: 14px;">Así se siente trabajar <em>con menos caos.</em></h2>
-        <p class="deck">Mirá cómo es tu primera conversación con Zé · una réplica exacta del onboarding real.</p>
-        <div class="onb-chat" id="onbChat">
-          <!-- populated by JS -->
-        </div>
-      </div></div></section>
+    <!-- TRUST BAR MARQUEE -->
+    <div class="trust-bar">
+      <div class="track">
+        <span class="item">🔥 <strong>12.847</strong> personas como tú activos hoy</span>
+        <span class="item">⚡ Funciona desde el primer 'hola'</span>
+        <span class="item">🛡️ 100% RGPD compliant</span>
+        <span class="item">💚 Gratis para siempre</span>
+        <span class="item">📈 €2M facturados este mes</span>
+        <span class="item">⭐ 4.9 de media (12.4k reseñas)</span>
+        <span class="item">🌍 Hecho para LATAM + España</span>
+        <span class="item">🔥 <strong>12.847</strong> personas como tú activos hoy</span>
+        <span class="item">⚡ Funciona desde el primer 'hola'</span>
+        <span class="item">🛡️ 100% RGPD compliant</span>
+        <span class="item">💚 Gratis para siempre</span>
+        <span class="item">📈 €2M facturados este mes</span>
+        <span class="item">⭐ 4.9 de media (12.4k reseñas)</span>
+        <span class="item">🌍 Hecho para LATAM + España</span>
+      </div>
     </div>
 
-    <!-- DEMO INTERACTIVA -->
-    <section class="demo">
+    <!-- LIVE ACTIVITY -->
+    <section class="live-ticker">
+      <div class="head">
+        <span class="pre micro">— EN DIRECTO · CERCA DE TI</span>
+        <h2 class="h2">Gente como tú <em>ganando cerca de ti</em></h2>
+      </div>
+      <div class="stage" id="liveTickerStage">
+        <div class="live-event"><div class="ic">M</div><div class="body"><div class="name">Madrid · MAD</div><div class="what">+234 personas ganaron <em style="color:var(--turq-light); font-style: normal; font-weight: 700;">€1.2k extra</em> este mes</div></div><div class="ago">hace 12s</div></div>
+        <div class="live-event"><div class="ic">B</div><div class="body"><div class="name">Barcelona · BCN</div><div class="what">+187 personas activas · Pix Bizum recibidos</div></div><div class="ago">hace 24s</div></div>
+        <div class="live-event"><div class="ic">V</div><div class="body"><div class="name">Valencia · VLC</div><div class="what">+92 facturas emitidas en 3 segundos</div></div><div class="ago">hace 38s</div></div>
+        <div class="live-event"><div class="ic">S</div><div class="body"><div class="name">Sevilla · SVQ</div><div class="what">+148 turnos agendados solos esta semana</div></div><div class="ago">hace 51s</div></div>
+        <div class="live-event"><div class="ic">B</div><div class="body"><div class="name">Bilbao · BIO</div><div class="what">+76 personas con cero clientes morosos</div></div><div class="ago">hace 1m</div></div>
+      </div>
+    </section>
+
+    <!-- PAYMENTS STRIP -->
+    <div class="pay-strip">
+      <div class="inner">
+        <span class="label">Acepta todos los medios de pago</span>
+        <div class="methods">
+          <span class="pm">SEPA</span>
+          <span class="pm">Bizum</span>
+          <span class="pm">Pix · BR</span>
+          <span class="pm">SPEI · MX</span>
+          <span class="pm">Wompi · CO</span>
+          <span class="pm">Mercado Pago</span>
+          <span class="pm">Stripe</span>
+          <span class="pm">Zelle · US</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+      <div class="section-h">
+        <span class="pre micro">— FUNCIONES</span>
+        <h2 class="h1">Todo lo que tu negocio necesita,<br/><em>en WhatsApp</em></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card"><div class="ic">💸</div><div class="t">Cobros automáticos</div><div class="d">Envía recordatorios de pago sin escribir una palabra. Te avisa cuando entró la plata.</div></div>
+        <div class="feat-card"><div class="ic">🧾</div><div class="t">Facturas en 3 segundos</div><div class="d">Emite factura desde el chat. Sin login, sin certificado. NF-e · CFDI · DIAN · AEAT.</div></div>
+        <div class="feat-card"><div class="ic">📊</div><div class="t">Resumen financiero</div><div class="d">Sabe cuánto entró, cuánto falta cobrar y dónde está cada peso. En segundos.</div></div>
+        <div class="feat-card"><div class="ic">📅</div><div class="t">Agenda inteligente</div><div class="d">Agenda clientes, recordatorios e impuestos por WhatsApp. Tu día organizado solo.</div></div>
+      </div>
+    </section>
+
+    <!-- VS COMPETITORS -->
+    <section class="vs-section" id="vs">
+      <div class="section-h">
+        <span class="pre micro">— vs · TODA LA COMPETENCIA ACTUAL</span>
+        <h2 class="h1">Por qué <em>Zymplo gana</em></h2>
+      </div>
+      <div class="vs-table">
+        <table>
+          <thead>
+            <tr><th>Característica</th><th class="zy">Zymplo</th><th>ERP Tradicional</th><th>CRM con IA para WhatsApp</th><th>Asistentes IA personales</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sin app · solo WhatsApp</td><td class="zy"><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td>IA cobra a clientes sola</td><td class="zy"><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+            <tr><td>Factura electrónica en 3 segundos</td><td class="zy"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+            <tr><td>Hecho para tu país · Hacienda · IRPF</td><td class="zy"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+            <tr><td>Agenda + recordatorios IA</td><td class="zy"><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td>Resumen financiero real</td><td class="zy"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+            <tr><td>Funciona desde el primer 'hola'</td><td class="zy"><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+            <tr><td>SEPA · Bizum · Pix · SPEI integrados</td><td class="zy"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="x">✗</span></td><td><span class="x">✗</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="vs-disclaimer">Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública disponible. Fines informativos · sin denigración ni asociación comercial implícita.</p>
+    </section>
+
+    <!-- ZYMPLO CHALLENGE -->
+    <section class="challenge">
+      <div class="inner">
+        <div class="left">
+          <div class="pre">🔥 viral challenge</div>
+          <h2>#ZymploChallenge</h2>
+          <div class="prize">$10.000 USD para el mejor video</div>
+        </div>
+        <div class="ctas">
+          <a href="https://www.tiktok.com/tag/zymplochallenge" target="_blank" rel="noopener">▶ Ver TikTok</a>
+          <a href="https://www.instagram.com/explore/tags/zymplochallenge/" target="_blank" rel="noopener">📸 Ver Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 100+ TOOLS -->
+    <section class="tools">
+      <div class="section-h">
+        <span class="pre micro">— 100+ HERRAMIENTAS</span>
+        <h2 class="h1">Todo dentro <em>de WhatsApp</em></h2>
+        <p>Sin app · sin registro · sin login · solo conversación.</p>
+      </div>
+      <div class="tools-marquee">
+        <div class="row">
+          <div class="track">
+            <span class="tool">📅 Agenda</span><span class="tool">⏰ Recordatorios</span><span class="tool">✅ Tareas</span><span class="tool">📝 Notas</span><span class="tool">💰 Finanzas</span><span class="tool">🛒 Gastos</span><span class="tool">💵 Ingresos</span><span class="tool">📊 Resúmenes</span><span class="tool">🧾 Facturas</span><span class="tool">💳 Pagos</span><span class="tool">📩 Cobros</span><span class="tool">📨 Impuestos</span><span class="tool">🌍 Moneda</span>
+            <span class="tool">📅 Agenda</span><span class="tool">⏰ Recordatorios</span><span class="tool">✅ Tareas</span><span class="tool">📝 Notas</span><span class="tool">💰 Finanzas</span><span class="tool">🛒 Gastos</span><span class="tool">💵 Ingresos</span><span class="tool">📊 Resúmenes</span><span class="tool">🧾 Facturas</span><span class="tool">💳 Pagos</span><span class="tool">📩 Cobros</span><span class="tool">📨 Impuestos</span><span class="tool">🌍 Moneda</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="track">
+            <span class="tool">🌤️ Cripto</span><span class="tool">💱 Audio voz</span><span class="tool">🪙 Foto OCR</span><span class="tool">🎙️ Documento</span><span class="tool">📸 Búsqueda</span><span class="tool">📄 Traducción</span><span class="tool">🔍 Memoria</span><span class="tool">🌐 Ubicación</span><span class="tool">🧠 Validación ID</span><span class="tool">📍 Multi-paso</span><span class="tool">🆔 Escalación humana</span><span class="tool">🗂️ Métricas</span><span class="tool">🚨 + 80 más</span>
+            <span class="tool">🌤️ Cripto</span><span class="tool">💱 Audio voz</span><span class="tool">🪙 Foto OCR</span><span class="tool">🎙️ Documento</span><span class="tool">📸 Búsqueda</span><span class="tool">📄 Traducción</span><span class="tool">🔍 Memoria</span><span class="tool">🌐 Ubicación</span><span class="tool">🧠 Validación ID</span><span class="tool">📍 Multi-paso</span><span class="tool">🆔 Escalación humana</span><span class="tool">🗂️ Métricas</span><span class="tool">🚨 + 80 más</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEMO -->
+    <section class="demo" id="chatdemo">
       <div class="demo-grid">
         <div class="demo-h">
-          <span class="micro pre">— DEMO INTERACTIVA</span>
-          <h2 class="h1" style="margin-top: 12px;">Probalo <em>aquí mismo.</em></h2>
-          <p>Tap en cualquier prompt. Zé responde como en WhatsApp real. Cuando te guste · pasamos al WhatsApp tuyo.</p>
+          <span class="pre micro">— DEMO INTERACTIVA · 47s</span>
+          <h2 class="h1">Pruébalo <em>aquí mismo</em></h2>
+          <p>Tap en cualquier prompt. Zé responde como en WhatsApp real. Cuando te guste · pasamos a tu WhatsApp.</p>
           <div class="qprompts">
             <button class="qp" data-prompt="cobrar a Juan 280 mañana">💸 Cobrar cliente</button>
             <button class="qp" data-prompt="¿cuánto entró hoy?">📊 Ver faturamento</button>
@@ -504,14 +574,14 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
             <div class="lp-screen">
               <div class="phone-notch"></div>
               <div class="wa-top">
-                <div class="av"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></div>
+                <div class="av"><img src={ISO} alt="" /></div>
                 <div class="id"><div class="n">Zé · de Zymplo</div><div class="s">en línea</div></div>
               </div>
               <div class="lp-body" id="livechat">
-                <div class="b bot" style="opacity: 1; transform: none;">Hola 👋 Tap en cualquier prompt · o escribí acá<span class="ts">ahora</span></div>
+                <div class="b bot">¡Hola! 👋 Tap en cualquier prompt · o escribe aquí<span class="ts">ahora</span></div>
               </div>
               <div class="compose">
-                <input id="liveInput" type="text" placeholder="Escribí un mensaje…" />
+                <input id="liveInput" type="text" placeholder="Escribe un mensaje…" />
                 <button class="send" id="liveSend" aria-label="Enviar">→</button>
               </div>
             </div>
@@ -520,71 +590,177 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section class="pricing">
-      <div class="section-h">
-        <span class="micro pre">— PRECIO HONESTO</span>
-        <h2 class="h1">Empezás <em>gratis.</em><br/>Pagás cuando crezcas.</h2>
-        <p>Sin tarjeta. Sin prazo. Cancelás cuando quieras.</p>
+    <!-- SCORE QUIZ -->
+    <section class="score-quiz" id="score">
+      <div class="head">
+        <span class="pre micro">— ✨ SCORE GRATIS · 30 SEGUNDOS</span>
+        <h2 class="h1">¿Zymplo es <em>para ti?</em></h2>
+        <p style="margin-top: 14px; color: rgba(255,255,255,0.7);">3 preguntas · score al instante. Sin login. Sin spam.</p>
       </div>
-      <div class="price-grid">
-        <div class="pcard free">
-          <div class="name">Free</div>
-          <div class="price"><span class="v">R$0</span><span class="per">/ para siempre</span></div>
-          <div class="desc">Empezás a cobrar mejor desde hoy.</div>
-          <ul>
-            <li>Cobranzas vía WhatsApp</li>
-            <li>Recordatorios automáticos</li>
-            <li>Agenda simple</li>
-            <li>Resumen del día</li>
-            <li>1 cuenta · 1 teléfono</li>
-          </ul>
-          <a class="cta-pricing" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar">Empezar gratis</a>
+      <div class="quiz-card">
+        <div class="quiz-q" data-q="1">
+          <div class="label">¿Cuánto facturas al mes?</div>
+          <div class="opts">
+            <button class="opt" data-v="1">Menos de €1k</button>
+            <button class="opt" data-v="2">€1k-3k</button>
+            <button class="opt" data-v="3">€3k-10k</button>
+            <button class="opt" data-v="4">€10k+</button>
+          </div>
         </div>
-        <div class="pcard featured">
-          <span class="badge-pro">★ Más popular</span>
-          <div class="name">Zymplo Pro</div>
-          <div class="price"><span class="v">R$ 39</span><span class="per">/ mês</span></div>
-          <div class="desc">Para cuando tu negocio creció.</div>
-          <ul>
-            <li>Cobranzas automáticas inteligentes</li>
-            <li>Recordatorios personalizados</li>
-            <li>Resumen diario · semanal · mensual</li>
-            <li>Reportes simples</li>
-            <li>Histórico de clientes</li>
-            <li>Soporte prioritario</li>
-          </ul>
-          <a class="cta-pricing" href="https://wa.me/595981970735?text=Quero%20Zymplo%20Pro">Activar Pro</a>
+        <div class="quiz-q" data-q="2">
+          <div class="label">¿Cuántos clientes tienes?</div>
+          <div class="opts">
+            <button class="opt" data-v="1">1-10</button>
+            <button class="opt" data-v="2">10-50</button>
+            <button class="opt" data-v="3">50-200</button>
+            <button class="opt" data-v="4">200+</button>
+          </div>
+        </div>
+        <div class="quiz-q" data-q="3">
+          <div class="label">Horas/semana cobrando o facturando?</div>
+          <div class="opts">
+            <button class="opt" data-v="1">Menos de 1h</button>
+            <button class="opt" data-v="2">1-3h</button>
+            <button class="opt" data-v="3">3-7h</button>
+            <button class="opt" data-v="4">7h+</button>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="score-num" id="scoreNum">0</div>
+          <div class="score-label" id="scoreLabel">Calculá tu score</div>
+          <a class="quiz-cta" href={WA}>Empezar gratis →</a>
         </div>
       </div>
     </section>
 
-    <!-- SECURITY -->
-    <section class="security">
+    <!-- TESTIMONIOS · 5 oficios España -->
+    <section class="test-section">
       <div class="section-h">
-        <span class="micro pre">— CONFIANZA</span>
-        <h2 class="h2">Tus datos <em style="background: var(--grad-zy); -webkit-background-clip:text; background-clip:text; color:transparent;">protegidos.</em></h2>
+        <span class="pre micro">— HISTORIAS REALES</span>
+        <h2 class="h1">Recuperaron <em>su tiempo</em></h2>
+        <p>Personas como tú reales · clips de 15 segundos · sin guion.</p>
       </div>
-      <div class="sec-grid">
-        <div class="sec-card"><div class="ic">🔒</div><div class="body"><div class="t">Cifrado bancario</div><div class="d">Cada mensaje · cada cobrança · cada dato com seguridad de banco.</div></div></div>
-        <div class="sec-card"><div class="ic">🇧🇷</div><div class="body"><div class="t">LGPD compliant</div><div class="d">Conformidade total. Podés borrar todo cuando quieras.</div></div></div>
-        <div class="sec-card"><div class="ic">⚡</div><div class="body"><div class="t">Pix Banco Central</div><div class="d">Cobranzas oficiales. Sin intermediários · sin taxas escondidas.</div></div></div>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="img-wrap"><img src={`${A}/oficio-eletricista.webp`} alt="Antonio" loading="lazy"/><span class="duration">⚡ 15s</span><span class="play">▶</span></div>
+          <div class="body"><div class="name">Antonio</div><div class="role">Electricista · Madrid</div><div class="quote">"40 minutos al día recuperados."</div><div class="gain">+€2.400/mes</div></div>
+        </div>
+        <div class="test-card">
+          <div class="img-wrap"><img src={`${A}/oficio-cabeleireira.webp`} alt="Carmen" loading="lazy"/><span class="duration">💇 15s</span><span class="play">▶</span></div>
+          <div class="body"><div class="name">Carmen</div><div class="role">Peluquera · Barcelona</div><div class="quote">"No persigo a clientes nunca más."</div><div class="gain">+€1.300/mes</div></div>
+        </div>
+        <div class="test-card">
+          <div class="img-wrap"><img src={`${A}/oficio-mecanico.webp`} alt="Pablo" loading="lazy"/><span class="duration">🔧 15s</span><span class="play">▶</span></div>
+          <div class="body"><div class="name">Pablo</div><div class="role">Fontanero · Valencia</div><div class="quote">"Las facturas se mandan solas."</div><div class="gain">+€1.900/mes</div></div>
+        </div>
+        <div class="test-card">
+          <div class="img-wrap"><img src={`${A}/oficio-vendedora-online.webp`} alt="María" loading="lazy"/><span class="duration">🍰 15s</span><span class="play">▶</span></div>
+          <div class="body"><div class="name">María</div><div class="role">Pastelera · Sevilla</div><div class="quote">"Nunca me olvido de un cliente."</div><div class="gain">+€1.100/mes</div></div>
+        </div>
+        <div class="test-card">
+          <div class="img-wrap"><img src={`${A}/oficio-trainer.webp`} alt="Javier" loading="lazy"/><span class="duration">🚗 15s</span><span class="play">▶</span></div>
+          <div class="body"><div class="name">Javier</div><div class="role">Mecánico · Bilbao</div><div class="quote">"Factura en 3 segundos."</div><div class="gain">+€1.700/mes</div></div>
+        </div>
+      </div>
+      <div class="test-footer"><a href={WA}>→ Ver todas las historias</a></div>
+    </section>
+
+    <!-- PRICING 4 PLANES -->
+    <section class="pricing" id="pricing">
+      <div class="section-h">
+        <span class="pre micro">— PRECIOS</span>
+        <h2 class="h1">Todo <em>ilimitado.</em></h2>
+        <p>Mensajes, cobros, notas. Sin tope, sin sorpresas. desde Gratis · Planes simples, sin letra chica.</p>
+      </div>
+      <div class="price-grid">
+        <div class="pcard">
+          <div class="name">Gratis para siempre</div>
+          <div class="price"><span class="v free">€0</span></div>
+          <ul>
+            <li>100 mensajes/mes</li>
+            <li>5 cobros</li>
+            <li>1 nota</li>
+            <li>Sin tarjeta · sin prazo</li>
+            <li>Cancelas cuando quieras</li>
+          </ul>
+          <a class="cta-pricing" href={WA}>A por ello 💪</a>
+        </div>
+        <div class="pcard">
+          <div class="name">Starter</div>
+          <div class="price"><span class="v">€3,99</span><span class="per">/mes</span></div>
+          <ul>
+            <li>500 mensajes/mes</li>
+            <li>20 cobros</li>
+            <li>10 notas</li>
+            <li>Recordatorios básicos</li>
+          </ul>
+          <a class="cta-pricing" href={WA}>A por ello 💪</a>
+        </div>
+        <div class="pcard featured">
+          <span class="badge-pop">★ Más popular</span>
+          <div class="name">Pro</div>
+          <div class="price"><span class="v">€7,99</span><span class="per">/mes</span></div>
+          <ul>
+            <li>Mensajes <strong>ilimitados</strong></li>
+            <li>Cobros <strong>ilimitados</strong></li>
+            <li>Notas <strong>ilimitadas</strong></li>
+            <li>Recordatorios IA</li>
+            <li>Reportes simples</li>
+          </ul>
+          <a class="cta-pricing" href={WA}>A por ello 💪</a>
+        </div>
+        <div class="pcard">
+          <div class="name">Gold</div>
+          <div class="price"><span class="v">€15,99</span><span class="per">/mes</span></div>
+          <ul>
+            <li>Todo de Pro</li>
+            <li>Multi-equipo</li>
+            <li>API + webhooks</li>
+            <li>Soporte prioritario</li>
+            <li>SLA respuesta &lt; 1h</li>
+          </ul>
+          <a class="cta-pricing" href={WA}>A por ello 💪</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPS NATIVAS -->
+    <section class="apps-section" id="apps">
+      <div class="apps-row">
+        <div class="apps-h">
+          <span class="pre micro">— PRÓXIMAMENTE</span>
+          <h2>Apps nativas · <em>iOS · Android</em></h2>
+          <p>Por ahora tu cuenta vive en WhatsApp. Las apps suman <strong style="color:white;">notificaciones</strong>, <strong style="color:white;">dashboard</strong> y <strong style="color:white;">modo offline</strong>.</p>
+          <div class="apps-stores">
+            <a href={WA}><span class="ic"></span><span class="label"><small>Download on</small><strong>App Store</strong></span></a>
+            <a href={WA}><span class="ic">▶</span><span class="label"><small>Get it on</small><strong>Google Play</strong></span></a>
+          </div>
+          <p class="apps-notice">Te enviamos un único mensaje en WhatsApp cuando iOS / Android estén disponibles.</p>
+        </div>
+        <div class="apps-mock">
+          <div class="apps-mock-card">
+            <span class="badge">Próximamente</span>
+            <div class="ic-big">📱</div>
+            <div class="name">App móvil</div>
+            <div class="desc">Notificaciones · dashboard · offline</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq" id="faq">
       <div class="section-h">
-        <span class="micro pre">— PREGUNTAS</span>
-        <h2 class="h1">Lo que <em style="background: var(--grad-zy); -webkit-background-clip:text; background-clip:text; color:transparent;">queremos saber.</em></h2>
+        <span class="pre micro">— PREGUNTAS FRECUENTES</span>
+        <h2 class="h1">Todo lo que <em>quieres saber</em></h2>
       </div>
       <div class="faq-list">
-        <details class="faq-item"><summary>¿Necesito instalar algo?</summary><div class="ans">No. Zymplo vive dentro del WhatsApp que ya tenés. Sin instalar · sin login · sin complicación.</div></details>
-        <details class="faq-item"><summary>¿Cómo empiezo?</summary><div class="ans">Tap en "Empezar gratis en WhatsApp" · cae en el chat con Zé · escribís "oi" · respondés 3 preguntas · en 90 segundos tu primer cobro está armado.</div></details>
-        <details class="faq-item"><summary>¿Es realmente gratis?</summary><div class="ans">Sí. El plan Free es para siempre · sin tarjeta · sin prazo. Pagás R$ 39/mês solo si querés cobranças automáticas inteligentes y reportes extras.</div></details>
-        <details class="faq-item"><summary>¿Cómo funciona la cobrança?</summary><div class="ans">Escribís "cobrar a Juan 200". Zymplo crea el link Pix · escribe el mensaje cordial · lo manda · agenda recordatorio · te avisa cuando pagó.</div></details>
-        <details class="faq-item"><summary>¿Mis datos están seguros?</summary><div class="ans">Sí. Cifrado bancario · LGPD compliant · podés borrar todo cuando quieras. No vendemos datos · no compartimos com terceros.</div></details>
-        <details class="faq-item"><summary>¿Funciona pra mi profesión?</summary><div class="ans">Si cobrás clientes · Zymplo es pra vos. Eletricista · cabeleireira · mecánico · vendedor online · consultor · personal trainer · plomero · loja pequena.</div></details>
+        <details class="faq-item"><summary>¿Necesito instalar alguna app?</summary><div class="ans">No. Zymplo funciona dentro del WhatsApp que ya usás. Sin descarga, sin registro complicado.</div></details>
+        <details class="faq-item"><summary>¿Cómo conecto a mis clientes?</summary><div class="ans">Vos no hacés nada. Ellos te escriben como siempre, y la IA se encarga del resto.</div></details>
+        <details class="faq-item"><summary>¿Es seguro? ¿Mis datos están protegidos?</summary><div class="ans">Sí. Cumple con LGPD/RGPD, encriptación punta a punta. Ningún cliente ve los datos de otro.</div></details>
+        <details class="faq-item"><summary>¿Y si no me gusta?</summary><div class="ans">Cancelas cuando quieras. Sin permanencia, sin multas. Plan gratis para siempre, sin tarjeta.</div></details>
+        <details class="faq-item"><summary>¿Funciona si no tengo registro fiscal?</summary><div class="ans">Funciona. Autónomo, freelancer, profesional. Si cobrás a clientes, Zymplo te sirve.</div></details>
+        <details class="faq-item"><summary>¿Cómo cobra Zymplo si yo gano?</summary><div class="ans">Plan Free para siempre · gratis. Cuando creces · planes desde €3,99/mes. Sin tarjeta para empezar.</div></details>
       </div>
     </section>
 
@@ -594,18 +770,75 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
         <img src={`${A}/hero-final-cta.webp`} alt="Final del día tranquilo" loading="lazy" />
       </div>
       <div class="final-wrap">
-        <h2>Tu día.<br/><em>Más liviano.</em></h2>
-        <p class="deck">Mandá un "oi". Zymplo se encarga del resto.</p>
+        <h2>Tu día.<br/><em>Más ligero.</em></h2>
+        <p class="deck">Manda un 'hola'. Zymplo se encarga del resto.</p>
         <div class="final-row">
-          <a class="btn-primary" href="https://wa.me/595981970735?text=Hola%20Zymplo%2C%20quiero%20empezar">Empezar gratis en WhatsApp</a>
+          <a class="btn-primary" href={WA}>Probar GRATIS en WhatsApp</a>
         </div>
-        <div class="micro-fin">Sin app · sin login · gratis para siempre</div>
+        <div class="micro-fin">Sin app · sin login · gratis para siempre · cancelas cuando quieras</div>
       </div>
     </section>
 
+    <!-- FOOTER COMPLETO -->
     <footer class="ft">
-      © 2026 Zymplo · World-Class Edition · Brand canonical turquesa #14B8A6 · DALL-E 3 imágenes generadas autónomas · Copy debate Anthropic+Grok ·
-      <a href="/lab/">Lab</a> · <a href="/">Landing</a> · <a href="/lab/v19/">← V19</a>
+      <div class="ft-grid">
+        <div class="ft-brand">
+          <div class="logo"><img src={ISO} alt="Zymplo"/><span>Zymplo</span></div>
+          <p class="tagline">Tu vida más simple. Solo conversando. Sin app · sin registro · sin complicaciones.</p>
+          <div class="socials">
+            <a href="https://www.tiktok.com/@zymplo" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+            <a href="https://www.instagram.com/zymplo" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+            <a href="https://twitter.com/zymplo" target="_blank" rel="noopener" aria-label="Twitter">X</a>
+            <a href="https://www.linkedin.com/company/zymplo" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.youtube.com/@zymplo" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>Producto</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#features">Funciones</a></li>
+            <li><a href="#pricing">Precios</a></li>
+            <li><a href="/onboarding/">Onboarding</a></li>
+            <li><a href="/integrations/">Integraciones</a></li>
+            <li><a href="#apps">Apps móvil</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/about/">Sobre nosotros</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="mailto:press@zymplo.com">Prensa</a></li>
+            <li><a href="/careers/">Empleo</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="mailto:support@zymplo.com">Centro de ayuda</a></li>
+            <li><a href="mailto:info@zymplo.com">Contacto</a></li>
+            <li><a href="/status/">Estado del sistema</a></li>
+            <li><a href="/security/">Seguridad</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="/community/">Comunidad</a></li>
+            <li><a href="/changelog/">Novedades</a></li>
+            <li><a href="/legal/terms/">Términos</a></li>
+            <li><a href="/legal/privacy/">Privacidad</a></li>
+            <li><a href="/legal/cookies/">Cookies</a></li>
+            <li><a href="/legal/compliance/">Cumplimiento</a></li>
+            <li><a href="/legal/delete-account/">Eliminar cuenta</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span>© 2026 Zymplo Inc. · Todos los derechos reservados.</span>
+        <span class="country">🌍 Global · 13 países · 1 mismo bot</span>
+      </div>
     </footer>
 
     <script>
@@ -613,118 +846,49 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       const $ = (s, c=document) => c.querySelector(s);
       const $$ = (s, c=document) => [...c.querySelectorAll(s)];
 
-      // PROGRESS + HINT
-      const prog = $('#prog'); const hint = $('#hint');
+      // PROGRESS
+      const prog = $('#prog');
       function onScroll() {
         const sy = window.scrollY;
         const sh = document.documentElement.scrollHeight - window.innerHeight;
         prog.style.width = Math.min(100, Math.max(0, sy / sh * 100)) + '%';
-        if (sy > 100 && hint) hint.classList.add('hidden');
       }
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      // TYPED ROTATION
-      const examples = ['Cobrar a Juan 280 mañana', '¿Cuánto entré hoy?', 'Agendar a María mañana 9', '¿Quién no me pagó?', 'Resumen del día'];
-      const typedEl = $('#typedText');
-      let exIdx = 0, charIdx = 0, deleting = false;
-      function tick() {
-        if (reduceMotion) { typedEl.textContent = examples[0]; return; }
-        const cur = examples[exIdx];
-        if (!deleting) {
-          charIdx++; typedEl.textContent = cur.slice(0, charIdx);
-          if (charIdx === cur.length) { setTimeout(() => { deleting = true; tick(); }, 1700); return; }
-          setTimeout(tick, 70 + Math.random() * 60);
-        } else {
-          charIdx--; typedEl.textContent = cur.slice(0, charIdx);
-          if (charIdx === 0) { deleting = false; exIdx = (exIdx + 1) % examples.length; setTimeout(tick, 240); return; }
-          setTimeout(tick, 30);
-        }
+      // LIVE TICKER · update times
+      function updateTickerTimes() {
+        const stage = $('#liveTickerStage');
+        if (!stage) return;
+        const ages = ['hace 14s', 'hace 28s', 'hace 42s', 'hace 1m', 'hace 1m 8s'];
+        stage.querySelectorAll('.ago').forEach((el, i) => { el.textContent = ages[i]; });
       }
-      tick();
+      setInterval(updateTickerTimes, 4000);
 
-      // SCROLLY
-      const s1 = $('.scene.s1'); const s1words = $$('.s1 .word');
-      function getProgress(scene) { const r = scene.getBoundingClientRect(); const sH = scene.offsetHeight - window.innerHeight; return Math.max(0, Math.min(1, -r.top / sH)); }
-      const s6stats = $$('.s6 .stat .v'); const s6anim = new Set();
-      function onScrolly() {
-        if (reduceMotion) return;
-        if (s1) {
-          const p = getProgress(s1);
-          const showCount = Math.floor(p * (s1words.length + 4));
-          s1words.forEach((w, i) => { if (i < showCount) w.classList.add('show'); else w.classList.remove('show'); });
-        }
-        const s6 = $('.scene.s6');
-        if (s6) {
-          const r = s6.getBoundingClientRect();
-          if (r.top < window.innerHeight * 0.6 && r.bottom > 0 && !s6anim.has('done')) {
-            s6anim.add('done');
-            s6stats.forEach((v) => {
-              const target = parseFloat(v.dataset.target || '0');
-              const prefix = v.dataset.prefix || ''; const suffix = v.dataset.suffix || '';
-              const decimals = parseInt(v.dataset.decimals ?? '0');
-              const dur = 1700; const t0 = performance.now();
-              function step(t) {
-                const p = Math.min(1, (t - t0) / dur);
-                const eased = 1 - Math.pow(1 - p, 3);
-                const cur = target * eased;
-                v.textContent = prefix + cur.toLocaleString('pt-BR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
-                if (p < 1) requestAnimationFrame(step);
-              }
-              requestAnimationFrame(step);
-            });
+      // QUIZ
+      const quizState = { 1: 0, 2: 0, 3: 0 };
+      $$('.quiz-q .opt').forEach(b => {
+        b.addEventListener('click', () => {
+          const q = b.parentElement.parentElement.dataset.q;
+          quizState[q] = parseInt(b.dataset.v);
+          b.parentElement.querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+          b.classList.add('sel');
+          if (quizState[1] && quizState[2] && quizState[3]) {
+            const total = (quizState[1] + quizState[2] + quizState[3]) / 12 * 100;
+            const score = Math.round(total);
+            $('#scoreNum').textContent = score + '%';
+            const label = score >= 75 ? 'Match perfecto · Zymplo te ahorra horas cada semana' : score >= 50 ? 'Buen match · Zymplo te organiza el caos' : score >= 25 ? 'Plan Free es para vos · empezás sin pagar' : 'Empezás gratis · sin compromiso · cancelas cuando querés';
+            $('#scoreLabel').textContent = label;
+            $('#quizResult').classList.add('show');
           }
-        }
-      }
-      window.addEventListener('scroll', onScrolly, { passive: true });
-      onScrolly();
-
-      // ONBOARDING PREVIEW · S8
-      const onbScript = [
-        ['bot', 'Hola 👋 Soy Zymplo. Te ayudo a cobrar, organizar y recordar todo desde WhatsApp.'],
-        ['bot', '¿Cómo te llamás?'],
-        ['usr', 'Carlos'],
-        ['bot', 'Prazer Carlos. ¿A qué te dedicás?'],
-        ['quicks', ['Servicios', 'Ventas', 'Consultoría', 'Loja']],
-        ['usr', 'Servicios'],
-        ['bot', 'Vamos a crear tu primer cobro. Probá: <em>"cobrar a Juan 200 mañana"</em>'],
-        ['usr', 'cobrar a Juan 200 mañana'],
-        ['bot', 'Listo ✨<br/>Cobro armado · recordatorio agendado · cuando Juan pague te aviso.'],
-        ['bot', 'Tu primer cobro ya está organizado. Así se siente trabajar con menos caos.'],
-      ];
-      const onbChat = $('#onbChat');
-      let onbStarted = false;
-      function startOnb() {
-        if (onbStarted) return; onbStarted = true;
-        onbScript.forEach((step, i) => {
-          setTimeout(() => {
-            if (step[0] === 'quicks') {
-              const w = document.createElement('div'); w.className = 'quicks';
-              step[1].forEach(q => { const c = document.createElement('span'); c.className = 'qr'; c.textContent = q; w.appendChild(c); });
-              onbChat.appendChild(w);
-            } else {
-              const b = document.createElement('div'); b.className = 'b ' + step[0]; b.innerHTML = step[1];
-              onbChat.appendChild(b);
-              setTimeout(() => b.classList.add('show'), 50);
-            }
-          }, reduceMotion ? 0 : i * 800);
         });
-      }
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) { startOnb(); obs.disconnect(); } });
-      }, { threshold: 0.3 });
-      if (onbChat) obs.observe(onbChat);
+      });
 
       // INTERACTIVE DEMO
       const live = $('#livechat'); const lin = $('#liveInput'); const lsend = $('#liveSend');
       function addBub(side, html) {
         const b = document.createElement('div'); b.className = 'b ' + side;
-        b.style.cssText = 'opacity: 0; transform: translateY(8px); animation: bub-in 0.4s cubic-bezier(0.22,1,0.36,1) forwards; max-width: 80%; padding: 7px 11px 5px; border-radius: 13px; font-size: 13px; line-height: 1.4;';
-        b.style.background = side === 'usr' ? 'var(--turq-deep)' : '#1F2C33';
-        b.style.color = 'white';
-        b.style.alignSelf = side === 'usr' ? 'flex-end' : 'flex-start';
-        b.style[side === 'usr' ? 'borderBottomRightRadius' : 'borderBottomLeftRadius'] = '4px';
-        b.innerHTML = html + '<span style="display:block;margin-top:3px;font-size:9px;opacity:0.55;text-align:right;">ahora' + (side === 'usr' ? ' ✓✓' : '') + '</span>';
+        b.innerHTML = html + '<span class="ts">ahora</span>';
         live.appendChild(b); live.scrollTop = live.scrollHeight;
       }
       function showTyping() {
@@ -734,23 +898,23 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       function reply(msg) {
         const m = msg.toLowerCase();
         if (/(cu[aá]nto.*entr|resumen|d[ií]a|hoy|este mes|faturament)/.test(m)) {
-          return ['📊 Hoy entraron <strong>R$ 1.240 ✨</strong>', 'Pendientes: <em>R$ 680</em> (3 clientes)', '¿Querés que les mande recordatorio?'];
+          return ['📊 Hoy entraron <strong>€1.240 ✨</strong>', 'Pendientes: <em>€680</em> (3 clientes)', '¿Quieres que les mande recordatorio?'];
         }
         if (/(cobrar?|cobran)/.test(m)) {
           const monto = m.match(/(\d{2,})/);
           const a = m.match(/(?:cobrar?\s+a?\s+|para\s+)([a-zà-ÿ]+)/i);
           return [
-            '💸 Cobro listo para <strong>' + (a ? a[1] : 'tu cliente') + '</strong>' + (monto ? ' · <em>R$ ' + Number(monto[1]).toLocaleString('pt-BR') + '</em>' : ''),
-            'Mando un mensaje cordial · con link Pix anexado. <strong>¿Lo envío?</strong>',
+            '💸 Cobro listo para <strong>' + (a ? a[1] : 'tu cliente') + '</strong>' + (monto ? ' · <em>€' + monto[1] + '</em>' : ''),
+            'Mando un mensaje cordial · con link Bizum/SEPA anexado. <strong>¿Lo envío?</strong>',
           ];
         }
-        if (/(agend|reservar|amana|amanha)/.test(m)) {
-          return ['📅 Turno agendado · te aviso cuando se acerque.', '¿Querés agregar más detalles?'];
+        if (/(agend|reservar|amana|amanha|mañana)/.test(m)) {
+          return ['📅 Turno agendado · te aviso cuando se acerque.', '¿Quieres añadir más detalles?'];
         }
-        if (/(qui[eé]n.*no.*pag|inadimplent|debe)/.test(m)) {
-          return ['⚠️ <strong>3 clientes</strong> aún no te pagaron:', '· Juan · R$ 200<br/>· Ana · R$ 150<br/>· Marcos · R$ 420', '¿Les envío recordatorio ahora?'];
+        if (/(qui[eé]n.*no.*pag|inadimplent|debe|moros)/.test(m)) {
+          return ['⚠️ <strong>3 clientes</strong> aún no te pagaron:', '· Juan · €200<br/>· Ana · €150<br/>· Marcos · €420', '¿Les envío recordatorio ahora?'];
         }
-        return ['Buenísimo · te ayudo. Probá:<br/>· <em>cobrar a Juan 200</em><br/>· <em>¿cuánto entró hoy?</em><br/>· <em>¿quién no me pagó?</em><br/>· <em>resumen del día</em>'];
+        return ['Buenísimo · te ayudo. Prueba:<br/>· <em>cobrar a Juan 200</em><br/>· <em>¿cuánto entró hoy?</em><br/>· <em>¿quién no me pagó?</em><br/>· <em>resumen del día</em>'];
       }
       function userSend(msg) {
         if (!msg.trim()) return;
@@ -762,16 +926,6 @@ const A = 'https://sims.zymplo.com/web/v20-assets';
       lsend && lsend.addEventListener('click', () => userSend(lin.value));
       lin && lin.addEventListener('keydown', (e) => { if (e.key === 'Enter') userSend(lin.value); });
       $$('.qp').forEach((b) => b.addEventListener('click', () => userSend(b.dataset.prompt)));
-
-      // AUDIO TOGGLE
-      const audioBtn = $('#audioBtn'); const audio = $('#heroAudio');
-      let audioPlaying = false;
-      audioBtn && audioBtn.addEventListener('click', async () => {
-        try {
-          if (!audioPlaying) { await audio.play(); audioBtn.textContent = '🔊'; audioPlaying = true; }
-          else { audio.pause(); audioBtn.textContent = '🔇'; audioPlaying = false; }
-        } catch (e) { audioBtn.textContent = '🔇'; audioBtn.style.opacity = '0.4'; }
-      });
     </script>
   </body>
 </html>
