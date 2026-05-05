@@ -1,0 +1,249 @@
+---
+const title = 'Zymplo · Conversational Lab · Variant C';
+const description = 'El landing es un chat. Conocé a Zé hablando.';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B141A" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;700;800&display=swap" />
+    <style is:inline>
+      :root { --turquesa: #14B8A6; --turquesa-light: #5EEAD4; --turquesa-paler: #CCFBF1; --ink: #0A0B14; --paper: #FAFBFF; --wa-bg: #0B141A; --wa-header: #1F2C33; --wa-bubble-bot: #1F2C33; --wa-bubble-usr: #005C4B; --wa-tint: #25D366; --good: #22C55E; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body { font-family: 'Manrope', sans-serif; background: var(--wa-bg); color: white; overflow: hidden; }
+
+      .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 5px 10px; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none; }
+      .lab-badge:hover { background: rgba(255,255,255,0.12); color: white; }
+
+      /* WA chrome */
+      .wa { display: flex; flex-direction: column; height: 100vh; background: var(--wa-bg); position: relative; }
+      .wa-bg { position: absolute; inset: 0; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.025)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); pointer-events: none; }
+
+      .wa-top { position: relative; z-index: 5; background: var(--wa-header); padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .wa-back { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-size: 22px; text-decoration: none; }
+      .wa-av { width: 40px; height: 40px; border-radius: 50%; background: var(--turquesa); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .wa-av img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+      .wa-id { flex: 1; min-width: 0; }
+      .wa-id .n { font-size: 16px; font-weight: 700; color: white; line-height: 1.1; }
+      .wa-id .s { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+      .wa-id .s::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--good); display: inline-block; box-shadow: 0 0 0 0 rgba(34,197,94,0.7); animation: pulse-online 1.8s ease-out infinite; }
+      @keyframes pulse-online { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); } 70% { box-shadow: 0 0 0 6px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+      .wa-actions { display: flex; gap: 14px; color: rgba(255,255,255,0.55); font-size: 18px; }
+
+      .wa-body { position: relative; z-index: 4; flex: 1; padding: 18px 12px 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
+      .wa-body::-webkit-scrollbar { width: 6px; }
+      .wa-body::-webkit-scrollbar-track { background: transparent; }
+      .wa-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+      /* date divider */
+      .day { align-self: center; padding: 4px 12px; background: rgba(31,44,51,0.85); border-radius: 8px; font-size: 12px; color: rgba(255,255,255,0.65); margin: 8px 0; }
+
+      .b { max-width: 78%; padding: 8px 12px 6px; border-radius: 14px; font-size: 14.5px; line-height: 1.42; word-wrap: break-word; opacity: 0; transform: translateY(8px); animation: bub-in 0.45s cubic-bezier(0.22,1,0.36,1) forwards; box-shadow: 0 1px 0.5px rgba(0,0,0,0.13); }
+      @keyframes bub-in { to { opacity: 1; transform: translateY(0); } }
+      .b.bot { align-self: flex-start; background: var(--wa-bubble-bot); color: white; border-bottom-left-radius: 4px; }
+      .b.usr { align-self: flex-end; background: var(--wa-bubble-usr); color: white; border-bottom-right-radius: 4px; }
+      .b strong { font-weight: 700; }
+      .b em { font-style: normal; color: var(--turquesa-light); font-weight: 600; }
+      .b .ts { display: block; margin-top: 2px; font-size: 10px; opacity: 0.6; text-align: right; }
+      .b .ts::after { content: ' ✓✓'; color: #5EEAD4; }
+      .b.bot .ts::after { content: ''; }
+
+      /* media bubble */
+      .b.media { padding: 4px; max-width: 65%; }
+      .b.media .ph { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--turquesa) 0%, #623AE6 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+      .b.media .cap { padding: 8px 8px 4px; font-size: 13px; color: rgba(255,255,255,0.85); }
+
+      /* card-like rich bubble */
+      .b.rich { padding: 0; max-width: 86%; overflow: hidden; }
+      .b.rich .head { padding: 12px 14px 10px; background: rgba(20,184,166,0.18); display: flex; align-items: center; gap: 10px; }
+      .b.rich .head .ic { width: 32px; height: 32px; border-radius: 8px; background: var(--turquesa); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+      .b.rich .head .t { font-weight: 700; font-size: 14px; }
+      .b.rich .body { padding: 10px 14px 12px; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.92); }
+      .b.rich .body .row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+      .b.rich .body .row:last-child { border-bottom: 0; }
+      .b.rich .body .row .k { color: rgba(255,255,255,0.6); }
+      .b.rich .body .row .v { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+      /* typing indicator */
+      .typing { display: none; align-self: flex-start; padding: 12px 14px; border-radius: 14px; border-bottom-left-radius: 4px; background: var(--wa-bubble-bot); }
+      .typing.show { display: inline-flex; align-items: center; gap: 4px; }
+      .typing span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); animation: dot 1.3s ease-in-out infinite; }
+      .typing span:nth-child(2) { animation-delay: 0.2s; }
+      .typing span:nth-child(3) { animation-delay: 0.4s; }
+      @keyframes dot { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-4px); opacity: 1; } }
+
+      /* QUICK REPLY CHIPS */
+      .quicks { display: none; align-self: flex-start; padding: 8px 0 4px; flex-wrap: wrap; gap: 8px; max-width: 100%; }
+      .quicks.show { display: flex; }
+      .quicks .qr { padding: 10px 16px; background: rgba(20,184,166,0.12); border: 1.5px solid rgba(20,184,166,0.45); color: var(--turquesa-light); border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+      .quicks .qr:hover { background: rgba(20,184,166,0.25); border-color: var(--turquesa-light); color: white; transform: translateY(-1px); }
+      .quicks .qr.cta { background: var(--good); border-color: var(--good); color: white; }
+      .quicks .qr.cta:hover { background: #16a34a; border-color: #16a34a; }
+
+      /* compose bar (decorative) */
+      .wa-compose { position: relative; z-index: 5; padding: 8px 12px 12px; background: var(--wa-header); display: flex; align-items: center; gap: 10px; }
+      .wa-compose .input { flex: 1; padding: 10px 16px; background: #2A3942; border-radius: 999px; color: rgba(255,255,255,0.55); font-size: 15px; }
+      .wa-compose .send { width: 44px; height: 44px; border-radius: 50%; background: var(--wa-tint); display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 14px rgba(37,211,102,0.35); cursor: pointer; text-decoration: none; }
+
+      /* skip button */
+      .skip { position: absolute; top: 70px; right: 14px; z-index: 6; padding: 4px 10px; background: rgba(0,0,0,0.55); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); cursor: pointer; user-select: none; text-decoration: none; transition: all 0.2s; }
+      .skip:hover { background: rgba(0,0,0,0.75); color: white; }
+
+      .nav-back { position: fixed; top: 14px; left: 14px; z-index: 100; display: flex; align-items: center; gap: 6px; padding: 5px 10px 5px 6px; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; text-decoration: none; color: rgba(255,255,255,0.85); font-weight: 800; font-size: 11px; }
+      .nav-back img { height: 18px; }
+
+      @media (prefers-reduced-motion: reduce) { .b { animation: none; opacity: 1; transform: none; } .typing span { animation: none; } }
+      @media (max-width: 480px) { .b { font-size: 14.5px; } .wa-id .n { font-size: 15px; } }
+    </style>
+  </head>
+  <body>
+    <a class="nav-back" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← Lab</a>
+    <a class="lab-badge" href="/lab/">C · Conversational</a>
+
+    <div class="wa">
+      <div class="wa-bg"></div>
+
+      <header class="wa-top">
+        <a class="wa-back" href="/lab/">‹</a>
+        <div class="wa-av"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zé" /></div>
+        <div class="wa-id">
+          <div class="n">Zé · de Zymplo</div>
+          <div class="s">en línea</div>
+        </div>
+        <div class="wa-actions"><span>📞</span><span>📹</span><span>⋮</span></div>
+      </header>
+
+      <a class="skip" id="skip" href="javascript:void(0);">Saltar al final ↓</a>
+
+      <main class="wa-body" id="chat">
+        <div class="day">hoy</div>
+      </main>
+
+      <div class="wa-compose">
+        <span style="color: rgba(255,255,255,0.5); font-size: 22px;">😊</span>
+        <div class="input">Escribí un mensaje…</div>
+        <span style="color: rgba(255,255,255,0.5); font-size: 22px;">📎</span>
+        <a class="send" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo" aria-label="Enviar">→</a>
+      </div>
+    </div>
+
+    <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const chat = document.getElementById('chat');
+      const skip = document.getElementById('skip');
+
+      // SCRIPT del chat — sequence
+      const t = (mins) => { const d = new Date(Date.now() - mins * 60000); return d.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }); };
+
+      const seq = [
+        { type: 'typing', dur: 900 },
+        { type: 'bot', html: '¡Hola! 👋 Soy <strong>Zé</strong>, tu secretaria IA en WhatsApp.', delay: 700 },
+        { type: 'typing', dur: 700 },
+        { type: 'bot', html: 'Te cuento qué hago en 30 segundos.', delay: 600 },
+        { type: 'typing', dur: 900 },
+        { type: 'bot', html: 'Trabajo dentro de WhatsApp · sin app · sin registro · sin pasos raros.<br/><br/>Vos me escribís como a un amigo · y yo me encargo del resto.', delay: 800 },
+        { type: 'typing', dur: 600 },
+        { type: 'bot', html: '👇 Mirá lo que hago.', delay: 600 },
+        { type: 'typing', dur: 900 },
+        { type: 'rich', html: `<div class="head"><div class="ic">💸</div><div class="t">Cobro sin perseguir</div></div><div class="body">Detecto facturas vencidas. Mando recordatorios <em>calientes</em> que cobran. Te aviso cuando entró la plata.<br/><br/><div class="row"><span class="k">Cobranzas hoy</span><span class="v">₲ 2.450.000</span></div><div class="row"><span class="k">Pendientes</span><span class="v">3 clientes</span></div></div>`, delay: 800 },
+        { type: 'typing', dur: 800 },
+        { type: 'rich', html: `<div class="head"><div class="ic">🧾</div><div class="t">Facturo hablando</div></div><div class="body">"Hacé factura a Pablo por 850.000". Listo.<br/><br/>NFS-e · CFDI · DIAN · AFIP · DGT. Lo que necesite tu país. Sin que lo aprendas.</div>`, delay: 800 },
+        { type: 'typing', dur: 800 },
+        { type: 'rich', html: `<div class="head"><div class="ic">📅</div><div class="t">Te recuerdo todo</div></div><div class="body">"Recordame mañana 9 ir al taller". Llega el aviso a las 9. Punto.<br/><br/>Reuniones · pagos · cumpleaños · visitas médicas. <em>Nunca más se te olvida nada.</em></div>`, delay: 900 },
+        { type: 'typing', dur: 700 },
+        { type: 'bot', html: 'Y muchísimo más · pero quiero contarte algo importante.', delay: 700 },
+        { type: 'typing', dur: 900 },
+        { type: 'bot', html: 'Soy <strong>gratis para siempre</strong> · sin trampa · sin trial vencido · sin tarjeta.<br/><br/>Si querés cosas más copadas (audios · automatizaciones · multi-cliente) tengo planes desde <em>R$ 19/mes</em>. Pero podés usarme gratis · siempre.', delay: 900 },
+        { type: 'typing', dur: 700 },
+        { type: 'bot', html: 'Ahora vos. ¿Querés probar?', delay: 600 },
+        { type: 'quicks' },
+      ];
+
+      function makeNode(type, html) {
+        const el = document.createElement('div');
+        if (type === 'bot') { el.className = 'b bot'; el.innerHTML = html + `<span class="ts">${t(0)}</span>`; }
+        else if (type === 'usr') { el.className = 'b usr'; el.innerHTML = html + `<span class="ts">${t(0)}</span>`; }
+        else if (type === 'rich') { el.className = 'b rich bot'; el.innerHTML = html; }
+        return el;
+      }
+
+      let typingEl = null;
+      function showTyping() {
+        if (typingEl) return;
+        typingEl = document.createElement('div');
+        typingEl.className = 'typing show';
+        typingEl.innerHTML = '<span></span><span></span><span></span>';
+        chat.appendChild(typingEl);
+        scrollDown();
+      }
+      function hideTyping() { if (typingEl) { typingEl.remove(); typingEl = null; } }
+      function scrollDown() { requestAnimationFrame(() => { chat.scrollTop = chat.scrollHeight; }); }
+
+      function showQuicks() {
+        const q = document.createElement('div');
+        q.className = 'quicks show';
+        q.innerHTML = `
+          <a class="qr cta" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo" target="_blank" rel="noopener">💬 Empezar gratis ahora</a>
+          <a class="qr" href="https://wa.me/595981970735?text=Quiero%20saber%20m%C3%A1s%20de%20los%20planes">💎 Ver planes</a>
+          <a class="qr" href="https://wa.me/595981970735?text=Tengo%20preguntas%20sobre%20Zymplo">❓ Tengo preguntas</a>
+          <a class="qr" href="/">🌎 Ver landing actual</a>
+        `;
+        chat.appendChild(q);
+        scrollDown();
+      }
+
+      let cancelled = false;
+      async function play() {
+        for (const step of seq) {
+          if (cancelled) return;
+          if (step.type === 'typing') {
+            showTyping();
+            await new Promise((r) => setTimeout(r, reduceMotion ? 0 : step.dur));
+            hideTyping();
+          } else if (step.type === 'bot' || step.type === 'usr' || step.type === 'rich') {
+            const node = makeNode(step.type, step.html);
+            chat.appendChild(node);
+            scrollDown();
+            await new Promise((r) => setTimeout(r, reduceMotion ? 0 : (step.delay || 500)));
+          } else if (step.type === 'quicks') {
+            showQuicks();
+          }
+        }
+      }
+
+      function jumpToEnd() {
+        cancelled = true;
+        hideTyping();
+        chat.innerHTML = '<div class="day">hoy</div>';
+        for (const step of seq) {
+          if (step.type === 'bot' || step.type === 'usr' || step.type === 'rich') {
+            const node = makeNode(step.type, step.html);
+            node.style.animation = 'none';
+            node.style.opacity = '1';
+            node.style.transform = 'none';
+            chat.appendChild(node);
+          } else if (step.type === 'quicks') {
+            showQuicks();
+          }
+        }
+        setTimeout(scrollDown, 50);
+        skip.style.display = 'none';
+      }
+
+      skip.addEventListener('click', jumpToEnd);
+
+      // start
+      if (reduceMotion) jumpToEnd();
+      else play();
+    </script>
+  </body>
+</html>

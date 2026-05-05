@@ -1,0 +1,113 @@
+---
+const title = 'Zymplo Lab · 3 landings · elegí la que ame';
+const description = 'Tres variantes radicalmente distintas del landing Zymplo. Probá las 3, decidí cuál sale a producción.';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0A0B14" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
+    <style is:inline>
+      :root { --turquesa: #14B8A6; --turquesa-light: #5EEAD4; --turquesa-paler: #CCFBF1; --ink: #0A0B14; --paper: #FAFBFF; --purple: #623AE6; --warm: #F59E0B; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Manrope', sans-serif; background: var(--ink); color: white; min-height: 100vh; overflow-x: hidden; }
+      body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(20,184,166,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 100% 100%, rgba(98,58,230,0.15) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+      .wrap { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 64px 24px 96px; }
+      .hd { text-align: center; margin-bottom: 56px; }
+      .hd .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--turquesa-light); }
+      .hd h1 { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em; line-height: 0.95; font-size: clamp(40px, 7vw, 80px); margin-top: 18px; }
+      .hd h1 em { font-style: normal; background: linear-gradient(120deg, var(--turquesa-light), var(--turquesa-paler)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .hd p { color: rgba(255,255,255,0.65); font-size: clamp(15px, 2vw, 19px); max-width: 640px; margin: 18px auto 0; line-height: 1.5; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+      .card { position: relative; display: flex; flex-direction: column; min-height: 480px; padding: 32px; border-radius: 28px; text-decoration: none; color: white; overflow: hidden; isolation: isolate; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s; border: 1px solid rgba(255,255,255,0.08); }
+      .card::before { content: ''; position: absolute; inset: 0; opacity: 0.92; z-index: -2; transition: opacity 0.4s; }
+      .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 60%); z-index: -1; opacity: 0; transition: opacity 0.4s; }
+      .card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.25); }
+      .card:hover::after { opacity: 1; }
+      .card .num { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.15em; opacity: 0.6; }
+      .card .title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: clamp(32px, 4.5vw, 44px); letter-spacing: -0.04em; line-height: 1; margin-top: 12px; }
+      .card .vibe { display: inline-block; margin-top: 10px; padding: 4px 10px; background: rgba(0,0,0,0.3); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+      .card .desc { margin-top: 22px; font-size: 15px; line-height: 1.55; opacity: 0.85; }
+      .card ul { margin-top: 18px; list-style: none; padding: 0; font-size: 13px; line-height: 1.7; opacity: 0.78; }
+      .card ul li { padding-left: 18px; position: relative; }
+      .card ul li::before { content: '·'; position: absolute; left: 6px; font-weight: 800; }
+      .card .go { margin-top: auto; padding-top: 24px; display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; }
+      .card .go::after { content: '→'; transition: transform 0.3s; }
+      .card:hover .go::after { transform: translateX(6px); }
+      .card-a::before { background: linear-gradient(135deg, #0F172A 0%, #14B8A6 100%); }
+      .card-b::before { background: linear-gradient(135deg, #623AE6 0%, #14B8A6 100%); }
+      .card-c::before { background: linear-gradient(135deg, #14B8A6 0%, #25D366 100%); }
+      .meta { margin-top: 56px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.45); }
+      .meta a { color: var(--turquesa-light); text-decoration: none; }
+      .meta a:hover { color: white; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hd">
+        <span class="badge">⚡ Lab · 3 hipótesis</span>
+        <h1>Tres landings.<br/><em>Elegí la que ame.</em></h1>
+        <p>Tres direcciones radicalmente distintas. Una sale a producción · zymplo.com + 13 países. Tomate 60 segundos en cada una.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card card-a" href="/lab/cinematic/">
+          <span class="num">A · 01</span>
+          <div class="title">Cinematic</div>
+          <span class="vibe">Apple AirPods Pro vibe</span>
+          <p class="desc">Scroll-driven storytelling. iPhone 3D que flota y rota con el scroll. Headline morfea palabras. Sticky sections. Big quote typography. Premium absoluto.</p>
+          <ul>
+            <li>Scroll-bound parallax 3 capas</li>
+            <li>Headline word-reveal con scroll</li>
+            <li>iPhone rotateY · translateY scroll-driven</li>
+            <li>Sticky hero · narrative deep</li>
+            <li>Mega type final CTA</li>
+          </ul>
+          <span class="go">Probar Cinematic</span>
+        </a>
+
+        <a class="card card-b" href="/lab/alive/">
+          <span class="num">B · 02</span>
+          <div class="title">Alive</div>
+          <span class="vibe">Linear · Vercel · Whoop</span>
+          <p class="desc">Vivo · respira · reacciona. Cursor spotlight te sigue. Ticker live "Diego cobró ₲ 850k hace 12s". CTA magnético. Stats count-up al entrar viewport. Cards hover lift + glow.</p>
+          <ul>
+            <li>Cursor-following spotlight</li>
+            <li>Live ticker rotativo cada 3s</li>
+            <li>CTA magnético hover-attract</li>
+            <li>Stat counters animados</li>
+            <li>Grid dot background animado</li>
+          </ul>
+          <span class="go">Probar Alive</span>
+        </a>
+
+        <a class="card card-c" href="/lab/conversational/">
+          <span class="num">C · 03</span>
+          <div class="title">Conversational</div>
+          <span class="vibe">Disruptive · radical</span>
+          <p class="desc">El landing <strong>ES</strong> un chat. Zé escribe en tiempo real. Cada feature llega como mensaje. Quick replies son los CTAs. Ningún competidor lo hace. Memorable obligado.</p>
+          <ul>
+            <li>WhatsApp-style full bleed</li>
+            <li>Zé tipea con typing indicator</li>
+            <li>Mensajes secuenciales con delay</li>
+            <li>Quick replies tap → WhatsApp real</li>
+            <li>Zero "página tradicional"</li>
+          </ul>
+          <span class="go">Probar Conversational</span>
+        </a>
+      </div>
+
+      <div class="meta">
+        Construido en 1 sesión · cada variante optimizada para mobile + reduced-motion · <a href="/">volver al landing actual</a>
+      </div>
+    </div>
+  </body>
+</html>
