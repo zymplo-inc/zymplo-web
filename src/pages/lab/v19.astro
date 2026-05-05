@@ -1,0 +1,846 @@
+---
+const title = 'Zymplo · Unicorn Edition · V19';
+const description = 'Seu negócio funcionando sozinho, no WhatsApp.';
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#09090D" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+    <style is:inline>
+      :root {
+        /* Purple scale */
+        --p-50: #F5EBFF; --p-100: #E9D6FF; --p-200: #D4ADFF; --p-300: #BD83FF;
+        --p-400: #9F4DFF; --p-500: #6A00F4; --p-600: #5A00CC; --p-700: #4400A3;
+        --p-800: #2E007A; --p-900: #1A0052;
+        /* Neutral · Obsidian #09090D */
+        --n-0: #FFFFFF; --n-50: #FAFAFA; --n-100: #F5F5F7; --n-200: #E5E5EA;
+        --n-300: #C7C7CC; --n-400: #8E8E93; --n-500: #636368; --n-600: #48484A;
+        --n-700: #2C2C2E; --n-800: #1C1C1E; --n-900: #09090D;
+        /* Semantic */
+        --good: #22C55E; --warn: #F59E0B; --error: #EF4444; --wa: #25D366;
+        /* Gradients */
+        --grad-ai: linear-gradient(135deg, #6A00F4 0%, #2E70FF 50%, #00E5FF 100%);
+        --grad-purple: linear-gradient(115deg, #6A00F4 0%, #BD83FF 100%);
+        --grad-glow: radial-gradient(circle, rgba(106,0,244,0.45) 0%, transparent 70%);
+        /* Radius */
+        --r-12: 12px; --r-16: 16px; --r-24: 24px; --r-32: 32px; --r-pill: 999px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: var(--n-900); color: var(--n-0); min-height: 100vh; -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden; }
+      img { max-width: 100%; display: block; }
+
+      .display-xl { font-weight: 900; font-size: clamp(56px, 11vw, 132px); letter-spacing: -0.05em; line-height: 0.92; }
+      .display-l  { font-weight: 800; font-size: clamp(40px, 7vw, 80px); letter-spacing: -0.04em; line-height: 1; }
+      .h1 { font-weight: 800; font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.035em; line-height: 1.1; }
+      .h2 { font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.03em; line-height: 1.15; }
+      .body-l { font-size: 18px; line-height: 1.5; }
+      .body-m { font-size: 16px; line-height: 1.55; }
+      .micro { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; }
+
+      /* PROGRESS */
+      .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--grad-ai); z-index: 999; width: 0%; transition: width 0.05s linear; box-shadow: 0 0 8px var(--p-400); }
+      .nav { position: fixed; top: 14px; left: 14px; z-index: 100; padding: 6px 12px 6px 6px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 12px; font-weight: 700; color: var(--n-0); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+      .nav img { height: 18px; }
+      .lab-badge { position: fixed; top: 14px; right: 14px; z-index: 100; padding: 6px 12px; background: rgba(106,0,244,0.18); backdrop-filter: blur(20px); border: 1px solid rgba(189,131,255,0.4); border-radius: var(--r-pill); font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--p-200); text-decoration: none; }
+
+      /* STICKY MOBILE CTA */
+      .mobile-cta { position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 90; display: none; padding: 14px 20px; background: var(--n-0); color: var(--n-900); border-radius: var(--r-pill); font-weight: 800; font-size: 15px; text-decoration: none; text-align: center; box-shadow: 0 14px 40px rgba(106,0,244,0.4); }
+      @media (max-width: 768px) { .mobile-cta { display: block; } body { padding-bottom: 80px; } }
+
+      /* HERO */
+      .hero { position: relative; min-height: 100vh; padding: 96px 22px 60px; max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+      .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .hero-bg::before { content: ''; position: absolute; top: -10%; right: -10%; width: 80vw; height: 80vw; background: var(--grad-glow); filter: blur(80px); animation: float-x 20s ease-in-out infinite; opacity: 0.7; }
+      .hero-bg::after { content: ''; position: absolute; bottom: -10%; left: -15%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(46,112,255,0.35) 0%, transparent 70%); filter: blur(80px); animation: float-y 24s ease-in-out infinite; }
+      @keyframes float-x { 50% { transform: translate(40px, -30px); } }
+      @keyframes float-y { 50% { transform: translate(-40px, 30px); } }
+      .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+      @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 64px; } }
+
+      .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(106,0,244,0.16); border: 1px solid rgba(189,131,255,0.4); border-radius: var(--r-pill); color: var(--p-200); font-weight: 800; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+      .pill .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--p-400); box-shadow: 0 0 0 0 var(--p-400); animation: pulse-soft 2.4s ease-out infinite; }
+      @keyframes pulse-soft { 0% { box-shadow: 0 0 0 0 rgba(159,77,255,0.7); } 70% { box-shadow: 0 0 0 12px rgba(159,77,255,0); } 100% { box-shadow: 0 0 0 0 rgba(159,77,255,0); } }
+
+      h1.hero-h { margin-top: 22px; }
+      h1.hero-h em { font-style: normal; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% 200%; animation: shimmer 6s ease-in-out infinite; }
+      @keyframes shimmer { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+      .hero-sub { margin-top: 22px; color: rgba(255,255,255,0.72); max-width: 540px; font-weight: 500; }
+
+      .input-shell { margin-top: 32px; max-width: 540px; }
+      .chat-input { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 18px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); transition: all 0.3s; backdrop-filter: blur(8px); }
+      .chat-input:focus-within, .chat-input:hover { border-color: var(--p-400); background: rgba(255,255,255,0.08); }
+      .chat-input .icon { width: 28px; height: 28px; border-radius: 50%; background: var(--grad-purple); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .chat-input .icon img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
+      .chat-input .text { flex: 1; min-width: 0; font-size: 15px; color: rgba(255,255,255,0.85); padding: 11px 0; }
+      .chat-input .typed { color: var(--n-0); font-weight: 500; }
+      .chat-input .cursor-blink { display: inline-block; width: 2px; height: 16px; background: var(--p-300); margin-left: 1px; vertical-align: -3px; animation: blink-c 1s steps(1) infinite; }
+      @keyframes blink-c { 50% { opacity: 0; } }
+      .chat-input .send-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--grad-ai); color: white; border: 0; cursor: pointer; font-size: 19px; flex-shrink: 0; box-shadow: 0 8px 24px rgba(106,0,244,0.45); transition: all 0.2s; text-decoration: none; }
+      .chat-input .send-btn:hover { transform: scale(1.08); }
+
+      .hint-pills { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+      .hint-pills .h { padding: 5px 11px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-pill); font-size: 12px; color: rgba(255,255,255,0.7); }
+
+      .cta-row { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; background: var(--n-0); color: var(--n-900); border-radius: var(--r-pill); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 16px 50px rgba(106,0,244,0.28); transition: all 0.25s cubic-bezier(0.22,1,0.36,1); }
+      .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 24px 70px rgba(106,0,244,0.5); }
+      .btn-primary::after { content: '→'; transition: transform 0.3s; }
+      .btn-primary:hover::after { transform: translateX(4px); }
+      .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 17px 26px; color: rgba(255,255,255,0.85); background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.25s; }
+      .btn-ghost:hover { background: rgba(255,255,255,0.06); color: white; border-color: rgba(255,255,255,0.4); }
+
+      .micro-text { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
+      .micro-text::before { content: '✓ '; color: var(--p-300); font-weight: 800; }
+
+      /* HERO PHONE · same as v18 */
+      .phone-stage { display: flex; justify-content: center; align-items: center; }
+      .phone { width: 320px; max-width: 100%; aspect-ratio: 9/19; background: linear-gradient(160deg, #1a1a1d 0%, #0d0e10 100%); border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(106,0,244,0.25); border: 1.5px solid #2a2a2d; transform: rotate(-2deg); animation: phone-breath 7s ease-in-out infinite; }
+      @keyframes phone-breath { 50% { transform: rotate(-2deg) translateY(-6px); } }
+      .phone-screen { width: 100%; height: 100%; border-radius: 36px; background: #0B141A; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+      .phone-notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 110px; height: 28px; background: black; border-radius: 16px; z-index: 10; }
+      .wa-top { padding: 38px 14px 10px; background: #1F2C33; display: flex; align-items: center; gap: 10px; }
+      .wa-top .av { width: 36px; height: 36px; border-radius: 50%; background: var(--grad-purple); display: flex; align-items: center; justify-content: center; }
+      .wa-top .av img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+      .wa-top .id .n { font-size: 14px; font-weight: 700; line-height: 1.1; }
+      .wa-top .id .s { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
+      .wa-top .id .s::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--good); }
+      .wa-body { flex: 1; padding: 14px 10px; display: flex; flex-direction: column; gap: 6px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); }
+      .b { max-width: 80%; padding: 7px 11px 5px; border-radius: 13px; font-size: 13px; line-height: 1.4; opacity: 0; transform: translateY(8px); animation: bub-in 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+      .b1 { animation-delay: 0.8s; } .b2 { animation-delay: 2s; } .b3 { animation-delay: 3.2s; } .b4 { animation-delay: 4.4s; }
+      @keyframes bub-in { to { opacity: 1; transform: translateY(0); } }
+      .b.bot { align-self: flex-start; background: #1F2C33; color: white; border-bottom-left-radius: 4px; }
+      .b.usr { align-self: flex-end; background: #6A00F4; color: white; border-bottom-right-radius: 4px; }
+      .b strong { font-weight: 700; }
+      .b em { font-style: normal; color: var(--p-200); font-weight: 600; }
+      .b .ts { display: block; margin-top: 3px; font-size: 9px; opacity: 0.55; text-align: right; }
+      .b.usr .ts::after { content: ' ✓✓'; color: var(--p-200); }
+
+      /* SECTION SHARED */
+      .section-h { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+      .section-h .pre { color: var(--p-300); }
+      .section-h h2 em { font-style: normal; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .section-h p { margin-top: 16px; font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+      /* SCROLLY · same compact */
+      .scrolly-shell { position: relative; }
+      .scene { position: relative; min-height: 200vh; }
+      .scene-pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 22px; overflow: hidden; }
+      .s1 .stage { max-width: 1100px; text-align: center; }
+      .s1 .pre { color: var(--p-300); }
+      .s1 .lines { font-weight: 800; font-size: clamp(34px, 6vw, 76px); letter-spacing: -0.04em; line-height: 1.05; margin-top: 28px; }
+      .s1 .lines p { padding: 14px 0; }
+      .s1 .lines p.dim { color: rgba(255,255,255,0.5); font-weight: 500; font-size: 0.7em; }
+      .s1 .word { display: inline-block; opacity: 0; transform: translateY(30px); filter: blur(8px); transition: all 0.7s cubic-bezier(0.22,1,0.36,1); margin-right: 0.16em; }
+      .s1 .word.show { opacity: 1; transform: translateY(0); filter: blur(0); }
+      .s1 .word.accent { background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+      .s2 .stage { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+      @media (min-width: 900px) { .s2 .stage { grid-template-columns: 1fr 1.2fr; gap: 50px; } }
+      .s2 h2 em { font-style: normal; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .s2 p.deck { margin-top: 18px; color: rgba(255,255,255,0.65); max-width: 480px; }
+      .svg-stage { aspect-ratio: 1.1/1; max-width: 520px; margin: 0 auto; width: 100%; }
+      .svg-flow path.line { stroke: var(--p-300); stroke-width: 2.5; fill: none; stroke-dasharray: 2200; stroke-dashoffset: 2200; transition: stroke-dashoffset 0.4s linear; filter: drop-shadow(0 0 8px var(--p-500)); }
+      .svg-flow .node-circle { fill: var(--p-500); opacity: 0; transition: opacity 0.5s; }
+      .svg-flow .node-pulse { fill: none; stroke: var(--p-300); stroke-width: 2; opacity: 0; transform-origin: center; transition: opacity 0.5s; }
+      .svg-flow .node-circle.show { opacity: 1; }
+      .svg-flow .node-pulse.show { opacity: 0.6; animation: pulse-svg 1.8s ease-out infinite; }
+      @keyframes pulse-svg { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
+      .svg-flow .label { fill: var(--n-0); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; opacity: 0; transition: opacity 0.5s; }
+      .svg-flow .label.show { opacity: 1; }
+      .svg-flow .emoji { font-size: 26px; opacity: 0; transition: opacity 0.5s; }
+      .svg-flow .emoji.show { opacity: 1; }
+
+      .s3 .stage { max-width: 1100px; text-align: center; }
+      .s3 h2 { max-width: 720px; margin: 16px auto 56px; }
+      .s3 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+      .s3 .stat .v { font-weight: 900; font-size: clamp(56px, 10vw, 120px); letter-spacing: -0.05em; line-height: 0.95; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+      .s3 .stat .l { margin-top: 10px; font-size: 13px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+
+      .s4 .stage { text-align: center; }
+      .s4 h2 { font-weight: 900; font-size: clamp(72px, 18vw, 280px); letter-spacing: -0.055em; line-height: 0.85; }
+      .s4 h2 em { font-style: italic; font-weight: 400; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .s4 .deck { margin-top: 32px; font-size: clamp(17px, 2.4vw, 26px); color: rgba(255,255,255,0.7); max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 500; }
+
+      .s5 .stage { max-width: 920px; display: flex; flex-direction: column; align-items: center; }
+      .s5 h2 em { font-style: normal; color: var(--p-300); }
+      .chat-show { width: 100%; max-width: 540px; margin-top: 36px; padding: 22px; background: rgba(11,20,26,0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-24); display: flex; flex-direction: column; gap: 10px; }
+      .chat-show .b { max-width: 86%; padding: 10px 14px 8px; border-radius: 14px; font-size: 14px; line-height: 1.45; opacity: 1; transform: none; animation: none; }
+      .chat-show .b.usr { background: var(--p-500); color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+      .chat-show .b.bot { background: #1F2C33; color: white; border-bottom-left-radius: 4px; align-self: flex-start; }
+      .chat-show .b strong { font-weight: 700; }
+      .chat-show .b em { font-style: normal; color: var(--p-200); font-weight: 600; }
+      .chat-show .ts { display: block; margin-top: 4px; font-size: 10px; opacity: 0.55; text-align: right; }
+      .chat-show .ts.usr-ts::after { content: ' ✓✓'; color: var(--p-200); }
+
+      .s6 .stage { max-width: 1100px; text-align: center; }
+      .s6 h2 em { font-style: normal; color: var(--p-300); }
+      .s6 .grid { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+      .s6 .gi { padding: 24px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-16); transition: all 0.3s; }
+      .s6 .gi:hover { transform: translateY(-4px); border-color: rgba(189,131,255,0.4); background: rgba(106,0,244,0.06); }
+      .s6 .gi .ic { font-size: 36px; }
+      .s6 .gi .n { margin-top: 12px; font-weight: 700; font-size: 16px; }
+
+      .s7 .stage { max-width: 1280px; text-align: center; }
+      .s7 h2 { font-weight: 900; font-size: clamp(48px, 9vw, 124px); letter-spacing: -0.055em; line-height: 0.92; }
+      .s7 h2 em { font-style: normal; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .s7 .cta-mega { display: inline-flex; align-items: center; gap: 12px; padding: 22px 40px; background: var(--n-0); color: var(--n-900); border-radius: var(--r-pill); font-weight: 800; font-size: 18px; text-decoration: none; margin-top: 36px; box-shadow: 0 24px 80px rgba(106,0,244,0.4); transition: all 0.3s; }
+      .s7 .cta-mega:hover { transform: translateY(-4px); box-shadow: 0 32px 100px rgba(106,0,244,0.55); }
+
+      /* INTERACTIVE DEMO */
+      .demo-section { padding: 100px 22px; max-width: 1280px; margin: 0 auto; }
+      .demo-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+      @media (min-width: 1024px) { .demo-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+      .demo-h .pre { color: var(--p-300); }
+      .demo-h h2 em { font-style: normal; color: var(--p-300); }
+      .demo-h p { margin-top: 18px; font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 480px; }
+      .qprompts { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+      .qp { padding: 10px 16px; background: rgba(106,0,244,0.12); border: 1px solid rgba(189,131,255,0.35); color: var(--p-200); border-radius: var(--r-pill); font-weight: 600; font-size: 13.5px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+      .qp:hover { background: rgba(106,0,244,0.22); color: var(--n-0); border-color: var(--p-300); transform: translateY(-1px); }
+
+      .live-phone { display: flex; justify-content: center; }
+      .lp { width: 360px; max-width: 100%; aspect-ratio: 9/19; background: linear-gradient(160deg, #1a1a1d 0%, #0d0e10 100%); border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 80px rgba(106,0,244,0.25); border: 1.5px solid #2a2a2d; }
+      .lp-screen { width: 100%; height: 100%; border-radius: 36px; background: #0B141A; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+      .lp-body { flex: 1; padding: 14px 10px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100%" height="100%" fill="%230B141A"/><rect width="100%" height="100%" fill="url(%23p)"/></svg>'); display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+      .lp-body::-webkit-scrollbar { width: 4px; }
+      .lp-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+      .typing-dots { align-self: flex-start; padding: 10px 12px; border-radius: 13px; border-bottom-left-radius: 4px; background: #1F2C33; display: inline-flex; gap: 3px; }
+      .typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); animation: dot 1.3s ease-in-out infinite; }
+      .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+      .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+      @keyframes dot { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-3px); opacity: 1; } }
+      .compose { padding: 8px 10px 10px; background: #1F2C33; display: flex; align-items: center; gap: 8px; }
+      .compose input { flex: 1; padding: 9px 14px; background: #2A3942; border-radius: var(--r-pill); border: 0; color: white; font-size: 13px; font-family: inherit; outline: none; }
+      .compose input::placeholder { color: rgba(255,255,255,0.4); }
+      .compose .send { width: 38px; height: 38px; border-radius: 50%; background: var(--grad-ai); border: 0; color: white; font-size: 18px; cursor: pointer; }
+
+      /* BENEFITS */
+      .benefits { padding: 100px 22px; max-width: 1280px; margin: 0 auto; }
+      .benefits .grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+      @media (min-width: 768px) { .benefits .grid { grid-template-columns: repeat(3, 1fr); } }
+      .ben { padding: 32px 28px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-24); transition: all 0.4s; }
+      .ben:hover { transform: translateY(-4px); border-color: rgba(189,131,255,0.3); background: rgba(106,0,244,0.04); }
+      .ben .ic { width: 52px; height: 52px; border-radius: var(--r-16); background: var(--grad-ai); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+      .ben .t { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin-top: 18px; }
+      .ben .d { margin-top: 8px; color: rgba(255,255,255,0.65); font-size: 14.5px; line-height: 1.55; }
+
+      /* SOCIAL */
+      .social { padding: 80px 22px; max-width: 1280px; margin: 0 auto; }
+      .social-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+      @media (min-width: 768px) { .social-grid { grid-template-columns: repeat(3, 1fr); } }
+      .tcard { padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); }
+      .tcard .stars { color: #FFD93D; font-size: 14px; }
+      .tcard .q { font-style: italic; font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.92); margin-top: 14px; font-weight: 500; }
+      .tcard .who { margin-top: 18px; display: flex; align-items: center; gap: 12px; }
+      .tcard .av { width: 44px; height: 44px; border-radius: 50%; background: var(--grad-ai); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; }
+      .tcard .meta .n { font-weight: 800; font-size: 14px; }
+      .tcard .meta .r { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+      /* PRICING */
+      .pricing { padding: 100px 22px; max-width: 1280px; margin: 0 auto; }
+      .price-grid { display: grid; grid-template-columns: 1fr; gap: 22px; max-width: 920px; margin: 0 auto; }
+      @media (min-width: 768px) { .price-grid { grid-template-columns: 1fr 1fr; } }
+      .pcard { padding: 36px 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); position: relative; }
+      .pcard.featured { background: linear-gradient(180deg, rgba(106,0,244,0.18) 0%, rgba(106,0,244,0.06) 100%); border-color: rgba(189,131,255,0.5); box-shadow: 0 24px 60px rgba(106,0,244,0.2); }
+      .pcard .badge-pro { position: absolute; top: -12px; right: 28px; padding: 4px 12px; background: var(--grad-ai); color: white; border-radius: var(--r-pill); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+      .pcard .name { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+      .pcard .price { margin-top: 18px; display: flex; align-items: baseline; gap: 8px; }
+      .pcard .price .v { font-weight: 900; font-size: 56px; letter-spacing: -0.045em; line-height: 1; }
+      .pcard .price .v em { font-style: normal; }
+      .pcard .price .per { color: rgba(255,255,255,0.55); font-size: 14px; }
+      .pcard .desc { margin-top: 12px; color: rgba(255,255,255,0.65); font-size: 14.5px; line-height: 1.5; }
+      .pcard ul { margin-top: 24px; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+      .pcard ul li { padding-left: 26px; position: relative; font-size: 14.5px; line-height: 1.5; }
+      .pcard ul li::before { content: '✓'; position: absolute; left: 0; top: 0; width: 18px; height: 18px; background: rgba(34,197,94,0.18); color: var(--good); border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+      .pcard.featured ul li::before { background: var(--grad-ai); color: white; }
+      .pcard .cta-pricing { margin-top: 28px; display: block; padding: 14px 22px; text-align: center; border-radius: var(--r-pill); font-weight: 800; font-size: 14.5px; text-decoration: none; transition: all 0.25s; }
+      .pcard.free .cta-pricing { background: rgba(255,255,255,0.08); color: var(--n-0); border: 1px solid rgba(255,255,255,0.15); }
+      .pcard.free .cta-pricing:hover { background: rgba(255,255,255,0.14); }
+      .pcard.featured .cta-pricing { background: var(--n-0); color: var(--n-900); }
+      .pcard.featured .cta-pricing:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(106,0,244,0.3); }
+
+      /* FAQ */
+      .faq { padding: 100px 22px; max-width: 880px; margin: 0 auto; }
+      .faq-list { display: flex; flex-direction: column; gap: 8px; }
+      .faq-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-16); overflow: hidden; transition: border-color 0.2s; }
+      .faq-item[open] { border-color: rgba(189,131,255,0.35); background: rgba(106,0,244,0.05); }
+      .faq-item summary { padding: 18px 22px; cursor: pointer; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; list-style: none; user-select: none; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--p-300); transition: transform 0.3s; }
+      .faq-item[open] summary::after { transform: rotate(45deg); }
+      .faq-item .ans { padding: 0 22px 18px; color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.6; }
+
+      /* SECURITY */
+      .security { padding: 80px 22px; max-width: 1100px; margin: 0 auto; }
+      .sec-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+      @media (min-width: 768px) { .sec-grid { grid-template-columns: repeat(3, 1fr); } }
+      .sec-card { padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-16); display: flex; gap: 14px; }
+      .sec-card .ic { width: 36px; height: 36px; border-radius: 10px; background: rgba(34,197,94,0.16); border: 1px solid rgba(34,197,94,0.4); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+      .sec-card .body .t { font-weight: 700; font-size: 15px; }
+      .sec-card .body .d { margin-top: 4px; font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+      /* FUNNEL DIAGRAM */
+      .funnel { padding: 80px 22px; max-width: 1100px; margin: 0 auto; }
+      .funnel-stages { display: flex; flex-direction: column; gap: 6px; max-width: 720px; margin: 0 auto; }
+      .fs { padding: 14px 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-12); display: flex; align-items: center; justify-content: space-between; gap: 14px; transition: all 0.3s; clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+      .fs:hover { border-color: var(--p-400); }
+      .fs .num { width: 28px; height: 28px; border-radius: 50%; background: rgba(106,0,244,0.18); border: 1px solid rgba(189,131,255,0.4); color: var(--p-200); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; flex-shrink: 0; }
+      .fs .body { flex: 1; min-width: 0; }
+      .fs .t { font-weight: 700; font-size: 14.5px; }
+      .fs .e { margin-top: 2px; font-family: 'Inter', monospace; font-size: 11px; color: var(--p-300); letter-spacing: 0.05em; }
+      .fs .conv { font-weight: 800; font-size: 13px; color: var(--good); white-space: nowrap; }
+
+      /* ANALYTICS DASHBOARD MOCK */
+      .analytics { padding: 80px 22px; max-width: 1280px; margin: 0 auto; }
+      .dash { padding: 28px; background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-24); }
+      .dash-bar { padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+      .dash-bar .t { font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+      .dash-bar .t::before { content: '●'; color: var(--good); font-size: 12px; animation: pulse-dash 1.5s infinite; }
+      @keyframes pulse-dash { 50% { opacity: 0.4; } }
+      .dash-bar .filter { display: flex; gap: 6px; }
+      .dash-bar .filter span { padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-pill); font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); }
+      .dash-bar .filter span.act { background: rgba(106,0,244,0.18); border-color: rgba(189,131,255,0.4); color: var(--p-200); }
+      .dash-grid { margin-top: 22px; display: grid; grid-template-columns: 1fr; gap: 14px; }
+      @media (min-width: 768px) { .dash-grid { grid-template-columns: repeat(4, 1fr); } }
+      .dc { padding: 18px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-16); }
+      .dc .l { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 700; }
+      .dc .v { margin-top: 8px; font-weight: 800; font-size: 32px; letter-spacing: -0.025em; line-height: 1; font-variant-numeric: tabular-nums; }
+      .dc .delta { margin-top: 6px; font-size: 12px; font-weight: 700; color: var(--good); }
+      .dc .delta.neg { color: var(--error); }
+      .spark { margin-top: 12px; height: 36px; }
+      .spark svg { width: 100%; height: 100%; }
+      .spark path { fill: none; stroke: var(--p-300); stroke-width: 2; }
+      .spark path.fill { fill: rgba(106,0,244,0.15); stroke: none; }
+
+      .events-row { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
+      .events-row .label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 700; margin-bottom: 14px; }
+      .events-list { display: flex; flex-wrap: wrap; gap: 6px; }
+      .ev-pill { padding: 5px 10px; background: rgba(106,0,244,0.1); border: 1px solid rgba(189,131,255,0.25); color: var(--p-200); border-radius: var(--r-pill); font-family: 'Inter', monospace; font-size: 11px; font-weight: 600; }
+
+      /* FINAL */
+      .final { padding: 140px 22px 100px; text-align: center; position: relative; overflow: hidden; }
+      .final::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80vw; height: 60vh; background: radial-gradient(ellipse 80% 80% at center, rgba(106,0,244,0.25) 0%, transparent 70%); pointer-events: none; }
+      .final-wrap { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+      .final h2 { font-weight: 900; font-size: clamp(48px, 9vw, 124px); letter-spacing: -0.05em; line-height: 0.9; }
+      .final h2 em { font-style: normal; background: var(--grad-ai); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .final .deck { margin-top: 28px; font-size: clamp(16px, 2.2vw, 22px); color: rgba(255,255,255,0.7); max-width: 560px; margin-left: auto; margin-right: auto; }
+      .final-row { margin-top: 44px; display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+      .final .micro-fin { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+      .ft { padding: 40px 22px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.05); }
+      .ft a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 8px; }
+      .ft a:hover { color: white; }
+
+      @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .word { opacity: 1 !important; transform: none !important; filter: none !important; } .b { opacity: 1 !important; transform: none !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="prog"></div>
+    <a class="nav" href="/lab/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" />← Lab</a>
+    <a class="lab-badge" href="/lab/">19 · UNICORN</a>
+    <a class="mobile-cta" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Começar grátis no WhatsApp →</a>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid">
+        <div>
+          <span class="pill"><span class="pulse"></span>SISTEMA OPERATIVO · WHATSAPP</span>
+          <h1 class="display-l hero-h">Seu negócio funcionando <em>sozinho</em>,<br/>no WhatsApp.</h1>
+          <p class="hero-sub body-l">Cobre clientes, organize sua agenda e acompanhe seu dinheiro sem instalar nada.</p>
+          <div class="input-shell">
+            <div class="chat-input">
+              <span class="icon"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></span>
+              <span class="text"><span class="typed" id="typedText"></span><span class="cursor-blink"></span></span>
+              <a class="send-btn" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo" aria-label="Enviar">→</a>
+            </div>
+            <div class="hint-pills">
+              <span class="h">Cobrar João R$200</span>
+              <span class="h">Quanto ganhei hoje?</span>
+              <span class="h">Agendar cliente amanhã</span>
+              <span class="h">Quem ainda não pagou?</span>
+            </div>
+          </div>
+          <div class="cta-row">
+            <a class="btn-primary" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Começar grátis no WhatsApp</a>
+            <a class="btn-ghost" href="#scrolly">Ver demo de 47 segundos</a>
+          </div>
+          <div class="micro-text">Sem app · sem login · comece em 10 segundos.</div>
+        </div>
+        <div class="phone-stage">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="wa-top">
+                <div class="av"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></div>
+                <div class="id"><div class="n">Zé · de Zymplo</div><div class="s">online</div></div>
+              </div>
+              <div class="wa-body">
+                <div class="b usr b1">cobrar Carlos R$350 amanhã às 9<span class="ts">14:32</span></div>
+                <div class="b bot b2">Pronto ✨<br/>Cobrança criada · lembrete agendado · <em>link Pix preparado</em>.<span class="ts">14:32</span></div>
+                <div class="b usr b3">quanto entrou hoje?<span class="ts">14:33</span></div>
+                <div class="b bot b4">Entraram <strong>R$ 1.240</strong> hoje. Ainda faltam <em>R$ 680</em> para receber.<span class="ts">14:33</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCROLLY (compact 7) -->
+    <div class="scrolly-shell" id="scrolly">
+      <section class="scene s1"><div class="scene-pin"><div class="stage">
+        <span class="pre micro">— 01 · O CAOS</span>
+        <div class="lines">
+          <p><span class="word">Todo</span> <span class="word">negócio</span> <span class="word">pequeno</span> <span class="word">tem</span> <span class="word">um</span> <span class="word accent">caos</span> <span class="word accent">invisível</span><span class="word">.</span></p>
+          <p class="dim"><span class="word">clientes</span> <span class="word">para</span> <span class="word">responder</span></p>
+          <p class="dim"><span class="word">cobranças</span> <span class="word">para</span> <span class="word">lembrar</span></p>
+          <p class="dim"><span class="word">dinheiro</span> <span class="word">para</span> <span class="word">acompanhar</span></p>
+          <p><span class="word">Zymplo</span> <span class="word">transforma</span> <span class="word">tudo</span> <span class="word accent">isso</span> <span class="word accent">em</span> <span class="word accent">conversa</span><span class="word">.</span></p>
+        </div>
+      </div></div></section>
+
+      <section class="scene s2"><div class="scene-pin"><div class="stage">
+        <div>
+          <span class="pre micro">— 02 · UM FLUXO</span>
+          <h2 class="h1" style="margin-top: 12px;">Quatro passos.<br/><em>Plata adentro.</em></h2>
+          <p class="deck">A Zymplo entende, escreve, cobra e avisa. Você segue fazendo o seu.</p>
+        </div>
+        <div class="svg-stage">
+          <svg viewBox="0 0 540 480" class="svg-flow" id="svgFlow">
+            <path class="line" id="flowPath" d="M 80 100 Q 240 80, 320 180 T 460 280 Q 400 400, 240 410 T 80 400" />
+            <g>
+              <circle class="node-pulse" cx="80" cy="100" r="14"/><circle class="node-circle" cx="80" cy="100" r="10"/>
+              <text class="emoji" x="80" y="68" text-anchor="middle">🔍</text><text class="label" x="100" y="106">detecta</text>
+              <circle class="node-pulse" cx="320" cy="180" r="14"/><circle class="node-circle" cx="320" cy="180" r="10"/>
+              <text class="emoji" x="320" y="148" text-anchor="middle">✏️</text><text class="label" x="340" y="186">escreve</text>
+              <circle class="node-pulse" cx="460" cy="280" r="14"/><circle class="node-circle" cx="460" cy="280" r="10"/>
+              <text class="emoji" x="460" y="248" text-anchor="middle">💸</text><text class="label" x="440" y="286" text-anchor="end">cobra</text>
+              <circle class="node-pulse" cx="80" cy="400" r="14"/><circle class="node-circle" cx="80" cy="400" r="10"/>
+              <text class="emoji" x="80" y="368" text-anchor="middle">🔔</text><text class="label" x="100" y="406">avisa</text>
+            </g>
+          </svg>
+        </div>
+      </div></div></section>
+
+      <section class="scene s3"><div class="scene-pin"><div class="stage">
+        <span class="pre micro">— 03 · NÚMEROS</span>
+        <h2 class="h1" style="max-width: 720px; margin: 16px auto 56px;">Gente como você está cobrando agora.</h2>
+        <div class="stats">
+          <div class="stat"><div class="v" data-target="18000" data-prefix="+" data-decimals="0">+0</div><div class="l">usuários</div></div>
+          <div class="stat"><div class="v" data-target="47" data-prefix="R$" data-suffix="M" data-decimals="0">R$0M</div><div class="l">cobrados</div></div>
+          <div class="stat"><div class="v" data-target="4.9" data-prefix="⭐ " data-decimals="1">⭐ 0.0</div><div class="l">avaliação</div></div>
+        </div>
+      </div></div></section>
+
+      <section class="scene s4"><div class="scene-pin"><div class="stage">
+        <h2>Sua <em>vez.</em></h2>
+        <p class="deck">Comece com um "oi". A Zymplo faz o resto.</p>
+      </div></div></section>
+
+      <section class="scene s5"><div class="scene-pin"><div class="stage">
+        <span class="pre micro">— 05 · CONVERSA</span>
+        <h2 class="h2" style="margin-top: 14px;">Você fala. <em>A Zymplo entende e age.</em></h2>
+        <div class="chat-show">
+          <div class="b usr">cobrar Carlos R$350 amanhã às 9<span class="ts usr-ts">14:32</span></div>
+          <div class="b bot">Pronto. <strong>Cobrança criada</strong>, <em>lembrete agendado</em> e link Pix preparado.<span class="ts">14:32</span></div>
+        </div>
+      </div></div></section>
+
+      <section class="scene s6"><div class="scene-pin"><div class="stage">
+        <span class="pre micro">— 06 · PRA QUEM É</span>
+        <h2 class="h1" style="margin-top: 14px;">Se você <em>cobra clientes</em>,<br/>Zymplo é pra você.</h2>
+        <div class="grid">
+          <div class="gi"><div class="ic">⚡</div><div class="n">Eletricista</div></div>
+          <div class="gi"><div class="ic">💇</div><div class="n">Cabeleireira</div></div>
+          <div class="gi"><div class="ic">🔧</div><div class="n">Mecânico</div></div>
+          <div class="gi"><div class="ic">🛒</div><div class="n">Vendedor online</div></div>
+          <div class="gi"><div class="ic">💼</div><div class="n">Consultor</div></div>
+          <div class="gi"><div class="ic">🏋️</div><div class="n">Personal</div></div>
+          <div class="gi"><div class="ic">📦</div><div class="n">Prestador</div></div>
+          <div class="gi"><div class="ic">🛍️</div><div class="n">Loja pequena</div></div>
+        </div>
+      </div></div></section>
+
+      <section class="scene s7"><div class="scene-pin"><div class="stage">
+        <h2>Menos sistema.<br/>Mais <em>controle.</em><br/>Mais <em>tempo.</em></h2>
+        <a class="cta-mega" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Começar agora no WhatsApp</a>
+      </div></div></section>
+    </div>
+
+    <!-- INTERACTIVE DEMO -->
+    <section class="demo-section">
+      <div class="demo-grid">
+        <div class="demo-h">
+          <span class="pre micro">— DEMO INTERATIVA</span>
+          <h2 class="h1" style="margin-top: 12px;">Experimente <em>aqui mesmo</em>.</h2>
+          <p>Toque em qualquer prompt à direita. Zé responde como no WhatsApp real.</p>
+          <div class="qprompts">
+            <button class="qp" data-prompt="cobrar João R$200">💸 Cobrar cliente</button>
+            <button class="qp" data-prompt="ver faturamento do mês">📊 Ver faturamento</button>
+            <button class="qp" data-prompt="criar lembrete amanhã 9h">📅 Criar lembrete</button>
+            <button class="qp" data-prompt="quem ainda não pagou?">⚠️ Ver inadimplentes</button>
+            <button class="qp" data-prompt="resumo do dia">📈 Resumo do dia</button>
+          </div>
+        </div>
+        <div class="live-phone">
+          <div class="lp">
+            <div class="lp-screen">
+              <div class="phone-notch"></div>
+              <div class="wa-top">
+                <div class="av"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" /></div>
+                <div class="id"><div class="n">Zé · de Zymplo</div><div class="s">online</div></div>
+              </div>
+              <div class="lp-body" id="livechat">
+                <div class="b bot" style="opacity: 1; transform: none;">Oi 👋 Toque qualquer prompt à esquerda · ou escreva aqui<span class="ts">agora</span></div>
+              </div>
+              <div class="compose">
+                <input id="liveInput" type="text" placeholder="Escreva uma mensagem…" />
+                <button class="send" id="liveSend" aria-label="Enviar">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits">
+      <div class="section-h">
+        <span class="pre micro">— BENEFÍCIOS HUMANOS</span>
+        <h2 class="h1">Menos preocupação.<br/><em>Mais vida.</em></h2>
+      </div>
+      <div class="grid">
+        <div class="ben"><div class="ic">😌</div><div class="t">Você dorme tranquilo</div><div class="d">Sem checar planilha às 22h. Zymplo cuida das cobranças enquanto você descansa.</div></div>
+        <div class="ben"><div class="ic">⏱️</div><div class="t">Recupera seu tempo</div><div class="d">Aquela hora perdida cobrando · não existe mais. Você só recebe o aviso.</div></div>
+        <div class="ben"><div class="ic">💪</div><div class="t">Mais controle</div><div class="d">Tudo organizado · num só lugar · que você já usa todo dia.</div></div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="social">
+      <div class="section-h">
+        <span class="pre micro">— GENTE COMO VOCÊ</span>
+        <h2 class="h1">Quem já usa, conta.</h2>
+      </div>
+      <div class="social-grid">
+        <div class="tcard"><div class="stars">★★★★★</div><p class="q">"Em 3 dias organizou cobranças atrasadas há 4 meses. Recebi R$ 6 mil que dava por perdidos."</p><div class="who"><div class="av">D</div><div class="meta"><div class="n">Diego · Eletricista</div><div class="r">São Paulo, SP</div></div></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p class="q">"Falo como se fosse com um amigo. Faz minhas notas, cobra, lembra. Não volto pra Excel."</p><div class="who"><div class="av">L</div><div class="meta"><div class="n">Luana · Cabeleireira</div><div class="r">Belo Horizonte, MG</div></div></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p class="q">"É como ter um secretário · sem pagar salário · sem que falte · sem que peça férias."</p><div class="who"><div class="av">R</div><div class="meta"><div class="n">Raimundo · Encanador</div><div class="r">Recife, PE</div></div></div></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+      <div class="section-h">
+        <span class="pre micro">— PLANOS</span>
+        <h2 class="h1">Comece grátis.<br/><em>Pague quando crescer.</em></h2>
+        <p>Free para sempre · sem cartão · sem prazo.</p>
+      </div>
+      <div class="price-grid">
+        <div class="pcard free">
+          <div class="name">Free</div>
+          <div class="price"><span class="v">R$0</span><span class="per">/ para sempre</span></div>
+          <div class="desc">Comece grátis · use sem prazo · sem cartão.</div>
+          <ul>
+            <li>Cobranças via WhatsApp</li>
+            <li>Lembretes automáticos</li>
+            <li>Agenda simples</li>
+            <li>Resumo do dia</li>
+            <li>1 conta · 1 telefone</li>
+          </ul>
+          <a class="cta-pricing" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Começar grátis</a>
+        </div>
+        <div class="pcard featured">
+          <span class="badge-pro">★ Mais popular</span>
+          <div class="name">Zymplo Pro</div>
+          <div class="price"><span class="v">R$ <em>39</em></span><span class="per">/ mês</span></div>
+          <div class="desc">Para quem já cobrou no Free e quer mais.</div>
+          <ul>
+            <li>Cobranças automáticas inteligentes</li>
+            <li>Lembretes personalizados</li>
+            <li>Resumo diário · semanal · mensal</li>
+            <li>Relatórios simples</li>
+            <li>Histórico completo de clientes</li>
+            <li>Suporte prioritário</li>
+          </ul>
+          <a class="cta-pricing" href="https://wa.me/595981970735?text=Quero%20Zymplo%20Pro">Ativar Pro</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="security">
+      <div class="section-h">
+        <span class="pre micro">— CONFIANÇA</span>
+        <h2 class="h2">Seus dados <em>protegidos</em>.</h2>
+      </div>
+      <div class="sec-grid">
+        <div class="sec-card"><div class="ic">🔒</div><div class="body"><div class="t">Criptografia de ponta</div><div class="d">Cada mensagem · cada cobrança · cada dado armazenado com segurança bancária.</div></div></div>
+        <div class="sec-card"><div class="ic">🇧🇷</div><div class="body"><div class="t">LGPD compliant</div><div class="d">Conformidade total com Lei Geral de Proteção de Dados. Você pode deletar tudo a qualquer momento.</div></div></div>
+        <div class="sec-card"><div class="ic">⚡</div><div class="body"><div class="t">Pix seguro</div><div class="d">Geração de cobranças via Pix Banco Central. Sem intermediários, sem taxas escondidas.</div></div></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="section-h">
+        <span class="pre micro">— PERGUNTAS FREQUENTES</span>
+        <h2 class="h1">Tudo que <em>você queria saber</em>.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Preciso baixar app?</summary><div class="ans">Não. Zymplo funciona dentro do WhatsApp que você já tem. Sem instalar nada · sem login · sem complicação.</div></details>
+        <details class="faq-item"><summary>Como começo?</summary><div class="ans">Você clica "Começar grátis no WhatsApp" · cai no chat com Zé · escreve "oi" · responde 3 perguntas · em 90 segundos sua primeira cobrança está pronta.</div></details>
+        <details class="faq-item"><summary>É realmente grátis?</summary><div class="ans">Sim. O plano Free é para sempre · sem cartão · sem prazo. Você só paga R$ 39/mês se quiser cobranças automáticas inteligentes e relatórios extras.</div></details>
+        <details class="faq-item"><summary>Como funciona a cobrança?</summary><div class="ans">Você escreve "cobrar João 200". Zymplo cria o link Pix · escreve a mensagem cordial · envia ao cliente · agenda lembrete e te avisa quando pagou.</div></details>
+        <details class="faq-item"><summary>Meus dados estão seguros?</summary><div class="ans">Sim. Criptografia bancária · conformidade LGPD · você pode deletar tudo quando quiser. Não vendemos dados · não compartilhamos com terceiros.</div></details>
+        <details class="faq-item"><summary>Funciona pra qualquer profissão?</summary><div class="ans">Se você cobra clientes · Zymplo é pra você. Eletricista · cabeleireira · mecânico · vendedor online · consultor · personal trainer · prestador de serviço · loja pequena. Funciona pra todo mundo.</div></details>
+      </div>
+    </section>
+
+    <!-- FUNNEL -->
+    <section class="funnel">
+      <div class="section-h">
+        <span class="pre micro">— FUNIL DE CRESCIMENTO</span>
+        <h2 class="h2">Do <em>clique</em> à <em>retenção</em>.</h2>
+      </div>
+      <div class="funnel-stages">
+        <div class="fs"><span class="num">1</span><div class="body"><div class="t">Anúncio visualizado</div><div class="e">ad_impression</div></div><span class="conv">100%</span></div>
+        <div class="fs"><span class="num">2</span><div class="body"><div class="t">Clique no anúncio</div><div class="e">ad_click</div></div><span class="conv">3.4%</span></div>
+        <div class="fs"><span class="num">3</span><div class="body"><div class="t">Vista a landing page</div><div class="e">landing_view</div></div><span class="conv">94%</span></div>
+        <div class="fs"><span class="num">4</span><div class="body"><div class="t">Clique no CTA hero</div><div class="e">hero_cta_click</div></div><span class="conv">22%</span></div>
+        <div class="fs"><span class="num">5</span><div class="body"><div class="t">Abriu WhatsApp</div><div class="e">whatsapp_opened</div></div><span class="conv">86%</span></div>
+        <div class="fs"><span class="num">6</span><div class="body"><div class="t">Onboarding iniciado</div><div class="e">onboarding_started</div></div><span class="conv">79%</span></div>
+        <div class="fs"><span class="num">7</span><div class="body"><div class="t">Primeira cobrança criada</div><div class="e">first_charge_created</div></div><span class="conv">64%</span></div>
+        <div class="fs"><span class="num">8</span><div class="body"><div class="t">Resumo diário ativado</div><div class="e">daily_summary_enabled</div></div><span class="conv">42%</span></div>
+        <div class="fs"><span class="num">9</span><div class="body"><div class="t">Pagamento Pro</div><div class="e">payment_completed</div></div><span class="conv">12%</span></div>
+        <div class="fs"><span class="num">10</span><div class="body"><div class="t">Indicação enviada</div><div class="e">referral_clicked</div></div><span class="conv">28%</span></div>
+      </div>
+    </section>
+
+    <!-- ANALYTICS DASHBOARD -->
+    <section class="analytics">
+      <div class="section-h">
+        <span class="pre micro">— ANALYTICS</span>
+        <h2 class="h2">Tudo medido. <em>Em tempo real.</em></h2>
+      </div>
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="t">Zymplo · Live</div>
+          <div class="filter"><span class="act">Hoje</span><span>Semana</span><span>Mês</span><span>Total</span></div>
+        </div>
+        <div class="dash-grid">
+          <div class="dc">
+            <div class="l">Visitas</div>
+            <div class="v">12.847</div>
+            <div class="delta">↑ 23% vs ontem</div>
+            <div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="fill" d="M0,28 L0,18 L10,15 L20,17 L30,12 L40,14 L50,8 L60,10 L70,5 L80,7 L90,3 L100,5 L100,30 Z"/><path d="M0,18 L10,15 L20,17 L30,12 L40,14 L50,8 L60,10 L70,5 L80,7 L90,3 L100,5"/></svg></div>
+          </div>
+          <div class="dc">
+            <div class="l">CTA conversão</div>
+            <div class="v">22%</div>
+            <div class="delta">↑ 4 pp</div>
+            <div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="fill" d="M0,28 L0,22 L15,20 L30,18 L45,16 L60,12 L75,10 L90,8 L100,6 L100,30 Z"/><path d="M0,22 L15,20 L30,18 L45,16 L60,12 L75,10 L90,8 L100,6"/></svg></div>
+          </div>
+          <div class="dc">
+            <div class="l">WhatsApp open</div>
+            <div class="v">86%</div>
+            <div class="delta">↑ 1 pp</div>
+            <div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="fill" d="M0,28 L0,8 L20,7 L40,6 L60,5 L80,4 L100,3 L100,30 Z"/><path d="M0,8 L20,7 L40,6 L60,5 L80,4 L100,3"/></svg></div>
+          </div>
+          <div class="dc">
+            <div class="l">Pagamento Pro</div>
+            <div class="v">12%</div>
+            <div class="delta">↑ 2 pp</div>
+            <div class="spark"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="fill" d="M0,28 L0,24 L20,22 L40,20 L60,16 L80,14 L100,11 L100,30 Z"/><path d="M0,24 L20,22 L40,20 L60,16 L80,14 L100,11"/></svg></div>
+          </div>
+        </div>
+        <div class="events-row">
+          <div class="label">EVENTOS RASTREADOS · 21 ATIVOS</div>
+          <div class="events-list">
+            <span class="ev-pill">landing_view</span>
+            <span class="ev-pill">hero_cta_click</span>
+            <span class="ev-pill">demo_started</span>
+            <span class="ev-pill">scroll_scene_1_viewed</span>
+            <span class="ev-pill">scroll_scene_4_viewed</span>
+            <span class="ev-pill">scroll_scene_7_viewed</span>
+            <span class="ev-pill">whatsapp_opened</span>
+            <span class="ev-pill">onboarding_started</span>
+            <span class="ev-pill">name_collected</span>
+            <span class="ev-pill">profession_collected</span>
+            <span class="ev-pill">first_charge_created</span>
+            <span class="ev-pill">first_reminder_created</span>
+            <span class="ev-pill">daily_summary_enabled</span>
+            <span class="ev-pill">pricing_viewed</span>
+            <span class="ev-pill">payment_started</span>
+            <span class="ev-pill">payment_completed</span>
+            <span class="ev-pill">referral_clicked</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="final">
+      <div class="final-wrap">
+        <h2>A próxima <em>unicórnio</em><br/>começa com um "oi".</h2>
+        <p class="deck">Abra o WhatsApp. Mande um "oi". A Zymplo começa a trabalhar pra você.</p>
+        <div class="final-row">
+          <a class="btn-primary" href="https://wa.me/595981970735?text=Quiero%20probar%20Zymplo">Começar grátis no WhatsApp</a>
+        </div>
+        <div class="micro-fin">Sem app · sem login · grátis para sempre</div>
+      </div>
+    </section>
+
+    <footer class="ft">
+      © 2026 Zymplo · Unicorn Edition · <a href="/lab/">Lab</a> · <a href="/">Landing</a> · <a href="/lab/v18/">← V18</a> · <a href="/lab/v20/">V20 →</a>
+    </footer>
+
+    <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const $ = (s, c=document) => c.querySelector(s);
+      const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+
+      // PROGRESS
+      const prog = $('#prog');
+      function onScroll() {
+        const sy = window.scrollY;
+        const sh = document.documentElement.scrollHeight - window.innerHeight;
+        prog.style.width = Math.min(100, Math.max(0, sy / sh * 100)) + '%';
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // TYPED
+      const examples = ['Cobrar João R$200', 'Quanto ganhei hoje?', 'Agendar cliente amanhã', 'Quem ainda não pagou?', 'Resumo do mês'];
+      const typedEl = $('#typedText');
+      let exIdx = 0, charIdx = 0, deleting = false;
+      function tick() {
+        if (reduceMotion) { typedEl.textContent = examples[0]; return; }
+        const cur = examples[exIdx];
+        if (!deleting) {
+          charIdx++; typedEl.textContent = cur.slice(0, charIdx);
+          if (charIdx === cur.length) { setTimeout(() => { deleting = true; tick(); }, 1700); return; }
+          setTimeout(tick, 70 + Math.random() * 60);
+        } else {
+          charIdx--; typedEl.textContent = cur.slice(0, charIdx);
+          if (charIdx === 0) { deleting = false; exIdx = (exIdx + 1) % examples.length; setTimeout(tick, 240); return; }
+          setTimeout(tick, 30);
+        }
+      }
+      tick();
+
+      // SCROLLY
+      const s1 = $('.scene.s1'); const s1words = $$('.s1 .word');
+      const flowPath = $('#flowPath'); const pathLen = flowPath ? flowPath.getTotalLength() : 0;
+      if (flowPath) { flowPath.style.strokeDasharray = pathLen; flowPath.style.strokeDashoffset = pathLen; }
+      const s2nodes = $$('.svg-flow .node-circle, .svg-flow .node-pulse');
+      const s2labels = $$('.svg-flow .label, .svg-flow .emoji');
+      const s3stats = $$('.s3 .stat .v');
+      const s3animated = new Set();
+      function getProgress(scene) { const r = scene.getBoundingClientRect(); const sH = scene.offsetHeight - window.innerHeight; return Math.max(0, Math.min(1, -r.top / sH)); }
+      function onScrolly() {
+        if (reduceMotion) return;
+        if (s1) {
+          const p = getProgress(s1);
+          const showCount = Math.floor(p * (s1words.length + 4));
+          s1words.forEach((w, i) => { if (i < showCount) w.classList.add('show'); else w.classList.remove('show'); });
+        }
+        const s2 = $('.scene.s2');
+        if (s2 && pathLen) {
+          const p = getProgress(s2);
+          flowPath.style.strokeDashoffset = pathLen * Math.max(0, 1 - p * 1.4);
+          for (let i = 0; i < 4; i++) {
+            const threshold = 0.18 + i * 0.18;
+            const show = p > threshold;
+            const cIdx = i * 2;
+            if (s2nodes[cIdx]) s2nodes[cIdx].classList.toggle('show', show);
+            if (s2nodes[cIdx + 1]) s2nodes[cIdx + 1].classList.toggle('show', show);
+            if (s2labels[i * 2]) s2labels[i * 2].classList.toggle('show', show);
+            if (s2labels[i * 2 + 1]) s2labels[i * 2 + 1].classList.toggle('show', show);
+          }
+        }
+        const s3 = $('.scene.s3');
+        if (s3) {
+          const r = s3.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.6 && r.bottom > 0 && !s3animated.has('done')) {
+            s3animated.add('done');
+            s3stats.forEach((v) => {
+              const target = parseFloat(v.dataset.target || '0');
+              const prefix = v.dataset.prefix || ''; const suffix = v.dataset.suffix || '';
+              const decimals = parseInt(v.dataset.decimals ?? '0');
+              const dur = 1700; const t0 = performance.now();
+              function step(t) {
+                const p = Math.min(1, (t - t0) / dur);
+                const eased = 1 - Math.pow(1 - p, 3);
+                const cur = target * eased;
+                v.textContent = prefix + cur.toLocaleString('pt-BR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }
+        }
+      }
+      window.addEventListener('scroll', onScrolly, { passive: true });
+      onScrolly();
+
+      // INTERACTIVE DEMO
+      const live = $('#livechat'); const lin = $('#liveInput'); const lsend = $('#liveSend');
+      function addBub(side, html) {
+        const b = document.createElement('div'); b.className = 'b ' + side;
+        b.style.cssText = 'opacity: 0; transform: translateY(8px); animation: bub-in 0.4s cubic-bezier(0.22,1,0.36,1) forwards; max-width: 80%; padding: 7px 11px 5px; border-radius: 13px; font-size: 13px; line-height: 1.4;';
+        b.style.background = side === 'usr' ? '#6A00F4' : '#1F2C33';
+        b.style.color = 'white';
+        b.style.alignSelf = side === 'usr' ? 'flex-end' : 'flex-start';
+        b.style[side === 'usr' ? 'borderBottomRightRadius' : 'borderBottomLeftRadius'] = '4px';
+        b.innerHTML = html + '<span style="display:block;margin-top:3px;font-size:9px;opacity:0.55;text-align:right;">agora' + (side === 'usr' ? ' ✓✓' : '') + '</span>';
+        live.appendChild(b); live.scrollTop = live.scrollHeight;
+      }
+      function showTyping() {
+        const tp = document.createElement('div'); tp.className = 'typing-dots'; tp.innerHTML = '<span></span><span></span><span></span>';
+        live.appendChild(tp); live.scrollTop = live.scrollHeight; return tp;
+      }
+      function reply(msg) {
+        const m = msg.toLowerCase();
+        if (/(quanto.*ganhe|faturamento|resumo do dia|hoje)/.test(m)) {
+          return ['📊 Hoje você está com <strong>R$ 1.240 ✨</strong>', 'Pendentes: <em>R$ 680</em> (3 clientes)', 'Quer enviar lembretes agora?'];
+        }
+        if (/(cobrar?)/.test(m)) {
+          const monto = m.match(/(\d{2,})/);
+          const a = m.match(/cobrar?\s+([a-zà-ÿ]+)/i);
+          return [
+            '💸 Cobrança preparada para <strong>' + (a ? a[1] : 'seu cliente') + '</strong>' + (monto ? ' · <em>R$ ' + Number(monto[1]).toLocaleString('pt-BR') + '</em>' : ''),
+            'Mando uma mensagem cordial · com link Pix anexado. <strong>Posso enviar?</strong>',
+          ];
+        }
+        if (/(lembrete|lembrar|amanha|amanhã)/.test(m)) {
+          return ['📅 Lembrete agendado · te aviso amanhã 9h.', 'Quer adicionar mais detalhes?'];
+        }
+        if (/(quem.*n[aã]o.*pago|inadimplent|n[aã]o pago)/.test(m)) {
+          return ['⚠️ <strong>3 clientes</strong> ainda não pagaram:', '· João · R$ 200<br/>· Ana · R$ 150<br/>· Marcos · R$ 420', 'Quer que eu envie lembretes agora?'];
+        }
+        return ['Boa! Posso te ajudar.<br/>· <em>cobrar João 200</em><br/>· <em>quanto ganhei hoje</em><br/>· <em>quem não pagou</em><br/>· <em>resumo do dia</em>'];
+      }
+      function userSend(msg) {
+        if (!msg.trim()) return;
+        addBub('usr', msg); lin.value = '';
+        const tp = showTyping();
+        const responses = reply(msg);
+        responses.forEach((r, i) => { setTimeout(() => { if (i === 0) tp.remove(); addBub('bot', r); }, reduceMotion ? 0 : 700 + i * 950); });
+      }
+      lsend && lsend.addEventListener('click', () => userSend(lin.value));
+      lin && lin.addEventListener('keydown', (e) => { if (e.key === 'Enter') userSend(lin.value); });
+      $$('.qp').forEach((b) => b.addEventListener('click', () => userSend(b.dataset.prompt)));
+    </script>
+  </body>
+</html>
