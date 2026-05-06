@@ -126,23 +126,12 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
     })} />
 
     <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://wa.me" />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
-    </noscript>
+
+    <!-- Brand tokens canónicos (R57 · single source of truth · CDN cached) -->
+    <link rel="stylesheet" href="https://sims.zymplo.com/brand/brand-guidelines/brand-tokens.css" crossorigin />
+
+    <!-- Sora self-hosted via @fontsource/sora · LGPD-safe (V22-06) · NO Google Fonts call -->
     <script is:inline>
       // FOUC-free dark mode: applies before first paint.
       (function () {

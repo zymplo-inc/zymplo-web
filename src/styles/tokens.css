@@ -2,9 +2,32 @@
    Zymplo · Design Tokens V2 (canonical)
    Fonts loaded via <link> in CountryLayout.astro head (non-blocking).
    ======================================================================== */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@fontsource/sora/300.css";
+@import "@fontsource/sora/400.css";
+@import "@fontsource/sora/500.css";
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/sora/800.css";
+
+/* Tailwind 4 @theme block · semantic utilities (bg-zymplo-*, text-zymplo-*, etc.) */
+@theme {
+  --color-zymplo-primary: #14B8A6;
+  --color-zymplo-primary-dark: #0F9488;
+  --color-zymplo-primary-light: #5EEAD4;
+  --color-zymplo-primary-paler: #CCFBF1;
+  --color-zymplo-secondary: #1E4AD4;
+  --color-zymplo-accent: #623AE6;
+  --color-zymplo-ink: #0A0B14;
+  --color-zymplo-paper: #FAFBFF;
+  --color-zymplo-slate: #1F2937;
+  --color-zymplo-mute: #6B7280;
+  --color-zymplo-success: #22C55E;
+  --color-zymplo-warning: #F59E0B;
+  --color-zymplo-error: #EF4444;
+  --font-display: "Sora", "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
 
 :root {
   /* ── Brand · turquesa scale ── */
