@@ -11,8 +11,8 @@ Source of truth: `src/styles/tokens.css` y `tailwind.config.ts`.
 | `--turquesa-deeper` | `#0B6B62` | Texto sobre paler |
 | `--turquesa-light` | `#5EEAD4` | Glows · gradients |
 | `--paler` / `bg-turquesa-paler` | `#CCFBF1` | Chips · pills · backgrounds suaves |
-| `--azul` | `#1E4AD4` | Contiq B2B |
-| `--purple` | `#623AE6` | Contiq B2B accent |
+| `--azul` | `#1E4AD4` | info azul |
+| `--purple` | `#623AE6` | info azul accent |
 | `--ink` | `#0A0B14` | Texto · backgrounds dark |
 | `--paper` | `#FAFBFF` | Background base |
 | `--slate` | `#1F2937` | Texto secundario |

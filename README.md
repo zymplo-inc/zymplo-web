@@ -1,67 +1,82 @@
 # Zymplo Web · Multi-país
 
-> Astro 4 + React 18 islands + TailwindCSS + Framer Motion + TypeScript
-> 7 países (BR · MX · US · CO · ES · AR · PY) · single codebase
+Astro 5 + React 18 islands + Tailwind 4 + Framer Motion + TypeScript
+**14 países** (BR · MX · AR · CO · CL · PE · UY · PY · BO · EC · ES · US · CR · PT) · single codebase
+Hosting: **Vercel Edge** · domain `zymplo.com`
 
 ---
 
 ## Quickstart
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 # → http://localhost:4321/br/
 ```
 
-Otras URLs de desarrollo:
+Rutas de desarrollo:
 
-- `/br/` `/mx/` `/us/` `/co/` `/es/` `/ar/` `/py/`
-- `/br/precios/` · `/br/onboarding/` · `/br/contiq/` (B2B BR-only)
-- `/` redirige por geo-IP (en local cae a `/br/`)
+- `/br/` `/mx/` `/ar/` `/co/` `/cl/` `/pe/` `/uy/` `/py/` `/bo/` `/ec/` `/es/` `/us/` `/cr/` `/pt/`
+- `/br/precios/` · `/br/onboarding/`
+- `/` redirige por geo-IP / Accept-Language (default: `/br/`)
 
 ## Build
 
 ```bash
-npm run build       # output → dist/
-npm run preview
+pnpm build       # output → dist/
+pnpm preview
 ```
 
-## Deploy · Cloudflare Pages
+## Deploy · Vercel
 
-1. Push del repo a GitHub
-2. Cloudflare Dashboard → Pages → Create → Connect repo
-3. Build command: `npm run build`
-4. Output dir: `dist`
-5. Env: `NODE_VERSION=20`
-6. Custom domains: `zymplo.com`, `br.zymplo.com`, `mx.zymplo.com`, etc.
+1. Push a GitHub (`zymplo-inc/zymplo-web`)
+2. Vercel Dashboard → New Project → Import repo
+3. Framework preset: **Astro**
+4. Build command: `pnpm build` · Output dir: `dist`
+5. Env: ver `.env.example`
+6. Custom domain: `zymplo.com` (Cloudflare DNS) · `zymplo.com.br` 301 → `zymplo.com/pt/`
 
-El adapter `@astrojs/cloudflare` ya está configurado en `astro.config.mjs`.
-La detección de `request.cf.country` para geo-IP funciona automáticamente en Pages.
+El adapter `@astrojs/vercel` ya está configurado en `astro.config.mjs`.
 
 ## Estructura
 
 ```
 src/
-├── data/countries.ts         ← Single source of truth (7 países)
-├── i18n/{pt-br,es-mx,...}    ← Diccionarios por locale
-├── layouts/CountryLayout     ← Shell con SEO + hreflang
+├── data/countries.ts         ← Single source of truth (14 países)
+├── i18n/{pt-br,es-mx,...,pt-pt}  ← 14 diccionarios por locale
+├── layouts/CountryLayout     ← Shell con SEO + hreflang × 14
 ├── pages/
-│   ├── index.astro           ← Geo-IP redirect
-│   └── [country]/            ← /br/ /mx/ /us/ /co/ /es/ /ar/ /py/
+│   ├── index.astro           ← Geo-IP / Accept-Language redirect
+│   └── [country]/            ← 14 países · index + precios + onboarding
 ├── components/
 │   ├── Hero/                 ✅ cinematográfico (SVG tubes + typewriter)
 │   ├── ChatDemo/             ✅ WhatsApp simulator
-│   ├── PricingTable/         ✅ 4 planes + Contiq B2B (BR)
-│   ├── LangSwitcher/         ✅ dropdown 7 países
+│   ├── PricingTable/         ✅ 4 planes canónicos (R102 SUPREMA)
+│   ├── LangSwitcher/         ✅ dropdown 14 países
 │   ├── Footer/               ✅ links + compliance + payments
-│   ├── CookieBanner/         ✅ EU-only (gated en CountryLayout)
+│   ├── CookieBanner/         ✅ LGPD/GDPR-safe (V22-06)
 │   ├── InfluencerHero/       ⚠ scaffold (placeholder SVG)
 │   ├── PersonajesMEI/        ⚠ scaffold (3 personas/país)
 │   ├── ToolsCarousel/        ⚠ scaffold (grid estático, falta marquee)
 │   └── Onboarding5Steps/     ⚠ scaffold (página `/onboarding/`)
-└── styles/tokens.css         ← Tokens canónicos V2
+└── styles/tokens.css         ← Tokens canónicos V2 (DEC-02)
 ```
+
+## Reglas inmutables (NUNCA violar)
+
+- **R42 IDENTIDAD** · sin tech jerga ERP/CRM/SaaS/plataforma · sin "MEIs/microempresários" en plural genérico
+- **R93 REQUIRED PHRASES** · eyebrow + hero copy locked por país (ver brief §2)
+- **R98 EXTERIORS-ONLY** · Cowork autónomo en código · Carlos firma 2FA + dominios + term sheets
+- **R100 ZERO-FAIL PERF** · TTFB ≤500ms p95 · WCAG AAA · sin headers Clear-Site-Data
+- **R102 SUPREMA** · NUNCA mencionar CONTIQ · Hugo Costa · Plan B R$149 · "200+ contadores" (eliminado raíz 2026-05-04)
+- **R103 ORDEN SUPREMA** · 14 países desde día 1 · NEVER ship BR-only
+
+Pre-commit grep checks: `pnpm grep:all` (ver `scripts/grep-checks.sh`).
 
 ## Próximos pasos
 
-Ver `HANDOFF-NOTES.md`.
+Ver `MIGRATION-NOTES-2026-05-06.md`.
+
+## Brand assets
+
+Single source of truth: `https://sims.zymplo.com/brand/` (CSS tokens · SVG isotipo · favicon · wordmark V2). NO regenerar localmente.
