@@ -1,6 +1,6 @@
 ---
-const title = 'Zymplo · Tu secretaria IA en WhatsApp · 13 países';
-const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin registro. Gente como tú ya usa Zymplo en BR · MX · US · CO · ES · AR · PY · CL · PE · UY · BO · CR · EC.';
+const title = 'Zymplo · Tu secretaria IA en WhatsApp · 7 países · 12.847 MEIs';
+const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. 12.847 microempresarios ya usan Zymplo en BR · MX · US · CO · ES · AR · PY.';
 const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 ---
 <!doctype html>
@@ -12,6 +12,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="facebook-domain-verification" content="bd8fbbx4sufeui0f7n5efs2vsbcdy9" />
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -44,11 +45,64 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://zymplo.com/#organization",
       name: "Zymplo",
+      legalName: "Zymplo, Inc.",
       url: "https://zymplo.com",
-      logo: "https://sims.zymplo.com/brand/isotipo.svg",
-      sameAs: ["https://www.instagram.com/zymplo", "https://twitter.com/zymplo", "https://www.tiktok.com/@zymplo", "https://www.linkedin.com/company/zymplo"],
+      logo: { "@type": "ImageObject", url: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg", width: 512, height: 512 },
+      image: "https://sims.zymplo.com/brand/logos/svg/zymplo-logo-horizontal-azul.svg",
       description: description,
+      foundingDate: "2026-03-12",
+      founders: [
+        { "@type": "Person", name: "Carlos Rejala", jobTitle: "CEO · Founder", email: "carlosrejala@zymplo.com" },
+        { "@type": "Person", name: "José Carlos Rolón", jobTitle: "COO · Co-founder", email: "joserolon@zymplo.com" }
+      ],
+      address: { "@type": "PostalAddress", streetAddress: "1111B S Governors Ave, Suite 83095", addressLocality: "Dover", addressRegion: "DE", postalCode: "19904", addressCountry: "US" },
+      contactPoint: [
+        { "@type": "ContactPoint", telephone: "+1-667-256-7421", contactType: "customer support", email: "support@zymplo.com", availableLanguage: ["es", "pt-BR", "en"] },
+        { "@type": "ContactPoint", contactType: "investor relations", email: "inversores@zymplo.com", availableLanguage: ["en", "es"] },
+        { "@type": "ContactPoint", contactType: "press inquiries", email: "press@zymplo.com", availableLanguage: ["es", "pt-BR", "en"] }
+      ],
+      identifier: [
+        { "@type": "PropertyValue", propertyID: "DUNS", value: "145007664" },
+        { "@type": "PropertyValue", propertyID: "EIN", value: "30-1486305" },
+        { "@type": "PropertyValue", propertyID: "Delaware File", value: "10544645" }
+      ],
+      areaServed: [
+        { "@type": "Country", name: "Brazil" }, { "@type": "Country", name: "Mexico" }, { "@type": "Country", name: "Argentina" },
+        { "@type": "Country", name: "Colombia" }, { "@type": "Country", name: "Chile" }, { "@type": "Country", name: "Peru" },
+        { "@type": "Country", name: "Uruguay" }, { "@type": "Country", name: "Paraguay" }, { "@type": "Country", name: "Bolivia" },
+        { "@type": "Country", name: "Ecuador" }, { "@type": "Country", name: "Spain" }, { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "Costa Rica" }
+      ],
+      knowsLanguage: ["es", "pt-BR", "en"],
+      sameAs: [
+        "https://linkedin.com/company/zymplo",
+        "https://x.com/zymplo",
+        "https://instagram.com/zymplo",
+        "https://www.tiktok.com/@zymplo",
+        "https://youtube.com/@zymplo",
+        "https://github.com/zymplo-inc",
+        "https://www.crunchbase.com/organization/zymplo"
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://zymplo.com/#website",
+      url: "https://zymplo.com",
+      name: "Zymplo",
+      publisher: { "@id": "https://zymplo.com/#organization" },
+      inLanguage: ["es", "pt-BR", "en"]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "Zymplo",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Any (WhatsApp-native)",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "BRL", name: "Plan 0 · Forever Free", description: "100 mensagens/mês · 5 PIX · 1 NFS-e · DAS reminder" },
+      publisher: { "@id": "https://zymplo.com/#organization" }
     })} />
 
     <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
@@ -139,7 +193,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 
     <div class="top-banner">
       <span class="pulse"></span>
-      <span class="num" id="counter-joined">847</span> se sumaron hoy · <span style="opacity:.7;">creciendo</span>
+      <span class="num" id="counter-joined">847</span> MEIs joined today · <span style="opacity:.7;">growing</span>
     </div>
 
     <header class="zh">
@@ -161,7 +215,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
         <span class="num" id="counter-money">$ 47.28M</span>
       </div>
 
-      <div class="pill">⚡ 13 países · 3 idiomas · gente como vos activa ahora</div>
+      <div class="pill">⚡ 7 países · 3 idiomas · 12.847 MEIs activos</div>
 
       <h1>
         Cobra. Sin perseguir.<br/>
@@ -169,21 +223,21 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
       </h1>
 
       <p class="sub-ai">Tu secretaria IA dentro de WhatsApp. Cobra · factura · agenda · organiza. Sin app, sin signup, sin fricción.</p>
-      <p class="sub-line">Detectando tu país y idioma automáticamente · 13 países · 3 idiomas perfectos.</p>
+      <p class="sub-line">Detectando tu país y idioma automáticamente · 7 países · 3 idiomas perfectos.</p>
 
       <div class="ctas">
         <div>
           <a class="btn primary" id="cta-primary" href="https://br.zymplo.com/">Empezar gratis →</a>
-          <span class="btn-micro">Sin app · sin registro · gratis para siempre</span>
+          <span class="btn-micro">Gratis · sin tarjeta · 7 días</span>
         </div>
         <a class="btn outline" href="https://sims.zymplo.com/web/social/c-radical/">📱 Ver social templates</a>
       </div>
 
       <div class="stats-row">
         <div class="stat"><div class="v">$ 47M</div><div class="l">cobrados este mes</div></div>
-        <div class="stat"><div class="v">12.847</div><div class="l">personas activas</div></div>
-        <div class="stat"><div class="v">Sin app</div><div class="l">ni registro</div></div>
-        <div class="stat"><div class="v">13</div><div class="l">países LATAM + US</div></div>
+        <div class="stat"><div class="v">12.847</div><div class="l">MEIs activos</div></div>
+        <div class="stat"><div class="v">3 min</div><div class="l">setup completo</div></div>
+        <div class="stat"><div class="v">7</div><div class="l">países LATAM + US</div></div>
       </div>
     </main>
 
@@ -240,7 +294,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
     </section>
 
     <footer class="zf">
-      <p>Zymplo © 2026 · Tu secretaria IA en WhatsApp · Hecho con ❤ para gente como vos · LATAM + US.</p>
+      <p>Zymplo © 2026 · Tu secretaria IA en WhatsApp · Hecho con ❤ para microempresarios LATAM + US.</p>
       <div class="links">
         <a href="https://sims.zymplo.com/web/social/c-radical/">Social templates</a>
         <a href="https://sims.zymplo.com/brand/2026-04-29_Brand-Field-Manual-V2.0/">Brand</a>
