@@ -1,8 +1,8 @@
 /**
- * Zymplo · Single Source of Truth — 13 países (Tier 1 + Tier 2 expansion)
+ * Zymplo · Single Source of Truth — 14 países · R103 ORDEN SUPREMA
  * Edit ONLY here. UI consumes via `getCountry(slug)`.
  */
-export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py' | 'pe' | 'ec' | 'cl' | 'uy' | 'bo' | 'cr';
+export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py' | 'pe' | 'ec' | 'cl' | 'uy' | 'bo' | 'cr' | 'pt';
 
 export interface Country {
   slug: CountrySlug;
@@ -16,7 +16,7 @@ export interface Country {
   payments: string[];
   slang: string[];
   cta: { primary: string; secondary: string };
-  pricing: { free: string; starter: string; pro: string; gold: string; b2b?: string };
+  pricing: { free: string; starter: string; pro: string; gold: string };
 }
 
 const fmt = (locale: string, code: string) => (n: number) =>
@@ -30,7 +30,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     personas: [
       { name: 'Diego', role: 'eletricista' },
       { name: 'Luana', role: 'cabeleireira' },
-      { name: 'Raimundo', role: 'pedreiro' },
+      { name: 'Raimundo', role: 'encanador' },
     ],
     compliance: ['NFS-e MEI', 'DAS', 'LGPD'],
     payments: ['Pix', 'Boleto', 'Cartão'],
@@ -51,7 +51,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SPEI', 'CoDi', 'OXXO'],
     slang: ['chido', 'güey', 'órale', 'neta'],
     cta: { primary: 'Vamos a empezar 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 119 MXN', pro: '$ 249 MXN', gold: '$ 499 MXN' },
+    pricing: { free: 'Gratis', starter: '$79 MXN', pro: '$159 MXN', gold: '$319 MXN' },
   },
   us: {
     slug: 'us', flag: '🇺🇸', name: 'United States', locale: 'en-US',
@@ -66,7 +66,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['ACH', 'Zelle', 'Stripe'],
     slang: ["y'all", 'gonna', 'totally'],
     cta: { primary: "Let's go 💪", secondary: 'Watch demo 90s ▶' },
-    pricing: { free: 'Free', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
+    pricing: { free: 'Free', starter: '$4', pro: '$8', gold: '$16' },
   },
   co: {
     slug: 'co', flag: '🇨🇴', name: 'Colombia', locale: 'es-CO',
@@ -81,7 +81,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['PSE', 'Wompi', 'Nequi'],
     slang: ['bacano', 'parce', 'rumba'],
     cta: { primary: 'Dale parce 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 15.000 COP', pro: '$ 29.000 COP', gold: '$ 59.000 COP' },
+    pricing: { free: 'Gratis', starter: '$16.000 COP', pro: '$33.000 COP', gold: '$66.000 COP' },
   },
   es: {
     slug: 'es', flag: '🇪🇸', name: 'España', locale: 'es-ES',
@@ -96,7 +96,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SEPA', 'Bizum'],
     slang: ['tío', 'vale', 'majo', 'guay'],
     cta: { primary: 'A por ello 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '€ 3.99', pro: '€ 7.99', gold: '€ 15.99' },
+    pricing: { free: 'Gratis', starter: '4 €', pro: '8 €', gold: '16 €' },
   },
   ar: {
     slug: 'ar', flag: '🇦🇷', name: 'Argentina', locale: 'es-AR',
@@ -111,7 +111,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['MercadoPago', 'Transferencia'],
     slang: ['che', 'boludo', 'viste', 're'],
     cta: { primary: 'Dale que 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 5.519 ARS (USD-pegged)', pro: '$ 11.039 ARS (USD-pegged)', gold: '$ 22.089 ARS (USD-pegged)' },
+    pricing: { free: 'Gratis', starter: '$4.500 ARS', pro: '$9.000 ARS', gold: '$18.000 ARS' },
   },
   py: {
     slug: 'py', flag: '🇵🇾', name: 'Paraguay', locale: 'es-PY',
@@ -126,7 +126,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Personal Pay'],
     slang: ['metele', 'dale que', 'estamos arreglando', 'pio'],
     cta: { primary: 'Metele 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '₲ 14.000', pro: '₲ 29.000', gold: '₲ 59.000' },
+    pricing: { free: 'Gratis', starter: 'Gs 28.000', pro: 'Gs 58.000', gold: 'Gs 116.000' },
   },
   pe: {
     slug: 'pe', flag: '🇵🇪', name: 'Perú', locale: 'es-PE',
@@ -141,7 +141,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Yape', 'Plin', 'BIM'],
     slang: ['causa', 'pata', 'chévere', 'jato'],
     cta: { primary: 'Vamos causa 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'S/ 14', pro: 'S/ 29', gold: 'S/ 59' },
+    pricing: { free: 'Gratis', starter: 'S/ 15', pro: 'S/ 30', gold: 'S/ 60' },
   },
   ec: {
     slug: 'ec', flag: '🇪🇨', name: 'Ecuador', locale: 'es-EC',
@@ -156,7 +156,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['DeUna!', 'Pichincha', 'BIM'],
     slang: ['chévere', 'bacán', 'pana', 'simón'],
     cta: { primary: 'Dale pana 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
+    pricing: { free: 'Gratis', starter: '$4', pro: '$8', gold: '$16' },
   },
   cl: {
     slug: 'cl', flag: '🇨🇱', name: 'Chile', locale: 'es-CL',
@@ -171,7 +171,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Webpay', 'Mercado Pago', 'Transferencia'],
     slang: ['po', 'cachai', 'bacán', 'fome'],
     cta: { primary: 'Dale po 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 3.490 CLP', pro: '$ 6.990 CLP', gold: '$ 13.990 CLP' },
+    pricing: { free: 'Gratis', starter: '$3.500 CLP', pro: '$7.500 CLP', gold: '$15.000 CLP' },
   },
   uy: {
     slug: 'uy', flag: '🇺🇾', name: 'Uruguay', locale: 'es-UY',
@@ -186,7 +186,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Mercado Pago', 'Redpagos', 'Transferencia'],
     slang: ['bo', 'ta', 'de pinga', 'masa'],
     cta: { primary: 'Dale bo 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$U 159', pro: '$U 329', gold: '$U 649' },
+    pricing: { free: 'Gratis', starter: '$160 UYU', pro: '$320 UYU', gold: '$640 UYU' },
   },
   bo: {
     slug: 'bo', flag: '🇧🇴', name: 'Bolivia', locale: 'es-BO',
@@ -201,7 +201,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Soli', 'Transferencia'],
     slang: ['pues', 'jaila', 'choco', 'qué pasó'],
     cta: { primary: 'Vamos pues 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'Bs 29', pro: 'Bs 59', gold: 'Bs 109' },
+    pricing: { free: 'Gratis', starter: 'Bs 27', pro: 'Bs 55', gold: 'Bs 110' },
   },
   cr: {
     slug: 'cr', flag: '🇨🇷', name: 'Costa Rica', locale: 'es-CR',
@@ -216,7 +216,22 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SINPE Móvil', 'Transferencia'],
     slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
     cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Pura vida', starter: '₡ 1.990', pro: '₡ 3.990', gold: '₡ 7.990' },
+    pricing: { free: 'Gratis', starter: '₡2.200', pro: '₡4.400', gold: '₡8.800' },
+  },
+  pt: {
+    slug: 'pt', flag: '🇵🇹', name: 'Portugal', locale: 'pt-PT',
+    currency: { code: 'EUR', symbol: '€', format: fmt('pt-PT', 'EUR') },
+    influencer: { name: 'TBD-PT', tagline: 'O teu assistente IA no WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'João', role: 'eletricista' },
+      { name: 'Inês', role: 'cabeleireira' },
+      { name: 'Manuel', role: 'canalizador' },
+    ],
+    compliance: ['NIF', 'IRS', 'IVA', 'RGPD'],
+    payments: ['MB Way', 'Multibanco', 'Cartão'],
+    slang: ['fixe', 'pá', 'porreiro', 'giro'],
+    cta: { primary: 'Começar agora ▶', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Grátis', starter: '4 €', pro: '8 €', gold: '16 €' },
   },
 };
 

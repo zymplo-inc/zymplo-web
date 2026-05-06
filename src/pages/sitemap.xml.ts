@@ -15,7 +15,6 @@ export const GET: APIRoute = () => {
     urls.push(`<url><loc>${base}/precios/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`);
     urls.push(`<url><loc>${base}/onboarding/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>`);
     if (slug === 'br') {
-      urls.push(`<url><loc>${base}/contiq/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`);
     }
   }
 

@@ -10,7 +10,9 @@ interface Props { slug: string; country: Country; dict: Dict }
  *  - 4 plan cards: features list FIRST, price below
  *  - Hover lift (-8px) + shadow-pop on highlight
  *  - Dark-mode aware via semantic tokens (--bg-raised, --fg-primary, etc.)
- *  - Optional B2B Contiq strip (BR only)
+ *
+ *  R102 SUPREMA · 2026-05-04: B2B strip eliminada de raíz.
+ *  Validated by: Sim 10 + V22-10 + V23-03 · 476 actions · CI 95%+
  */
 export default function PricingTable({ country, dict }: Props) {
   const p: any = dict.pricing as any;
@@ -20,9 +22,6 @@ export default function PricingTable({ country, dict }: Props) {
   const fGold = p.features_gold ?? ['Everything in Pro', 'Multi-team', 'API', 'Priority'];
   const popular = p.popular ?? 'Most popular';
   const eyebrow = p.eyebrow ?? 'pricing';
-  const ctaSecondary = p.cta_secondary ?? 'Learn about Contiq';
-  const b2bLabel = p.b2b_label ?? 'B2B';
-  const b2bDesc = p.b2b_desc ?? '';
   const headlineFeature = p.headline_feature ?? p.features_pro?.[0] ?? 'Unlimited everything';
   const headlineCaption = p.headline_caption ?? p.subtitle ?? '';
   const fromLabel = p.from_label ?? 'from';
@@ -155,31 +154,6 @@ export default function PricingTable({ country, dict }: Props) {
             );
           })}
         </div>
-
-        {country.slug === 'br' && country.pricing.b2b && (
-          <div
-            className="mt-10 rounded-3xl p-7 flex flex-wrap items-center gap-6 justify-between"
-            style={{
-              border: '1px solid color-mix(in oklab, var(--azul) 30%, transparent)',
-              background: 'linear-gradient(135deg, color-mix(in oklab, var(--azul) 8%, transparent), color-mix(in oklab, var(--purple) 6%, transparent), transparent)',
-            }}
-          >
-            <div>
-              <div className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--azul)' }}>{b2bLabel}</div>
-              <div className="font-display text-2xl font-bold tracking-tightest mt-1">
-                Contiq · {country.pricing.b2b}{dict.pricing.month}
-              </div>
-              <p className="text-sm mt-1 max-w-md" style={{ color: 'var(--fg-mute)' }}>{b2bDesc}</p>
-            </div>
-            <a
-              href="/br/contiq/"
-              className="font-semibold text-sm px-6 py-3 rounded-full transition"
-              style={{ background: 'var(--azul)', color: '#fff' }}
-            >
-              {ctaSecondary}
-            </a>
-          </div>
-        )}
       </div>
 
       <style>{`

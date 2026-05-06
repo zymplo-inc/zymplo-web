@@ -417,7 +417,6 @@
     "gold_label": "Gold",
     "month": "/mês",
     "popular": "Mais popular",
-    "cta_secondary": "",
     "features_free": [
       "100 mensagens/mês",
       "5 cobranças",
@@ -440,8 +439,6 @@
       "API",
       "Prioridade"
     ],
-    "b2b_label": "B2B · Brasil",
-    "b2b_desc": "A camada B2B para escritórios de contabilidade que atendem MEI em escala.",
     "headline_feature": "Tudo ilimitado.",
     "headline_caption": "Mensagens, cobranças, notas. Sem teto, sem surpresa.",
     "from_label": "a partir de"
@@ -493,7 +490,6 @@
     "link_features": "Funcionalidades",
     "link_pricing": "Preços",
     "link_onboarding": "Onboarding",
-    "link_contiq": "",
     "link_about": "Sobre nós",
     "link_careers": "Carreiras",
     "link_press": "Imprensa",

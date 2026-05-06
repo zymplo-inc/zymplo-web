@@ -418,7 +418,6 @@
     "gold_label": "Gold",
     "month": "/month",
     "popular": "Most popular",
-    "cta_secondary": "Learn about Contiq",
     "features_free": [
       "100 messages/month",
       "5 payments",
@@ -441,8 +440,6 @@
       "API",
       "Priority"
     ],
-    "b2b_label": "B2B · Brazil",
-    "b2b_desc": "The B2B layer for accounting firms serving small businesses at scale.",
     "headline_feature": "Unlimited everything.",
     "headline_caption": "Messages, payments, notes. No caps, no surprises.",
     "from_label": "from"
@@ -714,7 +711,6 @@
     "link_features": "Features",
     "link_pricing": "Pricing",
     "link_onboarding": "Onboarding",
-    "link_contiq": "Contiq B2B",
     "link_about": "About",
     "link_careers": "Careers",
     "link_press": "Press",
