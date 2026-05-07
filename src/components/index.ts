@@ -9,3 +9,6 @@ export { default as InfluencerHero } from './InfluencerHero/InfluencerHero.astro
 export { default as PersonajesMEI } from './PersonajesMEI/PersonajesMEI.astro';
 export { default as ToolsCarousel } from './ToolsCarousel/ToolsCarousel.astro';
 export { default as Onboarding5Steps } from './Onboarding5Steps/Onboarding5Steps';
+export { default as HowItWorks3Steps } from './HowItWorks3Steps/HowItWorks3Steps.astro';
+export { default as SinConZymplo } from './SinConZymplo/SinConZymplo.astro';
+export { default as ROICalculator } from './ROICalculator/ROICalculator';

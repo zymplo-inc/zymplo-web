@@ -782,5 +782,64 @@
     "detected": "Detectado",
     "no_match": "Não consegui identificar · tente de novo",
     "unsupported": "Voz não suportada neste navegador"
+  },
+  "how_it_works": {
+    "eyebrow": "Como funciona",
+    "title": "Como funciona o Zymplo.",
+    "subtitle": "Você escreve no WhatsApp. O Zymplo faz o resto.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Você escreve o que precisa",
+        "desc": "\"Cobra do João\", \"marca amanhã 10h\". Como uma mensagem normal."
+      },
+      {
+        "n": "2",
+        "title": "O Zymplo entende",
+        "desc": "Detecta o que você quer, busca o cliente, prepara tudo em 1,2s."
+      },
+      {
+        "n": "✓",
+        "title": "Tudo resolvido",
+        "desc": "Em segundos. Sem apps. Sem aprender nada.",
+        "highlight": true
+      }
+    ],
+    "footnote": "Sem apps novos · sem complicações · sem voltas."
+  },
+  "sin_con": {
+    "title": "Parar de perder dinheiro",
+    "subtitle": "não deveria ser difícil.",
+    "sin_label": "Sem Zymplo",
+    "con_label": "Com Zymplo",
+    "sin_items": [
+      "Pagamentos esquecidos",
+      "Agenda desorganizada",
+      "Clientes perdidos",
+      "Tudo na cabeça"
+    ],
+    "con_items": [
+      "Cobranças automáticas",
+      "Agenda organizada",
+      "Clientes atendidos",
+      "Tudo no WhatsApp"
+    ]
+  },
+  "roi": {
+    "eyebrow": "Calcula o que você economiza",
+    "title_a": "Quanto o Zymplo",
+    "title_b": "te economiza por mês?",
+    "subtitle": "Mexe nos sliders · resultado em tempo real.",
+    "label_clients": "Quantos clientes por mês?",
+    "label_price": "Quanto você cobra por serviço?",
+    "label_hours": "Quantas horas persegue cobranças por semana?",
+    "saved_eyebrow": "Sua economia mensal estimada",
+    "saved_detail": "cobranças recuperadas + tempo economizado",
+    "row_time": "Tempo recuperado",
+    "row_recovered": "Cobranças recuperadas",
+    "row_cost": "Custo Zymplo Pro",
+    "row_roi": "ROI",
+    "cta": "Começar a economizar grátis",
+    "hours_suffix": "h"
   }
 }

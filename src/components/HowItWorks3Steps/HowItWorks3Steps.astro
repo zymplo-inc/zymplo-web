@@ -1,0 +1,56 @@
+---
+/**
+ * HowItWorks3Steps · 3-step "Así funciona" cards (variant G v4.7 motion merge).
+ * Light section · last card highlighted with ring-2 ring-turquesa.
+ * R86 country-aware via dict · R93 warm copy · R23 no-prompt.
+ */
+import type { CountrySlug } from '@data/countries';
+import type { Dict } from '@i18n/index';
+
+interface Props { slug: CountrySlug; dict: Dict }
+const { slug, dict } = Astro.props as Props;
+const hiw: any = (dict as any).how_it_works ?? {};
+const steps: Array<{ n: string; title: string; desc: string; highlight?: boolean }> =
+  hiw.steps ?? [
+    { n: '1', title: 'Escribís lo que necesitás', desc: '"Cobrale a Juan", "agendame mañana 10am". Como un mensaje normal.' },
+    { n: '2', title: 'Zymplo lo entiende', desc: 'Detecta lo que querés, busca al cliente, prepara todo en 1,2s.' },
+    { n: '✓', title: 'Todo queda resuelto', desc: 'En segundos. Sin apps. Sin aprender nada.', highlight: true },
+  ];
+const eyebrow = hiw.eyebrow ?? 'Así funciona';
+const title = hiw.title ?? 'Así funciona Zymplo.';
+const subtitle = hiw.subtitle ?? 'Escribís en WhatsApp. Zymplo hace el resto.';
+const footnote = hiw.footnote ?? 'Sin apps nuevas · sin complicaciones · sin vueltas.';
+---
+<section id="how-it-works" data-slug={slug} class="bg-paper py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-14 md:mb-16">
+      <span class="inline-block px-3 py-1 rounded-full bg-turquesa-paler text-turquesa-deeper text-xs font-bold uppercase tracking-widest border border-turquesa/20">{eyebrow}</span>
+      <h2 class="mt-5 font-display text-4xl sm:text-6xl font-bold tracking-tightest leading-[0.95] text-ink">{title}</h2>
+      <p class="mt-5 text-mute text-lg max-w-xl mx-auto">{subtitle}</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+      {steps.map((s) => (
+        <div class={`hiw-card text-center bg-white border border-ink/5 rounded-3xl p-7 ${s.highlight ? 'ring-2 ring-turquesa shadow-glow-turquesa' : ''}`}>
+          <div class={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto ${s.highlight ? 'bg-turquesa text-white' : 'bg-turquesa-paler text-turquesa-deeper'}`}>
+            {s.n}
+          </div>
+          <h3 class="mt-6 font-display font-bold text-2xl tracking-tighter text-ink">{s.title}</h3>
+          <p class="mt-3 text-mute leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center mt-10 text-mute font-medium">{footnote}</p>
+  </div>
+</section>
+
+<style>
+  .hiw-card { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-out; will-change: transform; }
+  .hiw-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -16px rgba(20, 184, 166, 0.22); }
+  .shadow-glow-turquesa { box-shadow: 0 14px 50px -12px rgba(20, 184, 166, 0.35); }
+  @media (prefers-reduced-motion: reduce) {
+    .hiw-card { transition: none; }
+    .hiw-card:hover { transform: none; }
+  }
+</style>

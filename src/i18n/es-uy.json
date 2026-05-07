@@ -782,5 +782,64 @@
     "link_community": "Comunidad",
     "legal_compliance": "Cumplimiento",
     "legal_delete_account": "Eliminar cuenta"
+  },
+  "how_it_works": {
+    "eyebrow": "Así funciona",
+    "title": "Así funciona Zymplo.",
+    "subtitle": "Escribís en WhatsApp. Zymplo hace el resto.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Escribís lo que necesitás",
+        "desc": "\"Cobrale a Juan\", \"agendame mañana 10\". Como un mensaje normal."
+      },
+      {
+        "n": "2",
+        "title": "Zymplo lo entiende",
+        "desc": "Detecta lo que querés, busca al cliente, prepara todo en 1,2s."
+      },
+      {
+        "n": "✓",
+        "title": "Todo queda resuelto",
+        "desc": "En segundos. Sin apps. Sin aprender nada.",
+        "highlight": true
+      }
+    ],
+    "footnote": "Sin apps nuevas · sin complicaciones · sin vueltas."
+  },
+  "sin_con": {
+    "title": "Dejar de perder plata",
+    "subtitle": "no debería ser difícil.",
+    "sin_label": "Sin Zymplo",
+    "con_label": "Con Zymplo",
+    "sin_items": [
+      "Pagos olvidados",
+      "Agenda desordenada",
+      "Clientes perdidos",
+      "Todo en la cabeza"
+    ],
+    "con_items": [
+      "Cobros automáticos",
+      "Agenda organizada",
+      "Clientes atendidos",
+      "Todo en WhatsApp"
+    ]
+  },
+  "roi": {
+    "eyebrow": "Calculá lo que ahorrás",
+    "title_a": "¿Cuánto te ahorra",
+    "title_b": "Zymplo al mes?",
+    "subtitle": "Movéle a los sliders · resultado en vivo.",
+    "label_clients": "¿Cuántos clientes por mes?",
+    "label_price": "¿Cuánto cobrás por servicio?",
+    "label_hours": "¿Cuántas horas perseguís cobros por semana?",
+    "saved_eyebrow": "Tu ahorro estimado mensual",
+    "saved_detail": "cobros recuperados + ahorro tiempo",
+    "row_time": "Tiempo recuperado",
+    "row_recovered": "Cobros recuperados",
+    "row_cost": "Costo Zymplo Pro",
+    "row_roi": "ROI",
+    "cta": "Empezar a ahorrar gratis",
+    "hours_suffix": "h"
   }
 }

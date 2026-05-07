@@ -9,6 +9,9 @@ import GeoTestimonials from '@components/GeoTestimonials/GeoTestimonials';
 import VideoTestimonials from '@components/VideoTestimonials/VideoTestimonials.astro';
 import MicrobizScore from '@components/MicrobizScore/MicrobizScore';
 import FeatureIcon from '@components/FeatureIcon/FeatureIcon.astro';
+import HowItWorks3Steps from '@components/HowItWorks3Steps/HowItWorks3Steps.astro';
+import SinConZymplo from '@components/SinConZymplo/SinConZymplo.astro';
+import ROICalculator from '@components/ROICalculator/ROICalculator';
 import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
 import { getDict } from '@i18n/index';
 
@@ -74,6 +77,9 @@ const geo = (dict as any).geo_testimonials ?? {};
       </div>
     </div>
   </section>
+
+  <!-- How it works · 3 steps (variant G v4.7 motion merge) -->
+  <HowItWorks3Steps slug={slug} dict={dict} />
 
   <!-- Comparison table vs competition (kill objections) -->
   {cmp && (
@@ -162,6 +168,12 @@ const geo = (dict as any).geo_testimonials ?? {};
 
   <!-- Video testimonials · 15s vertical clips carousel (Sonnet + Qwen + GPT consensus) -->
   <VideoTestimonials slug={slug} dict={dict} />
+
+  <!-- Sin · Con Zymplo · variant G v4.7 motion merge -->
+  <SinConZymplo slug={slug} dict={dict} />
+
+  <!-- ROI calculator · interactive sliders · variant G v4.7 motion merge -->
+  <ROICalculator client:visible country={c} dict={(dict as any).roi ?? {}} />
 
   <div class="organic-bg overflow-hidden">
     <PricingTable client:visible slug={slug} country={c} dict={dict} />

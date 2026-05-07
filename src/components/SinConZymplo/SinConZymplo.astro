@@ -1,0 +1,74 @@
+---
+/**
+ * SinConZymplo · Antes vs Después · 2-column comparison cards (variant G v4.7).
+ * Sin Zymplo (red ✗ list · line-through) vs Con Zymplo (turquesa ✓ list).
+ * R86 country-aware via dict · R93 warm copy · R102 no CONTIQ Plan B mention.
+ */
+import type { CountrySlug } from '@data/countries';
+import type { Dict } from '@i18n/index';
+
+interface Props { slug: CountrySlug; dict: Dict }
+const { slug, dict } = Astro.props as Props;
+const sc: any = (dict as any).sin_con ?? {};
+const title = sc.title ?? 'Dejar de perder plata';
+const subtitle = sc.subtitle ?? 'no debería ser difícil.';
+const sinLabel = sc.sin_label ?? 'Sin Zymplo';
+const conLabel = sc.con_label ?? 'Con Zymplo';
+const sinItems: string[] = sc.sin_items ?? [
+  'Pagos olvidados',
+  'Agenda desordenada',
+  'Clientes perdidos',
+  'Todo en la cabeza',
+];
+const conItems: string[] = sc.con_items ?? [
+  'Cobros automáticos',
+  'Agenda organizada',
+  'Clientes atendidos',
+  'Todo en WhatsApp',
+];
+---
+<section id="sin-con" data-slug={slug} class="bg-paper py-20 md:py-28 border-t border-ink/5">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-12 md:mb-14">
+      <h2 class="font-display text-4xl sm:text-6xl font-bold tracking-tightest leading-[0.95] text-ink">
+        {title}<br/><span class="text-mute">{subtitle}</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="sc-card bg-white border-2 border-error/30 rounded-3xl p-7 sm:p-8">
+        <div class="text-xs font-bold uppercase tracking-widest text-error mb-5">{sinLabel}</div>
+        <ul class="space-y-4 text-lg">
+          {sinItems.map((it) => (
+            <li class="flex items-start gap-3">
+              <span class="text-error/70 text-xl leading-none mt-0.5">✗</span>
+              <span class="line-through text-mute">{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="sc-card bg-turquesa-paler/40 border-2 border-turquesa rounded-3xl p-7 sm:p-8 shadow-glow-turquesa">
+        <div class="text-xs font-bold uppercase tracking-widest text-turquesa-deeper mb-5">{conLabel}</div>
+        <ul class="space-y-4 text-lg">
+          {conItems.map((it) => (
+            <li class="flex items-start gap-3">
+              <span class="text-success text-xl leading-none mt-0.5">✓</span>
+              <span class="font-semibold text-ink">{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sc-card { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-out; will-change: transform; }
+  .sc-card:hover { transform: translateY(-4px); }
+  .shadow-glow-turquesa { box-shadow: 0 14px 50px -12px rgba(20, 184, 166, 0.28); }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-card { transition: none; }
+    .sc-card:hover { transform: none; }
+  }
+</style>

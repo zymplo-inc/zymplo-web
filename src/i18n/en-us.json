@@ -783,5 +783,64 @@
     "link_community": "Community",
     "legal_compliance": "Compliance",
     "legal_delete_account": "Delete account"
+  },
+  "how_it_works": {
+    "eyebrow": "How it works",
+    "title": "How Zymplo works.",
+    "subtitle": "You text in WhatsApp. Zymplo does the rest.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Text what you need",
+        "desc": "\"Charge Juan\", \"book me tomorrow 10am\". Just a normal message."
+      },
+      {
+        "n": "2",
+        "title": "Zymplo gets it",
+        "desc": "Figures out what you want, finds the client, sets it up in 1.2s."
+      },
+      {
+        "n": "✓",
+        "title": "All done",
+        "desc": "In seconds. No apps. Nothing new to learn.",
+        "highlight": true
+      }
+    ],
+    "footnote": "No new apps · no complications · no detours."
+  },
+  "sin_con": {
+    "title": "Stop leaving money on the table.",
+    "subtitle": "It shouldn't be this hard.",
+    "sin_label": "Without Zymplo",
+    "con_label": "With Zymplo",
+    "sin_items": [
+      "Forgotten payments",
+      "Messy schedule",
+      "Lost clients",
+      "All in your head"
+    ],
+    "con_items": [
+      "Automatic billing",
+      "Clean schedule",
+      "Clients handled",
+      "All in WhatsApp"
+    ]
+  },
+  "roi": {
+    "eyebrow": "Calculate your savings",
+    "title_a": "How much does",
+    "title_b": "Zymplo save you a month?",
+    "subtitle": "Move the sliders · live result.",
+    "label_clients": "How many clients per month?",
+    "label_price": "How much per service?",
+    "label_hours": "How many hours chasing payments weekly?",
+    "saved_eyebrow": "Your estimated monthly savings",
+    "saved_detail": "recovered payments + time saved",
+    "row_time": "Time recovered",
+    "row_recovered": "Payments recovered",
+    "row_cost": "Zymplo Pro cost",
+    "row_roi": "ROI",
+    "cta": "Start saving for free",
+    "hours_suffix": "h"
   }
 }
