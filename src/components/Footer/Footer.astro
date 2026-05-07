@@ -100,7 +100,7 @@ const socials: Array<{ name: string; href: string; svg: string }> = [
     <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs">
       <!-- Left: copyright + tiny socials (movidos aquí · escape widget bottom-right) -->
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
-        <span class="text-paper/45">© {year} Zymplo Inc. {f.rights ?? 'Todos los derechos reservados.'}</span>
+        <span class="text-paper/45">© {year} Zymplo Inc.{slug === 'br' ? ' · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00' : ''} {f.rights ?? 'Todos los derechos reservados.'}</span>
         <ul class="flex items-center gap-3.5">
           {socials.map((s) => (
             <li>

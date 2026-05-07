@@ -558,7 +558,9 @@
     "link_developers": "Devs",
     "link_community": "Comunidade",
     "legal_compliance": "Conformidade",
-    "legal_delete_account": "Excluir conta"
+    "legal_delete_account": "Excluir conta",
+    "legal_name_br": "Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE",
+    "legal_name_full": "Zymplo Inc. (Delaware USA) · Zymplo Brasil LTDA (CNPJ 66.667.634/0001-00 · Fortaleza CE)"
   },
   "chat_widget": {
     "title": "Falar com a Zymplo",
