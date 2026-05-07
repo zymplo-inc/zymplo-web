@@ -14,9 +14,7 @@ export const GET: APIRoute = () => {
     urls.push(`<url><loc>${base}/</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority>${COUNTRY_SLUGS.map((s) => `<xhtml:link rel="alternate" hreflang="${getCountry(s)!.locale}" href="https://${s}.zymplo.com/"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="https://zymplo.com/"/></url>`);
     urls.push(`<url><loc>${base}/precios/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`);
     urls.push(`<url><loc>${base}/onboarding/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>`);
-    if (slug === 'br') {
-      urls.push(`<url><loc>${base}/contiq/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`);
-    }
+    // R102 NO-CONTIQ-FOREVER · /contiq/ URL no longer in sitemap (Path C migration 2026-05-07)
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

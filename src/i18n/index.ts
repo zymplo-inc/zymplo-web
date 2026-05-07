@@ -1,23 +1,22 @@
-import ptBR from './pt-br.json';
-import esMX from './es-mx.json';
-import enUS from './en-us.json';
-import esCO from './es-co.json';
-import esES from './es-es.json';
-import esAR from './es-ar.json';
-import esPY from './es-py.json';
-import esPE from './es-pe.json';
-import esEC from './es-ec.json';
-import esCL from './es-cl.json';
-import esUY from './es-uy.json';
-import esBO from './es-bo.json';
-import esCR from './es-cr.json';
+/**
+ * Zymplo · i18n loader (legacy alias).
+ *
+ * This module is kept for backwards compatibility. New code SHOULD import
+ * from `@data/content` instead:
+ *
+ *   import { getContent } from '@data/content';
+ *   import type { ContentSchema } from '@data/content-schema';
+ *
+ * Behaviour is unchanged: every locale comes back fully populated thanks
+ * to the deep-merge over `DEFAULT_CONTENT` performed in `@data/content`.
+ */
 import type { CountrySlug } from '@data/countries';
+import type { ContentSchema } from '@data/content-schema';
+import { getContent } from '@data/content';
 
-export type Dict = typeof ptBR;
+/** @deprecated Use `ContentSchema` from `@data/content-schema`. */
+export type Dict = ContentSchema;
 
-const DICTS: Record<CountrySlug, Dict> = {
-  br: ptBR, mx: esMX, us: enUS, co: esCO, es: esES, ar: esAR, py: esPY,
-  pe: esPE, ec: esEC, cl: esCL, uy: esUY, bo: esBO, cr: esCR,
-};
-
-export const getDict = (slug: CountrySlug): Dict => DICTS[slug] ?? ptBR;
+/** @deprecated Use `getContent(slug)` from `@data/content`. Identical
+ *  behaviour, but typed against the unified schema. */
+export const getDict = (slug: CountrySlug): Dict => getContent(slug);

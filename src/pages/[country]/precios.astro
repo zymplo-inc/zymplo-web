@@ -2,14 +2,14 @@
 import CountryLayout from '@layouts/CountryLayout.astro';
 import PricingTable from '@components/PricingTable/PricingTable';
 import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
-import { getDict } from '@i18n/index';
+import { getContent } from '@data/content';
 
 export function getStaticPaths() {
   return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
 }
 const { country: slug } = Astro.params as { country: CountrySlug };
 const c = COUNTRIES[slug];
-const dict = getDict(slug);
+const dict = getContent(slug); // typed ContentSchema · Path C migration
 ---
 <CountryLayout slug={slug} title={`Zymplo · ${dict.pricing.title}`}>
   <section class="organic-bg relative max-w-7xl mx-auto px-6 py-24">

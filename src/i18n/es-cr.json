@@ -417,7 +417,7 @@
     "gold_label": "Gold",
     "month": "/mes",
     "popular": "Más popular",
-    "cta_secondary": "Conocer Contiq",
+    "cta_secondary": "Conocer más",
     "features_free": [
       "100 mensajes/mes",
       "5 cobros",
@@ -440,8 +440,6 @@
       "API",
       "Prioridad"
     ],
-    "b2b_label": "B2B · Brasil",
-    "b2b_desc": "La capa B2B para despachos de contadores que atienden a personas como vos a escala.",
     "headline_feature": "Todo ilimitado.",
     "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
@@ -713,7 +711,6 @@
     "link_features": "Funciones",
     "link_pricing": "Precios",
     "link_onboarding": "Onboarding",
-    "link_contiq": "Contiq B2B",
     "link_about": "Sobre nosotros",
     "link_careers": "Carreras",
     "link_press": "Prensa",

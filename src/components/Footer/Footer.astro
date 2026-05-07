@@ -1,11 +1,11 @@
 ---
 import { COUNTRIES, COUNTRY_SLUGS, SOCIAL, LEGAL, BRAND, type CountrySlug } from '@data/countries';
-import { getDict } from '@i18n/index';
+import { getContent } from '@data/content';
 interface Props { slug: CountrySlug }
 const { slug } = Astro.props;
 const c = COUNTRIES[slug];
-const dict = getDict(slug);
-const f = (dict as any).footer ?? {};
+const dict = getContent(slug); // typed ContentSchema · Path C migration
+const f = dict.footer;
 const year = new Date().getFullYear();
 
 // R93l · footer rebuilt world-class · 3/3 LLM convergence (Stripe+Linear+Vercel hybrid)

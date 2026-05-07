@@ -8,7 +8,10 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "validate:content:strict": "tsx scripts/validate-content.ts --strict",
+    "validate:content:diff": "tsx scripts/validate-content.ts --diff"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
@@ -24,6 +27,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47"
+    "postcss": "^8.4.47",
+    "tsx": "^4.21.0"
   }
 }

@@ -1,31 +1,28 @@
-import type { Country, CountrySlug } from '@data/countries';
+import type { Country } from '@data/countries';
 import { waLink } from '@data/countries';
-import type { Dict } from '@i18n/index';
+import type { ContentSchema } from '@data/content-schema';
 
-interface Props { slug: string; country: Country; dict: Dict }
+interface Props { slug: string; country: Country; dict: ContentSchema }
 
 /**
- * PricingTable v3 — Features-first (Notion-style).
- *  - Big feature anchor at the top (the value prop, not the price)
- *  - 4 plan cards: features list FIRST, price below
- *  - Hover lift (-8px) + shadow-pop on highlight
- *  - Dark-mode aware via semantic tokens (--bg-raised, --fg-primary, etc.)
- *  - Optional B2B Contiq strip (BR only)
+ * PricingTable v4 · Path C migration (Carlos · 2026-05-07)
+ *  - Typed against `ContentSchema` (no more `any` casts on dict.pricing)
+ *  - R29 LOCKED · 4 plans only (free, starter, pro, gold)
+ *  - R102 NO-CONTIQ-FOREVER · BR B2B Contiq strip removed
+ *  - Big feature anchor (value prop first, price second)
+ *  - Hover lift -8px, shadow-pop on highlight, dark-mode aware
  */
 export default function PricingTable({ country, dict }: Props) {
-  const p: any = dict.pricing as any;
-  const fFree = p.features_free ?? ['100 messages/mo', '5 payments', '1 note'];
-  const fStarter = p.features_starter ?? ['500 messages/mo', '20 payments', '10 notes'];
-  const fPro = p.features_pro ?? ['Unlimited', 'Unlimited', 'Unlimited', 'AI reminders'];
-  const fGold = p.features_gold ?? ['Everything in Pro', 'Multi-team', 'API', 'Priority'];
-  const popular = p.popular ?? 'Most popular';
-  const eyebrow = p.eyebrow ?? 'pricing';
-  const ctaSecondary = p.cta_secondary ?? 'Learn about Contiq';
-  const b2bLabel = p.b2b_label ?? 'B2B';
-  const b2bDesc = p.b2b_desc ?? '';
-  const headlineFeature = p.headline_feature ?? p.features_pro?.[0] ?? 'Unlimited everything';
-  const headlineCaption = p.headline_caption ?? p.subtitle ?? '';
-  const fromLabel = p.from_label ?? 'from';
+  const p = dict.pricing;
+  const fFree = p.features_free;
+  const fStarter = p.features_starter;
+  const fPro = p.features_pro;
+  const fGold = p.features_gold;
+  const popular = p.popular;
+  const eyebrow = p.eyebrow;
+  const headlineFeature = p.headline_feature;
+  const headlineCaption = p.headline_caption ?? p.subtitle;
+  const fromLabel = p.from_label;
 
   const plans = [
     { key: 'free',    label: dict.pricing.free_label,    price: country.pricing.free,    highlight: false, features: fFree    },
@@ -156,30 +153,7 @@ export default function PricingTable({ country, dict }: Props) {
           })}
         </div>
 
-        {country.slug === 'br' && country.pricing.b2b && (
-          <div
-            className="mt-10 rounded-3xl p-7 flex flex-wrap items-center gap-6 justify-between"
-            style={{
-              border: '1px solid color-mix(in oklab, var(--azul) 30%, transparent)',
-              background: 'linear-gradient(135deg, color-mix(in oklab, var(--azul) 8%, transparent), color-mix(in oklab, var(--purple) 6%, transparent), transparent)',
-            }}
-          >
-            <div>
-              <div className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--azul)' }}>{b2bLabel}</div>
-              <div className="font-display text-2xl font-bold tracking-tightest mt-1">
-                Contiq · {country.pricing.b2b}{dict.pricing.month}
-              </div>
-              <p className="text-sm mt-1 max-w-md" style={{ color: 'var(--fg-mute)' }}>{b2bDesc}</p>
-            </div>
-            <a
-              href="/br/contiq/"
-              className="font-semibold text-sm px-6 py-3 rounded-full transition"
-              style={{ background: 'var(--azul)', color: '#fff' }}
-            >
-              {ctaSecondary}
-            </a>
-          </div>
-        )}
+        {/* R102 NO-CONTIQ-FOREVER · BR B2B strip removed (Path C migration 2026-05-07) */}
       </div>
 
       <style>{`

@@ -13,7 +13,7 @@ import HowItWorks3Steps from '@components/HowItWorks3Steps/HowItWorks3Steps.astr
 import SinConZymplo from '@components/SinConZymplo/SinConZymplo.astro';
 import ROICalculator from '@components/ROICalculator/ROICalculator';
 import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
-import { getDict } from '@i18n/index';
+import { getContent } from '@data/content';
 
 export function getStaticPaths() {
   return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
@@ -21,13 +21,13 @@ export function getStaticPaths() {
 
 const { country: slug } = Astro.params as { country: CountrySlug };
 const c = COUNTRIES[slug];
-const dict = getDict(slug);
-const faq = (dict as any).faq;
-const cmp = (dict.hero as any).comparison;
-const vsLabel = (dict.hero as any).vs_label ?? 'Why Zymplo wins';
-const challengeLabel = (dict.hero as any).challenge_label ?? '#ZymploChallenge';
-const challengePrize = (dict.hero as any).challenge_prize ?? '$10,000 for the best video';
-const geo = (dict as any).geo_testimonials ?? {};
+const dict = getContent(slug); // typed ContentSchema · Path C migration
+const faq = dict.faq;
+const cmp = dict.hero.comparison;
+const vsLabel = dict.hero.vs_label;
+const challengeLabel = dict.hero.challenge_label;
+const challengePrize = dict.hero.challenge_prize;
+const geo = dict.geo_testimonials;
 ---
 <CountryLayout slug={slug}>
   <HeroE client:load slug={slug} country={c} dict={dict} />
