@@ -2,20 +2,19 @@
 interface Props { name: string; size?: number; }
 const { name, size = 80 } = Astro.props;
 
-// Modern 3D rendered icons · Microsoft Fluent UI Emoji 3D · friendly + cercano + confiable
-// CDN: jsdelivr · github.com/microsoft/fluentui-emoji · MIT license · production-ready
-const CDN = 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets';
+// Modern 3D rendered icons · Microsoft Fluent UI Emoji 3D · MIT license
+// Self-hosted /public/emoji/*.png · CF Polish auto-converts to WebP at edge for compatible browsers
 const IMAGES: Record<string, { src: string; alt: string }> = {
-  money:    { src: `${CDN}/Money%20bag/3D/money_bag_3d.png`,                  alt: 'Cobranças' },
-  receipt:  { src: `${CDN}/Receipt/3D/receipt_3d.png`,                        alt: 'NFS-e' },
-  chart:    { src: `${CDN}/Chart%20increasing/3D/chart_increasing_3d.png`,    alt: 'Resumo financeiro' },
-  calendar: { src: `${CDN}/Spiral%20calendar/3D/spiral_calendar_3d.png`,      alt: 'Agenda' },
-  pix:      { src: `${CDN}/Money%20with%20wings/3D/money_with_wings_3d.png`,  alt: 'Pix' },
-  bell:     { src: `${CDN}/Bell/3D/bell_3d.png`,                              alt: 'Lembretes' },
-  rocket:   { src: `${CDN}/Rocket/3D/rocket_3d.png`,                          alt: 'Rápido' },
-  shield:   { src: `${CDN}/Shield/3D/shield_3d.png`,                          alt: 'Seguro' },
-  check:    { src: `${CDN}/Check%20mark%20button/3D/check_mark_button_3d.png`, alt: 'Listo' },
-  star:     { src: `${CDN}/Star/3D/star_3d.png`,                              alt: 'Top' },
+  money:    { src: '/emoji/money.png',    alt: 'Cobranças' },
+  receipt:  { src: '/emoji/receipt.png',  alt: 'NFS-e' },
+  chart:    { src: '/emoji/chart.png',    alt: 'Resumo financeiro' },
+  calendar: { src: '/emoji/calendar.png', alt: 'Agenda' },
+  pix:      { src: '/emoji/pix.png',      alt: 'Pix' },
+  bell:     { src: '/emoji/bell.png',     alt: 'Lembretes' },
+  rocket:   { src: '/emoji/rocket.png',   alt: 'Rápido' },
+  shield:   { src: '/emoji/shield.png',   alt: 'Seguro' },
+  check:    { src: '/emoji/check.png',    alt: 'Listo' },
+  star:     { src: '/emoji/star.png',     alt: 'Top' },
 };
 
 const img = IMAGES[name] ?? IMAGES.money;
