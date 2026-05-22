@@ -36,7 +36,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Pix', 'Boleto', 'Cartão'],
     slang: ['véi', 'oxe', 'uai', 'tchê'],
     cta: { primary: 'Bora começar 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Grátis', starter: 'R$ 19', pro: 'R$ 39', gold: 'R$ 79' },
+    pricing: { free: 'Grátis', starter: 'R$ 24,90', pro: 'R$ 49,90', gold: 'R$ 99,90' },
   },
   mx: {
     slug: 'mx', flag: '🇲🇽', name: 'México', locale: 'es-MX',
@@ -51,7 +51,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SPEI', 'CoDi', 'OXXO'],
     slang: ['chido', 'güey', 'órale', 'neta'],
     cta: { primary: 'Vamos a empezar 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 119 MXN', pro: '$ 249 MXN', gold: '$ 499 MXN' },
+    pricing: { free: 'Gratis', starter: '$89 MXN', pro: '$169 MXN', gold: '$339 MXN' },
   },
   us: {
     slug: 'us', flag: '🇺🇸', name: 'United States', locale: 'en-US',
@@ -66,7 +66,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['ACH', 'Zelle', 'Stripe'],
     slang: ["y'all", 'gonna', 'totally'],
     cta: { primary: "Let's go 💪", secondary: 'Watch demo 90s ▶' },
-    pricing: { free: 'Free', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
+    pricing: { free: 'Free', starter: '$4.99', pro: '$9.99', gold: '$19.99' },
   },
   co: {
     slug: 'co', flag: '🇨🇴', name: 'Colombia', locale: 'es-CO',
@@ -81,7 +81,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['PSE', 'Wompi', 'Nequi'],
     slang: ['bacano', 'parce', 'rumba'],
     cta: { primary: 'Dale parce 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 15.000 COP', pro: '$ 29.000 COP', gold: '$ 59.000 COP' },
+    pricing: { free: 'Gratis', starter: '$18.900 COP', pro: '$36.900 COP', gold: '$75.900 COP' },
   },
   es: {
     slug: 'es', flag: '🇪🇸', name: 'España', locale: 'es-ES',
@@ -96,7 +96,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SEPA', 'Bizum'],
     slang: ['tío', 'vale', 'majo', 'guay'],
     cta: { primary: 'A por ello 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '€ 3.99', pro: '€ 7.99', gold: '€ 15.99' },
+    pricing: { free: 'Gratis', starter: '€4,49', pro: '€8,49', gold: '€16,99' },
   },
   ar: {
     slug: 'ar', flag: '🇦🇷', name: 'Argentina', locale: 'es-AR',
@@ -111,7 +111,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['MercadoPago', 'Transferencia'],
     slang: ['che', 'boludo', 'viste', 're'],
     cta: { primary: 'Dale que 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 5.519 ARS (USD-pegged)', pro: '$ 11.039 ARS (USD-pegged)', gold: '$ 22.089 ARS (USD-pegged)' },
+    pricing: { free: 'Gratis', starter: '$5.589 ARS', pro: '$11.179 ARS', gold: '$24.900 ARS' },
   },
   py: {
     slug: 'py', flag: '🇵🇾', name: 'Paraguay', locale: 'es-PY',
@@ -126,7 +126,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Personal Pay'],
     slang: ['metele', 'dale que', 'estamos arreglando', 'pio'],
     cta: { primary: 'Metele 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '₲ 14.000', pro: '₲ 29.000', gold: '₲ 59.000' },
+    pricing: { free: 'Gratis', starter: '₲ 36.000', pro: '₲ 73.000', gold: '₲ 145.900' },
   },
   pe: {
     slug: 'pe', flag: '🇵🇪', name: 'Perú', locale: 'es-PE',
@@ -141,7 +141,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Yape', 'Plin', 'BIM'],
     slang: ['causa', 'pata', 'chévere', 'jato'],
     cta: { primary: 'Vamos causa 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'S/ 14', pro: 'S/ 29', gold: 'S/ 59' },
+    pricing: { free: 'Gratis', starter: 'S/ 16,90', pro: 'S/ 33,90', gold: 'S/ 66,90' },
   },
   ec: {
     slug: 'ec', flag: '🇪🇨', name: 'Ecuador', locale: 'es-EC',
@@ -156,7 +156,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['DeUna!', 'Pichincha', 'BIM'],
     slang: ['chévere', 'bacán', 'pana', 'simón'],
     cta: { primary: 'Dale pana 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 3.99', pro: '$ 7.99', gold: '$ 15.99' },
+    pricing: { free: 'Gratis', starter: '$4.99', pro: '$9.99', gold: '$19.99' },
   },
   cl: {
     slug: 'cl', flag: '🇨🇱', name: 'Chile', locale: 'es-CL',
@@ -171,7 +171,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Webpay', 'Mercado Pago', 'Transferencia'],
     slang: ['po', 'cachai', 'bacán', 'fome'],
     cta: { primary: 'Dale po 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$ 3.490 CLP', pro: '$ 6.990 CLP', gold: '$ 13.990 CLP' },
+    pricing: { free: 'Gratis', starter: '$4.490 CLP', pro: '$8.990 CLP', gold: '$18.490 CLP' },
   },
   uy: {
     slug: 'uy', flag: '🇺🇾', name: 'Uruguay', locale: 'es-UY',
@@ -186,7 +186,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Mercado Pago', 'Redpagos', 'Transferencia'],
     slang: ['bo', 'ta', 'de pinga', 'masa'],
     cta: { primary: 'Dale bo 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: '$U 159', pro: '$U 329', gold: '$U 649' },
+    pricing: { free: 'Gratis', starter: '$U 199', pro: '$U 399', gold: '$U 799' },
   },
   bo: {
     slug: 'bo', flag: '🇧🇴', name: 'Bolivia', locale: 'es-BO',
@@ -201,7 +201,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['Tigo Money', 'Soli', 'Transferencia'],
     slang: ['pues', 'jaila', 'choco', 'qué pasó'],
     cta: { primary: 'Vamos pues 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Gratis', starter: 'Bs 29', pro: 'Bs 59', gold: 'Bs 109' },
+    pricing: { free: 'Gratis', starter: 'Bs 34,90', pro: 'Bs 68,90', gold: 'Bs 139' },
   },
   cr: {
     slug: 'cr', flag: '🇨🇷', name: 'Costa Rica', locale: 'es-CR',
@@ -216,7 +216,7 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     payments: ['SINPE Móvil', 'Transferencia'],
     slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
     cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
-    pricing: { free: 'Pura vida', starter: '₡ 1.990', pro: '₡ 3.990', gold: '₡ 7.990' },
+    pricing: { free: 'Pura vida', starter: '₡ 2.290', pro: '₡ 4.490', gold: '₡ 9.090' },
   },
 };
 
