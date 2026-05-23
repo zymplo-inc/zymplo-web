@@ -415,7 +415,7 @@
     "free_label": "Free forever",
     "starter_label": "Starter",
     "pro_label": "Pro",
-    "gold_label": "Equipo",
+    "gold_label": "Gold",
     "month": "/month",
     "popular": "Most popular",
     "cta_secondary": "Learn more",
@@ -430,21 +430,19 @@
       "10 notes"
     ],
     "features_pro": [
-      "1500 messages/month",
-      "Unlimited payments",
-      "Unlimited notes",
+      "Unlimited",
+      "Unlimited",
+      "Unlimited",
       "AI reminders"
     ],
     "features_gold": [
-      "3500 messages/month",
-      "Multi-team (5 seats)",
-      "API access",
-      "Priority queue",
-      "Analytics",
-      "White-label"
+      "Everything in Pro",
+      "Multi-team",
+      "API",
+      "Priority"
     ],
-    "headline_feature": "Plans that scale with you.",
-    "headline_caption": "From free forever to full team. Pay only for what you need.",
+    "headline_feature": "Unlimited everything.",
+    "headline_caption": "Messages, payments, notes. No caps, no surprises.",
     "from_label": "from"
   },
   "faq": {

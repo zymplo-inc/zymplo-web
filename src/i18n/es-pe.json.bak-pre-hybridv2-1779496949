@@ -414,7 +414,7 @@
     "free_label": "Gratis para siempre",
     "starter_label": "Starter",
     "pro_label": "Pro",
-    "gold_label": "Equipo",
+    "gold_label": "Gold",
     "month": "/mes",
     "popular": "Más popular",
     "cta_secondary": "Conocer más",
@@ -429,21 +429,19 @@
       "10 notas"
     ],
     "features_pro": [
-      "1500 mensajes/mes",
-      "Cobros ilimitados",
-      "Notas ilimitadas",
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
       "Recordatorios IA"
     ],
     "features_gold": [
-      "3500 mensajes/mes",
-      "Multi-equipo (5 puestos)",
-      "Acceso API",
-      "Cola prioritaria",
-      "Analytics",
-      "White-label"
+      "Todo de Pro",
+      "Multi-equipo",
+      "API",
+      "Prioridad"
     ],
-    "headline_feature": "Planes que crecen contigo.",
-    "headline_caption": "De gratis para siempre a equipo completo. Pagas solo lo que necesitas.",
+    "headline_feature": "Todo ilimitado.",
+    "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
   },
   "faq": {

@@ -42,11 +42,11 @@
       }
     ],
     "live_activity": [
-      "🔥 Lima · 3 personas como tú se sumaron hace minutos",
-      "🔥 Arequipa · 3 personas como tú se sumaron hace minutos",
-      "🔥 Trujillo · 3 personas como tú se sumaron hace minutos",
-      "🔥 Cusco · 3 personas como tú se sumaron hace minutos",
-      "🔥 Chiclayo · 3 personas como tú se sumaron hace minutos"
+      "🔥 Santiago · 3 personas como tú se sumaron hace minutos",
+      "🔥 Valparaíso · 3 personas como tú se sumaron hace minutos",
+      "🔥 Concepción · 3 personas como tú se sumaron hace minutos",
+      "🔥 Antofagasta · 3 personas como tú se sumaron hace minutos",
+      "🔥 Temuco · 3 personas como tú se sumaron hace minutos"
     ],
     "live_counter_label": "se sumaron · últimas 24h",
     "joined_today_label": "se sumaron hoy",
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "feature": "Hecho para ti · SUNAT · RUC",
+          "feature": "Hecho para ti · SII · Pro PyME",
           "values": [
             true,
             true,
@@ -132,7 +132,7 @@
           ]
         },
         {
-          "feature": "Yape · Plin · BIM integrados",
+          "feature": "Webpay · Mercado Pago integrados",
           "values": [
             true,
             true,
@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · SUNAT vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · IVA vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Yape detectado · Pedro pagó S/ 215 · boleta #0234 emitida automatic",
+        "text": "💳 Transferencia detectada · Pedro pagó $ 215.000 CLP · boleta #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -229,7 +229,7 @@
       },
       {
         "from": "bot",
-        "text": "✅ Link enviado a Roberto · S/ 305",
+        "text": "✅ Link enviado a Roberto · $ 305.000 CLP",
         "time": "13:45"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: S/ 1.080 · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: $ 1.080.000 CLP · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 SUNAT vence mañana 09:00 · S/ 116",
+        "text": "🔔 IVA vence mañana 09:00 · $ 116.000 CLP",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el SUNAT",
+        "text": "Pagué el IVA",
         "time": "21:15"
       },
       {
@@ -414,7 +414,7 @@
     "free_label": "Gratis para siempre",
     "starter_label": "Starter",
     "pro_label": "Pro",
-    "gold_label": "Equipo",
+    "gold_label": "Gold",
     "month": "/mes",
     "popular": "Más popular",
     "cta_secondary": "Conocer más",
@@ -429,21 +429,19 @@
       "10 notas"
     ],
     "features_pro": [
-      "1500 mensajes/mes",
-      "Cobros ilimitados",
-      "Notas ilimitadas",
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
       "Recordatorios IA"
     ],
     "features_gold": [
-      "3500 mensajes/mes",
-      "Multi-equipo (5 puestos)",
-      "Acceso API",
-      "Cola prioritaria",
-      "Analytics",
-      "White-label"
+      "Todo de Pro",
+      "Multi-equipo",
+      "API",
+      "Prioridad"
     ],
-    "headline_feature": "Planes que crecen contigo.",
-    "headline_caption": "De gratis para siempre a equipo completo. Pagas solo lo que necesitas.",
+    "headline_feature": "Todo ilimitado.",
+    "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
   },
   "faq": {
@@ -555,42 +553,42 @@
     ]
   },
   "geo_testimonials": {
-    "eyebrow": "EN VIVO · CERCA DE TI",
-    "title": "Gente como tú ganando cerca de ti",
+    "eyebrow": "EN VIVO · CERCA TUYO",
+    "title": "Gente como tú ganando cerca tuyo",
     "items": [
       {
-        "city": "Lima",
+        "city": "Santiago",
         "state": "CAP",
         "count": 234,
-        "metric": "+S/ 850/mes",
+        "metric": "+$95.000 CLP/mes",
         "emoji": "💰"
       },
       {
-        "city": "Arequipa",
+        "city": "Valparaíso",
         "state": "ALT",
         "count": 187,
-        "metric": "+S/ 1.200/mes",
+        "metric": "+$120.000 CLP/mes",
         "emoji": "🧾"
       },
       {
-        "city": "Trujillo",
+        "city": "Concepción",
         "state": "ITA",
         "count": 142,
-        "metric": "+S/ 980/mes",
+        "metric": "+$78.000 CLP/mes",
         "emoji": "⚡"
       },
       {
-        "city": "Cusco",
+        "city": "Antofagasta",
         "state": "CEN",
         "count": 98,
-        "metric": "+S/ 720/mes",
+        "metric": "+$140.000 CLP/mes",
         "emoji": "💚"
       },
       {
-        "city": "Chiclayo",
+        "city": "Temuco",
         "state": "AMA",
         "count": 121,
-        "metric": "+S/ 1.100/mes",
+        "metric": "+$108.000 CLP/mes",
         "emoji": "📅"
       },
       {
@@ -696,7 +694,7 @@
   "footer": {
     "tagline": "Tu secretaria IA en WhatsApp · sin app · sin registro · solo conversa.",
     "rights": "Todos los derechos reservados.",
-    "made_in": "Hecho con ❤ para gente como tú · Perú",
+    "made_in": "Hecho con ❤ para gente como tú · Chile",
     "brand_legal": "Zymplo es una marca registrada de Zymplo Inc. en Estados Unidos y otros países.",
     "use_terms": "El uso de este sitio está sujeto a los términos expresos.",
     "universal_terms": "Términos universales del servicio",
@@ -795,7 +793,7 @@
       {
         "n": "2",
         "title": "Zymplo lo entiende",
-        "desc": "Detecta lo que quieres, busca al cliente, prepara todo en 1.2s."
+        "desc": "Detecta lo que quieres, busca al cliente, prepara todo en 1,2s."
       },
       {
         "n": "✓",

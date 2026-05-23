@@ -42,11 +42,11 @@
       }
     ],
     "live_activity": [
-      "🔥 Lima · 3 personas como tú se sumaron hace minutos",
-      "🔥 Arequipa · 3 personas como tú se sumaron hace minutos",
-      "🔥 Trujillo · 3 personas como tú se sumaron hace minutos",
-      "🔥 Cusco · 3 personas como tú se sumaron hace minutos",
-      "🔥 Chiclayo · 3 personas como tú se sumaron hace minutos"
+      "Mario · CDMX · cobró $480",
+      "Sofía · Guadalajara · factura emitida",
+      "Pedro · Monterrey · 3 cobros automáticos",
+      "Andrea · Bogotá · pago recibido",
+      "Juan · Buenos Aires · agenda organizada"
     ],
     "live_counter_label": "se sumaron · últimas 24h",
     "joined_today_label": "se sumaron hoy",
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "feature": "La IA cobra clientes sola",
+          "feature": "IA cobra a clientes sola",
           "values": [
             true,
             false,
@@ -87,7 +87,7 @@
           ]
         },
         {
-          "feature": "Boleta/Factura electrónica en 3 segundos",
+          "feature": "CFDI/factura en 3 segundos",
           "values": [
             true,
             true,
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "feature": "Hecho para ti · SUNAT · RUC",
+          "feature": "Hecho para ti · SAT · RFC",
           "values": [
             true,
             true,
@@ -132,7 +132,7 @@
           ]
         },
         {
-          "feature": "Yape · Plin · BIM integrados",
+          "feature": "SPEI · CoDi · OXXO integrados",
           "values": [
             true,
             true,
@@ -179,7 +179,7 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · SUNAT vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · CFDI vence mañana 🔔",
         "time": "06:42"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Yape detectado · Pedro pagó S/ 215 · boleta #0234 emitida automatic",
+        "text": "💳 SPEI detectado · Pedro pagó $ 850 MXN · CFDI #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -229,12 +229,12 @@
       },
       {
         "from": "bot",
-        "text": "✅ Link enviado a Roberto · S/ 305",
+        "text": "✅ Link enviado a Roberto · $ 1.200 MXN",
         "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "💸 Roberto pagó · boleta #0235 emitida 🎉",
+        "text": "💸 Roberto pagó · CFDI #0235 emitida 🎉",
         "time": "14:32"
       },
       {
@@ -264,7 +264,7 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: S/ 1.080 · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: $ 4.250 MXN · 6 CFDI · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 SUNAT vence mañana 09:00 · S/ 116",
+        "text": "🔔 CFDI vence mañana 09:00 · $ 458 MXN",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el SUNAT",
+        "text": "Pagué el CFDI",
         "time": "21:15"
       },
       {
@@ -414,7 +414,7 @@
     "free_label": "Gratis para siempre",
     "starter_label": "Starter",
     "pro_label": "Pro",
-    "gold_label": "Equipo",
+    "gold_label": "Gold",
     "month": "/mes",
     "popular": "Más popular",
     "cta_secondary": "Conocer más",
@@ -429,21 +429,19 @@
       "10 notas"
     ],
     "features_pro": [
-      "1500 mensajes/mes",
-      "Cobros ilimitados",
-      "Notas ilimitadas",
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
       "Recordatorios IA"
     ],
     "features_gold": [
-      "3500 mensajes/mes",
-      "Multi-equipo (5 puestos)",
-      "Acceso API",
-      "Cola prioritaria",
-      "Analytics",
-      "White-label"
+      "Todo de Pro",
+      "Multi-equipo",
+      "API",
+      "Prioridad"
     ],
-    "headline_feature": "Planes que crecen contigo.",
-    "headline_caption": "De gratis para siempre a equipo completo. Pagas solo lo que necesitas.",
+    "headline_feature": "Todo ilimitado.",
+    "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
   },
   "faq": {
@@ -526,7 +524,7 @@
     "items": [
       {
         "icon": "🔥",
-        "text": "12.847 personas como tú activos hoy"
+        "text": "12,847 personas como tú activos hoy"
       },
       {
         "icon": "⚡",
@@ -534,7 +532,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "100% DGT compliant"
+        "text": "100% seguro y compliant"
       },
       {
         "icon": "💚",
@@ -542,15 +540,15 @@
       },
       {
         "icon": "📈",
-        "text": "₲ 5.000 millones facturados este mes"
+        "text": "$1B MXN facturados este mes"
       },
       {
         "icon": "⭐",
-        "text": "4.9 promedio (12.4k reseñas)"
+        "text": "4.9 de promedio (12.4k reviews)"
       },
       {
-        "icon": "🇵🇾",
-        "text": "Hecho en Paraguay · metele"
+        "icon": "🌎",
+        "text": "Hecho para LATAM"
       }
     ]
   },
@@ -559,43 +557,43 @@
     "title": "Gente como tú ganando cerca de ti",
     "items": [
       {
-        "city": "Lima",
-        "state": "CAP",
+        "city": "CDMX",
+        "state": "MX",
         "count": 234,
-        "metric": "+S/ 850/mes",
+        "metric": "ganaron $1.2k extra este mes",
         "emoji": "💰"
       },
       {
-        "city": "Arequipa",
-        "state": "ALT",
+        "city": "Guadalajara",
+        "state": "JAL",
         "count": 187,
-        "metric": "+S/ 1.200/mes",
+        "metric": "emitieron CFDI en 3 segundos",
         "emoji": "🧾"
       },
       {
-        "city": "Trujillo",
-        "state": "ITA",
+        "city": "Monterrey",
+        "state": "NL",
         "count": 142,
-        "metric": "+S/ 980/mes",
+        "metric": "automatizaron cobros",
         "emoji": "⚡"
       },
       {
-        "city": "Cusco",
-        "state": "CEN",
+        "city": "Puebla",
+        "state": "PUE",
         "count": 98,
-        "metric": "+S/ 720/mes",
+        "metric": "recuperaron clientes olvidados",
         "emoji": "💚"
       },
       {
-        "city": "Chiclayo",
-        "state": "AMA",
+        "city": "Mérida",
+        "state": "YUC",
         "count": 121,
-        "metric": "+S/ 1.100/mes",
+        "metric": "presentaron RESICO al día",
         "emoji": "📅"
       },
       {
-        "city": "Lambaré",
-        "state": "CEN",
+        "city": "Tijuana",
+        "state": "BC",
         "count": 89,
         "metric": "cerraron mes organizados",
         "emoji": "🚀"
@@ -610,47 +608,47 @@
     "see_more": "Ver todas las historias",
     "items": [
       {
-        "name": "José",
+        "name": "Mario",
         "role": "Electricista",
-        "city": "Asunción",
-        "quote": "40 minutos al día recuperados, ¡pio!",
-        "metric": "+₲ 7M/mes",
+        "city": "CDMX",
+        "quote": "40 minutos al día recuperados.",
+        "metric": "+$4,800/mes",
         "emoji": "⚡",
         "gradient": "from-turquesa via-turquesa-dark to-azul"
       },
       {
-        "name": "Carmen",
-        "role": "Peluquera",
-        "city": "Ciudad del Este",
-        "quote": "No corro atrás del cliente nunca más.",
-        "metric": "+₲ 4M/mes",
+        "name": "Sofía",
+        "role": "Estilista",
+        "city": "Guadalajara",
+        "quote": "No persigo cliente nunca más.",
+        "metric": "+$2,100/mes",
         "emoji": "💇",
         "gradient": "from-purple via-turquesa to-azul"
       },
       {
-        "name": "Luis",
+        "name": "Pedro",
         "role": "Plomero",
-        "city": "Encarnación",
-        "quote": "Las cuentas salen solas · yo solo trabajo.",
-        "metric": "+₲ 5.5M/mes",
+        "city": "Monterrey",
+        "quote": "Cuentas se mandan solas · solo trabajo.",
+        "metric": "+$3,500/mes",
         "emoji": "🔧",
         "gradient": "from-azul via-purple to-turquesa-dark"
       },
       {
-        "name": "Rosa",
+        "name": "Ana",
         "role": "Repostera",
-        "city": "San Lorenzo",
-        "quote": "Nunca más me olvido de un cliente.",
-        "metric": "+₲ 3.5M/mes",
+        "city": "Mérida",
+        "quote": "Nunca olvido a un cliente.",
+        "metric": "+$1,900/mes",
         "emoji": "🍰",
         "gradient": "from-turquesa-light via-turquesa to-azul"
       },
       {
-        "name": "Miguel",
+        "name": "Carlos",
         "role": "Mecánico",
-        "city": "Lambaré",
-        "quote": "Factura en 3 segundos · increíble.",
-        "metric": "+₲ 5M/mes",
+        "city": "Tijuana",
+        "quote": "CFDI en 3 segundos.",
+        "metric": "+$2,700/mes",
         "emoji": "🚗",
         "gradient": "from-purple via-azul to-turquesa"
       }
@@ -696,7 +694,7 @@
   "footer": {
     "tagline": "Tu secretaria IA en WhatsApp · sin app · sin registro · solo conversa.",
     "rights": "Todos los derechos reservados.",
-    "made_in": "Hecho con ❤ para gente como tú · Perú",
+    "made_in": "Hecho con ❤ para gente como tú · México",
     "brand_legal": "Zymplo es una marca registrada de Zymplo Inc. en Estados Unidos y otros países.",
     "use_terms": "El uso de este sitio está sujeto a los términos expresos.",
     "universal_terms": "Términos universales del servicio",
@@ -729,43 +727,43 @@
     "testimonial_eyebrow": "Más de 12 mil personas como tú hablando",
     "testimonial_quotes": [
       {
-        "initials": "JG",
-        "name_short": "José G.",
-        "role": "Electricista · Asunción",
-        "quote": "Recuperé 40 minutos al día. En serio, metele.",
-        "metric": "+₲ 7M/mes",
+        "initials": "MS",
+        "name_short": "Mario S.",
+        "role": "Electricista · CDMX",
+        "quote": "Recuperé 40 minutos al día. En serio.",
+        "metric": "+$4,800/mes",
         "color": "#14B8A6"
       },
       {
-        "initials": "CO",
-        "name_short": "Carmen O.",
-        "role": "Peluquera · CDE",
-        "quote": "El cliente paga solo · no pido nada.",
-        "metric": "+₲ 4M/mes",
+        "initials": "SO",
+        "name_short": "Sofía O.",
+        "role": "Estilista · Guadalajara",
+        "quote": "El cliente paga solo · no tengo que pedir.",
+        "metric": "+$2,100/mes",
         "color": "#623AE6"
       },
       {
-        "initials": "LR",
-        "name_short": "Luis R.",
-        "role": "Plomero · Encarnación",
-        "quote": "Factura en 3 segundos · no lo podía creer.",
-        "metric": "+₲ 5.5M/mes",
+        "initials": "PG",
+        "name_short": "Pedro G.",
+        "role": "Plomero · Monterrey",
+        "quote": "CFDI en 3 segundos. No lo creí hasta verlo.",
+        "metric": "+$3,500/mes",
         "color": "#1E4AD4"
       },
       {
-        "initials": "RA",
-        "name_short": "Rosa A.",
-        "role": "Repostera · San Lorenzo",
-        "quote": "Olvidé pagar IRACIS una vez. Nunca más.",
-        "metric": "+₲ 3.5M/mes",
+        "initials": "AR",
+        "name_short": "Ana R.",
+        "role": "Repostera · Mérida",
+        "quote": "Olvidé el RESICO una vez. Nunca más.",
+        "metric": "+$1,900/mes",
         "color": "#5EEAD4"
       },
       {
-        "initials": "MM",
-        "name_short": "Miguel M.",
-        "role": "Mecánico · Lambaré",
-        "quote": "Es muy fácil · solo conversar.",
-        "metric": "+₲ 5M/mes",
+        "initials": "JL",
+        "name_short": "Juan L.",
+        "role": "Pintor · Tijuana",
+        "quote": "Es absurdo de fácil. Solo es conversar.",
+        "metric": "+$2,700/mes",
         "color": "#F59E0B"
       }
     ],
@@ -807,7 +805,7 @@
     "footnote": "Sin apps nuevas · sin complicaciones · sin vueltas."
   },
   "sin_con": {
-    "title": "Dejar de perder plata",
+    "title": "Dejar de perder lana",
     "subtitle": "no debería ser difícil.",
     "sin_label": "Sin Zymplo",
     "con_label": "Con Zymplo",

@@ -22,11 +22,11 @@
     ],
     "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
     "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
-    "subline_bold": "Zymplo se encarga. Tú recuperas tu tiempo.",
-    "trust": "Más de 12.847 personas como tú",
+    "subline_bold": "Zymplo se encarga. Vos recuperás tu tiempo.",
+    "trust": "Más de 12.847 personas como vos",
     "persona_badge": "acaba de cobrar",
     "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
-    "cta_microcopy": "Gratis para siempre · Empiezas en menos de 10 segundos",
+    "cta_microcopy": "Gratis para siempre · Empezás en menos de 10 segundos",
     "stats": [
       {
         "value": "$ 47M",
@@ -42,11 +42,11 @@
       }
     ],
     "live_activity": [
-      "🔥 Lima · 3 personas como tú se sumaron hace minutos",
-      "🔥 Arequipa · 3 personas como tú se sumaron hace minutos",
-      "🔥 Trujillo · 3 personas como tú se sumaron hace minutos",
-      "🔥 Cusco · 3 personas como tú se sumaron hace minutos",
-      "🔥 Chiclayo · 3 personas como tú se sumaron hace minutos"
+      "José · Asunción · cobró ₲ 600.000",
+      "Carmen · Ciudad del Este · factura emitida",
+      "Luis · Encarnación · 3 cobros automáticos",
+      "Rosa · San Lorenzo · IRACIS al día",
+      "Miguel · Lambaré · agenda organizada"
     ],
     "live_counter_label": "se sumaron · últimas 24h",
     "joined_today_label": "se sumaron hoy",
@@ -87,7 +87,7 @@
           ]
         },
         {
-          "feature": "Boleta/Factura electrónica en 3 segundos",
+          "feature": "Factura en 3 segundos",
           "values": [
             true,
             true,
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "feature": "Hecho para ti · SUNAT · RUC",
+          "feature": "Hecho para vos · DGT · IRACIS",
           "values": [
             true,
             true,
@@ -132,7 +132,7 @@
           ]
         },
         {
-          "feature": "Yape · Plin · BIM integrados",
+          "feature": "Tigo Money · Personal Pay integrados",
           "values": [
             true,
             true,
@@ -145,7 +145,7 @@
       "eyebrow": "vs · toda la competencia actual"
     },
     "headline_d": "Todo tu trabajo. Más simple. En WhatsApp.",
-    "subline_d": "Cobra, agenda clientes, responde consultas y organiza todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
+    "subline_d": "Cobrá, agendá clientes, respondé consultas y organizá todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
     "cta_primary_v2": "Probar GRATIS en WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
     "fomo_bar": "+18.000 personas ya usan Zymplo para trabajar mejor",
@@ -163,7 +163,7 @@
       {
         "icon": "📊",
         "title": "Te respondo todo",
-        "desc": "Pregúntale al instante · cualquier cosa"
+        "desc": "Pregúntale al toque · cualquier cosa"
       },
       {
         "icon": "📅",
@@ -179,12 +179,12 @@
       },
       {
         "from": "bot",
-        "text": "Buen día! 4 citas + 8 cobros pendientes · SUNAT vence mañana 🔔",
+        "text": "Buen día! 4 citas + 8 cobros pendientes · IRP vence mañana 🔔",
         "time": "06:42"
       },
       {
         "from": "user",
-        "text": "Manda link a los que deben",
+        "text": "Mandá link a los que deben",
         "time": "06:43"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "from": "bot",
-        "text": "💳 Yape detectado · Pedro pagó S/ 215 · boleta #0234 emitida automatic",
+        "text": "💳 SIP detectado · Pedro pagó ₲ 850.000 · factura #0234 emitida automatic",
         "time": "07:32"
       },
       {
@@ -219,27 +219,27 @@
       },
       {
         "from": "bot",
-        "text": "📩 Lead Facebook · Ana López pidió presupuesto · le respondí que la contactas hoy",
+        "text": "📩 Lead Facebook · Ana López pidió presupuesto · le respondí que la contactás hoy",
         "time": "12:20"
       },
       {
         "from": "user",
-        "text": "Cóbrale a Roberto",
+        "text": "Cobrale a Roberto",
         "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "✅ Link enviado a Roberto · S/ 305",
+        "text": "✅ Link enviado a Roberto · ₲ 1.200.000",
         "time": "13:45"
       },
       {
         "from": "bot",
-        "text": "💸 Roberto pagó · boleta #0235 emitida 🎉",
+        "text": "💸 Roberto pagó · factura #0235 emitida 🎉",
         "time": "14:32"
       },
       {
         "from": "user",
-        "text": "Agrega Pedro Sosa · viernes 9am",
+        "text": "Sumá Pedro Sosa · viernes 9am",
         "time": "15:08"
       },
       {
@@ -264,12 +264,12 @@
       },
       {
         "from": "bot",
-        "text": "Hoy: S/ 1.080 · 6 boleta · 3 leads nuevos · +18% vs ayer 📈",
+        "text": "Hoy: ₲ 4.250.000 · 6 factura · 3 leads nuevos · +18% vs ayer 📈",
         "time": "18:42"
       },
       {
         "from": "user",
-        "text": "Recuérdame llamar a Carlos mañana",
+        "text": "Recordame llamar a Carlos mañana",
         "time": "19:30"
       },
       {
@@ -284,7 +284,7 @@
       },
       {
         "from": "user",
-        "text": "Sí, dale",
+        "text": "Sí dale",
         "time": "20:16"
       },
       {
@@ -294,12 +294,12 @@
       },
       {
         "from": "bot",
-        "text": "🔔 SUNAT vence mañana 09:00 · S/ 116",
+        "text": "🔔 IRP vence mañana 09:00 · ₲ 458.000",
         "time": "21:00"
       },
       {
         "from": "user",
-        "text": "Pagué el SUNAT",
+        "text": "Pagué el IRP",
         "time": "21:15"
       },
       {
@@ -314,14 +314,14 @@
       },
       {
         "from": "bot",
-        "text": "Hasta mañana! 4 citas + 5 cobros · descansa 😴",
+        "text": "Hasta mañana! 4 citas + 5 cobros · descansá 😴",
         "time": "23:14"
       }
     ],
-    "tagline_warm": "Zymplo se encarga. Tú recuperas tu tiempo.",
+    "tagline_warm": "Zymplo se encarga. Vos recuperás tu tiempo.",
     "trust_strip_label": "13 PAÍSES · 1 MISMO BOT",
     "cta_micro_main": "Gratis para siempre",
-    "cta_micro_sub": "Empiezas en menos de 10 segundos"
+    "cta_micro_sub": "Empezás en menos de 10 segundos"
   },
   "chat": {
     "title": "Mira cómo funciona",
@@ -414,7 +414,7 @@
     "free_label": "Gratis para siempre",
     "starter_label": "Starter",
     "pro_label": "Pro",
-    "gold_label": "Equipo",
+    "gold_label": "Gold",
     "month": "/mes",
     "popular": "Más popular",
     "cta_secondary": "Conocer más",
@@ -429,21 +429,19 @@
       "10 notas"
     ],
     "features_pro": [
-      "1500 mensajes/mes",
-      "Cobros ilimitados",
-      "Notas ilimitadas",
+      "Ilimitado",
+      "Ilimitado",
+      "Ilimitado",
       "Recordatorios IA"
     ],
     "features_gold": [
-      "3500 mensajes/mes",
-      "Multi-equipo (5 puestos)",
-      "Acceso API",
-      "Cola prioritaria",
-      "Analytics",
-      "White-label"
+      "Todo de Pro",
+      "Multi-equipo",
+      "API",
+      "Prioridad"
     ],
-    "headline_feature": "Planes que crecen contigo.",
-    "headline_caption": "De gratis para siempre a equipo completo. Pagas solo lo que necesitas.",
+    "headline_feature": "Todo ilimitado.",
+    "headline_caption": "Mensajes, cobros, notas. Sin tope, sin sorpresas.",
     "from_label": "desde"
   },
   "faq": {
@@ -464,7 +462,7 @@
       },
       {
         "q": "¿Y si no me gusta?",
-        "a": "Cancelas cuando quieras. Sin permanencia, sin multas. Plan gratis para siempre, sin tarjeta."
+        "a": "Cancelás cuando quieras. Sin permanencia, sin multas. Plan gratis para siempre, sin tarjeta."
       },
       {
         "q": "¿Funciona si no tengo registro fiscal?",
@@ -526,7 +524,7 @@
     "items": [
       {
         "icon": "🔥",
-        "text": "12.847 personas como tú activos hoy"
+        "text": "12.847 personas como vos activos hoy"
       },
       {
         "icon": "⚡",
@@ -555,42 +553,42 @@
     ]
   },
   "geo_testimonials": {
-    "eyebrow": "EN VIVO · CERCA DE TI",
-    "title": "Gente como tú ganando cerca de ti",
+    "eyebrow": "EN VIVO · CERCA TUYO",
+    "title": "Gente como vos ganando cerca tuyo",
     "items": [
       {
-        "city": "Lima",
+        "city": "Asunción",
         "state": "CAP",
         "count": 234,
-        "metric": "+S/ 850/mes",
+        "metric": "ganaron ₲ 8 millones extras este mes",
         "emoji": "💰"
       },
       {
-        "city": "Arequipa",
+        "city": "Ciudad del Este",
         "state": "ALT",
         "count": 187,
-        "metric": "+S/ 1.200/mes",
+        "metric": "facturaron en 3 segundos",
         "emoji": "🧾"
       },
       {
-        "city": "Trujillo",
+        "city": "Encarnación",
         "state": "ITA",
         "count": 142,
-        "metric": "+S/ 980/mes",
+        "metric": "automatizaron sus cobros",
         "emoji": "⚡"
       },
       {
-        "city": "Cusco",
+        "city": "San Lorenzo",
         "state": "CEN",
         "count": 98,
-        "metric": "+S/ 720/mes",
+        "metric": "recuperaron clientes olvidados",
         "emoji": "💚"
       },
       {
-        "city": "Chiclayo",
+        "city": "Pedro J. Caballero",
         "state": "AMA",
         "count": 121,
-        "metric": "+S/ 1.100/mes",
+        "metric": "pagaron IRACIS al día",
         "emoji": "📅"
       },
       {
@@ -605,7 +603,7 @@
   "video_testimonials": {
     "eyebrow": "Historias reales",
     "title": "Recuperaron su tiempo",
-    "subtitle": "Personas como tú reales · clips de 15 segundos · sin guion.",
+    "subtitle": "Personas como vos reales · clips de 15 segundos · sin guion.",
     "watch_label": "▶ Ver",
     "see_more": "Ver todas las historias",
     "items": [
@@ -696,7 +694,7 @@
   "footer": {
     "tagline": "Tu secretaria IA en WhatsApp · sin app · sin registro · solo conversa.",
     "rights": "Todos los derechos reservados.",
-    "made_in": "Hecho con ❤ para gente como tú · Perú",
+    "made_in": "Hecho con ❤ para gente como vos · Paraguay",
     "brand_legal": "Zymplo es una marca registrada de Zymplo Inc. en Estados Unidos y otros países.",
     "use_terms": "El uso de este sitio está sujeto a los términos expresos.",
     "universal_terms": "Términos universales del servicio",
@@ -726,7 +724,7 @@
     "legal_cookies": "Cookies",
     "legal_lgpd": "LGPD/GDPR",
     "legal_sitemap": "Sitemap",
-    "testimonial_eyebrow": "Más de 12 mil personas como tú hablando",
+    "testimonial_eyebrow": "Más de 12 mil personas como vos hablando",
     "testimonial_quotes": [
       {
         "initials": "JG",
@@ -785,17 +783,17 @@
   "how_it_works": {
     "eyebrow": "Así funciona",
     "title": "Así funciona Zymplo.",
-    "subtitle": "Escribes en WhatsApp. Zymplo hace el resto.",
+    "subtitle": "Escribís en WhatsApp. Zymplo hace el resto.",
     "steps": [
       {
         "n": "1",
-        "title": "Escribes lo que necesitas",
-        "desc": "\"Cóbrale a Juan\", \"agéndame mañana 10\". Como un mensaje normal."
+        "title": "Escribís lo que necesitás",
+        "desc": "\"Cobrale a Juan\", \"agendame mañana 10am\". Como un mensaje normal."
       },
       {
         "n": "2",
         "title": "Zymplo lo entiende",
-        "desc": "Detecta lo que quieres, busca al cliente, prepara todo en 1.2s."
+        "desc": "Detecta lo que querés, busca al cliente, prepara todo en 1,2s."
       },
       {
         "n": "✓",
@@ -825,13 +823,13 @@
     ]
   },
   "roi": {
-    "eyebrow": "Calcula lo que ahorras",
+    "eyebrow": "Calculá lo que ahorrás",
     "title_a": "¿Cuánto te ahorra",
     "title_b": "Zymplo al mes?",
-    "subtitle": "Mueve los sliders · resultado en vivo.",
-    "label_clients": "¿Cuántos clientes al mes?",
-    "label_price": "¿Cuánto cobras por servicio?",
-    "label_hours": "¿Cuántas horas persigues cobros por semana?",
+    "subtitle": "Movéle a los sliders · resultado en vivo.",
+    "label_clients": "¿Cuántos clientes por mes?",
+    "label_price": "¿Cuánto cobrás por servicio?",
+    "label_hours": "¿Cuántas horas perseguís cobros por semana?",
     "saved_eyebrow": "Tu ahorro estimado mensual",
     "saved_detail": "cobros recuperados + ahorro tiempo",
     "row_time": "Tiempo recuperado",
