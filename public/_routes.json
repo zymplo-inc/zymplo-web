@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "description": "R94 AASA + assetlinks bypass · serve /.well-known/* directly from CF Pages static · skip CF Worker proxy",
+  "include": ["/*"],
+  "exclude": ["/.well-known/*"]
+}
