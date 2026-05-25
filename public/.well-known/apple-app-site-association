@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TBD_APPLE_TEAM_ID.com.zymplo.mobile",
+        "paths": ["/auth*", "/u/*", "/c/*", "/legal/*", "*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["TBD_APPLE_TEAM_ID.com.zymplo.mobile"]
+  },
+  "_NOTE": "TBD_APPLE_TEAM_ID replace post DUNS 145007664 + Apple Developer enroll · R98 Carlos"
+}
