@@ -3,13 +3,20 @@
     "apps": [],
     "details": [
       {
+        "appID": "TBD_APPLE_TEAM_ID.com.zymplo.app",
+        "paths": ["/auth*", "/u/*", "/c/*", "/legal/*", "/openfinance*", "/share*", "*"]
+      },
+      {
         "appID": "TBD_APPLE_TEAM_ID.com.zymplo.mobile",
         "paths": ["/auth*", "/u/*", "/c/*", "/legal/*", "*"]
       }
     ]
   },
   "webcredentials": {
-    "apps": ["TBD_APPLE_TEAM_ID.com.zymplo.mobile"]
+    "apps": [
+      "TBD_APPLE_TEAM_ID.com.zymplo.app",
+      "TBD_APPLE_TEAM_ID.com.zymplo.mobile"
+    ]
   },
-  "_NOTE": "TBD_APPLE_TEAM_ID replace post DUNS 145007664 + Apple Developer enroll · R98 Carlos"
+  "_NOTE": "TBD_APPLE_TEAM_ID replace post DUNS 145007664 + Apple Developer enroll · R98 Carlos · 2 bundles supported: com.zymplo.app (canonical production v1.0.3) + com.zymplo.mobile (stub HQ WhatsApp-companion)"
 }

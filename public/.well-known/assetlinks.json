@@ -3,9 +3,16 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
+      "package_name": "com.zymplo.app",
+      "sha256_cert_fingerprints": ["TBD_SHA256_canonical_post_keystore"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
       "package_name": "com.zymplo.mobile",
-      "sha256_cert_fingerprints": ["TBD_SHA256_post_keystore_creation"]
-    },
-    "_NOTE": "TBD fingerprint replace post EAS build prod first run · R98 Carlos"
+      "sha256_cert_fingerprints": ["TBD_SHA256_stub_post_keystore"]
+    }
   }
 ]
