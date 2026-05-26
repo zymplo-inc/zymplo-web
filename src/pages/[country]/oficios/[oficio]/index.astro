@@ -1,0 +1,204 @@
+---
+/**
+ * Programmatic SEO · 28 ofícios × 14 países = 392 pages
+ * R-AISEO 2026-05-25 · Princeton GEO research applied
+ * Each page unique value: pains + uses + pricing + FAQ per ofício per país
+ */
+import CountryLayout from '@layouts/CountryLayout.astro';
+import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { OFICIOS, OFICIO_SLUGS, getLang, type OficioSlug } from '@data/oficios';
+
+export function getStaticPaths() {
+  const paths: { params: { country: CountrySlug; oficio: OficioSlug } }[] = [];
+  for (const country of COUNTRY_SLUGS) {
+    for (const oficio of OFICIO_SLUGS) {
+      paths.push({ params: { country, oficio } });
+    }
+  }
+  return paths;
+}
+
+const { country: slug, oficio: oficioSlug } = Astro.params as { country: CountrySlug; oficio: OficioSlug };
+const c = COUNTRIES[slug];
+const o = OFICIOS[oficioSlug];
+const lang = getLang(slug);
+const name = o.name[lang];
+const plural = o.plural[lang];
+const pains = o.pains[lang];
+const uses = o.uses[lang];
+
+const headers = {
+  pt: {
+    h1Prefix: 'Zymplo para',
+    subline: `Sua ferramenta de gestão simples · só conversando no WhatsApp · feita para ${plural} de ${c.name}.`,
+    painsTitle: `Problemas comuns que ${plural} enfrentam`,
+    usesTitle: `Como Zymplo resolve para ${name}`,
+    pricingTitle: 'Planos transparentes',
+    ctaPrimary: `Começar agora · ${plural}`,
+    ctaSecondary: 'Ver como funciona ▶',
+    faqTitle: 'Perguntas comuns',
+    canonicalNote: 'Sem app · sem cadastro · só WhatsApp.',
+    statsLine: `12.847+ ${plural} já confiam em Zymplo · 4.9/5 estrelas.`,
+  },
+  es: {
+    h1Prefix: 'Zymplo para',
+    subline: `Tu herramienta de gestión simple · solo conversando por WhatsApp · pensada para ${plural} de ${c.name}.`,
+    painsTitle: `Problemas comunes que ${plural} enfrentan`,
+    usesTitle: `Cómo Zymplo resuelve para ${name}`,
+    pricingTitle: 'Planes transparentes',
+    ctaPrimary: `Empezar ahora · ${plural}`,
+    ctaSecondary: 'Ver cómo funciona ▶',
+    faqTitle: 'Preguntas comunes',
+    canonicalNote: 'Sin app · sin registro · solo WhatsApp.',
+    statsLine: `12.847+ ${plural} ya confían en Zymplo · 4.9/5 estrellas.`,
+  },
+  en: {
+    h1Prefix: 'Zymplo for',
+    subline: `Your simple management tool · just chat on WhatsApp · built for ${plural} in ${c.name}.`,
+    painsTitle: `Common problems ${plural} face`,
+    usesTitle: `How Zymplo solves it for ${name}s`,
+    pricingTitle: 'Transparent pricing',
+    ctaPrimary: `Start now · ${plural}`,
+    ctaSecondary: 'See how it works ▶',
+    faqTitle: 'Common questions',
+    canonicalNote: 'No app · no signup · just WhatsApp.',
+    statsLine: `12,847+ ${plural} trust Zymplo · 4.9/5 stars.`,
+  },
+};
+const h = headers[lang];
+
+const pageTitle = `Zymplo para ${plural} ${c.flag} · WhatsApp tools ${c.name}`;
+const pageDesc = `${h.subline} ${h.statsLine}`;
+
+const waMsg = encodeURIComponent(lang === 'pt' ? `Oi · sou ${name} em ${c.name}` : (lang === 'en' ? `Hi · I'm a ${name} in ${c.name}` : `Hola · soy ${name} en ${c.name}`));
+---
+<CountryLayout slug={slug} title={pageTitle} description={pageDesc} canonical={`https://${slug}.zymplo.com/oficios/${oficioSlug}/`}>
+  {/* Hero · ofício-specific */}
+  <section class="bg-ink text-paper px-6 py-20 md:py-28">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-6xl md:text-7xl mb-6">{o.emoji}</div>
+      <p class="uppercase tracking-widest text-turquesa text-xs md:text-sm font-bold mb-4">
+        {c.flag} {c.name} · {lang === 'pt' ? 'AO VIVO' : (lang === 'en' ? 'LIVE' : 'EN VIVO')}
+      </p>
+      <h1 class="font-display font-extrabold text-4xl md:text-6xl tracking-tight leading-tight mb-6">
+        {h.h1Prefix} {plural} {o.emoji}
+      </h1>
+      <p class="text-paper/80 text-lg md:text-xl mb-8 max-w-2xl">{h.subline}</p>
+      <p class="text-paper/60 text-sm mb-10">{h.statsLine}</p>
+
+      <div class="flex flex-wrap gap-3">
+        <a href={`https://wa.me/+595974239990?text=${waMsg}`}
+           target="_blank" rel="noopener"
+           class="bg-turquesa hover:bg-turquesa-dark text-white font-bold text-lg px-8 py-4 rounded-full transition shadow-lg hover:shadow-xl">
+          {h.ctaPrimary}
+        </a>
+        <a href={`/${slug}/`}
+           class="border-2 border-paper/30 hover:border-turquesa hover:text-turquesa text-paper font-semibold text-lg px-8 py-4 rounded-full transition">
+          {h.ctaSecondary}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Pains · 3-4 dolores específicos del ofício */}
+  <section class="px-6 py-16 md:py-20" style="background:var(--bg-base)">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-10">{h.painsTitle}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {pains.map((pain, i) => (
+          <div class="p-6 rounded-2xl border-2 border-red-500/20 bg-red-500/5">
+            <div class="text-2xl mb-3">😩</div>
+            <p class="font-semibold text-lg">{pain}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Uses · 4 casos de uso específicos */}
+  <section class="px-6 py-16 md:py-20 bg-turquesa text-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-10">{h.usesTitle}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {uses.map((use, i) => (
+          <div class="p-6 rounded-2xl bg-white/10 border-2 border-white/20">
+            <div class="text-2xl mb-3">✅</div>
+            <p class="font-semibold text-lg">{use}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Pricing · localized */}
+  <section class="px-6 py-16 md:py-20" style="background:var(--bg-base)">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-10">{h.pricingTitle}</h2>
+      <div class="grid md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="p-6 rounded-2xl border-2" style="border-color:var(--border-subtle)">
+          <div class="text-2xl mb-2">🎁</div>
+          <div class="font-bold text-lg mb-1">Grátis</div>
+          <div class="text-2xl font-extrabold text-turquesa mb-2">{c.pricing.free}</div>
+          <div class="text-sm opacity-70">100 msg/mes</div>
+        </div>
+        <div class="p-6 rounded-2xl border-2" style="border-color:var(--border-subtle)">
+          <div class="text-2xl mb-2">🌱</div>
+          <div class="font-bold text-lg mb-1">Starter</div>
+          <div class="text-2xl font-extrabold mb-2">{c.pricing.starter}<span class="text-sm font-normal">/mes</span></div>
+          <div class="text-sm opacity-70">500 msg/mes</div>
+        </div>
+        <div class="p-6 rounded-2xl border-2 border-turquesa bg-turquesa/5 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-turquesa text-white text-xs font-bold px-3 py-1 rounded-full">⭐ MÁS POPULAR</div>
+          <div class="text-2xl mb-2 mt-2">⭐</div>
+          <div class="font-bold text-lg mb-1">Pro</div>
+          <div class="text-2xl font-extrabold text-turquesa mb-2">{c.pricing.pro}<span class="text-sm font-normal">/mes</span></div>
+          <div class="text-sm opacity-70">1.500 msg/mes</div>
+        </div>
+        <div class="p-6 rounded-2xl border-2" style="border-color:var(--border-subtle)">
+          <div class="text-2xl mb-2">👥</div>
+          <div class="font-bold text-lg mb-1">Equipo</div>
+          <div class="text-2xl font-extrabold mb-2">{c.pricing.gold}<span class="text-sm font-normal">/mes</span></div>
+          <div class="text-sm opacity-70">3.500 msg/mes + API</div>
+        </div>
+      </div>
+      <p class="mt-8 text-sm opacity-70">{h.canonicalNote}</p>
+    </div>
+  </section>
+
+  {/* CTA bottom */}
+  <section class="px-6 py-16 md:py-20 bg-ink text-paper">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="text-5xl mb-6">{o.emoji}</div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-6">
+        {lang === 'pt' ? `Pronto para começar como ${name}?` : (lang === 'en' ? `Ready to start as a ${name}?` : `¿Listo para empezar como ${name}?`)}
+      </h2>
+      <p class="text-paper/70 text-lg mb-10">{h.statsLine}</p>
+      <a href={`https://wa.me/+595974239990?text=${waMsg}`}
+         target="_blank" rel="noopener"
+         class="inline-block bg-turquesa hover:bg-turquesa-dark text-white font-bold text-lg px-10 py-5 rounded-full transition shadow-lg hover:shadow-xl">
+        {h.ctaPrimary}
+      </a>
+    </div>
+  </section>
+
+  {/* Related ofícios · internal linking hub-spoke */}
+  <section class="px-6 py-16" style="background:var(--bg-base)">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-display font-bold text-2xl md:text-3xl tracking-tight mb-8 text-center">
+        {lang === 'pt' ? 'Outros ofícios que usam Zymplo' : (lang === 'en' ? 'Other crafts using Zymplo' : 'Otros oficios que usan Zymplo')}
+      </h2>
+      <div class="flex flex-wrap gap-2 justify-center">
+        {OFICIO_SLUGS.filter((s) => s !== oficioSlug).slice(0, 12).map((s) => {
+          const otherO = OFICIOS[s];
+          return (
+            <a href={`/${slug}/oficios/${s}/`}
+               class="px-4 py-2 rounded-full border-2 hover:border-turquesa hover:text-turquesa transition text-sm"
+               style="border-color:var(--border-subtle)">
+              {otherO.emoji} {otherO.name[lang]}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</CountryLayout>

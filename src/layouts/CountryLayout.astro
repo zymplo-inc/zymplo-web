@@ -11,8 +11,8 @@ import ExitIntent from '@components/ExitIntent/ExitIntent.tsx';
 import VoiceLangSwitcher from '@components/VoiceLangSwitcher/VoiceLangSwitcher.tsx';
 import ThemeToggle from '@components/ThemeToggle/ThemeToggle.tsx';
 
-interface Props { slug: CountrySlug; title?: string; description?: string; ogImage?: string }
-const { slug, title, description, ogImage } = Astro.props;
+interface Props { slug: CountrySlug; title?: string; description?: string; ogImage?: string; canonical?: string }
+const { slug, title, description, ogImage, canonical: canonicalProp } = Astro.props;
 const country = getCountry(slug)!;
 const dict = getDict(slug);
 const isEU = EU_SLUGS.includes(slug);
@@ -23,7 +23,7 @@ const trust = dict.hero.trust;
 
 const pageTitle = title ?? `Zymplo · ${headlineC} ${country.flag}`;
 const pageDesc = description ?? `${subAI} · ${trust} · ${country.name}.`;
-const canonical = `https://${slug}.zymplo.com/`;
+const canonical = canonicalProp ?? `https://${slug}.zymplo.com/`;
 const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
 ---
 <!doctype html>
@@ -119,11 +119,123 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
       applicationCategory: "BusinessApplication",
       operatingSystem: "Any (WhatsApp-native)",
       description: pageDesc,
-      offers: { "@type": "Offer", price: "0", priceCurrency: country.currency.code, availability: "https://schema.org/InStock" },
+      offers: [
+        { "@type": "Offer", name: "Zy Grátis", price: "0", priceCurrency: country.currency.code, availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "Zy Starter", price: "3.99", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "Zy Pro", price: "5.99", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "Zy Equipo", price: "13.99", priceCurrency: "USD", availability: "https://schema.org/InStock" }
+      ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "12847" },
       inLanguage: country.locale,
       publisher: { "@id": "https://zymplo.com/#organization" }
     })} />
+
+    {/* R-AISEO 2026-05-25 · 4 schemas extra · Princeton GEO +40% AI visibility · world-class elite */}
+
+    {/* BreadcrumbList · Home > Country */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Zymplo", item: "https://zymplo.com/" },
+        { "@type": "ListItem", position: 2, name: country.name, item: canonical }
+      ]
+    })} />
+
+    {/* FAQPage · 6 questions universal (override per-page slot if specific) */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "O que é Zymplo?" : (country.locale.startsWith("en") ? "What is Zymplo?" : "¿Qué es Zymplo?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? "Zymplo é um assistente IA operacional nativo do WhatsApp para microempresários · sem app · sem cadastro · você só conversa pelo WhatsApp." : (country.locale.startsWith("en") ? "Zymplo is a WhatsApp-native AI operational assistant for self-employed workers · no app · no signup · you just chat on WhatsApp." : "Zymplo es un asistente IA operacional nativo de WhatsApp para cuentapropistas · sin app · sin registro · vos solo conversás por WhatsApp.") }
+        },
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "Quanto custa Zymplo?" : (country.locale.startsWith("en") ? "How much does Zymplo cost?" : "¿Cuánto cuesta Zymplo?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? `Plano Grátis · ${country.pricing.free}. Starter ${country.pricing.starter}/mes · Pro ${country.pricing.pro}/mes · Equipo ${country.pricing.gold}/mes.` : (country.locale.startsWith("en") ? `Free plan · ${country.pricing.free}. Starter ${country.pricing.starter}/mo · Pro ${country.pricing.pro}/mo · Team ${country.pricing.gold}/mo.` : `Plan Grátis · ${country.pricing.free}. Starter ${country.pricing.starter}/mes · Pro ${country.pricing.pro}/mes · Equipo ${country.pricing.gold}/mes.`) }
+        },
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "Preciso instalar um app?" : (country.locale.startsWith("en") ? "Do I need to install an app?" : "¿Necesito instalar una app?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? "Não. Zymplo funciona exclusivamente pelo WhatsApp. Sem download · sem cadastro." : (country.locale.startsWith("en") ? "No. Zymplo works exclusively via WhatsApp. No download · no signup." : "No. Zymplo funciona exclusivamente por WhatsApp. Sin descarga · sin registro.") }
+        },
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "Como começar?" : (country.locale.startsWith("en") ? "How do I get started?" : "¿Cómo empiezo?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? "Envie 'oi' para o número Zymplo no WhatsApp. Pronto em 30 segundos · sem app · sem login." : (country.locale.startsWith("en") ? "Send 'hi' to the Zymplo number on WhatsApp. Ready in 30 seconds · no app · no login." : "Mandá 'hola' al número Zymplo en WhatsApp. Listo en 30 segundos · sin app · sin login.") }
+        },
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "Zymplo emite NFS-e?" : (country.locale.startsWith("en") ? "Does Zymplo issue invoices?" : "¿Zymplo emite facturas?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? "Sim · NFS-e MEI · 5.500+ municípios brasileiros suportados. Plano Starter incluso." : (country.locale.startsWith("en") ? "Yes · automated invoice issuance via local fiscal authorities. Starter plan included." : "Sí · emisión automática de comprobantes según régimen fiscal local. Plan Starter incluido.") }
+        },
+        {
+          "@type": "Question",
+          name: country.locale.startsWith("pt") ? "Como cancelo se não gostar?" : (country.locale.startsWith("en") ? "How do I cancel if I don't like it?" : "¿Cómo cancelo si no me gusta?"),
+          acceptedAnswer: { "@type": "Answer", text: country.locale.startsWith("pt") ? "Envie 'cancelar' pelo WhatsApp · sem penalidades · sem ligações de retenção. 30 dias de garantia." : (country.locale.startsWith("en") ? "Send 'cancel' via WhatsApp · no penalties · no retention calls. 30-day money-back guarantee." : "Mandá 'cancelar' por WhatsApp · sin penalidades · sin llamadas de retención. 30 días de garantía.") }
+        }
+      ]
+    })} />
+
+    {/* HowTo · 4-step setup */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: country.locale.startsWith("pt") ? "Como começar com Zymplo em 30 segundos" : (country.locale.startsWith("en") ? "How to start with Zymplo in 30 seconds" : "Cómo empezar con Zymplo en 30 segundos"),
+      description: country.locale.startsWith("pt") ? "Sem app · sem cadastro · só WhatsApp" : (country.locale.startsWith("en") ? "No app · no signup · just WhatsApp" : "Sin app · sin registro · solo WhatsApp"),
+      totalTime: "PT30S",
+      step: [
+        { "@type": "HowToStep", position: 1, name: country.locale.startsWith("pt") ? "Abra WhatsApp" : (country.locale.startsWith("en") ? "Open WhatsApp" : "Abrí WhatsApp"), text: country.locale.startsWith("pt") ? "Abra o aplicativo WhatsApp que você já usa." : (country.locale.startsWith("en") ? "Open the WhatsApp app you already use." : "Abrí el WhatsApp que ya usás.") },
+        { "@type": "HowToStep", position: 2, name: country.locale.startsWith("pt") ? "Envie mensagem" : (country.locale.startsWith("en") ? "Send message" : "Mandá mensaje"), text: country.locale.startsWith("pt") ? "Envie 'oi' para o número Zymplo." : (country.locale.startsWith("en") ? "Send 'hi' to the Zymplo number." : "Mandá 'hola' al número de Zymplo.") },
+        { "@type": "HowToStep", position: 3, name: country.locale.startsWith("pt") ? "Receba boas-vindas" : (country.locale.startsWith("en") ? "Get welcome" : "Recibí bienvenida"), text: country.locale.startsWith("pt") ? "Zy te apresenta as ferramentas em 15 segundos." : (country.locale.startsWith("en") ? "Zy introduces the tools in 15 seconds." : "Zy te presenta las herramientas en 15 segundos.") },
+        { "@type": "HowToStep", position: 4, name: country.locale.startsWith("pt") ? "Comece a usar" : (country.locale.startsWith("en") ? "Start using" : "Empezá a usar"), text: country.locale.startsWith("pt") ? "Registre cobranças · gastos · NFS-e por WhatsApp." : (country.locale.startsWith("en") ? "Track collections · expenses · invoices via WhatsApp." : "Registrá cobranzas · gastos · comprobantes por WhatsApp.") }
+      ]
+    })} />
+
+    {/* LocalBusiness · BR + PY entities (multi-country) */}
+    {slug === "br" && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://br.zymplo.com/#localbusiness",
+        name: "Zymplo Brasil LTDA",
+        legalName: "Zymplo Brasil LTDA",
+        url: "https://br.zymplo.com",
+        image: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg",
+        priceRange: "R$ 0 - R$ 69,90",
+        address: { "@type": "PostalAddress", addressLocality: "Fortaleza", addressRegion: "Ceará", addressCountry: "BR" },
+        identifier: [
+          { "@type": "PropertyValue", propertyID: "CNPJ", value: "66.667.634/0001-00" },
+          { "@type": "PropertyValue", propertyID: "NIRE", value: "23203746227" }
+        ],
+        contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "brasil@zymplo.com.br", availableLanguage: ["pt-BR"] },
+        areaServed: { "@type": "Country", name: "Brasil" },
+        knowsLanguage: ["pt-BR"]
+      })} />
+    )}
+    {slug === "py" && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://py.zymplo.com/#localbusiness",
+        name: "Zymplo S.A.",
+        legalName: "Zymplo S.A.",
+        url: "https://py.zymplo.com",
+        image: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg",
+        priceRange: "₲ 0 - ₲ 102.000",
+        address: { "@type": "PostalAddress", streetAddress: "Lomas Valentinas 1073", addressLocality: "Ciudad de San Lorenzo", addressRegion: "Departamento Central", postalCode: "2160", addressCountry: "PY" },
+        identifier: [
+          { "@type": "PropertyValue", propertyID: "RUC", value: "80170149-0" }
+        ],
+        contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "support@zymplo.com", availableLanguage: ["es-PY"] },
+        areaServed: { "@type": "Country", name: "Paraguay" },
+        knowsLanguage: ["es-PY"]
+      })} />
+    )}
 
     <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
