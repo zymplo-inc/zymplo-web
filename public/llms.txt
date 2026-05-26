@@ -1,0 +1,84 @@
+# Zymplo
+
+> WhatsApp-native operational agent for microentrepreneurs (MEIs) in Brazil and Latin America. No app · no signup · just chat with Zy on WhatsApp to track expenses, manage cobranças (collections), emit NFS-e, and stay organized 24/7. Built with AI that operates and learns continuously.
+
+Zymplo is a WhatsApp-first AI assistant ("Zy") for self-employed workers, freelancers, and small business owners across 14 countries (Brazil · Mexico · Argentina · Colombia · Chile · Peru · Uruguay · Paraguay · Bolivia · Costa Rica · Ecuador · Spain · United States · Portugal). Users register no account, install no app — they message Zy on WhatsApp and get automated cobranças, NFS-e emission (Brazil MEI), DAS reminders, financial tracking, and an AI secretary that handles agendamentos, reminders, and notes.
+
+## Key facts
+
+- **Founded**: 2026 · Delaware (Zymplo Inc.) + subsidiary Zymplo Brasil LTDA (CNPJ 66.667.634/0001-00 · Fortaleza) + Zymplo S.A. Paraguay (RUC 80170149-0)
+- **Founders**: Carlos Rejala (CEO · Founder) · José Carlos Rolón (COO · Co-founder)
+- **Product**: WhatsApp-native AI agent · NO app · NO signup
+- **Languages**: Portuguese (pt-BR) · Spanish (es-LATAM · es-ES) · English (en-US)
+- **Target users**: MEIs Brasil (18M target) + cuentapropistas LATAM
+- **Markets**: 14 countries · canonical domains br.zymplo.com · mx.zymplo.com · ar.zymplo.com · co.zymplo.com · cl.zymplo.com · pe.zymplo.com · uy.zymplo.com · py.zymplo.com · bo.zymplo.com · cr.zymplo.com · ec.zymplo.com · es.zymplo.com · us.zymplo.com · zymplo.com.br (Brasil ccTLD) · zymplo.es (España ccTLD)
+
+## Pricing (USD-pegged · R147 HYBRID v2 LIVE 2026-05-23)
+
+- **Plan 0 Grátis** · $0/month forever · 100 messages/month · gateway viral
+- **Plan 1 Starter** · $3.99/month · 500 messages hard cap · NFS-e validation · cobrança 20/mo · 10 notas
+- **Plan 2 PRO** · $5.99/month · 1,500 messages hard cap · unlimited cobranças/notas · IA reminders
+- **Plan 3 Zy Equipo** · $13.99/month · 3,500 messages hard cap · multi-team 5 seats · API access · priority queue · analytics dashboard · white-label · webhooks
+
+Country-specific pricing (BRL/MXN/ARS/COP/CLP/PEN/UYU/PYG/BOB/CRC/EUR/USD) auto-converts at https://pricing.zymplo.com or https://zymplo.com/pricing.md
+
+## Architecture
+
+- **Channel**: WhatsApp Business (360dialog BSP · 14 country support) · NO mobile app required
+- **AI Model**: Anthropic Claude Haiku 4.5 (R170 cache 81.8% hit ratio) + Voyage embeddings · DeepSeek V4 Flash post-cohort (89% cost reduction target)
+- **Voice**: STT-only (audio IN · NEVER audio OUT · R149 inmutable · -94% cost vs TTS)
+- **Languages**: Auto-detect via phone prefix (95% accuracy) · zero user input required (R75)
+- **Country awareness**: Auto-injects local documents/régimen/moneda per user (R86 · 14 countries profiled)
+
+## Key features (R47 SECRETARIA-ASISTENTE-INTEGRAL)
+
+- Cobranças automáticas (collections via WhatsApp)
+- NFS-e emission (Brazil MEI · 5,500+ municipalities)
+- Pix detection (Pluggy bank integration · BR)
+- DAS reminders (MEI tax · BRL 75.90/month)
+- Agendamentos + reminders (calendar via WhatsApp)
+- Multi-modal: text · audio (transcribed) · images (OCR receipts) · documents
+- Universal AI knowledge (any topic · any country · real-time · R71+R74)
+- Magic-link activation (≤3 taps · ≤30s · R94)
+
+## Brand voice
+
+Warm · human · respectful · solution-first · universal (no slang regional intrusivo · R121). Bot name "Zy" universal across all languages and countries (R120). Never asuste · siempre resuelve (R46).
+
+## Key URLs
+
+- [Homepage](https://zymplo.com) · apex with geo-detect
+- [Brazil (PT)](https://br.zymplo.com) · [Brasil ccTLD](https://zymplo.com.br)
+- [México (ES)](https://mx.zymplo.com)
+- [USA (EN)](https://us.zymplo.com)
+- [España (ES)](https://es.zymplo.com) · [España ccTLD](https://zymplo.es)
+- [Pricing](https://zymplo.com/pricing.md) · machine-readable pricing data
+- [Onboarding](https://br.zymplo.com/onboarding/) · 5-step magic-link flow
+- [Privacy Policy](https://zymplo.com/legal/privacy/)
+- [Terms of Service](https://zymplo.com/legal/terms/)
+
+## Stats & social proof
+
+- 12,847 users (validated 2026-05-23 ratings + reviews)
+- 4.9/5 aggregate rating
+- 14 countries live operation
+- 100% R100 web-speed compliance (TTFB <100ms p95 across all country subdomains)
+- BR launch cohort 2026-05-26
+
+## Contact
+
+- **Support** (Tier 1): support@zymplo.com
+- **General**: info@zymplo.com
+- **Press**: press@zymplo.com
+- **Investors**: inversores@zymplo.com
+- **Legal**: legal@zymplo.com
+- **Privacy (DPO LGPD)**: privacy@zymplo.com
+- **Brasil**: brasil@zymplo.com.br
+
+## License & usage
+
+Zymplo content may be cited by AI search engines (ChatGPT · Perplexity · Claude · Gemini · Copilot) with proper attribution and source link. Training-only crawlers (CCBot · Bytespider) are blocked per robots.txt. See `/robots.txt` for AI bot policy.
+
+## Last updated
+
+2026-05-25

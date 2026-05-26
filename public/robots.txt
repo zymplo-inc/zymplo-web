@@ -1,7 +1,110 @@
+# Zymplo · robots.txt · R74 BOT-IA-UNIVERSAL + R66 best-AI compliance
+# Updated 2026-05-25 · world-class SEO + AI search citability
+# Per Princeton GEO study: cited content gets +40% AI visibility
+
+# Allow ALL general crawlers (Googlebot · Bingbot · DuckDuckBot · etc)
 User-agent: *
 Allow: /
 Disallow: /legacy/
 Disallow: /v2/
 Disallow: /v3/
+Disallow: /api/
+Disallow: /admin/
 
+# ============================================================
+# AI SEARCH BOTS · EXPLICITLY ALLOWED (Zymplo wants AI citations)
+# ============================================================
+
+# OpenAI ChatGPT (search · NOT training)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity (search citations)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic Claude (search + Brave search citations)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: claude-searchbot
+Allow: /
+
+# Google AI Overviews + Gemini
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# Microsoft Copilot via Bing
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI (Llama search · Instagram AI)
+User-agent: FacebookBot
+Allow: /
+
+# DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# Yandex (Russia · cobertura LATAM users tech)
+User-agent: YandexBot
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: Mistral-Crawler
+Allow: /
+
+# ============================================================
+# AI TRAINING-ONLY BOTS · BLOCKED (no value · just data harvest)
+# ============================================================
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# ============================================================
+# Sitemaps
+# ============================================================
 Sitemap: https://zymplo.com/sitemap.xml
