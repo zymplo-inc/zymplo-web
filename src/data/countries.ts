@@ -1,8 +1,8 @@
 /**
- * Zymplo · Single Source of Truth — 13 países (Tier 1 + Tier 2 expansion)
+ * Zymplo · Single Source of Truth — 14 países (Tier 1 + Tier 2 + Portugal)
  * Edit ONLY here. UI consumes via `getCountry(slug)`.
  */
-export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py' | 'pe' | 'ec' | 'cl' | 'uy' | 'bo' | 'cr';
+export type CountrySlug = 'br' | 'mx' | 'us' | 'co' | 'es' | 'ar' | 'py' | 'pe' | 'ec' | 'cl' | 'uy' | 'bo' | 'cr' | 'pt';
 
 export interface Country {
   slug: CountrySlug;
@@ -217,6 +217,21 @@ export const COUNTRIES: Record<CountrySlug, Country> = {
     slang: ['pura vida', 'mae', 'tuanis', 'vacilón'],
     cta: { primary: 'Pura vida 💪', secondary: 'Ver demo 90s ▶' },
     pricing: { free: 'Pura vida', starter: '₡ 1.990', pro: '₡ 2.990', gold: '₡ 6.990' },
+  },
+  pt: {
+    slug: 'pt', flag: '🇵🇹', name: 'Portugal', locale: 'pt-PT',
+    currency: { code: 'EUR', symbol: '€', format: fmt('pt-PT', 'EUR') },
+    influencer: { name: 'Cristi', tagline: 'A tua secretária IA no WhatsApp', status: 'tbd' },
+    personas: [
+      { name: 'João', role: 'eletricista' },
+      { name: 'Inês', role: 'cabeleireira' },
+      { name: 'Miguel', role: 'canalizador' },
+    ],
+    compliance: ['NIF', 'IRS', 'IVA', 'RGPD'],
+    payments: ['MB Way', 'Transferência'],
+    slang: ['fixe', 'porreiro', 'altamente', 'bué da fixe'],
+    cta: { primary: 'Bora começar 💪', secondary: 'Ver demo 90s ▶' },
+    pricing: { free: 'Grátis', starter: '€3,49', pro: '€4,99', gold: '€12,49' },
   },
 };
 
