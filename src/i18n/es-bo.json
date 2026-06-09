@@ -23,32 +23,26 @@
     "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
     "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
     "subline_bold": "Zymplo se encarga. Vos recuperás tu tiempo.",
-    "trust": "Más de 12.847 personas como vos",
-    "persona_badge": "acaba de cobrar",
+    "trust": "Hecho para negocios como el tuyo",
+    "persona_badge": "ejemplo",
     "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
     "cta_microcopy": "Gratis para siempre · Empezás en menos de 10 segundos",
     "stats": [
       {
-        "value": "$ 47M",
-        "label": "cobrados este mes"
+        "value": "14",
+        "label": "países"
       },
       {
-        "value": "12.847",
-        "label": "personas activas"
+        "value": "24/7",
+        "label": "siempre activo"
       },
       {
         "value": "Sin app",
         "label": "ni registro"
       }
     ],
-    "live_activity": [
-      "🔥 La Paz · 3 personas como vos se sumaron hace minutos",
-      "🔥 Santa Cruz · 3 personas como vos se sumaron hace minutos",
-      "🔥 Cochabamba · 3 personas como vos se sumaron hace minutos",
-      "🔥 Sucre · 3 personas como vos se sumaron hace minutos",
-      "🔥 Tarija · 3 personas como vos se sumaron hace minutos"
-    ],
-    "live_counter_label": "se sumaron · últimas 24h",
+    "live_activity": [],
+    "live_counter_label": "",
     "joined_today_label": "se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
@@ -148,7 +142,7 @@
     "subline_d": "Cobrá, agendá clientes, respondé consultas y organizá todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
     "cta_primary_v2": "Probar GRATIS en WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
-    "fomo_bar": "+18.000 personas ya usan Zymplo para trabajar mejor",
+    "fomo_bar": "Acceso anticipado · sé de los primeros negocios en Zymplo",
     "superpowers": [
       {
         "icon": "💰",
@@ -525,10 +519,6 @@
   "trust_bar": {
     "items": [
       {
-        "icon": "🔥",
-        "text": "12.847 personas como vos activos hoy"
-      },
-      {
         "icon": "⚡",
         "text": "Funciona desde el primer 'hola'"
       },
@@ -541,66 +531,23 @@
         "text": "Gratis para siempre"
       },
       {
-        "icon": "📈",
-        "text": "₲ 5.000 millones facturados este mes"
-      },
-      {
-        "icon": "⭐",
-        "text": "4.9 promedio (12.4k reseñas)"
-      },
-      {
         "icon": "🇵🇾",
         "text": "Hecho en Paraguay · metele"
+      },
+      {
+        "icon": "🌎",
+        "text": "14 países · 3 idiomas"
+      },
+      {
+        "icon": "🧾",
+        "text": "Recibo en segundos"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "EN VIVO · CERCA TUYO",
     "title": "Gente como vos ganando cerca tuyo",
-    "items": [
-      {
-        "city": "La Paz",
-        "state": "CAP",
-        "count": 234,
-        "metric": "+Bs 850/mes",
-        "emoji": "💰"
-      },
-      {
-        "city": "Santa Cruz",
-        "state": "ALT",
-        "count": 187,
-        "metric": "+Bs 1.200/mes",
-        "emoji": "🧾"
-      },
-      {
-        "city": "Cochabamba",
-        "state": "ITA",
-        "count": 142,
-        "metric": "+Bs 950/mes",
-        "emoji": "⚡"
-      },
-      {
-        "city": "Sucre",
-        "state": "CEN",
-        "count": 98,
-        "metric": "+Bs 720/mes",
-        "emoji": "💚"
-      },
-      {
-        "city": "Tarija",
-        "state": "AMA",
-        "count": 121,
-        "metric": "+Bs 1.080/mes",
-        "emoji": "📅"
-      },
-      {
-        "city": "Lambaré",
-        "state": "CEN",
-        "count": 89,
-        "metric": "cerraron mes organizados",
-        "emoji": "🚀"
-      }
-    ]
+    "items": []
   },
   "video_testimonials": {
     "eyebrow": "Historias reales",
@@ -608,53 +555,7 @@
     "subtitle": "Personas como vos reales · clips de 15 segundos · sin guion.",
     "watch_label": "▶ Ver",
     "see_more": "Ver todas las historias",
-    "items": [
-      {
-        "name": "José",
-        "role": "Electricista",
-        "city": "Asunción",
-        "quote": "40 minutos al día recuperados, ¡pio!",
-        "metric": "+₲ 7M/mes",
-        "emoji": "⚡",
-        "gradient": "from-turquesa via-turquesa-dark to-azul"
-      },
-      {
-        "name": "Carmen",
-        "role": "Peluquera",
-        "city": "Ciudad del Este",
-        "quote": "No corro atrás del cliente nunca más.",
-        "metric": "+₲ 4M/mes",
-        "emoji": "💇",
-        "gradient": "from-purple via-turquesa to-azul"
-      },
-      {
-        "name": "Luis",
-        "role": "Plomero",
-        "city": "Encarnación",
-        "quote": "Las cuentas salen solas · yo solo trabajo.",
-        "metric": "+₲ 5.5M/mes",
-        "emoji": "🔧",
-        "gradient": "from-azul via-purple to-turquesa-dark"
-      },
-      {
-        "name": "Rosa",
-        "role": "Repostera",
-        "city": "San Lorenzo",
-        "quote": "Nunca más me olvido de un cliente.",
-        "metric": "+₲ 3.5M/mes",
-        "emoji": "🍰",
-        "gradient": "from-turquesa-light via-turquesa to-azul"
-      },
-      {
-        "name": "Miguel",
-        "role": "Mecánico",
-        "city": "Lambaré",
-        "quote": "Factura en 3 segundos · increíble.",
-        "metric": "+₲ 5M/mes",
-        "emoji": "🚗",
-        "gradient": "from-purple via-azul to-turquesa"
-      }
-    ]
+    "items": []
   },
   "exit_intent": {
     "eyebrow": "¡Espera!",

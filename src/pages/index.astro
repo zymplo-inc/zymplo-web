@@ -1,6 +1,6 @@
 ---
-const title = 'Zymplo · Tu secretaria IA en WhatsApp · 7 países · 12.847 MEIs';
-const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. 12.847 microempresarios ya usan Zymplo en BR · MX · US · CO · ES · AR · PY.';
+const title = 'Zymplo · Tu secretaria IA en WhatsApp · 14 países · 3 idiomas';
+const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. Disponible en 14 países y 3 idiomas: BR · MX · US · CO · ES · AR · PY y más.';
 const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 ---
 <!doctype html>
@@ -193,7 +193,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 
     <div class="top-banner">
       <span class="pulse"></span>
-      <span class="num" id="counter-joined">847</span> MEIs joined today · <span style="opacity:.7;">growing</span>
+      Acceso anticipado abierto · <span style="opacity:.7;">sé de los primeros</span>
     </div>
 
     <header class="zh">
@@ -211,11 +211,11 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 
     <main class="hero">
       <div class="live-counter">
-        <span class="label"><span class="pulse-warn"></span> cobrados hoy · live</span>
-        <span class="num" id="counter-money">$ 47.28M</span>
+        <span class="label"><span class="pulse-warn"></span> acceso anticipado · abierto</span>
+        <span class="num">14 países · 3 idiomas</span>
       </div>
 
-      <div class="pill">⚡ 7 países · 3 idiomas · 12.847 MEIs activos</div>
+      <div class="pill">⚡ 14 países · 3 idiomas · sin app · solo WhatsApp</div>
 
       <h1>
         Cobra. Sin perseguir.<br/>
@@ -223,7 +223,7 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
       </h1>
 
       <p class="sub-ai">Tu secretaria IA dentro de WhatsApp. Cobra · factura · agenda · organiza. Sin app, sin signup, sin fricción.</p>
-      <p class="sub-line">Detectando tu país y idioma automáticamente · 7 países · 3 idiomas perfectos.</p>
+      <p class="sub-line">Detectando tu país y idioma automáticamente · 14 países · 3 idiomas perfectos.</p>
 
       <div class="ctas">
         <div>
@@ -234,10 +234,10 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
       </div>
 
       <div class="stats-row">
-        <div class="stat"><div class="v">$ 47M</div><div class="l">cobrados este mes</div></div>
-        <div class="stat"><div class="v">12.847</div><div class="l">MEIs activos</div></div>
+        <div class="stat"><div class="v">14</div><div class="l">países</div></div>
+        <div class="stat"><div class="v">3</div><div class="l">idiomas</div></div>
         <div class="stat"><div class="v">3 min</div><div class="l">setup completo</div></div>
-        <div class="stat"><div class="v">7</div><div class="l">países LATAM + US</div></div>
+        <div class="stat"><div class="v">24/7</div><div class="l">siempre activo</div></div>
       </div>
     </main>
 
@@ -352,17 +352,6 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
         if (base === 'es') { applyCountry('mx', 'lang-base'); return; }
         applyCountry('br', 'fallback');
       }
-      let counter = 47280000, joined = 847;
-      function tickCounters() {
-        counter += Math.floor(Math.random() * 200) + 50;
-        joined += Math.random() < 0.18 ? 1 : 0;
-        const fmt = (n) => '$ ' + (n / 1_000_000).toFixed(2) + 'M';
-        const el = document.getElementById('counter-money');
-        const j = document.getElementById('counter-joined');
-        if (el) el.textContent = fmt(counter);
-        if (j) j.textContent = joined.toLocaleString();
-      }
-      setInterval(tickCounters, 2500);
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', detectCountry);
       else detectCountry();
       document.querySelectorAll('.country-card, a.detected').forEach(a => {

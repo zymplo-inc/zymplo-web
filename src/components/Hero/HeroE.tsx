@@ -15,12 +15,11 @@ export default function HeroE({ slug, country, dict }: Props) {
   const subline = h.subline_d ?? h.subheadline_ai ?? h.subline;
   const ctaPrimary = h.cta_primary_v2 ?? country.cta.primary;
   const ctaDemo = h.cta_demo_v2 ?? 'Demo · 47s';
-  const fomoBar = h.fomo_bar ?? '+18,000 businesses automating with Zymplo';
+  const fomoBar = h.fomo_bar ?? 'Early access · be one of the first businesses on Zymplo';
   const ctaMicro = h.cta_microcopy ?? 'No app · no signup · free forever';
   // R93z · 2 líneas con jerarquía visual · main 18-20px font-semibold · sub 14-15px font-medium
   const ctaMicroMain = h.cta_micro_main ?? 'Free forever';
   const ctaMicroSub = h.cta_micro_sub ?? 'Start in under 10 seconds';
-  const liveCounterLabel = h.live_counter_label ?? 'collected today';
   const stats: Array<{ value: string; label: string }> = h.stats ?? [];
   const taglineWarm = h.tagline_warm ?? '';
   const trustStripLabel = h.trust_strip_label ?? '13 COUNTRIES · 1 SAME BOT';
@@ -39,41 +38,6 @@ export default function HeroE({ slug, country, dict }: Props) {
     { from: 'user', text: 'Yes', time: '2:33 PM' },
     { from: 'bot', text: '✅ 12 links sent · 8 paid in 6 min · $1,560 collected 🎉', time: '2:39 PM' },
   ];
-
-  const USERS_24H_BASE: Record<string, number> = {
-    BRL: 3247, MXN: 2184, USD: 1523, COP: 1847, EUR: 956,
-    ARS: 1412, PYG: 487, PEN: 1180, CLP: 1056, UYU: 412,
-    BOB: 384, CRC: 298,
-  };
-  const userBase = USERS_24H_BASE[country.currency.code] || 1000;
-  const dayOfYear = (() => {
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    return Math.floor((now.getTime() - start.getTime()) / 86_400_000);
-  })();
-  const seedRand = (s: number) => ((s * 9301 + 49297) % 233280) / 233280;
-  const dailyVariance = 0.88 + seedRand(dayOfYear) * 0.24;
-  const initialUsers = Math.round(userBase * dailyVariance);
-
-  const [users, setUsers] = useState(initialUsers);
-  useEffect(() => {
-    const tick = () => {
-      setUsers((u) => u + 1);
-      const next = 6000 + Math.random() * 6000;
-      timer = setTimeout(tick, next);
-    };
-    let timer = setTimeout(tick, 6000 + Math.random() * 6000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const formatUsers = (n: number) => {
-    try {
-      const locale = (country as any).locale || 'pt-BR';
-      return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(n);
-    } catch {
-      return n.toLocaleString();
-    }
-  };
 
   // Demo conversation animation · sequential reveal · loop
   const [visibleLines, setVisibleLines] = useState(0);
@@ -117,11 +81,6 @@ export default function HeroE({ slug, country, dict }: Props) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-success" />
             </span>
             <span className="text-white"><span className="font-bold">{fomoBar}</span></span>
-          </span>
-          <span className="hidden md:inline text-white/50">·</span>
-          <span className="hidden md:inline text-white/85">
-            <span className="font-bold tabular-nums">{formatUsers(users)}</span>{' '}
-            <span className="text-white/65 uppercase tracking-widest text-[10px]">{liveCounterLabel}</span>
           </span>
         </div>
       </div>
@@ -375,11 +334,6 @@ function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLin
             <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 003-3V5a3 3 0 00-6 0v6a3 3 0 003 3zm-7-3a7 7 0 0014 0h-2a5 5 0 01-10 0H5zm6 11h2v-3h-2v3z"/></svg>
           </div>
         </div>
-      </div>
-
-      {/* floating money badge · subtle rotation on entry */}
-      <div className="absolute -bottom-3 -left-3 hidden md:block bg-success text-white rounded-full px-3 py-1.5 text-xs font-bold shadow-2xl ring-4 ring-success/20 animate-bounce-soft">
-        💸 +$2,341 hoy
       </div>
 
       <style>{`

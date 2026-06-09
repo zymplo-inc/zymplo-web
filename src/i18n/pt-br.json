@@ -23,32 +23,26 @@
     "subline": "Seu assistente IA. Sem app, sem cadastro. Só conversa.",
     "subline_premium": "Cobranças, NFS-e, agenda e DAS — tudo gerenciado por uma IA dentro do seu WhatsApp.",
     "subline_bold": "Zymplo se encarrega. Você recupera seu tempo.",
-    "trust": "Mais de 12.847 pessoas como você",
-    "persona_badge": "acaba de cobrar",
+    "trust": "Feito para negócios como o seu",
+    "persona_badge": "exemplo",
     "subheadline_ai": "Sua vida mais simples · só conversando · sem app · sem cadastro",
     "cta_microcopy": "Grátis para sempre · Você começa em menos de 10 segundos",
     "stats": [
       {
-        "value": "R$ 47M",
-        "label": "cobrados este mês"
+        "value": "14",
+        "label": "países"
       },
       {
-        "value": "12.847",
-        "label": "pessoas ativas"
+        "value": "24/7",
+        "label": "sempre ativo"
       },
       {
         "value": "Sem app",
         "label": "nem cadastro"
       }
     ],
-    "live_activity": [
-      "Diego · São Paulo · cobrou R$ 480",
-      "Luana · Belo Horizonte · NFS-e emitida",
-      "Raimundo · Recife · 3 cobranças automáticas",
-      "Ana · Curitiba · DAS pago no prazo",
-      "Carlos · Salvador · agenda organizada"
-    ],
-    "live_counter_label": "novos · últimas 24h",
+    "live_activity": [],
+    "live_counter_label": "",
     "joined_today_label": "se juntaram hoje",
     "founding_label": "Founding members · vagas restantes",
     "founding_perk": "−20% de por vida",
@@ -148,7 +142,7 @@
     "subline_d": "Cobre, agende clientes, responda consultas e organize tudo conversando. Sem instalar nada. Sem aprender nada novo.",
     "cta_primary_v2": "Testar GRÁTIS no WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
-    "fomo_bar": "+18.000 pessoas já usam Zymplo para trabalhar melhor",
+    "fomo_bar": "Acesso antecipado · seja um dos primeiros negócios na Zymplo",
     "superpowers": [
       {
         "icon": "💰",
@@ -616,10 +610,6 @@
   "trust_bar": {
     "items": [
       {
-        "icon": "🔥",
-        "text": "12.847 pessoas como você ativos hoje"
-      },
-      {
         "icon": "⚡",
         "text": "Funciona desde o primeiro 'oi'"
       },
@@ -632,66 +622,23 @@
         "text": "Grátis para sempre"
       },
       {
-        "icon": "📈",
-        "text": "R$ 47M cobrados este mês"
-      },
-      {
-        "icon": "⭐",
-        "text": "4.9 de média (12.4k reviews)"
-      },
-      {
         "icon": "🇧🇷",
         "text": "Feito no Brasil"
+      },
+      {
+        "icon": "🌎",
+        "text": "14 países · 3 idiomas"
+      },
+      {
+        "icon": "🧾",
+        "text": "Recibo na hora"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "AO VIVO · PERTO DE VOCÊ",
     "title": "Gente como você ganhando perto de você",
-    "items": [
-      {
-        "city": "São Paulo",
-        "state": "SP",
-        "count": 234,
-        "metric": "ganharam R$ 1.2k extras este mês",
-        "emoji": "💰"
-      },
-      {
-        "city": "Rio de Janeiro",
-        "state": "RJ",
-        "count": 187,
-        "metric": "emitiram NFS-e em 3 segundos",
-        "emoji": "🧾"
-      },
-      {
-        "city": "Belo Horizonte",
-        "state": "MG",
-        "count": 142,
-        "metric": "automatizaram cobranças",
-        "emoji": "⚡"
-      },
-      {
-        "city": "Salvador",
-        "state": "BA",
-        "count": 98,
-        "metric": "recuperaram clientes esquecidos",
-        "emoji": "💚"
-      },
-      {
-        "city": "Curitiba",
-        "state": "PR",
-        "count": 121,
-        "metric": "pagaram DAS no prazo",
-        "emoji": "📅"
-      },
-      {
-        "city": "Recife",
-        "state": "PE",
-        "count": 89,
-        "metric": "fecharam o mês organizados",
-        "emoji": "🚀"
-      }
-    ]
+    "items": []
   },
   "video_testimonials": {
     "eyebrow": "Histórias reais",
@@ -699,53 +646,7 @@
     "subtitle": "pessoas como você reais · clipes de 15 segundos · sem roteiro.",
     "watch_label": "▶ Assistir",
     "see_more": "Ver todas histórias",
-    "items": [
-      {
-        "name": "Diego",
-        "role": "Eletricista",
-        "city": "São Paulo",
-        "quote": "40 minutos por dia salvos.",
-        "metric": "+R$ 4.800/mês",
-        "emoji": "⚡",
-        "gradient": "from-turquesa via-turquesa-dark to-azul"
-      },
-      {
-        "name": "Luana",
-        "role": "Cabeleireira",
-        "city": "Belo Horizonte",
-        "quote": "Não persigo cliente nunca mais.",
-        "metric": "+R$ 2.100/mês",
-        "emoji": "💇",
-        "gradient": "from-purple via-turquesa to-azul"
-      },
-      {
-        "name": "Raimundo",
-        "role": "Encanador",
-        "city": "Recife",
-        "quote": "Conta sai sozinha · eu só trabalho.",
-        "metric": "+R$ 3.500/mês",
-        "emoji": "🔧",
-        "gradient": "from-azul via-purple to-turquesa-dark"
-      },
-      {
-        "name": "Ana",
-        "role": "Confeiteira",
-        "city": "Curitiba",
-        "quote": "Nunca mais esqueço cliente.",
-        "metric": "+R$ 1.900/mês",
-        "emoji": "🍰",
-        "gradient": "from-turquesa-light via-turquesa to-azul"
-      },
-      {
-        "name": "Carlos",
-        "role": "Mecânico",
-        "city": "Salvador",
-        "quote": "NFS-e em 3 segundos.",
-        "metric": "+R$ 2.700/mês",
-        "emoji": "🚗",
-        "gradient": "from-purple via-azul to-turquesa"
-      }
-    ]
+    "items": []
   },
   "exit_intent": {
     "eyebrow": "Espera!",

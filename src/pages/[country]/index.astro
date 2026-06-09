@@ -5,8 +5,6 @@ import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
 import PricingTable from '@components/PricingTable/PricingTable';
 import QRConnect from '@components/QRConnect/QRConnect.astro';
 import TrustBar from '@components/TrustBar/TrustBar.astro';
-import GeoTestimonials from '@components/GeoTestimonials/GeoTestimonials';
-import VideoTestimonials from '@components/VideoTestimonials/VideoTestimonials.astro';
 import MicrobizScore from '@components/MicrobizScore/MicrobizScore';
 import FeatureIcon from '@components/FeatureIcon/FeatureIcon.astro';
 import HowItWorks3Steps from '@components/HowItWorks3Steps/HowItWorks3Steps.astro';
@@ -27,16 +25,12 @@ const cmp = dict.hero.comparison;
 const vsLabel = dict.hero.vs_label;
 const challengeLabel = dict.hero.challenge_label;
 const challengePrize = dict.hero.challenge_prize;
-const geo = dict.geo_testimonials;
 ---
 <CountryLayout slug={slug}>
   <HeroE client:load slug={slug} country={c} dict={dict} />
 
   <!-- Trust bar · Stripe-style ticker (Sonnet + Haiku consensus) -->
   <TrustBar slug={slug} dict={dict} />
-
-  <!-- Geo-testimonials · 5-LLM consensus (rotating regional metrics) -->
-  <GeoTestimonials client:visible items={geo.items ?? []} eyebrow={geo.eyebrow ?? 'Live · your region'} title={geo.title ?? 'Winning near you'} />
 
   <!-- Payments band · dark mode -->
   <section class="bg-ink border-b border-white/10 py-6">
@@ -165,9 +159,6 @@ const geo = dict.geo_testimonials;
 
   <!-- Microbiz Score · Grok contrarian idea · personalized fit calculator -->
   <MicrobizScore client:visible slug={slug} country={c} dict={dict} />
-
-  <!-- Video testimonials · 15s vertical clips carousel (Sonnet + Qwen + GPT consensus) -->
-  <VideoTestimonials slug={slug} dict={dict} />
 
   <!-- Sin · Con Zymplo · variant G v4.7 motion merge -->
   <SinConZymplo slug={slug} dict={dict} />

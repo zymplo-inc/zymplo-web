@@ -23,32 +23,26 @@
     "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
     "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
     "subline_bold": "Zymplo se encarga. Vos recuperás tu tiempo.",
-    "trust": "Más de 12.847 personas como vos",
-    "persona_badge": "acaba de cobrar",
+    "trust": "Hecho para negocios como el tuyo",
+    "persona_badge": "ejemplo",
     "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
     "cta_microcopy": "Gratis para siempre · Empezás en menos de 10 segundos",
     "stats": [
       {
-        "value": "$ 47M",
-        "label": "cobrados este mes"
+        "value": "14",
+        "label": "países"
       },
       {
-        "value": "12.847",
-        "label": "personas activas"
+        "value": "24/7",
+        "label": "siempre activo"
       },
       {
         "value": "Sin app",
         "label": "ni registro"
       }
     ],
-    "live_activity": [
-      "Juan · CABA · cobró $50.000 ARS",
-      "Lucía · Córdoba · factura emitida",
-      "Diego · Rosario · 3 cobros automáticos",
-      "Sofía · Mendoza · monotributo al día",
-      "Martín · La Plata · agenda organizada"
-    ],
-    "live_counter_label": "se sumaron · últimas 24h",
+    "live_activity": [],
+    "live_counter_label": "",
     "joined_today_label": "se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
@@ -148,7 +142,7 @@
     "subline_d": "Cobrá, agendá clientes, respondé consultas y organizá todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
     "cta_primary_v2": "Probar GRATIS en WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
-    "fomo_bar": "+18.000 personas ya usan Zymplo para trabajar mejor",
+    "fomo_bar": "Acceso anticipado · sé de los primeros negocios en Zymplo",
     "superpowers": [
       {
         "icon": "💰",
@@ -525,10 +519,6 @@
   "trust_bar": {
     "items": [
       {
-        "icon": "🔥",
-        "text": "12.847 personas como vos activos hoy"
-      },
-      {
         "icon": "⚡",
         "text": "Funciona desde el primer 'hola'"
       },
@@ -541,66 +531,23 @@
         "text": "Gratis para siempre"
       },
       {
-        "icon": "📈",
-        "text": "$50.000M ARS facturados este mes"
-      },
-      {
-        "icon": "⭐",
-        "text": "4.9 promedio (12.4k reseñas)"
-      },
-      {
         "icon": "🇦🇷",
         "text": "Hecho para Argentina"
+      },
+      {
+        "icon": "🌎",
+        "text": "14 países · 3 idiomas"
+      },
+      {
+        "icon": "🧾",
+        "text": "Recibo en segundos"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "EN VIVO · CERCA TUYO",
     "title": "Gente como vos ganando cerca tuyo",
-    "items": [
-      {
-        "city": "Buenos Aires",
-        "state": "CABA",
-        "count": 234,
-        "metric": "ganaron $300k ARS extra este mes",
-        "emoji": "💰"
-      },
-      {
-        "city": "Córdoba",
-        "state": "CBA",
-        "count": 187,
-        "metric": "emitieron factura en 3 segundos",
-        "emoji": "🧾"
-      },
-      {
-        "city": "Rosario",
-        "state": "SF",
-        "count": 142,
-        "metric": "automatizaron sus cobros",
-        "emoji": "⚡"
-      },
-      {
-        "city": "Mendoza",
-        "state": "MZA",
-        "count": 98,
-        "metric": "recuperaron clientes olvidados",
-        "emoji": "💚"
-      },
-      {
-        "city": "La Plata",
-        "state": "BS AS",
-        "count": 121,
-        "metric": "pagaron monotributo al día",
-        "emoji": "📅"
-      },
-      {
-        "city": "Tucumán",
-        "state": "TUC",
-        "count": 89,
-        "metric": "cerraron mes organizados",
-        "emoji": "🚀"
-      }
-    ]
+    "items": []
   },
   "video_testimonials": {
     "eyebrow": "Historias reales",
@@ -608,53 +555,7 @@
     "subtitle": "Personas como vos reales · clips de 15 segundos · sin guion.",
     "watch_label": "▶ Ver",
     "see_more": "Ver todas las historias",
-    "items": [
-      {
-        "name": "Juan",
-        "role": "Electricista",
-        "city": "Buenos Aires",
-        "quote": "40 minutos por día recuperados, che.",
-        "metric": "+$600k ARS/mes",
-        "emoji": "⚡",
-        "gradient": "from-turquesa via-turquesa-dark to-azul"
-      },
-      {
-        "name": "Lucía",
-        "role": "Peluquera",
-        "city": "Córdoba",
-        "quote": "No corro atrás del cliente más.",
-        "metric": "+$320k ARS/mes",
-        "emoji": "💇",
-        "gradient": "from-purple via-turquesa to-azul"
-      },
-      {
-        "name": "Diego",
-        "role": "Plomero",
-        "city": "Rosario",
-        "quote": "Las cuentas salen solas · yo curro.",
-        "metric": "+$480k ARS/mes",
-        "emoji": "🔧",
-        "gradient": "from-azul via-purple to-turquesa-dark"
-      },
-      {
-        "name": "Sofía",
-        "role": "Pastelera",
-        "city": "Mendoza",
-        "quote": "Nunca más me olvido de un cliente.",
-        "metric": "+$280k ARS/mes",
-        "emoji": "🍰",
-        "gradient": "from-turquesa-light via-turquesa to-azul"
-      },
-      {
-        "name": "Martín",
-        "role": "Mecánico",
-        "city": "La Plata",
-        "quote": "Factura en 3 segundos · una bomba.",
-        "metric": "+$420k ARS/mes",
-        "emoji": "🚗",
-        "gradient": "from-purple via-azul to-turquesa"
-      }
-    ]
+    "items": []
   },
   "exit_intent": {
     "eyebrow": "¡Espera!",

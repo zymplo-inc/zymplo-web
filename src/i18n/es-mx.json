@@ -23,32 +23,26 @@
     "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
     "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
     "subline_bold": "Zymplo se encarga. Tú recuperas tu tiempo.",
-    "trust": "Más de 12.847 personas como tú",
-    "persona_badge": "acaba de cobrar",
+    "trust": "Hecho para negocios como el tuyo",
+    "persona_badge": "ejemplo",
     "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
     "cta_microcopy": "Gratis para siempre · Empiezas en menos de 10 segundos",
     "stats": [
       {
-        "value": "$ 47M",
-        "label": "cobrados este mes"
+        "value": "14",
+        "label": "países"
       },
       {
-        "value": "12.847",
-        "label": "personas activas"
+        "value": "24/7",
+        "label": "siempre activo"
       },
       {
         "value": "Sin app",
         "label": "ni registro"
       }
     ],
-    "live_activity": [
-      "Mario · CDMX · cobró $480",
-      "Sofía · Guadalajara · factura emitida",
-      "Pedro · Monterrey · 3 cobros automáticos",
-      "Andrea · Bogotá · pago recibido",
-      "Juan · Buenos Aires · agenda organizada"
-    ],
-    "live_counter_label": "se sumaron · últimas 24h",
+    "live_activity": [],
+    "live_counter_label": "",
     "joined_today_label": "se sumaron hoy",
     "founding_label": "Founding members · lugares restantes",
     "founding_perk": "−20% de por vida",
@@ -148,7 +142,7 @@
     "subline_d": "Cobra, agenda clientes, responde consultas y organiza todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
     "cta_primary_v2": "Probar GRATIS en WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
-    "fomo_bar": "+18.000 personas ya usan Zymplo para trabajar mejor",
+    "fomo_bar": "Acceso anticipado · sé de los primeros negocios en Zymplo",
     "superpowers": [
       {
         "icon": "💰",
@@ -525,10 +519,6 @@
   "trust_bar": {
     "items": [
       {
-        "icon": "🔥",
-        "text": "12,847 personas como tú activos hoy"
-      },
-      {
         "icon": "⚡",
         "text": "Funciona desde el primer 'hola'"
       },
@@ -541,66 +531,23 @@
         "text": "Gratis para siempre"
       },
       {
-        "icon": "📈",
-        "text": "$1B MXN facturados este mes"
-      },
-      {
-        "icon": "⭐",
-        "text": "4.9 de promedio (12.4k reviews)"
+        "icon": "🌎",
+        "text": "Hecho para LATAM"
       },
       {
         "icon": "🌎",
-        "text": "Hecho para LATAM"
+        "text": "14 países · 3 idiomas"
+      },
+      {
+        "icon": "🧾",
+        "text": "Recibo en segundos"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "EN VIVO · CERCA DE TI",
     "title": "Gente como tú ganando cerca de ti",
-    "items": [
-      {
-        "city": "CDMX",
-        "state": "MX",
-        "count": 234,
-        "metric": "ganaron $1.2k extra este mes",
-        "emoji": "💰"
-      },
-      {
-        "city": "Guadalajara",
-        "state": "JAL",
-        "count": 187,
-        "metric": "emitieron CFDI en 3 segundos",
-        "emoji": "🧾"
-      },
-      {
-        "city": "Monterrey",
-        "state": "NL",
-        "count": 142,
-        "metric": "automatizaron cobros",
-        "emoji": "⚡"
-      },
-      {
-        "city": "Puebla",
-        "state": "PUE",
-        "count": 98,
-        "metric": "recuperaron clientes olvidados",
-        "emoji": "💚"
-      },
-      {
-        "city": "Mérida",
-        "state": "YUC",
-        "count": 121,
-        "metric": "presentaron RESICO al día",
-        "emoji": "📅"
-      },
-      {
-        "city": "Tijuana",
-        "state": "BC",
-        "count": 89,
-        "metric": "cerraron mes organizados",
-        "emoji": "🚀"
-      }
-    ]
+    "items": []
   },
   "video_testimonials": {
     "eyebrow": "Historias reales",
@@ -608,53 +555,7 @@
     "subtitle": "Personas como tú reales · clips de 15 segundos · sin guion.",
     "watch_label": "▶ Ver",
     "see_more": "Ver todas las historias",
-    "items": [
-      {
-        "name": "Mario",
-        "role": "Electricista",
-        "city": "CDMX",
-        "quote": "40 minutos al día recuperados.",
-        "metric": "+$4,800/mes",
-        "emoji": "⚡",
-        "gradient": "from-turquesa via-turquesa-dark to-azul"
-      },
-      {
-        "name": "Sofía",
-        "role": "Estilista",
-        "city": "Guadalajara",
-        "quote": "No persigo cliente nunca más.",
-        "metric": "+$2,100/mes",
-        "emoji": "💇",
-        "gradient": "from-purple via-turquesa to-azul"
-      },
-      {
-        "name": "Pedro",
-        "role": "Plomero",
-        "city": "Monterrey",
-        "quote": "Cuentas se mandan solas · solo trabajo.",
-        "metric": "+$3,500/mes",
-        "emoji": "🔧",
-        "gradient": "from-azul via-purple to-turquesa-dark"
-      },
-      {
-        "name": "Ana",
-        "role": "Repostera",
-        "city": "Mérida",
-        "quote": "Nunca olvido a un cliente.",
-        "metric": "+$1,900/mes",
-        "emoji": "🍰",
-        "gradient": "from-turquesa-light via-turquesa to-azul"
-      },
-      {
-        "name": "Carlos",
-        "role": "Mecánico",
-        "city": "Tijuana",
-        "quote": "CFDI en 3 segundos.",
-        "metric": "+$2,700/mes",
-        "emoji": "🚗",
-        "gradient": "from-purple via-azul to-turquesa"
-      }
-    ]
+    "items": []
   },
   "exit_intent": {
     "eyebrow": "¡Espera!",

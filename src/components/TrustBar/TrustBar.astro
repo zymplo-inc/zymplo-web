@@ -6,12 +6,12 @@ const { dict } = Astro.props;
 const tb = (dict as any).trust_bar ?? {};
 // R93 (2026-05-02): warm copy + no setup-time claim · works from first message
 const items: Array<{ icon: string; text: string }> = tb.items ?? [
-  { icon: '🔥', text: '12,847 people active today' },
+  { icon: '🌎', text: '14 countries · 3 languages' },
   { icon: '⚡', text: 'No app · no signup' },
   { icon: '🛡️', text: '100% safe & free' },
   { icon: '💚', text: 'Just WhatsApp' },
-  { icon: '📈', text: '$47M billed this month' },
-  { icon: '⭐', text: '4.9 rating' },
+  { icon: '🧾', text: 'Receipts in seconds' },
+  { icon: '⏱️', text: 'Ready in 3 minutes' },
 ];
 // Triple the array so the marquee loops seamlessly
 const looped = [...items, ...items, ...items];

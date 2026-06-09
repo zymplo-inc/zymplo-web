@@ -23,32 +23,26 @@
     "subline": "Your AI assistant. No app, no signup. Just conversation.",
     "subline_premium": "Invoicing, payments, scheduling, and taxes — all handled by an AI inside your WhatsApp.",
     "subline_bold": "Zymplo handles it. You get your time back.",
-    "trust": "12,847+ people like you",
-    "persona_badge": "just got paid",
+    "trust": "Built for businesses like yours",
+    "persona_badge": "example",
     "subheadline_ai": "Your life simpler · just chatting · no app · no signup",
     "cta_microcopy": "Free forever · Start in under 10 seconds",
     "stats": [
       {
-        "value": "$ 47M",
-        "label": "collected this month"
+        "value": "14",
+        "label": "countries"
       },
       {
-        "value": "12,847",
-        "label": "active people"
+        "value": "24/7",
+        "label": "always on"
       },
       {
         "value": "No app",
         "label": "no signup"
       }
     ],
-    "live_activity": [
-      "Mike · NYC · got paid $480",
-      "Maria · LA · invoice sent",
-      "Jose · Miami · 3 auto-charges",
-      "Sarah · Chicago · payment received",
-      "David · Austin · schedule sorted"
-    ],
-    "live_counter_label": "new · last 24h",
+    "live_activity": [],
+    "live_counter_label": "",
     "joined_today_label": "joined today",
     "founding_label": "Founding members · spots left",
     "founding_perk": "−20% for life",
@@ -148,7 +142,7 @@
     "subline_d": "Charge, schedule clients, reply to questions and organize everything by chatting. Nothing to install. Nothing new to learn.",
     "cta_primary_v2": "Try FREE on WhatsApp",
     "cta_demo_v2": "Watch demo · 47s",
-    "fomo_bar": "+18,000 people already use Zymplo to work better",
+    "fomo_bar": "Early access · be one of the first businesses on Zymplo",
     "superpowers": [
       {
         "icon": "💰",
@@ -526,10 +520,6 @@
   "trust_bar": {
     "items": [
       {
-        "icon": "🔥",
-        "text": "12,847 small biz active today"
-      },
-      {
         "icon": "⚡",
         "text": "Works from the first 'hi'"
       },
@@ -542,66 +532,23 @@
         "text": "Free forever plan"
       },
       {
-        "icon": "📈",
-        "text": "$5M billed this month"
-      },
-      {
-        "icon": "⭐",
-        "text": "4.9 average (12.4k reviews)"
+        "icon": "🌎",
+        "text": "Built for the Americas"
       },
       {
         "icon": "🌎",
-        "text": "Built for the Americas"
+        "text": "14 countries · 3 languages"
+      },
+      {
+        "icon": "🧾",
+        "text": "Receipts in seconds"
       }
     ]
   },
   "geo_testimonials": {
     "eyebrow": "LIVE · NEAR YOU",
     "title": "People like you winning near you",
-    "items": [
-      {
-        "city": "Miami",
-        "state": "FL",
-        "count": 234,
-        "metric": "earned $1.2k extra this month",
-        "emoji": "💰"
-      },
-      {
-        "city": "Austin",
-        "state": "TX",
-        "count": 187,
-        "metric": "invoiced in 3 seconds",
-        "emoji": "🧾"
-      },
-      {
-        "city": "Los Angeles",
-        "state": "CA",
-        "count": 142,
-        "metric": "automated their billing",
-        "emoji": "⚡"
-      },
-      {
-        "city": "Chicago",
-        "state": "IL",
-        "count": 98,
-        "metric": "recovered forgotten clients",
-        "emoji": "💚"
-      },
-      {
-        "city": "New York",
-        "state": "NY",
-        "count": 121,
-        "metric": "filed taxes on time",
-        "emoji": "📅"
-      },
-      {
-        "city": "Phoenix",
-        "state": "AZ",
-        "count": 89,
-        "metric": "closed the month organized",
-        "emoji": "🚀"
-      }
-    ]
+    "items": []
   },
   "video_testimonials": {
     "eyebrow": "Real stories",
@@ -609,53 +556,7 @@
     "subtitle": "Real microentrepreneurs · 15-second clips · zero scripts.",
     "watch_label": "▶ Watch",
     "see_more": "See all stories",
-    "items": [
-      {
-        "name": "Mike",
-        "role": "Electrician",
-        "city": "Miami",
-        "quote": "40 minutes saved every day.",
-        "metric": "+$4,800/mo",
-        "emoji": "⚡",
-        "gradient": "from-turquesa via-turquesa-dark to-azul"
-      },
-      {
-        "name": "Maria",
-        "role": "Hairstylist",
-        "city": "Austin",
-        "quote": "I never chase a client.",
-        "metric": "+$2,100/mo",
-        "emoji": "💇",
-        "gradient": "from-purple via-turquesa to-azul"
-      },
-      {
-        "name": "Jose",
-        "role": "Plumber",
-        "city": "LA",
-        "quote": "Bills auto-sent · I just work.",
-        "metric": "+$3,500/mo",
-        "emoji": "🔧",
-        "gradient": "from-azul via-purple to-turquesa-dark"
-      },
-      {
-        "name": "Anna",
-        "role": "Baker",
-        "city": "Chicago",
-        "quote": "Never forget a client.",
-        "metric": "+$1,900/mo",
-        "emoji": "🍰",
-        "gradient": "from-turquesa-light via-turquesa to-azul"
-      },
-      {
-        "name": "Carl",
-        "role": "Mechanic",
-        "city": "NY",
-        "quote": "Invoice in 3 seconds.",
-        "metric": "+$2,700/mo",
-        "emoji": "🚗",
-        "gradient": "from-purple via-azul to-turquesa"
-      }
-    ]
+    "items": []
   },
   "exit_intent": {
     "eyebrow": "Wait!",
