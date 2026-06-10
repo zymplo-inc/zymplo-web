@@ -57,11 +57,12 @@ Warm · human · respectful · solution-first · universal (no slang regional in
 - [Privacy Policy](https://zymplo.com/legal/privacy/)
 - [Terms of Service](https://zymplo.com/legal/terms/)
 
-## Stats & social proof
+## Product facts
 
-- 12,847 users (validated 2026-05-23 ratings + reviews)
-- 4.9/5 aggregate rating
-- 14 countries live operation
+- WhatsApp-native: no app, no signup — works inside the chat the MEI already uses
+- Electronic fiscal invoicing across LATAM (NFS-e BR, CFDI MX, SUNAT PE, AFIP AR, DIAN CO, SRI EC, AEAT ES, and more)
+- Pix and local payment rails for collections
+- Trilingual product surface: Portuguese, Spanish, English
 - 100% R100 web-speed compliance (TTFB <100ms p95 across all country subdomains)
 - BR launch cohort 2026-05-26
 
