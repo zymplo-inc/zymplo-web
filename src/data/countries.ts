@@ -241,8 +241,13 @@ export const getCountry = (slug: string): Country | null =>
 
 export const EU_SLUGS: CountrySlug[] = ['es'];
 
-// WhatsApp Business number for signup CTAs (Zymplo onboarding)
-export const WA_NUMBER = '595981970735';
+// WhatsApp Business numbers · OFICIAL (Carlos 2026-07-22):
+// US +1 202 771 8788 atiende TODOS los países · BR +55 11 92569-7328 EXCLUSIVO Brasil.
+// (Canal PY deprecado — no publicar.)
+export const WA_NUMBER = '12027718788';
+export const WA_NUMBER_BR = '5511925697328';
+export const waNumberFor = (slug?: string): string =>
+  slug === 'br' ? WA_NUMBER_BR : WA_NUMBER;
 const WA_TEXT: Record<CountrySlug, string> = {
   br: 'Olá! Quero começar com Zymplo grátis.',
   mx: '¡Hola! Quiero empezar con Zymplo gratis.',
@@ -261,7 +266,7 @@ const WA_TEXT: Record<CountrySlug, string> = {
 export const waLink = (slug: CountrySlug, planLabel?: string): string => {
   const baseText = WA_TEXT[slug] ?? WA_TEXT.br;
   const text = planLabel ? `${baseText} (${planLabel})` : baseText;
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${waNumberFor(slug)}?text=${encodeURIComponent(text)}`;
 };
 
 // Social profiles (Zymplo official · global brand)

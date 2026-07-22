@@ -1,7 +1,7 @@
 ---
 import CountryLayout from '@layouts/CountryLayout.astro';
 import Onboarding5Steps from '@components/Onboarding5Steps/Onboarding5Steps.tsx';
-import { COUNTRIES, COUNTRY_SLUGS, WA_NUMBER, type CountrySlug } from '@data/countries';
+import { COUNTRIES, COUNTRY_SLUGS, waNumberFor, type CountrySlug } from '@data/countries';
 
 export function getStaticPaths() {
   return COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
@@ -11,6 +11,6 @@ const c = COUNTRIES[slug];
 ---
 <CountryLayout slug={slug} title={`Zymplo ${c.flag} — Onboarding 90s`}>
   <section class="organic-bg relative py-12 md:py-20">
-    <Onboarding5Steps client:load country={c} whatsappNumber={WA_NUMBER} />
+    <Onboarding5Steps client:load country={c} whatsappNumber={waNumberFor(slug)} />
   </section>
 </CountryLayout>
