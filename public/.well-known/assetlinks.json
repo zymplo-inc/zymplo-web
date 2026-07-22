@@ -4,7 +4,9 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.zymplo.app",
-      "sha256_cert_fingerprints": ["17:83:5B:DA:04:97:C0:FB:F3:2B:BA:C9:28:B5:FB:71:37:94:B7:81:E2:E7:A5:E3:44:FF:51:5F:7C:16:C8:33"]
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
     }
   }
 ]
