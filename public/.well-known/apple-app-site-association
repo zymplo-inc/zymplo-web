@@ -3,13 +3,9 @@
     "apps": [],
     "details": [
       {
-        "appID": "TBD_APPLE_TEAM_ID.com.zymplo.app",
-        "paths": ["/auth*", "/u/*", "/c/*", "/legal/*", "/openfinance*", "/share*", "*"]
+        "appID": "TEAMID_PENDING.com.zymplo.app",
+        "paths": ["*"]
       }
     ]
-  },
-  "webcredentials": {
-    "apps": ["TBD_APPLE_TEAM_ID.com.zymplo.app"]
-  },
-  "_NOTE": "TBD_APPLE_TEAM_ID replace post DUNS 145007664 + Apple Developer enroll · R98 Carlos · Bundle único canonical com.zymplo.app v1.0.3 (Luz dev principal · 258 commits desde 2026-03-24)"
+  }
 }
