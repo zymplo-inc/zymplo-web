@@ -3,9 +3,12 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID_PENDING.com.zymplo.app",
+        "appID": "4XHPY6S2K2.com.zymplo.app",
         "paths": ["*"]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["4XHPY6S2K2.com.zymplo.app"]
   }
 }
