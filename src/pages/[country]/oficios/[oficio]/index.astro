@@ -5,7 +5,7 @@
  * Each page unique value: pains + uses + pricing + FAQ per ofício per país
  */
 import CountryLayout from '@layouts/CountryLayout.astro';
-import { COUNTRIES, COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { COUNTRIES, COUNTRY_SLUGS, waNumberFor, type CountrySlug } from '@data/countries';
 import { OFICIOS, OFICIO_SLUGS, getLang, type OficioSlug } from '@data/oficios';
 
 export function getStaticPaths() {
@@ -71,6 +71,8 @@ const pageTitle = `Zymplo para ${plural} ${c.flag} · WhatsApp tools ${c.name}`;
 const pageDesc = `${h.subline} ${h.statsLine}`;
 
 const waMsg = encodeURIComponent(lang === 'pt' ? `Oi · sou ${name} em ${c.name}` : (lang === 'en' ? `Hi · I'm a ${name} in ${c.name}` : `Hola · soy ${name} en ${c.name}`));
+// Número oficial por país · US +1 202 771 8788 global · BR +55 11 92569-7328 · canal PY deprecado (NO publicar)
+const waNum = waNumberFor(slug);
 ---
 <CountryLayout slug={slug} title={pageTitle} description={pageDesc} canonical={`https://${slug}.zymplo.com/oficios/${oficioSlug}/`}>
   {/* Hero · ofício-specific */}
@@ -87,7 +89,7 @@ const waMsg = encodeURIComponent(lang === 'pt' ? `Oi · sou ${name} em ${c.name}
       <p class="text-paper/60 text-sm mb-10">{h.statsLine}</p>
 
       <div class="flex flex-wrap gap-3">
-        <a href={`https://wa.me/+595974239990?text=${waMsg}`}
+        <a href={`https://wa.me/${waNum}?text=${waMsg}`}
            target="_blank" rel="noopener"
            class="bg-turquesa hover:bg-turquesa-dark text-white font-bold text-lg px-8 py-4 rounded-full transition shadow-lg hover:shadow-xl">
           {h.ctaPrimary}
@@ -173,7 +175,7 @@ const waMsg = encodeURIComponent(lang === 'pt' ? `Oi · sou ${name} em ${c.name}
         {lang === 'pt' ? `Pronto para começar como ${name}?` : (lang === 'en' ? `Ready to start as a ${name}?` : `¿Listo para empezar como ${name}?`)}
       </h2>
       <p class="text-paper/70 text-lg mb-10">{h.statsLine}</p>
-      <a href={`https://wa.me/+595974239990?text=${waMsg}`}
+      <a href={`https://wa.me/${waNum}?text=${waMsg}`}
          target="_blank" rel="noopener"
          class="inline-block bg-turquesa hover:bg-turquesa-dark text-white font-bold text-lg px-10 py-5 rounded-full transition shadow-lg hover:shadow-xl">
         {h.ctaPrimary}
