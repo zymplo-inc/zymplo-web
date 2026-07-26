@@ -61,3 +61,12 @@
 /sitemap.xml
   Cache-Control: public, max-age=3600
   Content-Type: application/xml; charset=utf-8
+
+# Deep links · .well-known (T7a MVP)
+/.well-known/assetlinks.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
+
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
