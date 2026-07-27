@@ -9,9 +9,9 @@
   "orientation": "portrait",
   "lang": "pt-BR",
   "icons": [
-    { "src": "https://sims.zymplo.com/brand/favicon.ico", "sizes": "any", "type": "image/x-icon" },
-    { "src": "https://sims.zymplo.com/brand/isotipo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "https://sims.zymplo.com/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+    { "src": "/brand/favicon.ico", "sizes": "any", "type": "image/x-icon" },
+    { "src": "/brand/isotipo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
   ],
   "shortcuts": [
     { "name": "Brasil", "url": "https://br.zymplo.com/" },

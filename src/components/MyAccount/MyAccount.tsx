@@ -78,7 +78,7 @@ export default function MyAccount({ slug, dict }: Props) {
 
               <div className="p-5 sm:p-7 text-center">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-turquesa/10 text-turquesa-deeper text-[11px] font-bold uppercase tracking-widest mb-3 sm:mb-4">
-                  <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" className="w-4 h-4" />
+                  <img src="/brand/isotipo.svg" alt="" className="w-4 h-4" />
                   Zymplo
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-tightest leading-tight">{title}</h3>

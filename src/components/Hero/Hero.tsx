@@ -58,7 +58,7 @@ export default function Hero({ slug, country, dict }: Props) {
         {/* Right column — isotipo + persona chip · sin opacity:0 SSR */}
         <div className="relative h-[420px] hidden md:block">
           <img
-            src="https://sims.zymplo.com/brand/isotipo.svg" alt="" aria-hidden="true"
+            src="/brand/isotipo.svg" alt="" aria-hidden="true"
             className="absolute inset-0 m-auto w-64 h-64 drop-shadow-[0_0_60px_rgba(20,184,166,0.6)]"
           />
           <div className="absolute bottom-4 left-4 liquid-glass rounded-2xl px-4 py-3 text-sm">
