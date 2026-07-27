@@ -1,0 +1,124 @@
+---
+// EN legal content · Privacy Policy · copied verbatim from src/pages/en/legal/privacy.astro
+// Mechanical adjustments only (NOT meaning): language switcher → absolute zymplo.com URLs,
+// same-language internal links go from /en/legal/... to bare /legal/... since the
+// country is already encoded in the subdomain under /[country]/legal/*.
+export const meta = {
+  title: 'Privacy Policy · Zymplo',
+  description: 'How Zymplo collects, uses and protects your personal data. LGPD · GDPR · CCPA compliance.',
+  lastUpdated: '2026-07-27',
+};
+---
+<header>
+  <a href="https://zymplo.com/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: {meta.lastUpdated} · Effective since: 2026-05-04</p>
+  <p class="meta"><a href="https://zymplo.com/legal/privacy/">Español</a> · <a href="https://zymplo.com/pt/legal/privacy/">Português</a> · English</p>
+</header>
+
+<div class="box">
+  <strong>Quick summary:</strong> Zymplo receives your WhatsApp messages to process them with AI and return useful responses (reminders · payment collection · invoices · etc). We do not sell your data · we do not share it with advertising third parties · you can delete your account whenever you want at <a href="/legal/delete-account/">/legal/delete-account/</a>.
+</div>
+
+<h2>1. Who operates Zymplo</h2>
+<p>Zymplo is operated by <strong>Zymplo Inc.</strong>, a company incorporated in Delaware (USA), EIN 30-1486305, DUNS 145007664, with registered address in Newark, DE 19713, USA.</p>
+<p>For privacy inquiries: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+
+<h2>2. What data we collect</h2>
+<ul>
+  <li><strong>WhatsApp messages</strong> you send to the Zymplo number (text · audio · images · documents · location).</li>
+  <li><strong>Your phone number</strong> (provided automatically by Meta's API when you write).</li>
+  <li><strong>Conversation metadata:</strong> timestamps · detected language · country detected via phone prefix.</li>
+  <li><strong>Data you share voluntarily:</strong> client names · collection amounts · photos of receipts · document numbers (CPF · RUC · RFC · etc · only the ones you choose to use).</li>
+  <li><strong>Usage data:</strong> which tools you used (collection · NFS-e · reminders · etc) · no advertising tracking.</li>
+</ul>
+
+<h3>What we do NOT collect</h3>
+<ul>
+  <li>Your WhatsApp contact list.</li>
+  <li>Messages from other chats that are NOT with Zymplo.</li>
+  <li>Your GPS location (unless you explicitly share it).</li>
+  <li>Biometric data · sensitive information unrelated to your business.</li>
+</ul>
+
+<h2>3. What we use your data for</h2>
+<ul>
+  <li>Process your messages with AI models (Anthropic Claude · OpenAI GPT · providers with signed NDA + DPA).</li>
+  <li>Execute the actions you requested (create a payment collection · send a reminder · issue an NFS-e · etc).</li>
+  <li>Improve service quality (aggregated and anonymized analytics).</li>
+  <li>Comply with local legal obligations (LGPD Brazil · Law 1682/01 Paraguay · etc).</li>
+</ul>
+
+<h2>4. Legal bases</h2>
+<ul>
+  <li><strong>Consent:</strong> by sending us a first message you accept this policy (implicit opt-in if the message contains substantive content · explicit if you just write "hello").</li>
+  <li><strong>Contract performance:</strong> to deliver the service you requested.</li>
+  <li><strong>Legitimate interest:</strong> for fraud prevention and service improvement.</li>
+  <li><strong>Legal obligation:</strong> retention of issued NFS-e for the fiscal period (5 years in Brazil).</li>
+</ul>
+
+<h2>5. Who we share with</h2>
+<ul>
+  <li><strong>Meta (WhatsApp Business API):</strong> messaging infrastructure · signed DPA.</li>
+  <li><strong>AI providers:</strong> Anthropic · OpenAI · xAI (they process your messages in real time · signed DPAs · we do not train models with your data).</li>
+  <li><strong>Stripe / Mercado Pago:</strong> only if you activate payment features.</li>
+  <li><strong>Cloudflare · Oracle Cloud:</strong> hosting · CDN.</li>
+  <li><strong>Resend:</strong> transactional emails.</li>
+  <li><strong>Authorities:</strong> only under a valid court order from the corresponding country.</li>
+</ul>
+<p>We do NOT sell · do NOT rent · do NOT share for advertising.</p>
+
+<h2>6. Google data (Google Calendar)</h2>
+<p>If you connect your Google account, Zymplo requests the minimum events permission for your <strong>Google Calendar</strong> (<code>https://www.googleapis.com/auth/calendar.events</code>) so that, from WhatsApp, you can:</p>
+<ul>
+  <li>See the events on your agenda for the day.</li>
+  <li>Create, update and delete events and appointments at your request (including payment collections and reminders).</li>
+</ul>
+<p>We process that data in real time to execute what you requested · we do not keep copies of your calendar on our servers beyond what is necessary for the active feature. You can disconnect your account and revoke access at any time from <a href="https://myaccount.google.com/permissions">your Google account</a> or by asking via WhatsApp.</p>
+<div class="box">
+  <strong>Limited Use (Google API Services User Data Policy):</strong> Zymplo's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its <em>Limited Use</em> requirements. Specifically: we do not use your Google Calendar data for advertising · we do not sell it or transfer it to third parties, except to operate the feature you requested, under a valid legal requirement, or with your explicit consent · and we do not use it to train generalized AI models.
+</div>
+
+<h2>7. Retention</h2>
+<ul>
+  <li>Messages and operational data: up to 30 days (free plan) or up to 12 months (paid plans) after the last interaction.</li>
+  <li>Issued NFS-e: 5 years (fiscal obligation).</li>
+  <li>Technical logs: 90 days.</li>
+  <li>Encrypted backups: 30 days after account deletion.</li>
+</ul>
+
+<h2>8. Your rights (LGPD · GDPR · CCPA)</h2>
+<ul>
+  <li><strong>Access:</strong> request a copy of all your data.</li>
+  <li><strong>Rectification:</strong> correct inaccurate data.</li>
+  <li><strong>Deletion ("right to be forgotten"):</strong> see <a href="/legal/delete-account/">/legal/delete-account/</a>.</li>
+  <li><strong>Portability:</strong> export your data in JSON.</li>
+  <li><strong>Objection:</strong> refuse non-essential uses.</li>
+  <li><strong>Withdrawal of consent:</strong> at any time without affecting prior processing.</li>
+</ul>
+<p>Exercise your rights by emailing <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>. We respond within 15 business days at most.</p>
+
+<h2>9. Security</h2>
+<ul>
+  <li>Encryption in transit (TLS 1.3) and at rest (AES-256).</li>
+  <li>Role-restricted data access · audit logs.</li>
+  <li>Encrypted backups · disaster recovery tested monthly.</li>
+  <li>Quarterly key rotation policy.</li>
+</ul>
+
+<h2>10. Minors</h2>
+<p>Zymplo is NOT directed at anyone under 18. If we discover a minor's data, we delete it immediately. If you are a guardian and notice this: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+
+<h2>11. International transfers</h2>
+<p>Data may be processed in the USA · Brazil · Paraguay · countries where our providers operate. All comply with SCCs (Standard Contractual Clauses) or local equivalents.</p>
+
+<h2>12. Changes to this policy</h2>
+<p>We will notify you via WhatsApp of any material changes · 30 days in advance. Minor changes (typographical · clarifications) without notification.</p>
+
+<h2>13. Regulatory authority</h2>
+<p>You can file a complaint with your local authority: ANPD (Brazil) · MITIC (Paraguay) · INAI (Mexico) · AEPD (Spain) · SIC (Colombia) · etc.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664. For users in Brazil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · local LGPD controller · Fortaleza CE</p>
+  <p><a href="/">Back to zymplo.com</a> · <a href="/legal/terms/">Terms of Service</a> · <a href="/legal/delete-account/">Delete account</a></p>
+</footer>

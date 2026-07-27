@@ -239,6 +239,30 @@ export const COUNTRY_SLUGS = Object.keys(COUNTRIES) as CountrySlug[];
 export const getCountry = (slug: string): Country | null =>
   (COUNTRIES as Record<string, Country>)[slug] ?? null;
 
+// fix(legal): idioma legal por país · reusa el mismo campo `locale` que ya usa
+// CountryLayout.astro para <html lang> en la homepage · NO inventa un mecanismo nuevo.
+// pt-BR/pt-PT → pt · en-US → en · cualquier es-XX → es (3 idiomas legales soportados).
+export type LegalLang = 'es' | 'pt' | 'en';
+export const legalLang = (slug: CountrySlug): LegalLang =>
+  (COUNTRIES[slug].locale.split('-')[0] as LegalLang);
+
+// hreflang set para /[country]/legal/{doc}/ — mismo patrón que CountryLayout usa
+// para la homepage (un <link alternate> por cada subdominio de país + x-default
+// apuntando al apex ES, que sigue siendo el fallback histórico del sitio).
+export const legalHreflangs = (doc: string): { hreflang: string; href: string }[] => [
+  ...COUNTRY_SLUGS.map((s) => ({ hreflang: COUNTRIES[s].locale, href: `https://${s}.zymplo.com/legal/${doc}/` })),
+  { hreflang: 'x-default', href: `https://zymplo.com/legal/${doc}/` },
+];
+
+// getStaticPaths() de /[country]/legal/{doc}.astro NO puede incluir 'pt' (Portugal):
+// esa misma URL /pt/legal/{doc}/ ya la sirve la ruta legacy src/pages/pt/legal/{doc}.astro
+// (prefijo de idioma "pt" = português-BR, no el país Portugal — colisión de namespace
+// pre-existente en el sitio, no introducida por este fix). Portugal está `status:'tbd'`
+// (aún no lanzado) y su idioma legal resuelve al mismo fragment 'pt' de todos modos,
+// así que no hay pérdida de contenido — solo se pospone el canonical/hreflang propio
+// de pt.zymplo.com hasta que se resuelva esa colisión de URL (ver PR description).
+export const LEGAL_COUNTRY_SLUGS = COUNTRY_SLUGS.filter((s) => s !== 'pt');
+
 export const EU_SLUGS: CountrySlug[] = ['es'];
 
 // WhatsApp Business number for signup CTAs (Zymplo onboarding)

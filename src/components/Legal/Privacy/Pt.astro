@@ -1,0 +1,125 @@
+---
+// Contenido legal PT-BR · Política de privacidade · copiado verbatim de src/pages/pt/legal/privacy.astro
+// Ajustes mecánicos (NO de significado): switcher de idioma → URLs absolutas zymplo.com,
+// y los links internos "mismo idioma, otro doc" pasan de /pt/legal/... a /legal/...
+// (bare) porque bajo /[country]/legal/* el país ya está en el subdominio, no hace
+// falta el prefijo /pt/. Texto legal 100% sin cambios.
+export const meta = {
+  title: 'Política de privacidade · Zymplo',
+  description: 'Como o Zymplo coleta, usa e protege seus dados pessoais. LGPD · GDPR · CCPA compliance.',
+  lastUpdated: '2026-07-27',
+};
+---
+<header>
+  <a href="https://zymplo.com/"><img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Política de privacidade</h1>
+  <p class="meta">Última atualização: {meta.lastUpdated} · Vigente desde: 2026-05-04</p>
+  <p class="meta"><a href="https://zymplo.com/legal/privacy/">Español</a> · Português · <a href="https://zymplo.com/en/legal/privacy/">English</a></p>
+</header>
+
+<div class="box">
+  <strong>Resumo rápido:</strong> o Zymplo recebe suas mensagens do WhatsApp para processá-las com IA e devolver respostas úteis (lembretes · cobranças · notas fiscais · etc). Não vendemos seus dados · não compartilhamos com terceiros publicitários · você pode excluir sua conta quando quiser em <a href="/legal/delete-account/">/legal/delete-account/</a>.
+</div>
+
+<h2>1. Quem opera o Zymplo</h2>
+<p>O Zymplo é operado pela <strong>Zymplo Inc.</strong>, sociedade constituída em Delaware (USA), EIN 30-1486305, DUNS 145007664, com endereço registrado em Newark, DE 19713, USA.</p>
+<p>Para contato sobre privacidade: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+
+<h2>2. Quais dados coletamos</h2>
+<ul>
+  <li><strong>Mensagens do WhatsApp</strong> que você envia para o número Zymplo (texto · áudio · imagens · documentos · localização).</li>
+  <li><strong>Seu número de telefone</strong> (fornecido automaticamente pela API da Meta quando você escreve).</li>
+  <li><strong>Metadados da conversa:</strong> timestamps · idioma detectado · país detectado pelo prefixo telefônico.</li>
+  <li><strong>Dados que você compartilha voluntariamente:</strong> nomes de clientes · valores de cobrança · fotos de comprovantes · números de documentos (CPF · RUC · RFC · etc · somente o que você escolher usar).</li>
+  <li><strong>Dados de uso:</strong> quais ferramentas você usou (cobrança · NFS-e · lembretes · etc) · sem rastreamento publicitário.</li>
+</ul>
+
+<h3>O que NÃO coletamos</h3>
+<ul>
+  <li>Sua lista de contatos do WhatsApp.</li>
+  <li>Mensagens de outros chats que NÃO sejam com o Zymplo.</li>
+  <li>Sua localização GPS (a menos que você compartilhe explicitamente).</li>
+  <li>Dados biométricos · informações sensíveis não relacionadas ao negócio.</li>
+</ul>
+
+<h2>3. Para que usamos seus dados</h2>
+<ul>
+  <li>Processar suas mensagens com modelos de IA (Anthropic Claude · OpenAI GPT · fornecedores com NDA + DPA assinados).</li>
+  <li>Executar as ações que você pediu (criar cobrança · enviar lembrete · emitir NFS-e · etc).</li>
+  <li>Melhorar a qualidade do serviço (analytics agregado e anonimizado).</li>
+  <li>Cumprir obrigações legais locais (LGPD Brasil · Lei 1682/01 Paraguai · etc).</li>
+</ul>
+
+<h2>4. Bases legais</h2>
+<ul>
+  <li><strong>Consentimento:</strong> ao nos enviar uma primeira mensagem você aceita esta política (opt-in implícito se a mensagem contém conteúdo substantivo · explícito se você só escreve "oi").</li>
+  <li><strong>Execução de contrato:</strong> para entregar o serviço que você pediu.</li>
+  <li><strong>Interesse legítimo:</strong> para prevenção de fraude e melhoria do serviço.</li>
+  <li><strong>Obrigação legal:</strong> retenção de NFS-e emitidas pelo prazo fiscal (5 anos no Brasil).</li>
+</ul>
+
+<h2>5. Com quem compartilhamos</h2>
+<ul>
+  <li><strong>Meta (WhatsApp Business API):</strong> infraestrutura de mensageria · DPA assinado.</li>
+  <li><strong>Fornecedores de IA:</strong> Anthropic · OpenAI · xAI (processam suas mensagens em tempo real · DPAs assinados · não treinamos modelos com seus dados).</li>
+  <li><strong>Stripe / Mercado Pago:</strong> somente se você ativar funções de pagamento.</li>
+  <li><strong>Cloudflare · Oracle Cloud:</strong> hosting · CDN.</li>
+  <li><strong>Resend:</strong> emails transacionais.</li>
+  <li><strong>Autoridades:</strong> somente sob ordem judicial válida do país correspondente.</li>
+</ul>
+<p>NÃO vendemos · NÃO alugamos · NÃO compartilhamos para publicidade.</p>
+
+<h2>6. Dados do Google (Google Calendar)</h2>
+<p>Se você conectar sua conta do Google, o Zymplo solicita a permissão mínima de eventos do seu <strong>Google Calendar</strong> (<code>https://www.googleapis.com/auth/calendar.events</code>) para que, pelo WhatsApp, você possa:</p>
+<ul>
+  <li>Ver os eventos da sua agenda do dia.</li>
+  <li>Criar, atualizar e excluir eventos e compromissos a seu pedido (incluindo cobranças e lembretes).</li>
+</ul>
+<p>Processamos esses dados em tempo real para executar o que você pediu · não guardamos cópias do seu calendário em nossos servidores além do necessário para a função ativa. Você pode desconectar sua conta e revogar o acesso quando quiser em <a href="https://myaccount.google.com/permissions">sua conta do Google</a> ou pedindo pelo WhatsApp.</p>
+<div class="box">
+  <strong>Uso limitado (Google API Services User Data Policy):</strong> o uso e a transferência que o Zymplo faz das informações recebidas das APIs do Google seguem a <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados de Usuário dos Serviços de API do Google</a>, incluindo seus requisitos de <em>Uso Limitado</em> (Limited Use). Em concreto: não usamos os dados do seu Google Calendar para publicidade · não os vendemos nem os transferimos a terceiros, salvo para operar a função que você pediu, por exigência legal válida ou com seu consentimento explícito · e não os usamos para treinar modelos de IA generalizados.
+</div>
+
+<h2>7. Retenção</h2>
+<ul>
+  <li>Mensagens e dados operacionais: até 30 dias (plano gratuito) ou até 12 meses (planos pagos) após a última interação.</li>
+  <li>NFS-e emitidas: 5 anos (obrigação fiscal).</li>
+  <li>Logs técnicos: 90 dias.</li>
+  <li>Backups criptografados: 30 dias após a exclusão da conta.</li>
+</ul>
+
+<h2>8. Seus direitos (LGPD · GDPR · CCPA)</h2>
+<ul>
+  <li><strong>Acesso:</strong> peça uma cópia de todos os seus dados.</li>
+  <li><strong>Retificação:</strong> corrigir dados incorretos.</li>
+  <li><strong>Exclusão ("direito ao esquecimento"):</strong> ver <a href="/legal/delete-account/">/legal/delete-account/</a>.</li>
+  <li><strong>Portabilidade:</strong> exportar seus dados em JSON.</li>
+  <li><strong>Oposição:</strong> recusar usos não essenciais.</li>
+  <li><strong>Revogação do consentimento:</strong> a qualquer momento sem afetar tratamentos anteriores.</li>
+</ul>
+<p>Exerça seus direitos enviando email para <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>. Respondemos em no máximo 15 dias úteis.</p>
+
+<h2>9. Segurança</h2>
+<ul>
+  <li>Criptografia em trânsito (TLS 1.3) e em repouso (AES-256).</li>
+  <li>Acesso a dados restrito por função · logs de auditoria.</li>
+  <li>Backups criptografados · disaster recovery testado mensalmente.</li>
+  <li>Política de rotação de chaves trimestral.</li>
+</ul>
+
+<h2>10. Menores de idade</h2>
+<p>O Zymplo NÃO é destinado a menores de 18 anos. Se descobrirmos dados de um menor, nós os excluímos imediatamente. Se você é responsável legal e percebeu isso: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+
+<h2>11. Transferências internacionais</h2>
+<p>Os dados podem ser processados nos USA · Brasil · Paraguai · países onde operam nossos fornecedores. Todos cumprem SCCs (Standard Contractual Clauses) ou equivalentes locais.</p>
+
+<h2>12. Alterações desta política</h2>
+<p>Notificaremos você pelo WhatsApp se houver mudanças materiais · com 30 dias de antecedência. Mudanças menores (tipográficas · esclarecimentos) sem notificação.</p>
+
+<h2>13. Autoridade reguladora</h2>
+<p>Você pode reclamar à autoridade local: ANPD (Brasil) · MITIC (Paraguai) · INAI (México) · AEPD (Espanha) · SIC (Colômbia) · etc.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664. Para usuários no Brasil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · controladora local LGPD · Fortaleza CE</p>
+  <p><a href="/">Voltar para zymplo.com</a> · <a href="/legal/terms/">Termos de serviço</a> · <a href="/legal/delete-account/">Excluir conta</a></p>
+</footer>
