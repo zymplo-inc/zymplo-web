@@ -141,8 +141,9 @@ export default function PricingTable({ country, dict }: Props) {
                     rel="noopener"
                     className="mt-4 block text-center font-semibold text-sm py-3 rounded-full transition"
                     style={{
-                      background: isHi ? 'var(--turquesa)' : 'var(--bg-overlay)',
+                      background: isHi ? 'var(--gradient-cta)' : 'var(--bg-overlay)',
                       color: isHi ? '#fff' : 'var(--fg-primary)',
+                      boxShadow: isHi ? '0 12px 24px -10px rgba(20,184,166,0.55)' : undefined,
                     }}
                   >
                     {country.cta.primary}

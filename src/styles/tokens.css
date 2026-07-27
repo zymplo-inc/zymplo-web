@@ -51,6 +51,7 @@
   --border-strong: rgba(10,11,20,0.16);
   --shadow-card: 0 8px 30px -12px rgba(10,11,20,0.10);
   --shadow-pop: 0 30px 60px -20px rgba(20,184,166,0.40);
+  --gradient-cta: linear-gradient(120deg, var(--turquesa), var(--turquesa-dark));
 }
 
 /* ── Dark theme · activated via [data-theme="dark"] on <html> ── */
