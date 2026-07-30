@@ -18,6 +18,31 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
   ],
   build: { inlineStylesheets: 'auto', format: 'directory' },
+  // Dos URLs de borrado de cuenta que se publicaron y hoy dan 404.
+  //
+  // `/legal/delete-request/` estaba enlazada como "Opción 3 · Web form" desde
+  // las tres versiones de `delete-account` (es/pt/en) y NUNCA existió. Google
+  // lo trata como incumplimiento, no como detalle:
+  //
+  //   "The weblink must be functional (for example, loads without error),
+  //    relevant in scope ... and reference the app or developer name."
+  //   support.google.com/googleplay/android-developer/answer/13327111
+  //   (leído 2026-07-30)
+  //
+  // Con la app ya suspendida el 28-jul, un enlace roto en la página de borrado
+  // es exactamente el hallazgo que convierte una apelación en un rechazo.
+  //
+  // `/privacy/delete/` era una página huérfana (sin enlaces entrantes) cuyo
+  // formulario posteaba a `api.zymplo.com/v1/lgpd/delete-request`, que también
+  // responde 404 — medido 2026-07-30. Un formulario que traga el pedido en
+  // silencio es peor que no tenerlo: el titular cree que pidió el borrado y
+  // nadie lo recibe.
+  //
+  // Ambas apuntan a la página que sí funciona y que sí ofrece caminos reales.
+  redirects: {
+    '/legal/delete-request/': '/legal/delete-account/',
+    '/privacy/delete/': '/legal/delete-account/',
+  },
   vite: {
     ssr: { noExternal: ['framer-motion'] },
     resolve: {
