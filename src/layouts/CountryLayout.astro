@@ -24,14 +24,20 @@ const trust = dict.hero.trust;
 const pageTitle = title ?? `Zymplo · ${headlineC} ${country.flag}`;
 const pageDesc = description ?? `${subAI} · ${trust} · ${country.name}.`;
 const canonical = canonicalProp ?? `https://${slug}.zymplo.com/`;
-// ⚠️ ROTO Y PENDIENTE (medido 2026-07-31): sims.zymplo.com está detrás de
-// Cloudflare Access, así que esta URL devuelve 302 al login para cualquier
-// crawler. WhatsApp, Twitter y Facebook no muestran NINGUNA imagen al compartir
-// una página de país. Los assets de marca ya se mudaron a `public/brand/`; estas
-// no, porque son 30 imágenes 1200x630 por país que no están en el repo y
-// fabricarlas es una decisión de marketing, no un arreglo de código.
-// Al resolverlo: subir las .png a `public/brand/og/` y apuntar acá.
-const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
+// Autohospedada, mismo origen que la página. Antes apuntaba a
+// `sims.zymplo.com/web/og/{slug}.png`, que está detrás de Cloudflare Access y
+// devolvía 302 al login para cualquier crawler: medido 2026-07-31 20:48Z, los
+// 14 países daban 302, o sea que compartir CUALQUIER página en WhatsApp no
+// mostraba imagen.
+//
+// Las 30 originales no aparecieron (se buscaron en el repo y en brand-assets).
+// Las de `public/brand/og/` se generaron con los assets canónicos — el SVG real
+// del logo y Manrope SemiBold — con `scripts/gen-og.py`. Si algún día aparecen
+// las diseñadas a mano, se reemplazan los .png y no hay que tocar este archivo.
+//
+// Absoluta y no relativa: `og:image` relativo no lo resuelven ni WhatsApp ni
+// Facebook. Usa el mismo host que el `canonical` de arriba.
+const ogImg = ogImage ?? `https://${slug}.zymplo.com/brand/og/${slug}.png`;
 ---
 <!doctype html>
 <html lang={country.locale} data-country={slug}>
