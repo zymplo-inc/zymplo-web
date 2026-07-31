@@ -42,7 +42,7 @@ const { lang, title, description, canonical, hreflangs, maxWidth = '760px' } = A
     {hreflangs.map((h) => (
       <link rel="alternate" hreflang={h.hreflang} href={h.href} />
     ))}
-    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/brand/isotipo.svg" />
     <style is:global define:vars={{ legalMaxWidth: maxWidth }}>
       :root { color-scheme: light; }
       body { font-family: 'Manrope', system-ui, sans-serif; max-width: var(--legalMaxWidth); margin: 0 auto; padding: 32px 20px 64px; color: #0A0B14; line-height: 1.65; background: #FAFBFF; }
