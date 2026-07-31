@@ -277,10 +277,10 @@ export const SOCIAL = {
 
 // Brand assets (single source · S1 mirror)
 export const BRAND = {
-  logoIso: 'https://sims.zymplo.com/brand/isotipo.svg',
-  logoIsoWhite: 'https://sims.zymplo.com/brand/isotipo-blanco.svg',
-  apple: 'https://sims.zymplo.com/brand/apple-touch-icon.png',
-  manifest: 'https://sims.zymplo.com/brand/site.webmanifest',
+  logoIso: '/brand/isotipo.svg',
+  logoIsoWhite: '/brand/isotipo-blanco.svg',
+  apple: '/brand/apple-touch-icon.png',
+  manifest: '/manifest.webmanifest',
 } as const;
 
 // Legal pages (relative · same-country)

@@ -24,6 +24,13 @@ const trust = dict.hero.trust;
 const pageTitle = title ?? `Zymplo · ${headlineC} ${country.flag}`;
 const pageDesc = description ?? `${subAI} · ${trust} · ${country.name}.`;
 const canonical = canonicalProp ?? `https://${slug}.zymplo.com/`;
+// ⚠️ ROTO Y PENDIENTE (medido 2026-07-31): sims.zymplo.com está detrás de
+// Cloudflare Access, así que esta URL devuelve 302 al login para cualquier
+// crawler. WhatsApp, Twitter y Facebook no muestran NINGUNA imagen al compartir
+// una página de país. Los assets de marca ya se mudaron a `public/brand/`; estas
+// no, porque son 30 imágenes 1200x630 por país que no están en el repo y
+// fabricarlas es una decisión de marketing, no un arreglo de código.
+// Al resolverlo: subir las .png a `public/brand/og/` y apuntar acá.
 const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
 ---
 <!doctype html>
@@ -42,9 +49,9 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
     <meta name="author" content="Zymplo" />
 
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="https://sims.zymplo.com/brand/isotipo.svg" />
-    <link rel="icon" type="image/x-icon" href="https://sims.zymplo.com/brand/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://sims.zymplo.com/brand/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/brand/isotipo.svg" />
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
     {COUNTRY_SLUGS.map((s) => (
@@ -75,7 +82,7 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
       name: "Zymplo",
       legalName: "Zymplo, Inc.",
       url: "https://zymplo.com",
-      logo: { "@type": "ImageObject", url: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg", width: 512, height: 512 },
+      logo: { "@type": "ImageObject", url: "https://zymplo.com/brand/isotipo.svg", width: 512, height: 512 },
       description: pageDesc,
       foundingDate: "2026-03-12",
       founders: [
@@ -204,7 +211,7 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
         name: "Zymplo Brasil LTDA",
         legalName: "Zymplo Brasil LTDA",
         url: "https://br.zymplo.com",
-        image: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg",
+        image: "https://zymplo.com/brand/isotipo.svg",
         priceRange: "R$ 0 - R$ 69,90",
         address: { "@type": "PostalAddress", addressLocality: "Fortaleza", addressRegion: "Ceará", addressCountry: "BR" },
         identifier: [
@@ -224,7 +231,7 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
         name: "Zymplo S.A.",
         legalName: "Zymplo S.A.",
         url: "https://py.zymplo.com",
-        image: "https://sims.zymplo.com/brand/logos/svg/zymplo-isotipo-azul.svg",
+        image: "https://zymplo.com/brand/isotipo.svg",
         priceRange: "₲ 0 - ₲ 102.000",
         address: { "@type": "PostalAddress", streetAddress: "Lomas Valentinas 1073", addressLocality: "Ciudad de San Lorenzo", addressRegion: "Departamento Central", postalCode: "2160", addressCountry: "PY" },
         identifier: [
@@ -236,7 +243,6 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
       })} />
     )}
 
-    <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://wa.me" />
@@ -272,7 +278,7 @@ const ogImg = ogImage ?? `https://sims.zymplo.com/web/og/${slug}.png`;
     <header class="sticky top-0 z-40 backdrop-blur" style="background:color-mix(in oklab, var(--bg-base) 85%, transparent);border-bottom:1px solid var(--border-subtle)">
       <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
         <a href="/" class="flex items-center gap-2.5 group">
-          <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="Zymplo" class="h-9 w-9 group-hover:scale-110 transition" />
+          <img src="/brand/isotipo.svg" alt="Zymplo" class="h-9 w-9 group-hover:scale-110 transition" />
           <span class="font-display font-bold text-2xl tracking-tighter text-turquesa">zymplo</span>
         </a>
         <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate">

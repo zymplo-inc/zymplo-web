@@ -80,7 +80,7 @@ export default function ChatWidget({ slug, dict }: Props) {
           <span className="relative flex">
             <span className="absolute inline-flex h-9 w-9 rounded-full bg-white/30 opacity-75 animate-ping" />
             <span className="relative flex items-center justify-center h-9 w-9 rounded-full bg-white">
-              <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" className="h-6 w-6" />
+              <img src="/brand/isotipo.svg" alt="" className="h-6 w-6" />
             </span>
           </span>
           <span className="text-sm md:text-[15px]">{titleLabel}</span>
@@ -108,7 +108,7 @@ export default function ChatWidget({ slug, dict }: Props) {
             </button>
             <div className="flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-full bg-white p-2 ring-4 ring-white/30">
-                <img src="https://sims.zymplo.com/brand/isotipo.svg" alt="" className="w-full h-full" />
+                <img src="/brand/isotipo.svg" alt="" className="w-full h-full" />
                 <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-success rounded-full ring-2 ring-turquesa" />
               </div>
               <div>

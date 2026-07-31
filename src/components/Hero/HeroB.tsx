@@ -1,5 +1,5 @@
 import type { Country, CountrySlug } from '@data/countries';
-import { waLink } from '@data/countries';
+import { waLink, BRAND } from '@data/countries';
 import type { Dict } from '@i18n/index';
 
 interface Props { slug: string; country: Country; dict: Dict }
@@ -77,7 +77,9 @@ function ChatMockup({ country, dict }: { country: Country; dict: Dict }) {
     <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-ink/10">
       {/* WA header */}
       <div className="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-turquesa flex items-center justify-center text-sm font-bold">Z</div>
+        <div className="w-9 h-9 rounded-full bg-turquesa flex items-center justify-center shrink-0">
+          <img src={BRAND.logoIso} alt="Zymplo" className="w-5 h-5" width="20" height="20" style={{ filter: 'brightness(0) invert(1)' }} />
+        </div>
         <div className="flex-1">
           <div className="text-sm font-semibold">Zymplo</div>
           <div className="text-[10px] opacity-80">{(dict.chat as any).online ?? 'online'} · AI</div>
