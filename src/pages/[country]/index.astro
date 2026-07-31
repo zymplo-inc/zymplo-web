@@ -1,6 +1,7 @@
 ---
 import CountryLayout from '@layouts/CountryLayout.astro';
 import HeroE from '@components/Hero/HeroE';
+import ChatDemo from '@components/ChatDemo/ChatDemo';
 import ToolsCarousel from '@components/ToolsCarousel/ToolsCarousel.astro';
 import PricingTable from '@components/PricingTable/PricingTable';
 import QRConnect from '@components/QRConnect/QRConnect.astro';
@@ -28,6 +29,9 @@ const challengePrize = dict.hero.challenge_prize;
 ---
 <CountryLayout slug={slug}>
   <HeroE client:load slug={slug} country={c} dict={dict} />
+
+  <!-- WhatsApp demo · phone-frame proof, target of Hero's "watch demo" anchor (#chatdemo) -->
+  <ChatDemo client:visible slug={slug} country={c} dict={dict} />
 
   <!-- Trust bar · Stripe-style ticker (Sonnet + Haiku consensus) -->
   <TrustBar slug={slug} dict={dict} />
