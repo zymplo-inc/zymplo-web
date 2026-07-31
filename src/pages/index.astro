@@ -1,6 +1,9 @@
 ---
 const title = 'Zymplo · Tu secretaria IA en WhatsApp · 14 países · 3 idiomas';
 const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. Disponible en 14 países y 3 idiomas: BR · MX · US · CO · ES · AR · PY y más.';
+// ⚠️ ROTO Y PENDIENTE · ver la nota en CountryLayout.astro: sims está detrás de
+// Cloudflare Access y esto devuelve 302 al login, así que la portada se comparte
+// sin imagen de preview. Falta la .png real en `public/brand/og/`.
 const ogImage = 'https://sims.zymplo.com/web/og/global.png';
 ---
 <!doctype html>
@@ -49,8 +52,8 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
       name: "Zymplo",
       legalName: "Zymplo, Inc.",
       url: "https://zymplo.com",
-      logo: { "@type": "ImageObject", url: "/brand/isotipo.svg", width: 512, height: 512 },
-      image: "/brand/isotipo.svg",
+      logo: { "@type": "ImageObject", url: "https://zymplo.com/brand/isotipo.svg", width: 512, height: 512 },
+      image: "https://zymplo.com/brand/isotipo.svg",
       description: description,
       foundingDate: "2026-03-12",
       founders: [
@@ -105,7 +108,6 @@ const ogImage = 'https://sims.zymplo.com/web/og/global.png';
       publisher: { "@id": "https://zymplo.com/#organization" }
     })} />
 
-    <link rel="preconnect" href="https://sims.zymplo.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" />
