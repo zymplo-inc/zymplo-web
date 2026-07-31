@@ -1,0 +1,72 @@
+---
+// Shell compartido para /[country]/legal/*.astro (5 documentos legales × 14 países).
+//
+// Por qué existe: el sitio ya resuelve idioma por subdominio para la homepage vía
+// [country]/index.astro + CountryLayout.astro (getStaticPaths sobre COUNTRY_SLUGS).
+// Las páginas legales top-level (src/pages/legal/*, /en/legal/*, /pt/legal/*) NO seguían
+// ese mecanismo — están fijas en una URL por idioma, así que un país servido por
+// subdominio (br.zymplo.com, us.zymplo.com) terminaba viendo siempre el contenido
+// en español porque /legal/privacy/ no varía por país. Este layout + las páginas en
+// src/pages/[country]/legal/*.astro extienden el MISMO patrón país→contenido a los
+// documentos legales, sin tocar las 15 páginas top-level existentes (se mantienen
+// intactas como fallback en zymplo.com apex / ccTLDs — ver R118 CCTLD-STANDALONE-HREFLANG).
+//
+// El union de estilos cubre las clases usadas por cualquiera de los 5 documentos
+// (box, step, box-warning, table, badge) — un documento que no usa una clase dada
+// simplemente no la renderiza, cero impacto visual cruzado.
+export interface LegalHreflang {
+  hreflang: string;
+  href: string;
+}
+
+interface Props {
+  lang: string;
+  title: string;
+  description: string;
+  canonical: string;
+  hreflangs: LegalHreflang[];
+  maxWidth?: string;
+}
+
+const { lang, title, description, canonical, hreflangs, maxWidth = '760px' } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14B8A6" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {hreflangs.map((h) => (
+      <link rel="alternate" hreflang={h.hreflang} href={h.href} />
+    ))}
+    <link rel="icon" type="image/svg+xml" href="/brand/isotipo.svg" />
+    <style is:global define:vars={{ legalMaxWidth: maxWidth }}>
+      :root { color-scheme: light; }
+      body { font-family: 'Manrope', system-ui, sans-serif; max-width: var(--legalMaxWidth); margin: 0 auto; padding: 32px 20px 64px; color: #0A0B14; line-height: 1.65; background: #FAFBFF; }
+      header { padding-bottom: 24px; border-bottom: 1px solid #e5e7eb; margin-bottom: 32px; }
+      header img { height: 40px; }
+      h1 { font-size: 32px; margin: 16px 0 8px; }
+      h2 { font-size: 22px; margin: 32px 0 12px; color: #0F9488; }
+      h3 { font-size: 18px; margin: 24px 0 8px; }
+      p, li { font-size: 16px; }
+      a { color: #14B8A6; }
+      .meta { color: #64748b; font-size: 14px; }
+      .box { background: #ECFEFE; border-left: 4px solid #14B8A6; padding: 16px 20px; border-radius: 6px; margin: 16px 0; }
+      .step { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
+      .step-num { display: inline-block; background: #14B8A6; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; margin-right: 8px; }
+      .box-warning { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 16px 20px; border-radius: 6px; margin: 16px 0; }
+      table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+      th, td { border: 1px solid #e5e7eb; padding: 10px 12px; text-align: left; vertical-align: top; }
+      th { background: #ECFEFE; }
+      .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+      .badge-ok { background: #DCFCE7; color: #15803D; }
+      footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid #e5e7eb; color: #64748b; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

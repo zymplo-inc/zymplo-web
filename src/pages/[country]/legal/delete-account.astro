@@ -1,0 +1,35 @@
+---
+// fix(legal): flujo de eliminación de cuenta por país · ver src/pages/[country]/legal/privacy.astro
+// para el detalle completo del bug + mecanismo de fix (idéntico, aplicado por documento).
+import LegalCountryLayout from '@layouts/LegalCountryLayout.astro';
+import { COUNTRIES, legalLang, legalHreflangs, LEGAL_COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { meta as metaEs } from '@components/Legal/DeleteAccount/Es.astro';
+import { meta as metaPt } from '@components/Legal/DeleteAccount/Pt.astro';
+import { meta as metaEn } from '@components/Legal/DeleteAccount/En.astro';
+import ContentEs from '@components/Legal/DeleteAccount/Es.astro';
+import ContentPt from '@components/Legal/DeleteAccount/Pt.astro';
+import ContentEn from '@components/Legal/DeleteAccount/En.astro';
+
+export function getStaticPaths() {
+  // 'pt' (Portugal) excluido: colisiona con la ruta legacy /pt/legal/* — ver
+  // comentario en LEGAL_COUNTRY_SLUGS en @data/countries.
+  return LEGAL_COUNTRY_SLUGS.map((slug) => ({ params: { country: slug } }));
+}
+
+const DOC = 'delete-account';
+const { country: slug } = Astro.params as { country: CountrySlug };
+const lang = legalLang(slug);
+const meta = lang === 'pt' ? metaPt : lang === 'en' ? metaEn : metaEs;
+const Content = lang === 'pt' ? ContentPt : lang === 'en' ? ContentEn : ContentEs;
+const canonical = `https://${slug}.zymplo.com/legal/${DOC}/`;
+const hreflangs = legalHreflangs(DOC);
+---
+<LegalCountryLayout
+  lang={COUNTRIES[slug].locale}
+  title={meta.title}
+  description={meta.description}
+  canonical={canonical}
+  hreflangs={hreflangs}
+>
+  <Content />
+</LegalCountryLayout>

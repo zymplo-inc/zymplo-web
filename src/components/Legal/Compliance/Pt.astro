@@ -1,0 +1,108 @@
+---
+// Conteúdo legal PT-BR · Conformidade regulatória · copiado verbatim de src/pages/pt/legal/compliance.astro
+export const meta = {
+  title: 'Conformidade regulatória · Zymplo',
+  description: 'Conformidade regulatória do Zymplo em cada país de operação: LGPD · GDPR · CCPA · LFPDPPP · etc.',
+  lastUpdated: '2026-05-04',
+};
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Conformidade regulatória</h1>
+  <p class="meta">Última atualização: {meta.lastUpdated}</p>
+  <p class="meta"><a href="https://zymplo.com/legal/compliance/">Español</a> · Português · <a href="https://zymplo.com/en/legal/compliance/">English</a></p>
+</header>
+
+<p>O Zymplo opera em 13 países e cumpre a legislação de proteção de dados · faturamento · comércio eletrônico e consumo aplicável em cada jurisdição.</p>
+
+<h2>1. Estrutura corporativa</h2>
+<ul>
+  <li><strong>Zymplo Inc.</strong> · Delaware USA · EIN 30-1486305 · DUNS 145007664</li><li><strong>Zymplo Brasil LTDA</strong> · CNPJ 66.667.634/0001-00 · Fortaleza CE · subsidiária operacional Brasil</li><li>Banking principal: Mercury Bank (USA)</li>
+  <li>Processamento de pagamentos: Stripe Atlas (USA) · Stripe Brasil (BR) · Mercado Pago (LATAM)</li>
+</ul>
+
+<h2>2. Compliance por país</h2>
+<table>
+  <thead><tr><th>País</th><th>Privacidade</th><th>Tributário / faturamento</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>🇧🇷 Brasil</td><td>LGPD (Lei 13.709/2018) · ANPD</td><td>NFS-e municipal · MEI · DAS · CPF/CNPJ</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇲🇽 México</td><td>LFPDPPP · INAI</td><td>RESICO · CFDI · RFC/CURP</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇺🇸 USA</td><td>CCPA (Califórnia) · COPPA · diversas leis estaduais</td><td>EIN · Sole Prop · LLC · Sched-C</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇨🇴 Colômbia</td><td>Lei 1581 / 2012 · SIC</td><td>Régimen Simple (RST) · NIT/Cédula/RUT</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇪🇸 Espanha</td><td>RGPD (UE) · LOPDGDD · AEPD</td><td>Autônomos (RETA) · NIF/NIE/DNI</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇦🇷 Argentina</td><td>Lei 25.326 · AAIP</td><td>Monotributo (A-K) · DNI/CUIT</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇵🇾 Paraguai</td><td>Lei 1682/01 · Lei 6534/20 · MITIC</td><td>RIRE · RUC/Cédula · SET</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇵🇪 Peru</td><td>Lei 29733 · ANPD-Peru</td><td>RUS / Nuevo RUS / MYPE · RUC/DNI · SUNAT</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇪🇨 Equador</td><td>Lei Orgânica de Proteção de Dados · SPDP</td><td>RIMPE Emprendedor · RUC/Cédula · SRI</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇨🇱 Chile</td><td>Lei 19.628 · CPLT</td><td>Pro PyME / 14 ter · RUT chileno · SII</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇺🇾 Uruguai</td><td>Lei 18.331 · URCDP</td><td>Monotributo Social MIDES · RUT/Cédula · DGI</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇧🇴 Bolívia</td><td>Lei 1928 · ATT</td><td>RTS Simplificado · NIT/Cédula · SIN</td><td><span class="badge badge-ok">OK</span></td></tr>
+    <tr><td>🇨🇷 Costa Rica</td><td>Lei 8968 · PRODHAB</td><td>Tributação Simplificada · Cédula Jurídica · MH</td><td><span class="badge badge-ok">OK</span></td></tr>
+  </tbody>
+</table>
+
+<h2>3. Processadores subcontratados</h2>
+<p>Compartilhamos dados somente com processadores com DPA (Data Processing Agreement) assinado:</p>
+<ul>
+  <li><strong>Meta (WhatsApp Business API):</strong> infraestrutura de mensageria · DPA assinado.</li>
+  <li><strong>Anthropic / OpenAI / xAI:</strong> processamento de IA · DPAs assinados · SEM treinamento com dados de usuários.</li>
+  <li><strong>Stripe / Mercado Pago:</strong> processadores de pagamento · cumprem PCI-DSS Nível 1.</li>
+  <li><strong>Cloudflare · Oracle Cloud Infrastructure:</strong> hosting e CDN · ISO 27001 · SOC 2 Type II.</li>
+  <li><strong>Resend:</strong> emails transacionais · GDPR-compliant.</li>
+</ul>
+
+<h2>4. Transferências internacionais</h2>
+<p>Quando os dados cruzam fronteiras (ex.: usuário BR → processador nos USA) usamos:</p>
+<ul>
+  <li><strong>Standard Contractual Clauses (SCC) UE 2021/914</strong> para usuários europeus.</li>
+  <li><strong>Cláusulas-modelo equivalentes</strong> para usuários LATAM.</li>
+  <li><strong>Criptografia TLS 1.3</strong> em trânsito · <strong>AES-256</strong> em repouso.</li>
+</ul>
+
+<h2>5. Certificações técnicas</h2>
+<ul>
+  <li>Hosting Oracle Cloud Infrastructure · ISO 27001 · SOC 2 Type II · PCI-DSS</li>
+  <li>CDN Cloudflare · ISO 27001 · ISO 27018 · SOC 2 Type II</li>
+  <li>Pagamentos Stripe · PCI-DSS Nível 1</li>
+  <li>SOC 2 Type II Zymplo · em andamento (meta Q4 2026)</li>
+  <li>ISO 27001 Zymplo · em andamento (meta Q1 2027)</li>
+</ul>
+
+<h2>6. Direitos dos titulares</h2>
+<p>Em todos os países onde operamos · os usuários podem:</p>
+<ul>
+  <li>Acessar seus dados · pedir uma cópia</li>
+  <li>Corrigir dados incorretos</li>
+  <li>Excluir sua conta e dados associados (<a href="/legal/delete-account/">/legal/delete-account/</a>)</li>
+  <li>Portabilidade · exportar em JSON</li>
+  <li>Opor-se a usos não essenciais</li>
+  <li>Revogar o consentimento sem afetar tratamentos anteriores</li>
+</ul>
+<p>Exerça seus direitos: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a> · respondemos nos prazos legais (15 dias LGPD · 30 dias GDPR).</p>
+
+<h2>7. Notificação de incidentes</h2>
+<p>Em caso de incidente de segurança que afete dados pessoais:</p>
+<ul>
+  <li>Notificamos a autoridade reguladora dentro do prazo legal (72h LGPD/GDPR · 30 dias conforme o país).</li>
+  <li>Notificamos os usuários afetados pelo WhatsApp e email quando aplicável.</li>
+  <li>Publicamos detalhes em <a href="https://zymplo.com/security/">/security/</a> (quando relevante).</li>
+</ul>
+
+<h2>8. Auditoria e publicações</h2>
+<ul>
+  <li>Logs de auditoria LGPD-compliant (R7 · R55) · retenção mínima de 5 anos.</li>
+  <li>Relatório anual de transparência · publicado todo 31 de março.</li>
+  <li>Relatório de respostas a autoridades · publicado todo 30 de junho.</li>
+</ul>
+
+<h2>9. DPO e contato regulatório</h2>
+<ul>
+  <li>Contato do DPO: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a></li>
+  <li>Legal counsel: <a href="mailto:legal@zymplo.com">legal@zymplo.com</a></li>
+  <li>Inscrição ANPD Brasil · UY URCDP · ES AEPD · etc · pendente / completa conforme o país (consulte o caso específico)</li>
+</ul>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Voltar para zymplo.com</a> · <a href="/legal/privacy/">Privacidade</a> · <a href="/legal/terms/">Termos</a> · <a href="/legal/cookies/">Cookies</a> · <a href="/legal/delete-account/">Excluir conta</a></p>
+</footer>
