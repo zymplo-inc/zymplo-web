@@ -1,10 +1,17 @@
 ---
 const title = 'Zymplo · Tu secretaria IA en WhatsApp · 14 países · 3 idiomas';
 const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. Disponible en 14 países y 3 idiomas: BR · MX · US · CO · ES · AR · PY y más.';
-// ⚠️ ROTO Y PENDIENTE · ver la nota en CountryLayout.astro: sims está detrás de
-// Cloudflare Access y esto devuelve 302 al login, así que la portada se comparte
-// sin imagen de preview. Falta la .png real en `public/brand/og/`.
-const ogImage = 'https://sims.zymplo.com/web/og/global.png';
+// Autohospedada · ver la nota larga en `CountryLayout.astro`.
+//
+// ⚠️ Deuda declarada aparte: el apex `zymplo.com` NO se sirve del mismo origen
+// que los subdominios de país. Medido 2026-07-31 20:51Z — el HTML del apex es
+// distinto (md5 `d6f59dd8` vs `19a6b930`), todavía referencia `sims.zymplo.com`
+// y `zymplo.com/brand/*` da 404 incluso salteando la caché. O sea que esta
+// imagen recién se va a ver cuando el apex también sirva ESTE build.
+//
+// No es urgente: `zymplo.com/` redirige 302 al subdominio del país, así que un
+// crawler termina leyendo el `og:image` de la página de país, que sí funciona.
+const ogImage = 'https://zymplo.com/brand/og/zymplo.png';
 ---
 <!doctype html>
 <html lang="es">
