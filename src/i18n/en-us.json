@@ -3,30 +3,30 @@
     "product": "Product",
     "pricing": "Pricing",
     "integrations": "Integrations",
-    "solutions": "Solutions",
+    "solutions": "Compare",
     "resources": "Resources",
     "login": "Sign in",
     "cta": "Start free",
     "theme_toggle": "Toggle theme"
   },
   "hero": {
-    "eyebrow": "Your AI secretary on WhatsApp",
-    "headline_a": "Charge, organize, invoice. All in WhatsApp.",
-    "headline_b": "WhatsApp with AI. Built for your business.",
-    "headline_c": "All your work. On WhatsApp.",
+    "eyebrow": "Leave it to Zymplo",
+    "headline_a": "Zymplo invoices, reminds and follows up.",
+    "headline_b": "Your WhatsApp now closes the job.",
+    "headline_c": "You do the work. Zymplo collects.",
     "rotate": [
-      "Get paid effortlessly",
-      "Send invoices from WhatsApp",
-      "Organize your schedule in chat",
-      "See exactly what came in this month"
+      "Zymplo collects for you",
+      "Zymplo sends the invoice in chat",
+      "Zymplo confirms the schedule",
+      "Zymplo tells you what came in"
     ],
-    "subline": "Your AI assistant. No app, no signup. Just conversation.",
-    "subline_premium": "Invoicing, payments, scheduling, and taxes — all handled by an AI inside your WhatsApp.",
-    "subline_bold": "Zymplo handles it. You get your time back.",
-    "trust": "Built for businesses like yours",
+    "subline": "Collected, confirmed, invoiced. You just chat.",
+    "subline_premium": "Payments, invoices and scheduling: Zymplo does it and pings you on WhatsApp.",
+    "subline_bold": "Zymplo chases the payment. You get your time back.",
+    "trust": "Built for electricians, plumbers, hair stylists",
     "persona_badge": "example",
-    "subheadline_ai": "Your life simpler · just chatting · no app · no signup",
-    "cta_microcopy": "Free forever · Start in under 10 seconds",
+    "subheadline_ai": "You text · Zymplo does it · pings you when it's done",
+    "cta_microcopy": "Free forever · starts with your first 'hi'",
     "stats": [
       {
         "value": "14",
@@ -57,8 +57,8 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "Traditional ERP",
-        "AI CRMs for WhatsApp",
+        "Traditional systems",
+        "WhatsApp bots",
         "Personal AI assistants"
       ],
       "rows": [
@@ -138,31 +138,31 @@
       "disclaimer": "Trademarks mentioned are property of their respective owners. Comparison based on publicly available information. For informational purposes only · no denigration or commercial association implied.",
       "eyebrow": "vs · all current competition"
     },
-    "headline_d": "All your work. Simpler. On WhatsApp.",
-    "subline_d": "Charge, schedule clients, reply to questions and organize everything by chatting. Nothing to install. Nothing new to learn.",
-    "cta_primary_v2": "Try FREE on WhatsApp",
+    "headline_d": "You do the job. Zymplo closes it.",
+    "subline_d": "You fix the wiring, cut the hair, stop the leak. Chasing the payment is Zymplo's job.",
+    "cta_primary_v2": "Message Zymplo on WhatsApp",
     "cta_demo_v2": "Watch demo · 47s",
     "fomo_bar": "Early access · be one of the first businesses on Zymplo",
     "superpowers": [
       {
         "icon": "💰",
-        "title": "Auto-collections",
-        "desc": "Reminders without typing a word"
+        "title": "Collects for you",
+        "desc": "Reminds the client, tells you when they pay"
       },
       {
         "icon": "📄",
-        "title": "Invoices in 3 seconds",
-        "desc": "Right from chat · no login"
+        "title": "Sends the invoice",
+        "desc": "Ready in chat · no paperwork"
       },
       {
         "icon": "📊",
-        "title": "I answer anything",
-        "desc": "Ask anything · instant reply"
+        "title": "Tells you what came in",
+        "desc": "And who still owes you · just ask"
       },
       {
         "icon": "📅",
-        "title": "Smart scheduling",
-        "desc": "Clients and reminders on autopilot"
+        "title": "Confirms your schedule",
+        "desc": "Clients reminded before every slot"
       }
     ],
     "demo_lines": [
@@ -312,10 +312,10 @@
         "time": "11:14 PM"
       }
     ],
-    "tagline_warm": "Zymplo handles it. You get your time back.",
+    "tagline_warm": "Zymplo chases the payment. You get your time back.",
     "trust_strip_label": "13 COUNTRIES · 1 SAME BOT",
     "cta_micro_main": "Free forever",
-    "cta_micro_sub": "Start in under 10 seconds"
+    "cta_micro_sub": "Starts with your first 'hi'"
   },
   "chat": {
     "title": "See how it works",
@@ -343,30 +343,30 @@
     ]
   },
   "features": {
-    "title": "Everything your business needs, in WhatsApp",
+    "title": "Zymplo does it. You get it finished.",
     "items": [
       {
         "icon": "💰",
-        "title": "Automatic payments",
-        "desc": "Send payment reminders without typing a word."
+        "title": "Collects for you",
+        "desc": "Sends payment reminders and tells you when money lands."
       },
       {
         "icon": "🧾",
-        "title": "Invoices in 3 seconds",
-        "desc": "Issue invoices from chat. No login, no certificate."
+        "title": "Sends the invoice",
+        "desc": "Ready in chat in seconds. No paperwork."
       },
       {
         "icon": "📊",
-        "title": "Financial summary",
-        "desc": "Know what came in and what's still pending."
+        "title": "Tells you what came in",
+        "desc": "And who still owes you. Just ask in chat."
       },
       {
         "icon": "📅",
-        "title": "Smart scheduling",
-        "desc": "Schedule clients, reminders, and taxes via WhatsApp."
+        "title": "Confirms your schedule",
+        "desc": "Reminds clients of their slot. Fewer no-shows."
       }
     ],
-    "eyebrow": "Features"
+    "eyebrow": "Work, done"
   },
   "tools": {
     "eyebrow": "100+ tools",
@@ -511,7 +511,7 @@
     "app_sub": "Coming soon",
     "app_eyebrow": "Coming soon",
     "app_title": "Native apps · iOS · Android",
-    "app_intro": "For now your account lives inside WhatsApp. The apps add notifications, dashboard and offline mode.",
+    "app_intro": "For now your account lives inside WhatsApp. The apps add alerts and offline mode.",
     "open_cta": "Open WhatsApp now",
     "soon_label": "Coming soon",
     "notify_label": "Notify me when launched",
@@ -553,7 +553,7 @@
   "video_testimonials": {
     "eyebrow": "Real stories",
     "title": "They got their time back",
-    "subtitle": "Real microentrepreneurs · 15-second clips · zero scripts.",
+    "subtitle": "Real people like you · 15-second clips · zero scripts.",
     "watch_label": "▶ Watch",
     "see_more": "See all stories",
     "items": []
@@ -696,8 +696,8 @@
       },
       {
         "n": "2",
-        "title": "Zymplo gets it",
-        "desc": "Figures out what you want, finds the client, sets it up in 1.2s."
+        "title": "Zymplo does it",
+        "desc": "Invoices, books or reminds. Pings you when it's done."
       },
       {
         "n": "✓",
@@ -720,9 +720,9 @@
       "All in your head"
     ],
     "con_items": [
-      "Automatic billing",
-      "Clean schedule",
-      "Clients handled",
+      "Zymplo collects",
+      "Zymplo confirms the schedule",
+      "Zymplo reminds clients",
       "All in WhatsApp"
     ]
   },

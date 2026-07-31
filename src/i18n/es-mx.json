@@ -3,30 +3,30 @@
     "product": "Producto",
     "pricing": "Precios",
     "integrations": "Integraciones",
-    "solutions": "Soluciones",
+    "solutions": "Comparar",
     "resources": "Recursos",
     "login": "Entrar",
     "cta": "Empezar gratis",
     "theme_toggle": "Cambiar tema"
   },
   "hero": {
-    "eyebrow": "Tu secretaria IA en WhatsApp",
-    "headline_a": "Cobra, organiza, factura. Todo en WhatsApp.",
-    "headline_b": "WhatsApp con IA. Listo para tu negocio.",
-    "headline_c": "Todo tu trabajo. En WhatsApp.",
+    "eyebrow": "Déjaselo a Zymplo",
+    "headline_a": "Zymplo cobra, recuerda y factura.",
+    "headline_b": "Tu WhatsApp ahora cierra el trabajo.",
+    "headline_c": "Tú trabajas. Zymplo cobra.",
     "rotate": [
-      "Cobra a clientes sin esfuerzo",
-      "Emite facturas desde WhatsApp",
-      "Organiza tu agenda en el chat",
-      "Mira cuánto entró en el mes"
+      "Zymplo cobra por ti",
+      "Zymplo emite la factura en el chat",
+      "Zymplo confirma la cita",
+      "Zymplo te dice cuánto entró"
     ],
-    "subline": "Tu asistente IA. Sin app, sin registro. Solo conversación.",
-    "subline_premium": "Cobros, facturas, agenda e impuestos — todo gestionado por una IA dentro de tu WhatsApp.",
-    "subline_bold": "Zymplo se encarga. Tú recuperas tu tiempo.",
-    "trust": "Hecho para negocios como el tuyo",
+    "subline": "Cobrado, confirmado y facturado. Tú solo conversas.",
+    "subline_premium": "Cobros, factura, agenda e impuestos: Zymplo lo hace y te avisa por WhatsApp.",
+    "subline_bold": "Zymplo persigue el pago. Tú recuperas tu tiempo.",
+    "trust": "Hecho para electricistas, plomeros y peluqueras",
     "persona_badge": "ejemplo",
-    "subheadline_ai": "Tu vida más simple · solo conversando · sin app · sin registro",
-    "cta_microcopy": "Gratis para siempre · Empiezas en menos de 10 segundos",
+    "subheadline_ai": "Tú mandas · Zymplo hace · te avisa cuando está listo",
+    "cta_microcopy": "Gratis para siempre · empieza con tu primer 'hola'",
     "stats": [
       {
         "value": "14",
@@ -57,8 +57,8 @@
     "comparison": {
       "headers": [
         "Zymplo",
-        "ERP Tradicional",
-        "CRMs con IA para WhatsApp",
+        "Sistema tradicional",
+        "Bots de WhatsApp",
         "Asistentes IA personales"
       ],
       "rows": [
@@ -138,31 +138,31 @@
       "disclaimer": "Las marcas mencionadas son propiedad de sus respectivos titulares. Comparación basada en información pública disponible. Fines informativos · sin denigración ni asociación comercial implícita.",
       "eyebrow": "vs · toda la competencia actual"
     },
-    "headline_d": "Todo tu trabajo. Más simple. En WhatsApp.",
-    "subline_d": "Cobra, agenda clientes, responde consultas y organiza todo hablando. Sin instalar nada. Sin aprender nada nuevo.",
-    "cta_primary_v2": "Probar GRATIS en WhatsApp",
+    "headline_d": "Tú haces el trabajo. Zymplo lo cierra.",
+    "subline_d": "Tú arreglas la instalación, cortas el pelo, destapas la tubería. De perseguir el pago se encarga Zymplo.",
+    "cta_primary_v2": "Escríbele a Zymplo en WhatsApp",
     "cta_demo_v2": "Ver demo · 47s",
     "fomo_bar": "Acceso anticipado · sé de los primeros negocios en Zymplo",
     "superpowers": [
       {
         "icon": "💰",
-        "title": "Cobros automáticos",
-        "desc": "Recordatorios sin escribir una palabra"
+        "title": "Cobra por ti",
+        "desc": "Le recuerda al cliente y te avisa cuando paga"
       },
       {
         "icon": "📄",
-        "title": "Facturas en 3 segundos",
-        "desc": "Desde el chat · sin certificado"
+        "title": "Emite la factura",
+        "desc": "Lista en el chat · sin certificado"
       },
       {
         "icon": "📊",
-        "title": "Te respondo todo",
-        "desc": "Pregúntale al instante · cualquier cosa"
+        "title": "Te dice cuánto entró",
+        "desc": "Y quién falta pagar · pregúntale cuando quieras"
       },
       {
         "icon": "📅",
-        "title": "Agenda inteligente",
-        "desc": "Clientes y recordatorios solos"
+        "title": "Confirma la agenda",
+        "desc": "Cliente avisado antes de cada cita"
       }
     ],
     "demo_lines": [
@@ -312,10 +312,10 @@
         "time": "23:14"
       }
     ],
-    "tagline_warm": "Zymplo se encarga. Tú recuperas tu tiempo.",
+    "tagline_warm": "Zymplo persigue el pago. Tú recuperas tu tiempo.",
     "trust_strip_label": "13 PAÍSES · 1 MISMO BOT",
     "cta_micro_main": "Gratis para siempre",
-    "cta_micro_sub": "Empiezas en menos de 10 segundos"
+    "cta_micro_sub": "Empieza con tu primer 'hola'"
   },
   "chat": {
     "title": "Mira cómo funciona",
@@ -343,30 +343,30 @@
     ]
   },
   "features": {
-    "title": "Todo lo que tu negocio necesita, en WhatsApp",
+    "title": "Zymplo lo hace. Tú lo recibes listo.",
     "items": [
       {
         "icon": "💰",
-        "title": "Cobros automáticos",
-        "desc": "Envía recordatorios de pago sin escribir una palabra."
+        "title": "Cobra por ti",
+        "desc": "Manda el recordatorio de pago y te avisa cuando entra la lana."
       },
       {
         "icon": "🧾",
-        "title": "Facturas en 3 segundos",
-        "desc": "Emite factura desde el chat. Sin login, sin certificado."
+        "title": "Emite la factura",
+        "desc": "Lista en el chat en segundos. Sin certificado."
       },
       {
         "icon": "📊",
-        "title": "Resumen financiero",
-        "desc": "Sabe cuánto entró y cuánto falta cobrar."
+        "title": "Te dice cuánto entró",
+        "desc": "Y quién falta pagar. Solo pregúntale en el chat."
       },
       {
         "icon": "📅",
-        "title": "Agenda inteligente",
-        "desc": "Agenda clientes, recordatorios e impuestos por WhatsApp."
+        "title": "Confirma tu agenda",
+        "desc": "Le recuerda la cita al cliente antes de la hora."
       }
     ],
-    "eyebrow": "Funciones"
+    "eyebrow": "Trabajo hecho"
   },
   "tools": {
     "eyebrow": "100+ herramientas",
@@ -510,7 +510,7 @@
     "app_sub": "Próximamente",
     "app_eyebrow": "Próximamente",
     "app_title": "Apps nativas · iOS · Android",
-    "app_intro": "Por ahora tu cuenta vive en WhatsApp. Las apps suman notificaciones, dashboard y modo offline.",
+    "app_intro": "Por ahora tu cuenta vive en WhatsApp. Las apps suman avisos y modo offline.",
     "open_cta": "Abrir WhatsApp ahora",
     "soon_label": "Próximamente",
     "notify_label": "Avísame cuando lance",
@@ -695,8 +695,8 @@
       },
       {
         "n": "2",
-        "title": "Zymplo lo entiende",
-        "desc": "Detecta lo que quieres, busca al cliente, prepara todo en 1.2s."
+        "title": "Zymplo lo hace",
+        "desc": "Cobra, agenda o factura. Y te avisa cuando está listo."
       },
       {
         "n": "✓",
@@ -719,9 +719,9 @@
       "Todo en la cabeza"
     ],
     "con_items": [
-      "Cobros automáticos",
-      "Agenda organizada",
-      "Clientes atendidos",
+      "Zymplo cobra",
+      "Zymplo confirma la agenda",
+      "Zymplo recuerda al cliente",
       "Todo en WhatsApp"
     ]
   },
