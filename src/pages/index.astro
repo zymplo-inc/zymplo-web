@@ -239,7 +239,11 @@ const ogImage = 'https://zymplo.com/brand/og/zymplo.png';
           <a class="btn primary" id="cta-primary" href="https://br.zymplo.com/">Empezar gratis →</a>
           <span class="btn-micro">Gratis · sin tarjeta · 7 días</span>
         </div>
-        <a class="btn outline" href="https://sims.zymplo.com/web/social/c-radical/">📱 Ver social templates</a>
+        {/* Acá había un botón "Ver social templates" apuntando a
+            `sims.zymplo.com`. Medido 2026-07-31 20:56Z: devuelve 302 al login de
+            Cloudflare Access, así que un visitante que hacía clic caía en una
+            pantalla de acceso. Además son plantillas internas de marketing, no
+            algo que se le ofrezca a un MEI que viene a probar el producto. */}
       </div>
 
       <div class="stats-row">
@@ -305,8 +309,11 @@ const ogImage = 'https://zymplo.com/brand/og/zymplo.png';
     <footer class="zf">
       <p>Zymplo © 2026 · Tu secretaria IA en WhatsApp · Hecho con ❤ para microempresarios LATAM + US.</p>
       <div class="links">
-        <a href="https://sims.zymplo.com/web/social/c-radical/">Social templates</a>
-        <a href="https://sims.zymplo.com/brand/2026-04-29_Brand-Field-Manual-V2.0/">Brand</a>
+        {/* "Social templates" y "Brand" salieron del pie: los dos apuntaban a
+            `sims.zymplo.com`, que está detrás de Cloudflare Access y devuelve
+            302 al login (medido 20:56Z). Son herramientas internas — el manual
+            de marca y las plantillas de social — que se filtraron al sitio
+            público. Quien las necesita entra a sims directo. */}
         {/* R102 NO-CONTIQ-FOREVER · Contiq B2B link removed (Path C migration 2026-05-07) */}
         <a href="mailto:info@zymplo.com">info@zymplo.com</a>
       </div>

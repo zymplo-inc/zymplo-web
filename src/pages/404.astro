@@ -50,7 +50,11 @@ const description = 'Esta página não existe. Mas a Zymplo continua trabalhando
       <p>Zymplo trabalha por você no WhatsApp · 14 países · 3 idiomas · 24/7. Voltar pra ação?</p>
       <div class="cta-row">
         <a class="btn primary" href="https://br.zymplo.com/">→ Voltar pra Zymplo</a>
-        <a class="btn outline" href="https://sims.zymplo.com/web/social/c-radical/">📱 Social templates</a>
+        {/* Se sacó el botón "Social templates": apuntaba a `sims.zymplo.com`,
+            que devuelve 302 al login (medido 20:56Z). Ofrecerle plantillas
+            internas de marketing a alguien que se perdió y cayó en un 404 —y
+            mandarlo a una pantalla de acceso— era doblemente malo. La única
+            salida que necesita es volver a Zymplo, que ya está al lado. */}
       </div>
       <div class="countries">
         <a href="https://br.zymplo.com/">🇧🇷 Brasil</a>
