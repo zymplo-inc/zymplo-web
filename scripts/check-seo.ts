@@ -20,6 +20,12 @@ const LOCALES = new Set(COUNTRY_SLUGS.map((s) => getCountry(s)!.locale));
 const SLUGS = new Set<string>(COUNTRY_SLUGS);
 const FORBIDDEN = ['12.847', '12,847']; // social-proof fabricado, purgado por R63 2026-06-09
 
+// Números de WhatsApp PROHIBIDOS de publicar (Carlos 2026-07-22 · ratificado
+// 2026-08-07): la regla es SOLO DOS — US 12027718788 global · BR 5511925697328.
+// Estos cinco son el canal PY deprecado, el DESA expirado, uno que nunca fue de
+// ningún canal (estuvo 3 meses como WA_NUMBER default) y dos números de test.
+const FORBIDDEN_NUMBERS = ['595981970735', '595974239990', '595976636900', '15556447935', '14155238886'];
+
 // Los legales del apex vienen en trío de idiomas (/legal/ es · /en/legal/ en ·
 // /pt/legal/ pt-BR) — un set de hreflang distinto al de países, y válido.
 const LEGAL_TRIO = new Set(['es', 'en', 'pt-BR']);
@@ -39,6 +45,12 @@ const APEX_LANG_PREFIXES = ['en/legal/', 'pt/legal/'];
 // Deuda declarada (GSC 2026-08-07): experimentos sin canónica ni noindex.
 const NO_CANONICAL_OK = new Set(['social/', 'social/c/', 'social/c-radical/']);
 
+// Espejo del worker `zymplo-country-proxy` (leído del script vivo vía CF API
+// 2026-08-07): estas rutas se sirven desde la RAÍZ del build en CUALQUIER
+// subdominio de país, así que un link a ellas nunca se resuelve contra /{cc}/.
+const SHARED_PREFIXES = ['/brand/', '/.well-known/', '/_astro/', '/emoji/', '/social/', '/videos/', '/legal/', '/pt/legal/', '/en/legal/', '/app/', '/lab/', '/icons/', '/fonts/', '/images/', '/preview/'];
+const SHARED_FILES = new Set(['/favicon.ico', '/favicon.svg', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/404.html', '/llms.txt', '/pricing.md', '/AGENTS.md', '/isotipo.svg', '/apple-touch-icon.png', '/og.png', '/og-image.png', '/logo-zymplo.svg']);
+
 const errors: string[] = [];
 let pages = 0;
 let withHreflang = 0;
@@ -50,10 +62,19 @@ const walk = (dir: string): string[] =>
     return name === 'index.html' ? [p] : [];
   });
 
+const walkAll = (dir: string): string[] =>
+  readdirSync(dir).flatMap((name) => {
+    const p = join(dir, name);
+    return statSync(p).isDirectory() ? walkAll(p) : [p];
+  });
+
 if (!existsSync(DIST)) {
   console.error('check-seo: no existe dist/ — correr `astro build` antes.');
   process.exit(1);
 }
+
+const distFiles = new Set(walkAll(DIST).map((p) => relative(DIST, p)));
+const brokenLinks: string[] = [];
 
 for (const file of walk(DIST)) {
   const rel = relative(DIST, file); // ej: py/precios/index.html
@@ -88,6 +109,24 @@ for (const file of walk(DIST)) {
 
   for (const bad of FORBIDDEN)
     if (html.includes(bad)) errors.push(`${rel}: contiene la cifra fabricada "${bad}"`);
+  for (const num of FORBIDDEN_NUMBERS)
+    if (html.includes(num)) errors.push(`${rel}: número de WhatsApp PROHIBIDO ${num}`);
+
+  // Links internos rotos: el footer viejo linkeaba 9 rutas que nunca existieron
+  // (/about/, /blog/, /careers/…) y Google acumuló 49 URLs en 404 (GSC 7-ago).
+  // Cada página del dist de un país se sirve en {slug}.zymplo.com/<resto>, así
+  // que un href interno se resuelve contra el directorio del país de la página.
+  const countryBase = SLUGS.has(first) && !APEX_LANG_PREFIXES.some((p) => dirPath.startsWith(p)) ? first : '';
+  if (!noindex)
+    for (const m of html.matchAll(/href="(\/[^"/][^"]*|\/)"/g)) {
+      const path = m[1].split('#')[0].split('?')[0];
+      if (!path || path.startsWith('/cdn-cgi/')) continue;
+      const fromRoot = SHARED_FILES.has(path) || SHARED_PREFIXES.some((p) => path.startsWith(p));
+      const resolved = (countryBase && !fromRoot ? `${countryBase}${path}` : path.slice(1)).replace(/\/+$/, '');
+      if (resolved === '' || resolved === countryBase) continue; // home siempre existe
+      if (!distFiles.has(resolved) && !distFiles.has(`${resolved}/index.html`))
+        brokenLinks.push(`${rel}: link roto → ${m[1]}`);
+    }
 }
 
 const sitemapPath = join(DIST, 'sitemap.xml');
@@ -107,6 +146,8 @@ if (!existsSync(sitemapPath)) {
   if (!locs.includes('https://zymplo.com/')) errors.push('sitemap.xml: falta el apex');
 }
 
+errors.push(...brokenLinks);
+
 if (errors.length) {
   console.error(`\n🔴 check-seo: ${errors.length} problema(s) en ${pages} páginas:\n`);
   for (const e of errors.slice(0, 40)) console.error('  · ' + e);
@@ -114,5 +155,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · sin cifras fabricadas`
+  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · 0 links internos rotos · sin cifras fabricadas ni números prohibidos`
 );
