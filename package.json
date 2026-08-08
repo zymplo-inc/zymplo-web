@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && tsx scripts/check-seo.ts",
     "preview": "astro preview",
     "astro": "astro",
     "validate:content": "tsx scripts/validate-content.ts",
