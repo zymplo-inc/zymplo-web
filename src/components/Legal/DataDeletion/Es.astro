@@ -1,0 +1,121 @@
+---
+// Contenido legal ES · Borrado de datos (Data Deletion Instructions).
+//
+// Es la URL que pide el panel de Meta para el App Review de Instagram/Facebook
+// Login ("Data Deletion Instructions URL"). Por eso lleva anclas propias
+// #instagram y #facebook: el revisor busca exactamente eso.
+//
+// Todo lo que dice está MEDIDO contra el código, no supuesto:
+//   · campos guardados al conectar → social_connections en
+//     zymplo-langgraph/migrations/030_social_connections.sql:47-69
+//     (external_id · display_name · scopes · token cifrado AES-256-GCM ·
+//      token_expires_at · status · connected_by_user_id)
+//   · qué pide Zymplo a Meta → MetaOAuthAdapter.ts:147 y
+//     InstagramOAuthAdapter.ts:176 (`fields`) → NO incluye foto de perfil
+//   · mensajes de IG Direct / Messenger → metaWebhookRoutes.ts:350-358 y :318-328
+//     guardan texto, quién escribe y el payload crudo en la tabla `leads`
+//   · borrar la cuenta → POST /api/v2/privacy/delete
+//     (zymplo-mobile/app/(tabs)/profile/delete-account.tsx:86)
+//   · 🔴 ese borrado NO purga `social_connections`: grep de
+//     social_connection|instagram|facebook sobre zymplo-api/src/modules/privacy/
+//     → 1 resultado y es un comentario · y la tabla no tiene FK a empresas
+//     (0 REFERENCES en la migración) → no hay cascada. Por eso la página dice
+//     en voz alta que ese borrado se pide por correo y se hace a mano.
+// Plazos: los de src/components/Legal/Privacy/Es.astro:84-89 (15 días hábiles ·
+// NFS-e 5 años · logs 90 días · backups 30 días).
+export const meta = {
+  title: 'Borrado de datos · Zymplo',
+  description:
+    'Cómo pedir que Zymplo borre tus datos, incluidos los que llegan desde Instagram y Facebook.',
+  lastUpdated: '2026-08-08',
+};
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Borrado de datos</h1>
+  <p class="meta">Última actualización: {meta.lastUpdated}</p>
+  <p class="meta">Español · <a href="https://zymplo.com/pt/legal/data-deletion/">Português</a> · <a href="https://zymplo.com/en/legal/data-deletion/">English</a></p>
+</header>
+
+<p>Acá te contamos qué guarda Zymplo y cómo pedir que lo borremos. Hay una sección aparte para lo que llega desde <a href="#instagram">Instagram</a> y desde <a href="#facebook">Facebook</a>.</p>
+
+<h2>Qué guardamos</h2>
+<p>Zymplo te ayuda a ordenar tu trabajo desde WhatsApp. Guardamos:</p>
+<ul>
+  <li>Tu número de WhatsApp y tu nombre.</li>
+  <li>Los mensajes que intercambiás con el bot.</li>
+  <li>Lo que anotás: clientes, cobros, gastos, agendamientos y notas.</li>
+  <li>Las notas fiscales (NFS-e) que emitís en Brasil.</li>
+</ul>
+
+<h2 id="instagram">Instagram · qué guardamos si conectás tu cuenta</h2>
+<p>Conectar Instagram es opcional. Si lo conectás, guardamos:</p>
+<ul>
+  <li>El identificador de tu cuenta de Instagram y tu nombre de usuario público.</li>
+  <li>Los permisos que aceptaste al conectar.</li>
+  <li>Una llave de acceso, guardada cifrada, y su fecha de vencimiento.</li>
+  <li>Los mensajes directos que te escriben: el texto, el nombre o el identificador de quien escribe, y el aviso completo que nos manda Meta.</li>
+</ul>
+<p>No guardamos tu foto de perfil, tus publicaciones ni tu lista de seguidores.</p>
+
+<h2 id="facebook">Facebook · qué guardamos si conectás tu página</h2>
+<p>Conectar Facebook es opcional. Si lo conectás, guardamos:</p>
+<ul>
+  <li>El identificador de tu página de Facebook y su nombre público.</li>
+  <li>Los permisos que aceptaste al conectar.</li>
+  <li>Una llave de acceso, guardada cifrada, y su fecha de vencimiento.</li>
+  <li>Los mensajes de Messenger que te escriben: el texto, el nombre o el identificador de quien escribe, y el aviso completo que nos manda Meta.</li>
+</ul>
+<p>No guardamos tu foto de perfil, tus publicaciones ni tu lista de amigos.</p>
+
+<h2>Cómo pedir el borrado</h2>
+
+<h3>Camino 1 · Por correo (sirve para todo, también para Instagram y Facebook)</h3>
+<div class="step">
+  <p><span class="step-num">1</span> Escribinos a <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a> con el asunto <strong>"Borrado de datos"</strong>.</p>
+  <p><span class="step-num">2</span> Decinos qué querés borrar: todo, o sólo lo de Instagram o Facebook.</p>
+  <p><span class="step-num">3</span> Sumá tu número de WhatsApp de Zymplo y, si aplica, tu usuario de Instagram o el nombre de tu página de Facebook.</p>
+  <p>Borramos la conexión (identificador, nombre público, permisos y llave de acceso) y los mensajes que llegaron por ese canal.</p>
+</div>
+
+<h3>Camino 2 · Desde la app (borra tu cuenta Zymplo)</h3>
+<div class="step">
+  <p><span class="step-num">1</span> Abrí la app Zymplo y entrá a <strong>Perfil</strong>.</p>
+  <p><span class="step-num">2</span> Tocá <strong>Eliminar mi cuenta</strong> y confirmá.</p>
+</div>
+<div class="box-warning">
+  <strong>Ojo:</strong> hoy el borrado desde la app no alcanza a la conexión con Instagram o Facebook ni a los mensajes que llegaron por ahí. Para borrar eso, pedilo por correo (camino 1): lo hacemos a mano y te lo confirmamos.
+</div>
+
+<h3>Además · cortá el acceso desde Meta</h3>
+<div class="box">
+  <p><strong>Instagram:</strong> abrí Instagram → Configuración → Sitios web y apps → sacá a Zymplo.</p>
+  <p><strong>Facebook:</strong> abrí Facebook → Configuración y privacidad → Configuración → Apps y sitios web → sacá a Zymplo.</p>
+  <p>Esto corta al instante el envío de mensajes nuevos a Zymplo. Por sí solo no borra lo que ya estaba guardado: para eso, el pedido de arriba.</p>
+</div>
+
+<h2>En cuánto tiempo</h2>
+<ul>
+  <li>Te confirmamos el pedido en hasta <strong>15 días hábiles</strong> (LGPD · GDPR).</li>
+  <li>El borrado queda hecho en hasta <strong>30 días</strong> desde tu pedido.</li>
+  <li>Las copias de seguridad cifradas se destruyen 30 días después del borrado.</li>
+</ul>
+
+<h2>Qué queda guardado, y por cuánto</h2>
+<ul>
+  <li><strong>Notas fiscales (NFS-e) emitidas en Brasil:</strong> 5 años, por obligación fiscal. No podemos borrarlas. Quedan atadas a un identificador anónimo.</li>
+  <li><strong>Registros técnicos anonimizados:</strong> 90 días, por seguridad y prevención de fraude.</li>
+  <li><strong>Copias de seguridad cifradas:</strong> 30 días después del borrado.</li>
+</ul>
+
+<div class="box-warning">
+  <strong>Es irreversible.</strong> Una vez hecho el borrado no podemos recuperar tus datos. Si querés quedarte con una copia, pedinos un export por correo antes.
+</div>
+
+<h2>Preguntas</h2>
+<p>Escribinos a <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Volver a zymplo.com</a> · <a href="/legal/privacy/">Política de privacidad</a> · <a href="/legal/delete-account/">Eliminar mi cuenta</a></p>
+</footer>

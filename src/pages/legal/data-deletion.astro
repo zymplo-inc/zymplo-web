@@ -1,0 +1,31 @@
+---
+// /legal/data-deletion/ · apex ES. URL que se le entrega a Meta en el App Review
+// ("Data Deletion Instructions URL") para Instagram/Facebook Login.
+//
+// Reusa LegalCountryLayout + el fragmento de contenido, igual que las páginas de
+// src/pages/[country]/legal/*.astro, para que el texto viva UNA sola vez por
+// idioma (las 5 páginas legales viejas del apex duplican el contenido y el CSS a
+// mano — no se replica esa duplicación en una página nueva).
+//
+// hreflang = el trío de idiomas del apex (es · pt-BR · en), el mismo set que
+// scripts/check-seo.ts acepta como LEGAL_TRIO.
+import LegalCountryLayout from '@layouts/LegalCountryLayout.astro';
+import Content, { meta } from '@components/Legal/DataDeletion/Es.astro';
+
+const canonical = 'https://zymplo.com/legal/data-deletion/';
+const hreflangs = [
+  { hreflang: 'es', href: 'https://zymplo.com/legal/data-deletion/' },
+  { hreflang: 'pt-BR', href: 'https://zymplo.com/pt/legal/data-deletion/' },
+  { hreflang: 'en', href: 'https://zymplo.com/en/legal/data-deletion/' },
+  { hreflang: 'x-default', href: 'https://zymplo.com/legal/data-deletion/' },
+];
+---
+<LegalCountryLayout
+  lang="es"
+  title={meta.title}
+  description={meta.description}
+  canonical={canonical}
+  hreflangs={hreflangs}
+>
+  <Content />
+</LegalCountryLayout>
