@@ -1,0 +1,23 @@
+---
+// /pt/legal/data-deletion/ · apex PT-BR. Ver src/pages/legal/data-deletion.astro
+// para el porqué del layout compartido y del set de hreflang.
+import LegalCountryLayout from '@layouts/LegalCountryLayout.astro';
+import Content, { meta } from '@components/Legal/DataDeletion/Pt.astro';
+
+const canonical = 'https://zymplo.com/pt/legal/data-deletion/';
+const hreflangs = [
+  { hreflang: 'es', href: 'https://zymplo.com/legal/data-deletion/' },
+  { hreflang: 'pt-BR', href: 'https://zymplo.com/pt/legal/data-deletion/' },
+  { hreflang: 'en', href: 'https://zymplo.com/en/legal/data-deletion/' },
+  { hreflang: 'x-default', href: 'https://zymplo.com/legal/data-deletion/' },
+];
+---
+<LegalCountryLayout
+  lang="pt-BR"
+  title={meta.title}
+  description={meta.description}
+  canonical={canonical}
+  hreflangs={hreflangs}
+>
+  <Content />
+</LegalCountryLayout>
