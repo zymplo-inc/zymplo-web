@@ -265,8 +265,14 @@ export const LEGAL_COUNTRY_SLUGS = COUNTRY_SLUGS.filter((s) => s !== 'pt');
 
 export const EU_SLUGS: CountrySlug[] = ['es'];
 
-// WhatsApp Business number for signup CTAs (Zymplo onboarding)
-export const WA_NUMBER = '595981970735';
+// SOLO DOS números de WhatsApp (Carlos 2026-07-22 · ratificado 2026-08-07):
+// US +1 202 771 8788 atiende TODOS los países · BR +55 11 92569-7328 exclusivo
+// Brasil. El canal PY quedó sin efecto, y el 595 981 970735 que estaba acá
+// NUNCA fue de ningún canal — todo CTA que apuntara ahí caía al vacío.
+export const WA_NUMBER = '12027718788';
+export const WA_NUMBER_BR = '5511925697328';
+export const waNumberFor = (slug: CountrySlug): string =>
+  slug === 'br' ? WA_NUMBER_BR : WA_NUMBER;
 const WA_TEXT: Record<CountrySlug, string> = {
   br: 'Olá! Quero começar com Zymplo grátis.',
   mx: '¡Hola! Quiero empezar con Zymplo gratis.',
@@ -285,7 +291,7 @@ const WA_TEXT: Record<CountrySlug, string> = {
 export const waLink = (slug: CountrySlug, planLabel?: string): string => {
   const baseText = WA_TEXT[slug] ?? WA_TEXT.br;
   const text = planLabel ? `${baseText} (${planLabel})` : baseText;
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${waNumberFor(slug)}?text=${encodeURIComponent(text)}`;
 };
 
 // Social profiles (Zymplo official · global brand)
@@ -314,8 +320,7 @@ export const LEGAL = {
   cookies: '/legal/cookies/',
   compliance: '/legal/compliance/',
   delete_account: '/legal/delete-account/',
-  lgpd: '/legal/lgpd/',
-  contact: '/contact/',
+  contact: 'mailto:info@zymplo.com',
   press: 'mailto:press@zymplo.com',
   support: 'mailto:support@zymplo.com',
 } as const;

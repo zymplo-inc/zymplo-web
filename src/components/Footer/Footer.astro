@@ -35,8 +35,11 @@ const socials: Array<{ name: string; href: string; svg: string }> = [
       <p class="mt-4 text-xs text-paper/40">💛 {f.warm_made ?? 'hecho con calidez en LATAM'}</p>
     </div>
 
-    <!-- Link wrapper · 9 cols con 5-col equal grid interno (responsive: 2/3/5) · 4 items por col · simetría perfecta -->
-    <div class="md:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
+    <!-- Link wrapper · 9 cols con 4-col equal grid interno (responsive: 2/3/4).
+         Sólo links a páginas que EXISTEN: el footer viejo linkeaba 9 rutas
+         inexistentes (/about/ /blog/ /careers/ …) y Google juntó 49 URLs en 404
+         (GSC 7-ago). El candado check-seo se pone rojo si vuelve una. -->
+    <div class="md:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
       <!-- Producto -->
       <div>
         <div class="text-[11px] font-bold uppercase tracking-widest text-paper/90 mb-4">{f.section_product ?? 'Producto'}</div>
@@ -52,10 +55,8 @@ const socials: Array<{ name: string; href: string; svg: string }> = [
       <div>
         <div class="text-[11px] font-bold uppercase tracking-widest text-paper/90 mb-4">{f.section_company ?? 'Empresa'}</div>
         <ul class="space-y-2.5 text-sm">
-          <li><a href="/about/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_about ?? 'Sobre nosotros'}</a></li>
-          <li><a href="/blog/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_blog ?? 'Blog'}</a></li>
           <li><a href={LEGAL.press} class="text-paper/65 hover:text-turquesa-light transition">{f.link_press ?? 'Prensa'}</a></li>
-          <li><a href="/careers/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_careers ?? 'Carreras'}</a></li>
+          <li><a href={LEGAL.contact} class="text-paper/65 hover:text-turquesa-light transition">{f.link_contact ?? 'Contacto'}</a></li>
         </ul>
       </div>
 
@@ -64,20 +65,7 @@ const socials: Array<{ name: string; href: string; svg: string }> = [
         <div class="text-[11px] font-bold uppercase tracking-widest text-paper/90 mb-4">{f.section_support ?? 'Soporte'}</div>
         <ul class="space-y-2.5 text-sm">
           <li><a href={LEGAL.support} class="text-paper/65 hover:text-turquesa-light transition">{f.link_help ?? 'Centro de ayuda'}</a></li>
-          <li><a href={LEGAL.contact} class="text-paper/65 hover:text-turquesa-light transition">{f.link_contact ?? 'Contacto'}</a></li>
-          <li><a href="/status/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_status ?? 'Status'}</a></li>
-          <li><a href="/security/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_security ?? 'Seguridad'}</a></li>
-        </ul>
-      </div>
-
-      <!-- Recursos · ahora 4 items (R93q · agregada Novedades · más warm que Changelog dev-y) -->
-      <div>
-        <div class="text-[11px] font-bold uppercase tracking-widest text-paper/90 mb-4">{f.section_resources ?? 'Recursos'}</div>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="/integrations/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_integrations ?? 'Integraciones'}</a></li>
-          <li><a href="/developers/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_developers ?? 'Devs'}</a></li>
-          <li><a href="/community/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_community ?? 'Comunidad'}</a></li>
-          <li><a href="/changelog/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_news ?? 'Novedades'}</a></li>
+          <li><a href="/precios/" class="text-paper/65 hover:text-turquesa-light transition">{f.link_pricing ?? 'Precios'}</a></li>
         </ul>
       </div>
 
