@@ -129,6 +129,15 @@ for (const file of walk(DIST)) {
     }
 }
 
+// Los números prohibidos también viajan en los bundles de las islands (props
+// serializadas del cliente) — el barrido cubre TODO el dist, no sólo los HTML.
+for (const f of distFiles)
+  if (/\.(js|mjs|json|xml|txt|webmanifest|css)$/.test(f)) {
+    const c = readFileSync(join(DIST, f), 'utf8');
+    for (const num of FORBIDDEN_NUMBERS)
+      if (c.includes(num)) errors.push(`${f}: número de WhatsApp PROHIBIDO ${num}`);
+  }
+
 const sitemapPath = join(DIST, 'sitemap.xml');
 if (!existsSync(sitemapPath)) {
   errors.push('dist/sitemap.xml: NO EXISTE');
