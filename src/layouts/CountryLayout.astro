@@ -23,7 +23,13 @@ const trust = dict.hero.trust;
 
 const pageTitle = title ?? `Zymplo · ${headlineC} ${country.flag}`;
 const pageDesc = description ?? `${subAI} · ${trust} · ${country.name}.`;
-const canonical = canonicalProp ?? `https://${slug}.zymplo.com/`;
+// El default es la URL pública PROPIA de la página, no el home: Astro renderiza
+// en `/{slug}/ruta/` y el country-proxy la sirve como `{slug}.zymplo.com/ruta/`.
+// Con el default anterior (`https://${slug}.zymplo.com/`), toda página que no
+// pasara `canonical` le declaraba a Google "indexá la portada, no a mí" —
+// 70 páginas (precios · onboarding · v2 · v3 · legacy × 14 países) auto-excluidas.
+const ownPath = Astro.url.pathname.replace(new RegExp(`^/${slug}(?=/|$)`), '') || '/';
+const canonical = canonicalProp ?? `https://${slug}.zymplo.com${ownPath}`;
 // Autohospedada, mismo origen que la página. Antes apuntaba a
 // `sims.zymplo.com/web/og/{slug}.png`, que está detrás de Cloudflare Access y
 // devolvía 302 al login para cualquier crawler: medido 2026-07-31 20:48Z, los

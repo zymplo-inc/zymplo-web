@@ -1,4 +1,6 @@
 ---
+import { COUNTRY_SLUGS, getCountry } from '@data/countries';
+
 const title = 'Zymplo · Tu secretaria IA en WhatsApp · 14 países · 3 idiomas';
 const description = 'Cobra · factura · organiza · agenda · todo dentro de WhatsApp. Sin app, sin signup. Disponible en 14 países y 3 idiomas: BR · MX · US · CO · ES · AR · PY y más.';
 // Autohospedada · ver la nota larga en `CountryLayout.astro`.
@@ -32,13 +34,11 @@ const ogImage = 'https://zymplo.com/brand/og/zymplo.png';
     <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="alternate" hreflang="pt-BR" href="https://br.zymplo.com/" />
-    <link rel="alternate" hreflang="es-MX" href="https://mx.zymplo.com/" />
-    <link rel="alternate" hreflang="en-US" href="https://us.zymplo.com/" />
-    <link rel="alternate" hreflang="es-CO" href="https://co.zymplo.com/" />
-    <link rel="alternate" hreflang="es-ES" href="https://es.zymplo.com/" />
-    <link rel="alternate" hreflang="es-AR" href="https://ar.zymplo.com/" />
-    <link rel="alternate" hreflang="es-PY" href="https://py.zymplo.com/" />
+    {/* Generado de COUNTRY_SLUGS — la lista harcodeada quedó en 8 países cuando
+        ya eran 14, y el apex contradecía el hreflang de los subdominios. */}
+    {COUNTRY_SLUGS.map((s) => (
+      <link rel="alternate" hreflang={getCountry(s)!.locale} href={`https://${s}.zymplo.com/`} />
+    ))}
     <link rel="alternate" hreflang="x-default" href="https://zymplo.com/" />
 
     <meta property="og:type" content="website" />
