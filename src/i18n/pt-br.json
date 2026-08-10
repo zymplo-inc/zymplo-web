@@ -454,7 +454,7 @@
       },
       {
         "q": "É seguro? Meus dados ficam protegidos?",
-        "a": "Sim. LGPD compliant, criptografia ponta-a-ponta, dados hospedados no Brasil. Nenhum cliente vê dados de outro."
+        "a": "Sim. Seguimos a LGPD, com criptografia em trânsito e isolamento entre clientes. Nenhum cliente vê dados de outro."
       },
       {
         "q": "E se eu não gostar?",
@@ -615,7 +615,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "100% LGPD compliant"
+        "text": "Construído para a LGPD"
       },
       {
         "icon": "💚",

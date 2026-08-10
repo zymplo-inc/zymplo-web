@@ -455,7 +455,7 @@
       },
       {
         "q": "Is it secure? Is my data protected?",
-        "a": "Yes. CCPA/GDPR compliant, end-to-end encryption. No client sees another client's data."
+        "a": "Yes. We follow CCPA/GDPR, with encryption in transit and isolation between clients. No client sees another client's data."
       },
       {
         "q": "What if I don't like it?",
