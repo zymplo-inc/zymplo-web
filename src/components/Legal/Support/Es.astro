@@ -10,6 +10,14 @@ export const meta = {
   lastUpdated: '2026-08-18',
 };
 const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, necesito ayuda con Zymplo.')}`;
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde se
+// renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex de
+// idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo contexto,
+// otro documento" tiene que pasar por acá. Esta página nació en el PR #27,
+// DESPUÉS del arreglo del #28, y por eso quedó con los links pelados: el
+// candado de `check-seo` la cazó al deployar (build failure 16:45 -03).
+export interface Props { base: string }
+const { base } = Astro.props;
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -40,12 +48,12 @@ const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, necesito
 <p>En Brasil, le pedís a Zymplo por el WhatsApp que emita la nota (NFS-e) de un cobro y la genera por vos. Si te falta algún dato fiscal, Zymplo te dice exactamente cuál para que quede lista.</p>
 
 <h3>¿Cómo borro mi cuenta?</h3>
-<p>Podés borrar tu cuenta y todos tus datos cuando quieras. Está todo explicado, paso a paso, en <a href="/legal/delete-account/">Eliminar mi cuenta</a>.</p>
+<p>Podés borrar tu cuenta y todos tus datos cuando quieras. Está todo explicado, paso a paso, en <a href={`${base}/legal/delete-account/`}>Eliminar mi cuenta</a>.</p>
 
 <h3>¿Puedo hablar con una persona?</h3>
 <p>Sí. Escribinos a <a href="mailto:support@zymplo.com">support@zymplo.com</a> o por <a href={wa}>WhatsApp</a> y te atiende alguien del equipo, no un robot.</p>
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
-  <p><a href="/">Volver a zymplo.com</a> · <a href="/legal/privacy/">Política de privacidad</a> · <a href="/legal/terms/">Términos</a> · <a href="/legal/delete-account/">Eliminar cuenta</a></p>
+  <p><a href="/">Volver a zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Política de privacidad</a> · <a href={`${base}/legal/terms/`}>Términos</a> · <a href={`${base}/legal/delete-account/`}>Eliminar cuenta</a></p>
 </footer>
