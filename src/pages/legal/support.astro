@@ -1,0 +1,24 @@
+---
+// feat(web): página de soporte · apex ES (zymplo.com/legal/support/).
+// Reusa el mismo layout + fragment que las páginas por país (@components/Legal/Support/Es),
+// con el trío de hreflang de idioma del apex (es · pt-BR · en) como el resto de /legal/*.
+import LegalCountryLayout from '@layouts/LegalCountryLayout.astro';
+import ContentEs, { meta } from '@components/Legal/Support/Es.astro';
+
+const canonical = 'https://zymplo.com/legal/support/';
+const hreflangs = [
+  { hreflang: 'es', href: 'https://zymplo.com/legal/support/' },
+  { hreflang: 'pt-BR', href: 'https://zymplo.com/pt/legal/support/' },
+  { hreflang: 'en', href: 'https://zymplo.com/en/legal/support/' },
+  { hreflang: 'x-default', href: 'https://zymplo.com/legal/support/' },
+];
+---
+<LegalCountryLayout
+  lang="es"
+  title={meta.title}
+  description={meta.description}
+  canonical={canonical}
+  hreflangs={hreflangs}
+>
+  <ContentEs />
+</LegalCountryLayout>

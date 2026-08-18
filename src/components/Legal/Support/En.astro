@@ -1,0 +1,51 @@
+---
+// EN content · Help & support · fragment reused by the apex (src/pages/en/legal/support.astro)
+// and by each country via src/pages/[country]/legal/support.astro (same pattern as DeleteAccount/*).
+// Relative internal /legal/... links = country-proxy shared prefix: they resolve to the subdomain's
+// language at runtime and exist at the dist root (they do not break check-seo).
+import { WA_NUMBER } from '@data/countries';
+export const meta = {
+  title: 'Help & support · Zymplo',
+  description: 'How to get help with Zymplo: reach us on WhatsApp or by email, and see answers to the most common questions.',
+  lastUpdated: '2026-08-18',
+};
+const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hi! I need help with Zymplo.')}`;
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Help &amp; support</h1>
+  <p class="meta">Last updated: {meta.lastUpdated}</p>
+  <p class="meta"><a href="https://zymplo.com/legal/support/">Español</a> · <a href="https://zymplo.com/pt/legal/support/">Português</a> · English</p>
+</header>
+
+<p>We're here to help. If something isn't working or you have a question, reach out: we reply fast, on the same WhatsApp you already use.</p>
+
+<div class="box">
+  <p><strong>Message us on WhatsApp</strong> (fastest): <a href={wa}>open a chat with Zymplo</a>.</p>
+  <p><strong>Or by email:</strong> <a href="mailto:support@zymplo.com">support@zymplo.com</a> · we reply within 24 business hours.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+
+<h3>How do I get started with Zymplo?</h3>
+<p>Zymplo lives inside your WhatsApp — there's nothing awkward to install. Send the bot a message and follow the steps: you'll be up and running in a minute. If you downloaded the app, you sign in with the same WhatsApp number.</p>
+
+<h3>How do I connect my WhatsApp?</h3>
+<p>When you sign up, a confirmation message arrives on WhatsApp. You confirm with a button and that's it: from there Zymplo helps you organize your clients and your payments. If the message never arrived, double-check the number is correct and get in touch.</p>
+
+<h3>How do I charge a client?</h3>
+<p>You tell Zymplo who to charge and how much, and it builds the payment message with the payment link ready to send. It also reminds you when a client hasn't paid yet, so no one slips through.</p>
+
+<h3>How do I issue an invoice?</h3>
+<p>In Brazil, you ask Zymplo on WhatsApp to issue the invoice (NFS-e) for a payment and it generates it for you. If any tax detail is missing, Zymplo tells you exactly which one so the invoice comes out right.</p>
+
+<h3>How do I delete my account?</h3>
+<p>You can delete your account and all your data whenever you want. It's all explained, step by step, in <a href="/legal/delete-account/">Delete my account</a>.</p>
+
+<h3>Can I talk to a person?</h3>
+<p>Yes. Write to <a href="mailto:support@zymplo.com">support@zymplo.com</a> or message us on <a href={wa}>WhatsApp</a> and someone on the team will help you — not a robot.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Back to zymplo.com</a> · <a href="/legal/privacy/">Privacy Policy</a> · <a href="/legal/terms/">Terms</a> · <a href="/legal/delete-account/">Delete account</a></p>
+</footer>
