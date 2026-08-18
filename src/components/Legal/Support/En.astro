@@ -10,6 +10,14 @@ export const meta = {
   lastUpdated: '2026-08-18',
 };
 const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hi! I need help with Zymplo.')}`;
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde se
+// renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex de
+// idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo contexto,
+// otro documento" tiene que pasar por acá. Esta página nació en el PR #27,
+// DESPUÉS del arreglo del #28, y por eso quedó con los links pelados: el
+// candado de `check-seo` la cazó al deployar (build failure 16:45 -03).
+export interface Props { base: string }
+const { base } = Astro.props;
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -40,12 +48,12 @@ const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hi! I need hel
 <p>In Brazil, you ask Zymplo on WhatsApp to issue the invoice (NFS-e) for a payment and it generates it for you. If any tax detail is missing, Zymplo tells you exactly which one so the invoice comes out right.</p>
 
 <h3>How do I delete my account?</h3>
-<p>You can delete your account and all your data whenever you want. It's all explained, step by step, in <a href="/legal/delete-account/">Delete my account</a>.</p>
+<p>You can delete your account and all your data whenever you want. It's all explained, step by step, in <a href={`${base}/legal/delete-account/`}>Delete my account</a>.</p>
 
 <h3>Can I talk to a person?</h3>
 <p>Yes. Write to <a href="mailto:support@zymplo.com">support@zymplo.com</a> or message us on <a href={wa}>WhatsApp</a> and someone on the team will help you — not a robot.</p>
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
-  <p><a href="/">Back to zymplo.com</a> · <a href="/legal/privacy/">Privacy Policy</a> · <a href="/legal/terms/">Terms</a> · <a href="/legal/delete-account/">Delete account</a></p>
+  <p><a href="/">Back to zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Privacy Policy</a> · <a href={`${base}/legal/terms/`}>Terms</a> · <a href={`${base}/legal/delete-account/`}>Delete account</a></p>
 </footer>

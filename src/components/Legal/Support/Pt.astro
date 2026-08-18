@@ -10,6 +10,14 @@ export const meta = {
   lastUpdated: '2026-08-18',
 };
 const wa = `https://wa.me/${WA_NUMBER_BR}?text=${encodeURIComponent('Olá! Preciso de ajuda com o Zymplo.')}`;
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde se
+// renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex de
+// idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo contexto,
+// otro documento" tiene que pasar por acá. Esta página nació en el PR #27,
+// DESPUÉS del arreglo del #28, y por eso quedó con los links pelados: el
+// candado de `check-seo` la cazó al deployar (build failure 16:45 -03).
+export interface Props { base: string }
+const { base } = Astro.props;
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -40,12 +48,12 @@ const wa = `https://wa.me/${WA_NUMBER_BR}?text=${encodeURIComponent('Olá! Preci
 <p>É só pedir ao Zymplo pelo WhatsApp pra emitir a nota (NFS-e) de um cobro, que ele gera pra você. Se faltar algum dado fiscal, o Zymplo te diz exatamente qual, pra a nota sair certinha.</p>
 
 <h3>Como eu excluo minha conta?</h3>
-<p>Você pode excluir sua conta e todos os seus dados quando quiser. Está tudo explicado, passo a passo, em <a href="/legal/delete-account/">Excluir minha conta</a>.</p>
+<p>Você pode excluir sua conta e todos os seus dados quando quiser. Está tudo explicado, passo a passo, em <a href={`${base}/legal/delete-account/`}>Excluir minha conta</a>.</p>
 
 <h3>Posso falar com uma pessoa?</h3>
 <p>Pode sim. Escreva para <a href="mailto:support@zymplo.com">support@zymplo.com</a> ou chame no <a href={wa}>WhatsApp</a> que alguém do time te atende, não um robô.</p>
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
-  <p><a href="/">Voltar para zymplo.com</a> · <a href="/legal/privacy/">Política de privacidade</a> · <a href="/legal/terms/">Termos</a> · <a href="/legal/delete-account/">Excluir conta</a></p>
+  <p><a href="/">Voltar para zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Política de privacidade</a> · <a href={`${base}/legal/terms/`}>Termos</a> · <a href={`${base}/legal/delete-account/`}>Excluir conta</a></p>
 </footer>
