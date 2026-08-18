@@ -1,13 +1,26 @@
 ---
 // EN legal content · Privacy Policy · copied verbatim from src/pages/en/legal/privacy.astro
-// Mechanical adjustments only (NOT meaning): language switcher → absolute zymplo.com URLs,
-// same-language internal links go from /en/legal/... to bare /legal/... since the
-// country is already encoded in the subdomain under /[country]/legal/*.
+// Language switcher uses absolute zymplo.com URLs so it works the same embedded
+// under any country subdomain.
+// 🔴 FIXED 2026-08-18 (FUEGO 5): this comment used to claim same-language internal
+// links could stay bare (/legal/...) because "the country is already encoded in the
+// subdomain" — that was never measured and was FALSE. Measured 2026-08-18 15:52 -03:
+// br.zymplo.com/legal/privacy/ returns <html lang="es">, not pt-BR. All those links
+// now go through `base` (see below).
 export const meta = {
   title: 'Privacy Policy · Zymplo',
   description: 'How Zymplo collects, uses and protects your personal data. LGPD · GDPR · CCPA compliance.',
   lastUpdated: '2026-07-27',
 };
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
+// se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
+// de idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo
+// contexto, otro documento" tiene que pasar por acá — un valor fijo tipo
+// '/legal/...' ignora el contexto y manda siempre al documento en español
+// del apex (medido 2026-08-18: br.zymplo.com/legal/privacy/ → lang=es).
+export interface Props { base: string }
+const { base } = Astro.props;
+
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -17,7 +30,7 @@ export const meta = {
 </header>
 
 <div class="box">
-  <strong>Quick summary:</strong> Zymplo receives your WhatsApp messages to process them with AI and return useful responses (reminders · payment collection · invoices · etc). We do not sell your data · we do not share it with advertising third parties · you can delete your account whenever you want at <a href="/legal/delete-account/">/legal/delete-account/</a>.
+  <strong>Quick summary:</strong> Zymplo receives your WhatsApp messages to process them with AI and return useful responses (reminders · payment collection · invoices · etc). We do not sell your data · we do not share it with advertising third parties · you can delete your account whenever you want at <a href={`${base}/legal/delete-account/`}>/legal/delete-account/</a>.
 </div>
 
 <h2>1. Who operates Zymplo</h2>
@@ -91,7 +104,7 @@ export const meta = {
 <ul>
   <li><strong>Access:</strong> request a copy of all your data.</li>
   <li><strong>Rectification:</strong> correct inaccurate data.</li>
-  <li><strong>Deletion ("right to be forgotten"):</strong> see <a href="/legal/delete-account/">/legal/delete-account/</a>.</li>
+  <li><strong>Deletion ("right to be forgotten"):</strong> see <a href={`${base}/legal/delete-account/`}>/legal/delete-account/</a>.</li>
   <li><strong>Portability:</strong> export your data in JSON.</li>
   <li><strong>Objection:</strong> refuse non-essential uses.</li>
   <li><strong>Withdrawal of consent:</strong> at any time without affecting prior processing.</li>
@@ -120,5 +133,5 @@ export const meta = {
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664. For users in Brazil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · local LGPD controller · Fortaleza CE</p>
-  <p><a href="/">Back to zymplo.com</a> · <a href="/legal/terms/">Terms of Service</a> · <a href="/legal/delete-account/">Delete account</a></p>
+  <p><a href="/">Back to zymplo.com</a> · <a href={`${base}/legal/terms/`}>Terms of Service</a> · <a href={`${base}/legal/delete-account/`}>Delete account</a></p>
 </footer>

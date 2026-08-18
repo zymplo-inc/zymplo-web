@@ -5,6 +5,15 @@ export const meta = {
   description: 'Zymplo regulatory compliance in each country of operation: LGPD · GDPR · CCPA · LFPDPPP · etc.',
   lastUpdated: '2026-05-04',
 };
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
+// se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
+// de idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo
+// contexto, otro documento" tiene que pasar por acá — un valor fijo tipo
+// '/legal/...' ignora el contexto y manda siempre al documento en español
+// del apex (medido 2026-08-18: br.zymplo.com/legal/privacy/ → lang=es).
+export interface Props { base: string }
+const { base } = Astro.props;
+
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -73,7 +82,7 @@ export const meta = {
 <ul>
   <li>Access their data · request a copy</li>
   <li>Correct inaccurate data</li>
-  <li>Delete their account and associated data (<a href="/legal/delete-account/">/legal/delete-account/</a>)</li>
+  <li>Delete their account and associated data (<a href={`${base}/legal/delete-account/`}>/legal/delete-account/</a>)</li>
   <li>Portability · export in JSON</li>
   <li>Object to non-essential uses</li>
   <li>Withdraw consent without affecting prior processing</li>
@@ -111,5 +120,5 @@ export const meta = {
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
-  <p><a href="/">Back to zymplo.com</a> · <a href="/legal/privacy/">Privacy</a> · <a href="/legal/terms/">Terms</a> · <a href="/legal/cookies/">Cookies</a> · <a href="/legal/delete-account/">Delete account</a></p>
+  <p><a href="/">Back to zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Privacy</a> · <a href={`${base}/legal/terms/`}>Terms</a> · <a href={`${base}/legal/cookies/`}>Cookies</a> · <a href={`${base}/legal/delete-account/`}>Delete account</a></p>
 </footer>

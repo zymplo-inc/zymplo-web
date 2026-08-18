@@ -29,6 +29,15 @@ export const meta = {
     'Cómo pedir que Zymplo borre tus datos, incluidos los que llegan desde Instagram y Facebook.',
   lastUpdated: '2026-08-08',
 };
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
+// se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
+// de idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo
+// contexto, otro documento" tiene que pasar por acá — un valor fijo tipo
+// '/legal/...' ignora el contexto y manda siempre al documento en español
+// del apex (medido 2026-08-18: br.zymplo.com/legal/privacy/ → lang=es).
+export interface Props { base: string }
+const { base } = Astro.props;
+
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -117,5 +126,5 @@ export const meta = {
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
-  <p><a href="/">Volver a zymplo.com</a> · <a href="/legal/privacy/">Política de privacidad</a> · <a href="/legal/delete-account/">Eliminar mi cuenta</a></p>
+  <p><a href="/">Volver a zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Política de privacidad</a> · <a href={`${base}/legal/delete-account/`}>Eliminar mi cuenta</a></p>
 </footer>

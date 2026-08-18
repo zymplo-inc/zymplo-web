@@ -1,14 +1,26 @@
 ---
 // Contenido legal PT-BR · Política de privacidade · copiado verbatim de src/pages/pt/legal/privacy.astro
-// Ajustes mecánicos (NO de significado): switcher de idioma → URLs absolutas zymplo.com,
-// y los links internos "mismo idioma, otro doc" pasan de /pt/legal/... a /legal/...
-// (bare) porque bajo /[country]/legal/* el país ya está en el subdominio, no hace
-// falta el prefijo /pt/. Texto legal 100% sin cambios.
+// Ajuste mecánico (NO de significado): switcher de idioma → URLs absolutas zymplo.com.
+// Texto legal 100% sin cambios.
+// 🔴 CORREGIDO 2026-08-18 (FUEGO 5): este comentario decía que los links internos
+// "mismo idioma, otro doc" podían pasar a /legal/... bare "porque bajo
+// /[country]/legal/* el país ya está en el subdominio, no hace falta el prefijo" —
+// NUNCA se midió y era FALSO. Medido 2026-08-18 15:52 -03: br.zymplo.com/legal/privacy/
+// devuelve <html lang="es">, no pt-BR. Ahora todos esos links usan `base` (ver abajo).
 export const meta = {
   title: 'Política de privacidade · Zymplo',
   description: 'Como o Zymplo coleta, usa e protege seus dados pessoais. LGPD · GDPR · CCPA compliance.',
   lastUpdated: '2026-07-27',
 };
+// OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
+// se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
+// de idioma, '/{slug}' bajo /[country]/legal/*. Todo link interno "mismo
+// contexto, otro documento" tiene que pasar por acá — un valor fijo tipo
+// '/legal/...' ignora el contexto y manda siempre al documento en español
+// del apex (medido 2026-08-18: br.zymplo.com/legal/privacy/ → lang=es).
+export interface Props { base: string }
+const { base } = Astro.props;
+
 ---
 <header>
   <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
@@ -18,7 +30,7 @@ export const meta = {
 </header>
 
 <div class="box">
-  <strong>Resumo rápido:</strong> o Zymplo recebe suas mensagens do WhatsApp para processá-las com IA e devolver respostas úteis (lembretes · cobranças · notas fiscais · etc). Não vendemos seus dados · não compartilhamos com terceiros publicitários · você pode excluir sua conta quando quiser em <a href="/legal/delete-account/">/legal/delete-account/</a>.
+  <strong>Resumo rápido:</strong> o Zymplo recebe suas mensagens do WhatsApp para processá-las com IA e devolver respostas úteis (lembretes · cobranças · notas fiscais · etc). Não vendemos seus dados · não compartilhamos com terceiros publicitários · você pode excluir sua conta quando quiser em <a href={`${base}/legal/delete-account/`}>/legal/delete-account/</a>.
 </div>
 
 <h2>1. Quem opera o Zymplo</h2>
@@ -92,7 +104,7 @@ export const meta = {
 <ul>
   <li><strong>Acesso:</strong> peça uma cópia de todos os seus dados.</li>
   <li><strong>Retificação:</strong> corrigir dados incorretos.</li>
-  <li><strong>Exclusão ("direito ao esquecimento"):</strong> ver <a href="/legal/delete-account/">/legal/delete-account/</a>.</li>
+  <li><strong>Exclusão ("direito ao esquecimento"):</strong> ver <a href={`${base}/legal/delete-account/`}>/legal/delete-account/</a>.</li>
   <li><strong>Portabilidade:</strong> exportar seus dados em JSON.</li>
   <li><strong>Oposição:</strong> recusar usos não essenciais.</li>
   <li><strong>Revogação do consentimento:</strong> a qualquer momento sem afetar tratamentos anteriores.</li>
@@ -121,5 +133,5 @@ export const meta = {
 
 <footer>
   <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664. Para usuários no Brasil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · controladora local LGPD · Fortaleza CE</p>
-  <p><a href="/">Voltar para zymplo.com</a> · <a href="/legal/terms/">Termos de serviço</a> · <a href="/legal/delete-account/">Excluir conta</a></p>
+  <p><a href="/">Voltar para zymplo.com</a> · <a href={`${base}/legal/terms/`}>Termos de serviço</a> · <a href={`${base}/legal/delete-account/`}>Excluir conta</a></p>
 </footer>

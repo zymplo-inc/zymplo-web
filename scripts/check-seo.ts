@@ -10,6 +10,11 @@
  *   2 · todo set de hreflang == los 14 locales (± x-default) — ni uno menos
  *   3 · sitemap sólo con hosts de la propiedad sc-domain:zymplo.com
  *   4 · cero cifras fabricadas (R63) en el HTML
+ *   5 · FUEGO 5 (2026-08-18) · ningún link legal de cara al usuario (footer,
+ *       header, breadcrumbs, cross-link dentro del documento, canonical,
+ *       hreflang o cualquier tag con href) queda con la ruta fija del apex ES
+ *       (`/legal/{doc}/`) dentro de una página de país o de idioma — ver el
+ *       bloque "FUEGO 5" más abajo para la forma exacta del defecto y por qué.
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -83,6 +88,12 @@ for (const file of walk(DIST)) {
 
   const dirPath = rel === 'index.html' ? '' : rel.slice(0, -'/index.html'.length) + '/';
   const [first, ...restParts] = dirPath.split('/');
+  // FUEGO 5: ¿es esta página uno de los 12 documentos standalone del
+  // apex-idioma (en/legal/{doc}/, pt/legal/{doc}/)? `ownLegalDoc` es el doc
+  // propio de la página cuando aplica (usado más abajo).
+  const parts0En = first === 'en' && restParts[0] === 'legal';
+  const parts0Pt = first === 'pt' && restParts[0] === 'legal';
+  const ownLegalDoc = (parts0En || parts0Pt) ? restParts[1] : '';
   const expected =
     ALIASES[dirPath] ??
     (SLUGS.has(first) && !APEX_LANG_PREFIXES.some((p) => dirPath.startsWith(p))
@@ -122,11 +133,49 @@ for (const file of walk(DIST)) {
       const path = m[1].split('#')[0].split('?')[0];
       if (!path || path.startsWith('/cdn-cgi/')) continue;
       const fromRoot = SHARED_FILES.has(path) || SHARED_PREFIXES.some((p) => path.startsWith(p));
-      const resolved = (countryBase && !fromRoot ? `${countryBase}${path}` : path.slice(1)).replace(/\/+$/, '');
+      // FUEGO 5 (2026-08-18): un href puede venir YA con su propio prefijo de
+      // país (p.ej. /{slug}/legal/{doc}/ — a propósito, porque el
+      // country-proxy NO resuelve /legal/ por subdominio, medido 2026-08-18
+      // 15:52 -03). Sin esto, el resolver de abajo lo duplicaba
+      // (`${countryBase}${path}` = /ar/ar/legal/terms/) y marcaba roto un
+      // link que en realidad apunta bien.
+      const selfPrefixed = countryBase !== '' && (path === `/${countryBase}` || path.startsWith(`/${countryBase}/`));
+      const resolved = (countryBase && !fromRoot && !selfPrefixed ? `${countryBase}${path}` : path.slice(1)).replace(/\/+$/, '');
       if (resolved === '' || resolved === countryBase) continue; // home siempre existe
       if (!distFiles.has(resolved) && !distFiles.has(`${resolved}/index.html`))
         brokenLinks.push(`${rel}: link roto → ${m[1]}`);
     }
+
+  // FUEGO 5 (2026-08-18) · candado país/idioma en links legales.
+  //
+  // Forma del defecto: un link interno a un documento legal hermano (privacy,
+  // terms, cookies, compliance, delete-account, data-deletion) construido con
+  // la ruta fija del apex ES (`/legal/{doc}/`), servido dentro de una página
+  // que vive bajo su propio prefijo de país (`/{cc}/...`) o de idioma
+  // (`/en/legal/`, `/pt/legal/`). Medido en producción 2026-08-18 15:52 -03
+  // con control 404: ese link bare SIEMPRE resuelve al documento en español,
+  // sin importar el país/idioma real de quien lo lee —
+  // br.zymplo.com/legal/privacy/ → <html lang="es">, br.zymplo.com/br/legal/
+  // privacy/ → <html lang="pt-BR">. El switcher de idioma legítimo usa
+  // SIEMPRE una URL absoluta con host (https://zymplo.com/...), nunca bare —
+  // así que cualquier href bare "/legal/{doc}/" que sobreviva en el dist de
+  // una página de país es, por construcción, el bug. El regex no distingue
+  // tag: caza <a>, <link> canonical/hreflang o cualquier otro con href.
+  for (const m of html.matchAll(/href="\/legal\/(privacy|terms|cookies|compliance|delete-account|data-deletion)\/"/g)) {
+    const linkedDoc = m[1];
+    if (parts0En || parts0Pt) {
+      // Único caso legítimo: las 10 páginas standalone del apex-idioma
+      // (en/legal/*, pt/legal/*, excepto data-deletion) tienen su PROPIO
+      // switcher bare hacia Español — pero SÓLO hacia el MISMO documento.
+      // Cualquier OTRO documento bare es el hermano encontrado en
+      // src/components/Legal/*/{Pt,En}.astro (p.ej. "Termos de serviço"
+      // apuntando a /legal/terms/ = español, dentro de la página PT).
+      if (linkedDoc === ownLegalDoc) continue;
+      errors.push(`${rel}: link a OTRO documento legal en español (bare) → href="/legal/${linkedDoc}/" — el switcher propio de esta página sólo puede ser bare hacia "${ownLegalDoc}"`);
+    } else if (SLUGS.has(first)) {
+      errors.push(`${rel}: link legal SIN prefijo de país (falta /${first}/) → href="/legal/${linkedDoc}/"`);
+    }
+  }
 }
 
 // Los números prohibidos también viajan en los bundles de las islands (props

@@ -313,13 +313,8 @@ export const BRAND = {
   manifest: '/manifest.webmanifest',
 } as const;
 
-// Legal pages (relative · same-country)
+// Contactos legales (mailto · no dependen de país, van sin prefijo siempre).
 export const LEGAL = {
-  terms: '/legal/terms/',
-  privacy: '/legal/privacy/',
-  cookies: '/legal/cookies/',
-  compliance: '/legal/compliance/',
-  delete_account: '/legal/delete-account/',
   contact: 'mailto:info@zymplo.com',
   press: 'mailto:press@zymplo.com',
   // Página de ayuda trilingüe (Apple Support URL) · antes era mailto:support@zymplo.com,
@@ -327,6 +322,27 @@ export const LEGAL = {
   // resuelve al idioma del subdominio). El email sigue estando dentro de la página.
   support: '/legal/support/',
 } as const;
+
+// FUEGO 5 (2026-08-18) · helper único para los 5 links legales de cara al
+// usuario (footer, y cualquier otro lugar que los necesite).
+//
+// Antes el footer usaba una ruta fija SIN prefijo de país (`/legal/privacy/`),
+// asumiendo que el country-proxy la resolvía contra el subdominio actual — la
+// MISMA asunción falsa que tenían los cross-links dentro de
+// `src/components/Legal/*` (ver el comentario corregido en Privacy/Es.astro).
+// Medido 2026-08-18 15:52 -03 con control 404 en br.zymplo.com:
+//   br.zymplo.com/legal/privacy/      → <html lang="es">   ❌ (bare, ROTO)
+//   br.zymplo.com/br/legal/privacy/   → <html lang="pt-BR"> ✅ (con prefijo)
+// El prefijo de país SÍ resuelve al idioma correcto — se midió en los 5
+// documentos, los 5 dieron el mismo patrón. Por eso todo link legal de cara
+// al usuario en contexto de país usa `/{slug}/legal/{doc}/`, nunca la ruta bare.
+export const legalLinks = (slug: CountrySlug) => ({
+  terms: `/${slug}/legal/terms/`,
+  privacy: `/${slug}/legal/privacy/`,
+  cookies: `/${slug}/legal/cookies/`,
+  compliance: `/${slug}/legal/compliance/`,
+  delete_account: `/${slug}/legal/delete-account/`,
+});
 
 // QR code generator (WhatsApp deep-link · brand colors via api.qrserver.com)
 // PNG (no SVG) · garantiza compat 100% iOS Safari/Chrome/Firefox/Edge mobile + desktop
