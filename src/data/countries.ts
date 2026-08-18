@@ -322,7 +322,10 @@ export const LEGAL = {
   delete_account: '/legal/delete-account/',
   contact: 'mailto:info@zymplo.com',
   press: 'mailto:press@zymplo.com',
-  support: 'mailto:support@zymplo.com',
+  // Página de ayuda trilingüe (Apple Support URL) · antes era mailto:support@zymplo.com,
+  // ahora apunta a la página real /legal/support/ (shared prefix del country-proxy → se
+  // resuelve al idioma del subdominio). El email sigue estando dentro de la página.
+  support: '/legal/support/',
 } as const;
 
 // QR code generator (WhatsApp deep-link · brand colors via api.qrserver.com)

@@ -1,0 +1,51 @@
+---
+// Contenido ES · Ayuda y soporte · fragment reutilizado por el apex (src/pages/legal/support.astro)
+// y por cada país vía src/pages/[country]/legal/support.astro (mismo patrón que DeleteAccount/*).
+// Links internos relativos /legal/... = shared prefix del country-proxy: se resuelven al idioma
+// del subdominio en runtime y existen en la raíz del dist (no rompen check-seo).
+import { WA_NUMBER } from '@data/countries';
+export const meta = {
+  title: 'Ayuda y soporte · Zymplo',
+  description: 'Cómo pedir ayuda con Zymplo: escribinos por WhatsApp o email y mirá las respuestas a las dudas más comunes.',
+  lastUpdated: '2026-08-18',
+};
+const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, necesito ayuda con Zymplo.')}`;
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>Ayuda y soporte</h1>
+  <p class="meta">Última actualización: {meta.lastUpdated}</p>
+  <p class="meta">Español · <a href="https://zymplo.com/pt/legal/support/">Português</a> · <a href="https://zymplo.com/en/legal/support/">English</a></p>
+</header>
+
+<p>Estamos para ayudarte. Si algo no anda o tenés una duda, escribinos: te respondemos rápido, por el mismo WhatsApp que ya usás.</p>
+
+<div class="box">
+  <p><strong>Escribinos por WhatsApp</strong> (lo más rápido): <a href={wa}>abrir chat con Zymplo</a>.</p>
+  <p><strong>O por email:</strong> <a href="mailto:support@zymplo.com">support@zymplo.com</a> · respondemos en menos de 24 horas hábiles.</p>
+</div>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>¿Cómo empiezo a usar Zymplo?</h3>
+<p>Zymplo vive dentro de tu WhatsApp, no hay nada raro que instalar. Mandale un mensaje al bot y seguí los pasos: en un minuto ya estás adentro. Si te bajaste la app, entrás con el mismo número de WhatsApp.</p>
+
+<h3>¿Cómo conecto mi WhatsApp?</h3>
+<p>Al registrarte te llega un mensaje de confirmación al WhatsApp. Confirmás con un botón y listo: desde ahí Zymplo te ayuda a organizar tus clientes y tus cobros. Si nunca te llegó, revisá que el número esté bien escrito y escribinos.</p>
+
+<h3>¿Cómo le cobro a un cliente?</h3>
+<p>Le decís a Zymplo a quién y cuánto le querés cobrar, y te arma el mensaje de cobro con el link de pago listo para enviar. También te avisa cuando un cliente todavía no te pagó, así no se te escapa ninguno.</p>
+
+<h3>¿Cómo emito una nota?</h3>
+<p>En Brasil, le pedís a Zymplo por el WhatsApp que emita la nota (NFS-e) de un cobro y la genera por vos. Si te falta algún dato fiscal, Zymplo te dice exactamente cuál para que quede lista.</p>
+
+<h3>¿Cómo borro mi cuenta?</h3>
+<p>Podés borrar tu cuenta y todos tus datos cuando quieras. Está todo explicado, paso a paso, en <a href="/legal/delete-account/">Eliminar mi cuenta</a>.</p>
+
+<h3>¿Puedo hablar con una persona?</h3>
+<p>Sí. Escribinos a <a href="mailto:support@zymplo.com">support@zymplo.com</a> o por <a href={wa}>WhatsApp</a> y te atiende alguien del equipo, no un robot.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Volver a zymplo.com</a> · <a href="/legal/privacy/">Política de privacidad</a> · <a href="/legal/terms/">Términos</a> · <a href="/legal/delete-account/">Eliminar cuenta</a></p>
+</footer>
