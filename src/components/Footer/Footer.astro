@@ -1,5 +1,5 @@
 ---
-import { COUNTRIES, COUNTRY_SLUGS, SOCIAL, LEGAL, BRAND, type CountrySlug } from '@data/countries';
+import { COUNTRIES, COUNTRY_SLUGS, SOCIAL, LEGAL, legalLinks, BRAND, type CountrySlug } from '@data/countries';
 import { getContent } from '@data/content';
 interface Props { slug: CountrySlug }
 const { slug } = Astro.props;
@@ -7,6 +7,9 @@ const c = COUNTRIES[slug];
 const dict = getContent(slug); // typed ContentSchema · Path C migration
 const f = dict.footer;
 const year = new Date().getFullYear();
+// FUEGO 5 (2026-08-18): los 5 links legales van con prefijo de país — ver el
+// porqué medido en el comentario de `legalLinks` en @data/countries.
+const legal = legalLinks(slug);
 
 // R93l · footer rebuilt world-class · 3/3 LLM convergence (Stripe+Linear+Vercel hybrid)
 const socials: Array<{ name: string; href: string; svg: string }> = [
@@ -73,11 +76,11 @@ const socials: Array<{ name: string; href: string; svg: string }> = [
       <div>
         <div class="text-[11px] font-bold uppercase tracking-widest text-paper/90 mb-4">{f.section_legal ?? 'Legal'}</div>
         <ul class="space-y-2.5 text-sm">
-          <li><a href={LEGAL.terms} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_terms ?? 'Términos'}</a></li>
-          <li><a href={LEGAL.privacy} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_privacy ?? 'Privacidad'}</a></li>
-          <li><a href={LEGAL.cookies} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_cookies ?? 'Cookies'}</a></li>
-          <li><a href={LEGAL.compliance} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_compliance ?? 'Cumplimiento'}</a></li>
-          <li><a href={LEGAL.delete_account} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_delete_account ?? 'Eliminar cuenta'}</a></li>
+          <li><a href={legal.terms} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_terms ?? 'Términos'}</a></li>
+          <li><a href={legal.privacy} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_privacy ?? 'Privacidad'}</a></li>
+          <li><a href={legal.cookies} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_cookies ?? 'Cookies'}</a></li>
+          <li><a href={legal.compliance} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_compliance ?? 'Cumplimiento'}</a></li>
+          <li><a href={legal.delete_account} class="text-paper/65 hover:text-turquesa-light transition">{f.legal_delete_account ?? 'Eliminar cuenta'}</a></li>
         </ul>
       </div>
     </div>
