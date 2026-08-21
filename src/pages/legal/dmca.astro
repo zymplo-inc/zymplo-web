@@ -1,0 +1,22 @@
+---
+// feat(web): página DMCA · apex ES (zymplo.com/legal/dmca/). Mismo layout + fragment que el resto de /legal/*.
+import LegalCountryLayout from '@layouts/LegalCountryLayout.astro';
+import Content, { meta } from '@components/Legal/Dmca/Es.astro';
+
+const canonical = 'https://zymplo.com/legal/dmca/';
+const hreflangs = [
+  { hreflang: 'es', href: 'https://zymplo.com/legal/dmca/' },
+  { hreflang: 'pt-BR', href: 'https://zymplo.com/pt/legal/dmca/' },
+  { hreflang: 'en', href: 'https://zymplo.com/en/legal/dmca/' },
+  { hreflang: 'x-default', href: 'https://zymplo.com/legal/dmca/' },
+];
+---
+<LegalCountryLayout
+  lang="es"
+  title={meta.title}
+  description={meta.description}
+  canonical={canonical}
+  hreflangs={hreflangs}
+>
+  <Content base={""} />
+</LegalCountryLayout>

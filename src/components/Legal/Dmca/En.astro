@@ -1,0 +1,53 @@
+---
+// EN content · DMCA · Designated Agent · fragment reused by the apex
+// (src/pages/en/legal/dmca.astro) and by the language apex.
+// Publishes the § 512(c)(2) information at its own stable URL: until today it
+// only lived inside /legal/compliance/ § 10, which is not where anyone looks.
+export const meta = {
+  title: 'DMCA · Designated Agent · Zymplo',
+  description: "Zymplo Inc.'s Designated Agent with the U.S. Copyright Office (DMCA-1077888), and how to send a takedown notice or a counter-notification.",
+  lastUpdated: '2026-08-21',
+};
+export interface Props { base: string }
+const { base } = Astro.props;
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>DMCA · Designated Agent</h1>
+  <p class="meta">Last updated: {meta.lastUpdated}</p>
+  <p class="meta"><a href="https://zymplo.com/legal/dmca/">Español</a> · <a href="https://zymplo.com/pt/legal/dmca/">Português</a> · English</p>
+</header>
+
+<p>Pursuant to <strong>17 U.S.C. § 512</strong>, Zymplo Inc. has designated an agent with the United States Copyright Office to receive notifications of claimed copyright infringement.</p>
+
+<h2>1. Designated Agent</h2>
+<ul>
+  <li><strong>Registration number:</strong> DMCA-1077888</li>
+  <li><strong>Agent:</strong> DMCA Agent · Zymplo Inc.</li>
+  <li><strong>Address:</strong> 131 Continental Dr, Ste 305, Newark, DE 19713-4324, United States</li>
+  <li><strong>Phone:</strong> +1 202-771-8788</li>
+  <li><strong>Email:</strong> <a href="mailto:support@zymplo.com">support@zymplo.com</a></li>
+</ul>
+<p>Alternate names covered by this registration: Zy · Zymplo · zymplo.com · www.zymplo.com · app.zymplo.com · br.zymplo.com</p>
+
+<h2>2. How to send a takedown notice</h2>
+<p>So that we can act on it, the notice must include the elements set out in <strong>§ 512(c)(3)</strong>:</p>
+<ul>
+  <li>A physical or electronic signature of the copyright owner or a person authorized to act on their behalf.</li>
+  <li>Identification of the copyrighted work claimed to have been infringed.</li>
+  <li>Identification of the material claimed to be infringing and information reasonably sufficient to let us locate it.</li>
+  <li>Contact information: name, address, telephone number and email address.</li>
+  <li>A statement of good faith belief that the use is not authorized by the copyright owner, its agent, or the law.</li>
+  <li>A statement, under penalty of perjury, that the information is accurate and that the signer is authorized to act on behalf of the owner.</li>
+</ul>
+
+<h2>3. Counter-notification</h2>
+<p>If your content was removed and you believe it was a mistake or a misidentification, you may send a counter-notification containing the elements of <strong>§ 512(g)(3)</strong> to the address above.</p>
+
+<h2>4. Repeat infringers</h2>
+<p>In accordance with <strong>§ 512(i)</strong>, Zymplo terminates, in appropriate circumstances, the accounts of subscribers who are repeat infringers.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Back to zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Privacy Policy</a> · <a href={`${base}/legal/terms/`}>Terms</a> · <a href={`${base}/legal/compliance/`}>Compliance</a></p>
+</footer>
