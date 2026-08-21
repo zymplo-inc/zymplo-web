@@ -1,0 +1,53 @@
+---
+// Contenido ES · DMCA · Agente Designado · fragment reutilizado por el apex
+// (src/pages/legal/dmca.astro) y por el apex de idioma (/en, /pt).
+// Publica la información del §512(c)(2) en una URL propia y estable: hasta hoy
+// sólo vivía dentro de /legal/compliance/ §10, que es donde nadie la busca.
+export const meta = {
+  title: 'DMCA · Agente Designado · Zymplo',
+  description: 'Agente Designado de Zymplo Inc. ante la Oficina de Copyright de EE.UU. (DMCA-1077888) y cómo enviar una notificación de retirada o una contra-notificación.',
+  lastUpdated: '2026-08-21',
+};
+export interface Props { base: string }
+const { base } = Astro.props;
+---
+<header>
+  <a href="https://zymplo.com/"><img src="/brand/isotipo.svg" alt="Zymplo" /></a>
+  <h1>DMCA · Agente Designado</h1>
+  <p class="meta">Última actualización: {meta.lastUpdated}</p>
+  <p class="meta">Español · <a href="https://zymplo.com/pt/legal/dmca/">Português</a> · <a href="https://zymplo.com/en/legal/dmca/">English</a></p>
+</header>
+
+<p>Conforme a <strong>17 U.S.C. § 512</strong>, Zymplo Inc. designó un agente ante la Oficina de Copyright de los Estados Unidos para recibir notificaciones de presunta infracción de derechos de autor.</p>
+
+<h2>1. Agente Designado</h2>
+<ul>
+  <li><strong>Número de registro:</strong> DMCA-1077888</li>
+  <li><strong>Agente:</strong> DMCA Agent · Zymplo Inc.</li>
+  <li><strong>Dirección:</strong> 131 Continental Dr, Ste 305, Newark, DE 19713-4324, Estados Unidos</li>
+  <li><strong>Teléfono:</strong> +1 202-771-8788</li>
+  <li><strong>Email:</strong> <a href="mailto:support@zymplo.com">support@zymplo.com</a></li>
+</ul>
+<p>Nombres alternativos cubiertos por este registro: Zy · Zymplo · zymplo.com · www.zymplo.com · app.zymplo.com · br.zymplo.com</p>
+
+<h2>2. Cómo enviar una notificación de retirada</h2>
+<p>Para que podamos actuar, la notificación debe incluir los elementos del <strong>§ 512(c)(3)</strong>:</p>
+<ul>
+  <li>Firma física o electrónica del titular del derecho o de quien lo represente.</li>
+  <li>Identificación de la obra protegida que se considera infringida.</li>
+  <li>Identificación del material que se denuncia y su ubicación exacta, para que podamos encontrarlo.</li>
+  <li>Datos de contacto: nombre, dirección, teléfono y email.</li>
+  <li>Declaración de buena fe de que el uso denunciado no está autorizado por el titular, su representante ni la ley.</li>
+  <li>Declaración, bajo pena de perjurio, de que la información es exacta y de que quien firma está autorizado a actuar en nombre del titular.</li>
+</ul>
+
+<h2>3. Contra-notificación</h2>
+<p>Si tu contenido fue retirado y considerás que fue un error o una identificación equivocada, podés enviar una contra-notificación con los elementos del <strong>§ 512(g)(3)</strong> a la misma dirección de arriba.</p>
+
+<h2>4. Infractores reincidentes</h2>
+<p>Conforme al <strong>§ 512(i)</strong>, Zymplo termina, en las circunstancias que correspondan, las cuentas de quienes infringen derechos de autor de forma reincidente.</p>
+
+<footer>
+  <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE</p>
+  <p><a href="/">Volver a zymplo.com</a> · <a href={`${base}/legal/privacy/`}>Política de privacidad</a> · <a href={`${base}/legal/terms/`}>Términos</a> · <a href={`${base}/legal/compliance/`}>Cumplimiento</a></p>
+</footer>
