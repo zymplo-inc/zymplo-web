@@ -17,6 +17,7 @@ import type { ContentSchema } from '@data/content-schema';
 import { DEFAULT_CONTENT } from './default';
 
 import ptBR from '@i18n/pt-br.json';
+import ptPT from '@i18n/pt-pt.json';
 import esMX from '@i18n/es-mx.json';
 import enUS from '@i18n/en-us.json';
 import esCO from '@i18n/es-co.json';
@@ -30,9 +31,20 @@ import esUY from '@i18n/es-uy.json';
 import esBO from '@i18n/es-bo.json';
 import esCR from '@i18n/es-cr.json';
 
+// 🔴 `pt` FALTABA ACÁ Y LA PÁGINA PORTUGUESA SALÍA EN ESPAÑOL.
+// Medido 2026-08-22 02:48 -03: pt.zymplo.com declaraba `lang="pt-PT"` y servía
+// «Vos trabajás. Zymplo cobra.» — español rioplatense — porque `MATRIX['pt']`
+// era `undefined` y caía al `?? DEFAULT_CONTENT`, que es el español de Paraguay.
+// El archivo `pt-pt.json` EXISTÍA con sus 197 claves traducidas: nunca se importó.
+//
+// `Record<CountrySlug, unknown>` exige las 14 claves y el compilador lo habría
+// cazado — pero este repo no tiene `typecheck` en `package.json` ni
+// `@astrojs/check` instalado, así que ese tipo nunca se compila. Un candado que
+// nadie ejecuta es una intención, no un candado: por eso el de verdad es la
+// comprobación en tiempo de EJECUCIÓN de `scripts/validate-content.ts`.
 const RAW: Record<CountrySlug, unknown> = {
   br: ptBR, mx: esMX, us: enUS, co: esCO, es: esES, ar: esAR, py: esPY,
-  pe: esPE, ec: esEC, cl: esCL, uy: esUY, bo: esBO, cr: esCR,
+  pe: esPE, ec: esEC, cl: esCL, uy: esUY, bo: esBO, cr: esCR, pt: ptPT,
 };
 
 /**
