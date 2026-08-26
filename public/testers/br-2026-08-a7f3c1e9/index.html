@@ -294,7 +294,7 @@
   <header class="hero">
     <h1>O que testar no Zymplo</h1>
     <p>
-      Vocês mandaram <strong>36 relatos</strong> em duas rodadas. A maioria já tem correção pronta e está
+      Vocês mandaram <strong>37 relatos</strong> em duas rodadas. A maioria já tem correção pronta e está
       nesta versão nova do app. Esta página lista, para cada coisa que vocês relataram, <strong>o que testar
       e o que tem que acontecer</strong> — e diz com franqueza o que ainda não está pronto.
     </p>
@@ -326,7 +326,7 @@
   <section class="person">
     <div class="person-head">
       <h2>Bárbara</h2>
-      <span>8 relatos</span>
+      <span>9 relatos</span>
     </div>
 
     <article class="item" id="b1">
@@ -352,23 +352,25 @@
     </article>
 
     <article class="item" id="b2">
-      <span class="tag t-go">Pode testar</span>
+      <span class="tag t-note">Confirmado por você · em andamento</span>
       <p class="said">«Ao baixar o app depois de atualizar, a mensagem inicial é esse código»</p>
       <p>
         Esse código é o que liga o app ao WhatsApp — o app manda sozinho, você não precisa fazer nada.
         O «não reconheço esse código» era um erro nosso: o nono dígito do celular brasileiro quebrava a
-        conexão e a mensagem culpava o código. Por isso na segunda vez funcionava.
+        conexão e a mensagem culpava o código. Essa parte está corrigida.
       </p>
-      <h4>O que testar</h4>
-      <ol>
-        <li>Conectar o WhatsApp e observar o código aparecer.</li>
-      </ol>
-      <div class="expect">
-        <b>Tem que acontecer</b>
-        <span>O código é aceito na primeira vez. Você concordou que ele aparecer sozinho fica estranho,
-        então vamos colocar uma explicação antes — isso ainda não está nesta versão.</span>
+      <p>
+        <strong>E você respondeu certo:</strong> «ele continua realmente aparecendo … até hoje 26/08 às
+        11:51h». O código continuar aparecendo é o esperado por enquanto — o que falta é a explicação
+        antes dele, para que não chegue do nada. Isso <strong>ainda não está feito</strong>, e é bom que
+        você tenha confirmado em vez de a gente supor.
+      </p>
+      <div class="expect warn">
+        <b>Nada para testar aqui</b>
+        <span>Não precisa voltar nessa. A gente te avisa quando a explicação estiver no app; aí sim vale
+        olhar se ela faz sentido para quem nunca viu esse código.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b2"> Testei</label>
+      <label class="mark"><input type="checkbox" data-c="b2"> Ok, entendi</label>
     </article>
 
     <article class="item" id="b3">
@@ -466,25 +468,48 @@
     </article>
 
     <article class="item" id="b8">
-      <span class="tag t-note">Preciso da sua ajuda</span>
+      <span class="tag t-go">Você achou · e era pior do que parecia</span>
       <p class="said">«O QR Code do site não direciona pro WhatsApp de primeira»</p>
       <p>
-        Aquele <strong>+595</strong> era um número antigo, corrigido no site desde 7 de agosto. E é aqui que
-        eu preciso de você: se o site já estava certo, o QR que você escaneou veio de outro lugar — e esse
-        outro lugar continua circulando.
+        <strong>Você tinha razão e eu estava olhando o site errado.</strong> Eu tinha checado
+        <em>zymplo.com/br</em>, que está certo. Você disse <em>zymplo.com.br</em> — e são
+        <strong>dois sites diferentes</strong>. Fui ver o que você indicou e o número antigo está lá,
+        exatamente como você descreveu, incluindo as três vezes no <em>#faq</em>.
       </p>
-      <h4>O que me ajuda</h4>
-      <ul>
-        <li>Você estava no site? Qual página?</li>
-        <li>Ou escaneou de outra tela, de um PDF, de um print que te mandaram, de algo impresso?</li>
-        <li>Mais ou menos que dia foi?</li>
-      </ul>
+      <p>
+        A causa: <em>zymplo.com.br</em> é uma publicação separada que ficou <strong>congelada numa
+        versão antiga</strong> do site. O código já estava corrigido; essa publicação nunca recebeu a
+        correção. Sem o endereço exato que você mandou a gente não ia achar — porque do nosso lado
+        tudo parecia certo.
+      </p>
+      <p>
+        E a mesma causa explica a outra coisa que você notou: «o teste demo … não está funcionando».
+        <strong>Essa versão antiga não tem o demo.</strong> Uma única republicação resolve o número e o
+        demo juntos.
+      </p>
       <div class="expect">
-        <b>Tem que acontecer</b>
-        <span>Se você ainda tiver a imagem ou o arquivo, me manda. Com isso eu tiro de circulação e não
-        acontece com mais ninguém.</span>
+        <b>O que acontece agora</b>
+        <span>Isso saiu das suas mãos: depende de republicar aquele site, que é uma tarefa de
+        infraestrutura. Quando estiver feito eu te aviso e você confere o QR do
+        <em>zymplo.com.br/#faq</em> — tem que abrir num número com +55.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b8"> Respondi</label>
+      <label class="mark"><input type="checkbox" data-c="b8"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="b9">
+      <span class="tag t-wait">Ainda não · mesma causa</span>
+      <p class="said">«O teste demo que aparece para clicar e ver uma demonstração de como funciona, não está funcionando»</p>
+      <p>
+        Isso apareceu junto com a sua resposta sobre o QR e vale como relato próprio. Confirmado: a
+        versão publicada em <em>zymplo.com.br</em> <strong>não inclui o componente do demo</strong> — ele
+        existe no site atual. Não é o demo que está quebrado, é aquela publicação que é velha.
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>Vai junto com a republicação do item anterior. Obrigado por ter gravado a tela — foi isso
+        que separou «o demo está com bug» de «essa página é antiga».</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b9"> Ok, entendi</label>
     </article>
   </section>
 
