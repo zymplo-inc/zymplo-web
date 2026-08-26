@@ -1,0 +1,55 @@
+name: Dominios vivos · números prohibidos
+
+# QUÉ VIGILA
+#
+# Que ningún dominio público esté SIRVIENDO un número de WhatsApp de la lista
+# prohibida. Distinto de `check-seo`, que corre en el build y valida el `dist`:
+# el artefacto de este repo. El 2026-08-26 una tester encontró 7 apariciones en
+# `zymplo.com.br` con el CI en verde durante semanas, porque ese dominio es una
+# publicación SEPARADA que quedó congelada en un build viejo.
+#
+# El repo puede estar impecable y esto rojo. Eso no es un falso positivo: es el
+# único aviso de que un dominio quedó atrás.
+#
+# POR QUÉ NO VA EN EL BUILD
+#
+# Pega contra internet. Adentro de `npm run build`, cualquier caída de red
+# rompería todos los builds y a la semana alguien lo saca del pipeline. Acá corre
+# solo, y si falla no bloquea a nadie que esté trabajando.
+#
+# ⚠️ Los workflows agendados corren desde la rama DEFAULT. Un arreglo a este
+# archivo que quede en una rama sin mergear no corre nunca.
+
+on:
+  schedule:
+    - cron: '25 11 * * *' # 11:25 UTC ~ 08:25 América/Asunción · una vez al día
+  workflow_dispatch: {}
+  # Al tocar la lista o el chequeo: valida el cambio sin esperar al día siguiente.
+  pull_request:
+    paths:
+      - 'src/data/numerosProhibidos.ts'
+      - 'scripts/check-dominios-vivos.ts'
+      - '.github/workflows/dominios-vivos.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dominios-vivos
+  cancel-in-progress: false
+
+jobs:
+  mirar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      # Sólo `tsx` y sus dependencias: no hace falta el árbol entero para pegarle
+      # a 16 URLs, y un `npm ci` de este repo son minutos.
+      - name: Instalar tsx
+        run: npm install --no-save tsx
+      - name: Mirar los dominios
+        run: npx tsx scripts/check-dominios-vivos.ts

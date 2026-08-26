@@ -11,7 +11,8 @@
     "astro": "astro",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:content:strict": "tsx scripts/validate-content.ts --strict",
-    "validate:content:diff": "tsx scripts/validate-content.ts --diff"
+    "validate:content:diff": "tsx scripts/validate-content.ts --diff",
+    "check:dominios": "tsx scripts/check-dominios-vivos.ts"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",

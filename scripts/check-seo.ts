@@ -19,6 +19,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { COUNTRY_SLUGS, getCountry } from '../src/data/countries';
+import { NUMEROS_PROHIBIDOS } from '../src/data/numerosProhibidos';
 
 const DIST = join(process.cwd(), 'dist');
 const LOCALES = new Set(COUNTRY_SLUGS.map((s) => getCountry(s)!.locale));
@@ -27,9 +28,14 @@ const FORBIDDEN = ['12.847', '12,847']; // social-proof fabricado, purgado por R
 
 // Números de WhatsApp PROHIBIDOS de publicar (Carlos 2026-07-22 · ratificado
 // 2026-08-07): la regla es SOLO DOS — US 12027718788 global · BR 5511925697328.
-// Estos cinco son el canal PY deprecado, el DESA expirado, uno que nunca fue de
-// ningún canal (estuvo 3 meses como WA_NUMBER default) y dos números de test.
-const FORBIDDEN_NUMBERS = ['595981970735', '595974239990', '595976636900', '15556447935', '14155238886'];
+//
+// 🔴 2026-08-26 · La lista se mudó a `src/data/numerosProhibidos.ts` y ya NO se
+// escribe acá. Este script valida el `dist` —el artefacto de ESTE repo— y una
+// tester encontró 7 apariciones sirviéndose en `zymplo.com.br`, que es una
+// publicación aparte. El candado nuevo (`check-dominios-vivos`) mira los
+// dominios; los dos leen la MISMA lista, porque copiarla era el defecto de
+// fondo. Ver el encabezado de ese archivo.
+const FORBIDDEN_NUMBERS = NUMEROS_PROHIBIDOS;
 
 // Los legales del apex vienen en trío de idiomas (/legal/ es · /en/legal/ en ·
 // /pt/legal/ pt-BR) — un set de hreflang distinto al de países, y válido.
