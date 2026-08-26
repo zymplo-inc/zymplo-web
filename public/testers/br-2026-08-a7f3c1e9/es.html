@@ -292,9 +292,9 @@
   <header class="hero">
     <h1>Qué probar en Zymplo</h1>
     <p>
-      Los testers de Brasil mandaron <strong>19 reportes</strong>. La mayoría ya tiene arreglo y está en esta
-      versión nueva de la app. Esta página dice, para cada cosa que reportaron, <strong>qué probar y qué
-      tiene que pasar</strong>.
+      Los testers de Brasil mandaron <strong>36 reportes</strong> en dos tandas. La mayoría ya tiene arreglo
+      y está en esta versión nueva de la app. Esta página dice, para cada cosa que reportaron, <strong>qué
+      probar y qué tiene que pasar</strong> — y dice sin vueltas lo que todavía no está.
     </p>
     <p>
       Si algo sigue mal, eso es justamente lo que necesitamos saber — vale más que un «funcionó».
@@ -799,6 +799,251 @@
       <label class="mark"><input type="checkbox" data-c="r3"> Ok</label>
     </article>
   </section>
+
+  <!-- ================= SEGUNDA TANDA ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Segunda tanda</h2>
+      <span>lo que llegó después</span>
+    </div>
+
+    <article class="item" id="s0">
+      <span class="tag t-note">Leer primero</span>
+      <p class="said">Estos reportes se hicieron sobre la versión anterior de la app</p>
+      <p>
+        Las capturas son de la madrugada del 26 y la versión nueva salió después. Tres de estos problemas
+        <strong>ya estaban corregidos</strong> cuando se reportaron — no es culpa de nadie, fue cuestión de
+        horario. Están marcados con «rehacer la prueba»: si siguen pasando en la versión nueva, ahí sí es un
+        problema de verdad.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s0"> Entendido</label>
+    </article>
+
+    <article class="item" id="s1">
+      <span class="tag t-go">Rehacer la prueba</span>
+      <p class="said">«O teclado do iPhone cobre o espaço do texto fazendo com que não consiga visualizar o que vamos escrever»</p>
+      <p>Corregido. Era el mismo defecto que reportó Euram en la pantalla de meta, y valía para todas.</p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>En «Novo recibo», escribir en la observación.</li>
+        <li>En cualquier otro campo largo de la app, lo mismo.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El campo sube y queda visible arriba del teclado. Si en alguna pantalla sigue tapado, hay que
+        saber cuál — significa que el arreglo no llegó a esa.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s1"> Probado</label>
+    </article>
+
+    <article class="item" id="s2">
+      <span class="tag t-go">Rehacer la prueba</span>
+      <p class="said">«Quando falta registrar alguma informação o app não mostra qual informação está pendente, temos que ir por exclusão»</p>
+      <p>Acertó el defecto y la solución junto. Corregido: un botón apagado tiene que decir qué le falta.</p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>En «Registrar gasto», dejar algo en blanco y tocar el botón apagado.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Dice <em>cuál</em> dato falta. Si sólo dice «completá los campos» sin señalar cuál, sigue
+        siendo el mismo problema.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s2"> Probado</label>
+    </article>
+
+    <article class="item" id="s3">
+      <span class="tag t-go">Rehacer la prueba</span>
+      <p class="said">«Registro falhou» · con el cartel «Sem internet · pode continuar» arriba</p>
+      <p>
+        La parte del error está corregida. Pero hay una segunda cosa para confirmar: ese cartel promete que
+        <em>se puede continuar</em> sin internet, y después el registro falla. Si eso sigue pasando, es un
+        problema aparte.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Sin internet, cargar una cuenta hasta el final.</li>
+        <li>Volver a tener internet y ver si quedó guardada.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>O guarda de verdad, o el cartel no promete que se puede seguir. Las dos cosas juntas, no.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s3"> Probado</label>
+    </article>
+
+    <article class="item" id="s4">
+      <span class="tag t-go">Corregido · se puede probar</span>
+      <p class="said">«Melhorar o uso da vírgula e ponto no registro de valores» · aparecía «3708400» y «799»</p>
+      <p>
+        Corregido en dos pantallas: «Nova conta» y «Novo pagamento». Ahora el número se agrupa mientras se
+        escribe, así que <strong>3708400</strong> se ve <strong>3.708.400</strong> y se lee sin contar ceros.
+      </p>
+      <p>
+        Sobre el pedido de que la coma venga sola (escribir 799 y que aparezca 7,99): <strong>eso todavía no
+        está</strong>. Es un cambio en cómo funcionan todos los campos de valor de la app, así que se decide
+        aparte. Mejor decirlo que hacer probar esperando otra cosa.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>En «Nova conta», escribir un valor grande y ver si sale agrupado.</li>
+        <li>En «Novo pagamento», lo mismo.</li>
+        <li>Escribir centavos poniendo la coma a mano y confirmar que el valor guardado es el que se vio.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El número queda legible mientras se escribe, y lo que se guarda es lo mismo que apareció en
+        pantalla. Si guarda distinto de lo que se vio, eso es grave y hay que avisar en el momento.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s4"> Probado</label>
+    </article>
+
+    <article class="item" id="s5">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">Zy contesta bien y en el mismo mensaje dice que no entendió</p>
+      <p>
+        Lo pescaron de cuatro formas: contesta bien y engancha «não entendi bem» · hace una pregunta y
+        engancha «não entendi bem» · dice «no entendí» y «tengo un problemita» juntos · y en «Quem me deve»
+        repite tres veces que nadie debe.
+      </p>
+      <p>
+        <strong>No son cuatro defectos, es uno.</strong> La respuesta se arma juntando pedazos, y los que
+        llegan tarde se pegan al final sin que nadie revise si el conjunto tiene sentido. Ya está localizado
+        en el código. Todavía no arreglado.
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Avisamos. Pero si aparece una forma <em>distinta</em> de esas cuatro, esa sí hay que mandarla —
+        ayuda a medir el tamaño del problema.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s5"> Entendido</label>
+    </article>
+
+    <article class="item" id="s6">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">El «Confirmo?» no dice qué va a hacer, y la categoría aparece recién después</p>
+      <p>
+        En la captura dijo «Vou fazer <strong>esta ação</strong> de R$ 32.000. Confirmo?» — «esta ação» no
+        dice nada. Y la categoría (MATERIAL) la eligió él y apareció <em>después</em> de confirmar, cuando ya
+        no se podía cambiar. El planteo es correcto: la IA tiene que inducir la respuesta ahí.
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Cuando esté, el «Confirmo?» tiene que decir qué va a registrar, con la categoría, antes de que
+        se conteste que sí.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s6"> Entendido</label>
+    </article>
+
+    <article class="item" id="s7">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">Sumó un pendiente como si hubiera entrado</p>
+      <p>
+        Este es el más serio de la tanda. A las 00:28 dijo que entraron R$ 2.007,99 y a las 00:30 dijo
+        R$ 2.008,00 — y el motivo es que cuenta el estorno de R$ 7,99, que está <strong>pendiente</strong>,
+        como plata que entró. Un pendiente no es plata cobrada.
+      </p>
+      <p>
+        No es un error que se vea: parece un número normal. Fue la diferencia entre las dos capturas la que
+        mostró la causa.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s7"> Entendido</label>
+    </article>
+
+    <article class="item" id="s8">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">Los atajos «Cobrei um serviço» y «Cobrar um serviço» no funcionan · y leer imagen tampoco</p>
+      <p>
+        Los dos atajos contestaron «não consegui fazer isso agora», y el pedido escrito completo tampoco
+        pasó. La lectura de imagen es lo mismo: se mandó la planilla y contestó «sem conexão».
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Ni los atajos ni la imagen. El audio también sigue sin transcribir.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s8"> Entendido</label>
+    </article>
+
+    <article class="item" id="s9">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">El botón «+» queda arriba de la caja de texto</p>
+      <p>Confirmado con la captura. Es de la app y entra en la próxima versión.</p>
+      <label class="mark"><input type="checkbox" data-c="s9"> Ok</label>
+    </article>
+
+    <article class="item" id="s10">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">Las fechas · en una pantalla hay que tocar varias veces, en otra no hay calendario</p>
+      <p>
+        Son dos cosas distintas y quedaron las dos: en «Nova conta» el calendario existe pero necesita más de
+        un toque; en «Novo recibo» el vencimiento sólo se puede tipear a mano.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s10"> Ok</label>
+    </article>
+
+    <article class="item" id="s11">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Quando cadastra um fornecedor tem que voltar e selecionar ele, deveria estar selecionado»</p>
+      <label class="mark"><input type="checkbox" data-c="s11"> Ok</label>
+    </article>
+
+    <article class="item" id="s12">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«O que é pulso do dia?» · y «o que seria recibo é venda?»</p>
+      <p>
+        Las dos observaciones dan justo, y hay una tercera que la captura dejó ver: decía «Tudo em dia» con
+        el saldo en <strong>−R$ 32.004,49</strong>. Decir que todo está en orden arriba del peor número de la
+        pantalla es peor que no decir nada. Los tres textos se reescriben.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s12"> Ok</label>
+    </article>
+
+    <article class="item" id="s13">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Escolha um ou escreva você mesmo» · pero no hay nada para elegir</p>
+      <label class="mark"><input type="checkbox" data-c="s13"> Ok</label>
+    </article>
+
+    <article class="item" id="s14">
+      <span class="tag t-note">Anotado · hallazgo nuevo</span>
+      <p class="said">El recibo llega, pero el link «Comprovante pelo Zymplo» abre una conversación, no el comprobante</p>
+      <p>
+        Esto no lo había reportado nadie — apareció en la captura de las 00:36. El recibo del «Serviço mkt»
+        de R$ 5.000,00 salió bien, pero quien toca el link esperando el PDF abre un chat de WhatsApp.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s14"> Ok</label>
+    </article>
+
+    <article class="item" id="s15">
+      <span class="tag t-note">Anotado · con los ejemplos</span>
+      <p class="said">Resumen de la mañana y del cierre · y aviso de quien dejó de usar</p>
+      <p>
+        Los dos ejemplos que mandaste (SELMA y Meu Assessor) dejaron el pedido claro, y hay algo en ellos que
+        vale copiar: las secciones aparecen <strong>incluso vacías</strong>. «Nenhum pagamento pendente hoje»
+        es información; el silencio no.
+      </p>
+      <p>
+        De SELMA vale copiar la comparación y el ritmo — «29% arriba de un martes normal» — porque es lo que
+        convierte un número en algo que se lee. Quedó anotado en tres partes: resumen de la mañana, del
+        cierre, y aviso a las 24/48 h sin uso.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s15"> Ok</label>
+    </article>
+
+    <article class="item" id="s16">
+      <span class="tag t-go">Ya existe · se va a conectar</span>
+      <p class="said">«Sobre período de pagamento, bom ter mensal, semanal ou única»</p>
+      <p>
+        Buena noticia: eso <strong>ya existe y funciona</strong> en la app — el selector Nenhuma / Semanal /
+        Mensal / Anual está en «Nova conta», se ve en su propia captura. Lo que falta es que aparezca también
+        en el alta de cliente, donde hoy sólo hay un «valor mensal estimado» que ya asume que es mensual. No
+        hay que construir, hay que conectar lo que está hecho.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s16"> Ok</label>
+    </article>
+
+  </section>
+
 
   <footer>
     <p>

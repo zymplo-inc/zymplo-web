@@ -294,9 +294,9 @@
   <header class="hero">
     <h1>O que testar no Zymplo</h1>
     <p>
-      Vocês mandaram <strong>19 relatos</strong>. A maioria já tem correção pronta e está nesta versão nova
-      do app. Esta página lista, para cada coisa que vocês relataram, <strong>o que testar e o que tem que
-      acontecer</strong>.
+      Vocês mandaram <strong>36 relatos</strong> em duas rodadas. A maioria já tem correção pronta e está
+      nesta versão nova do app. Esta página lista, para cada coisa que vocês relataram, <strong>o que testar
+      e o que tem que acontecer</strong> — e diz com franqueza o que ainda não está pronto.
     </p>
     <p>
       Se algo continuar errado, é isso mesmo que a gente precisa saber — vale mais que um «funcionou».
@@ -800,6 +800,254 @@
       <label class="mark"><input type="checkbox" data-c="r3"> Ok</label>
     </article>
   </section>
+
+  <!-- ================= SEGUNDA RODADA ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Segunda rodada</h2>
+      <span>o que vocês mandaram depois</span>
+    </div>
+
+    <article class="item" id="s0">
+      <span class="tag t-note">Leia primeiro</span>
+      <p class="said">Esses relatos foram feitos na versão antiga do app</p>
+      <p>
+        As telas que vocês mandaram são da madrugada do dia 26, e a versão nova saiu depois. Três desses
+        problemas <strong>já estavam corrigidos</strong> quando vocês relataram — sem culpa de ninguém, foi
+        questão de horário. Estão marcados com «refazer o teste»: se ainda acontecer na versão nova, aí é
+        um problema de verdade e a gente precisa saber.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s0"> Entendi</label>
+    </article>
+
+    <article class="item" id="s1">
+      <span class="tag t-go">Refazer o teste</span>
+      <p class="said">«O teclado do iPhone cobre o espaço do texto e não consigo ver o que escrevo»</p>
+      <p>Corrigido. Era o mesmo defeito que a Euram relatou na tela de meta, e valia para todas as telas.</p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Em «Novo recibo», escrever na observação.</li>
+        <li>Em qualquer outro campo longo do app, a mesma coisa.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O campo sobe e fica visível acima do teclado. Se em alguma tela ainda ficar coberto, me manda
+        qual — significa que a correção não chegou nela.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s1"> Testei</label>
+    </article>
+
+    <article class="item" id="s2">
+      <span class="tag t-go">Refazer o teste</span>
+      <p class="said">«Quando falta registrar alguma informação o app não mostra qual está pendente, temos que ir por exclusão»</p>
+      <p>
+        Você acertou o defeito e a solução junto. Corrigido: um botão apagado tem que dizer o que falta.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Em «Registrar gasto», deixar algo em branco e tocar no botão apagado.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Ele diz <em>qual</em> informação falta. Se só disser «preencha os campos» sem apontar qual,
+        continua sendo o mesmo problema — me avisa.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s2"> Testei</label>
+    </article>
+
+    <article class="item" id="s3">
+      <span class="tag t-go">Refazer o teste</span>
+      <p class="said">«Registro falhou» · com o aviso «Sem internet · pode continuar» em cima</p>
+      <p>
+        A parte do erro está corrigida. Mas tem uma segunda coisa que quero que você confira: aquele aviso
+        promete que <em>pode continuar</em> sem internet, e depois o registro falha. Se isso ainda
+        acontecer, é um problema separado.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Sem internet, cadastrar uma conta até o fim.</li>
+        <li>Voltar a ter internet e ver se ela ficou salva.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Ou salva de verdade, ou o aviso não promete que dá para continuar. As duas coisas juntas, não.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s3"> Testei</label>
+    </article>
+
+    <article class="item" id="s4">
+      <span class="tag t-go">Corrigido · pode testar</span>
+      <p class="said">«Melhorar o uso da vírgula e do ponto no registro de valores» · aparecia «3708400» e «799»</p>
+      <p>
+        Corrigido em duas telas: «Nova conta» e «Novo pagamento». Agora o número se agrupa enquanto você
+        digita, então <strong>3708400</strong> aparece como <strong>3.708.400</strong> e se lê sem contar
+        os zeros.
+      </p>
+      <p>
+        Sobre o seu pedido de já vir a vírgula (digitar 799 e aparecer 7,99): <strong>isso ainda não
+        está</strong>. É uma mudança em como todos os campos de valor do app funcionam, então vai ser
+        decidida separado. Prefiro te dizer do que você testar esperando outra coisa.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Em «Nova conta», digitar um valor grande e ver se aparece agrupado.</li>
+        <li>Em «Novo pagamento», a mesma coisa.</li>
+        <li>Digitar centavos com a vírgula você mesmo e conferir que o valor salvo é o que você viu.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O número fica legível enquanto você digita, e o valor que salva é o mesmo que apareceu na
+        tela. Se salvar diferente do que você viu, isso é grave e me avisa na hora.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s4"> Testei</label>
+    </article>
+
+    <article class="item" id="s5">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">O Zy responde certo e no mesmo recado diz que não entendeu</p>
+      <p>
+        Vocês pegaram isso de quatro formas: ele responde certo e emenda «não entendi bem» · ele faz uma
+        pergunta e emenda «não entendi bem» · ele diz «não entendi» e «estou com um probleminha» juntos ·
+        e no «Quem me deve» ele repete três vezes que ninguém deve.
+      </p>
+      <p>
+        <strong>Não são quatro defeitos, é um só.</strong> A resposta é montada juntando pedaços, e os
+        pedaços que chegam atrasados são colados no fim sem ninguém conferir se o conjunto faz sentido.
+        Já localizamos onde. Ainda não está corrigido.
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>A gente avisa. Mas se você vir uma forma <em>diferente</em> dessas quatro, essa sim me manda —
+        ajuda a entender o tamanho do problema.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s5"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="s6">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">O «Confirmo?» não diz o que ele vai fazer, e a categoria aparece só depois</p>
+      <p>
+        Na sua tela ele disse «Vou fazer <strong>esta ação</strong> de R$ 32.000. Confirmo?» — «esta ação»
+        não diz nada. E a categoria (MATERIAL) foi escolhida por ele e só apareceu <em>depois</em> de você
+        confirmar, quando já não dava para mudar. Você está certo: ele tem que induzir a resposta ali.
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>Quando estiver pronto, o «Confirmo?» tem que dizer o que vai registrar, com a categoria, antes
+        de você responder sim.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s6"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="s7">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">Somou um valor pendente como se tivesse entrado</p>
+      <p>
+        Este foi o mais sério que vocês acharam. Às 00:28 ele disse que entraram R$ 2.007,99 e às 00:30
+        disse R$ 2.008,00 — e o motivo é que ele está contando o estorno de R$ 7,99 que ainda está
+        <strong>pendente</strong> como dinheiro que entrou. Pendente não é dinheiro recebido.
+      </p>
+      <p>
+        Não é um erro que se vê: parece um número normal. Obrigado por ter mandado as duas telas — foi a
+        diferença entre elas que mostrou a causa.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s7"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="s8">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">Os atalhos «Cobrei um serviço» e «Cobrar um serviço» não funcionam · e ler imagem também não</p>
+      <p>
+        Os dois atalhos responderam «não consegui fazer isso agora», e o pedido escrito inteiro também não
+        passou. A leitura de imagem é a mesma coisa: você mandou a planilha e ele respondeu «sem conexão».
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>Nem os atalhos nem a imagem. Áudio também continua sem transcrever.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s8"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="s9">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">O botão «+» fica em cima da caixa de texto</p>
+      <p>Confirmado pela sua tela. É da versão do app e entra na próxima.</p>
+      <label class="mark"><input type="checkbox" data-c="s9"> Ok</label>
+    </article>
+
+    <article class="item" id="s10">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">As datas · em uma tela precisa clicar várias vezes, em outra não tem calendário</p>
+      <p>
+        São duas coisas diferentes e as duas ficaram anotadas: em «Nova conta» o calendário existe mas
+        precisa de mais de um toque; em «Novo recibo» o vencimento só dá para digitar à mão.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s10"> Ok</label>
+    </article>
+
+    <article class="item" id="s11">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Quando cadastra um fornecedor tem que voltar e selecionar ele, deveria estar selecionado»</p>
+      <label class="mark"><input type="checkbox" data-c="s11"> Ok</label>
+    </article>
+
+    <article class="item" id="s12">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«O que é pulso do dia?» · e «o que seria recibo é venda?»</p>
+      <p>
+        As duas observações são certeiras, e tem uma terceira que a sua tela mostrou: dizia «Tudo em dia»
+        com o saldo em <strong>−R$ 32.004,49</strong>. Dizer que está tudo em ordem em cima do pior número
+        da tela é pior que não dizer nada. Os três textos vão ser reescritos.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s12"> Ok</label>
+    </article>
+
+    <article class="item" id="s13">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Escolha um ou escreva você mesmo» · mas não tem nada para escolher</p>
+      <label class="mark"><input type="checkbox" data-c="s13"> Ok</label>
+    </article>
+
+    <article class="item" id="s14">
+      <span class="tag t-note">Anotado · achado novo</span>
+      <p class="said">O recibo chega, mas o link «Comprovante pelo Zymplo» abre uma conversa, não o comprovante</p>
+      <p>
+        Isso ninguém tinha relatado — apareceu na sua tela das 00:36. O recibo do «Serviço mkt» de
+        R$ 5.000,00 saiu certo, mas quem toca no link esperando o PDF abre um chat de WhatsApp.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s14"> Ok</label>
+    </article>
+
+    <article class="item" id="s15">
+      <span class="tag t-note">Anotado · com os seus exemplos</span>
+      <p class="said">Resumo pela manhã e no fim do dia · e aviso de quem está sem usar</p>
+      <p>
+        Os dois exemplos que você mandou (a SELMA e o Meu Assessor) deixaram o pedido bem claro, e tem uma
+        coisa neles que vale copiar: as seções aparecem <strong>mesmo vazias</strong>. «Nenhum pagamento
+        pendente hoje» é informação; silêncio não é.
+      </p>
+      <p>
+        Da SELMA vale copiar a comparação e o ritmo — «29% acima de uma terça normal» — porque é isso que
+        transforma um número em algo que se lê. Ficou anotado em três partes: resumo da manhã, resumo do
+        fim do dia, e aviso de 24/48h sem uso.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s15"> Ok</label>
+    </article>
+
+    <article class="item" id="s16">
+      <span class="tag t-go">Já existe · vai ser ligado</span>
+      <p class="said">«Sobre período de pagamento, bom ter mensal, semanal ou única»</p>
+      <p>
+        Boa notícia: isso <strong>já existe e funciona</strong> no app — o seletor Nenhuma / Semanal /
+        Mensal / Anual está na tela de «Nova conta», dá para ver na sua própria captura. O que falta é ele
+        aparecer também no cadastro de cliente, onde hoje só tem um «valor mensal estimado» que já assume
+        que é mensal. Não é construir, é ligar o que está pronto.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s16"> Ok</label>
+    </article>
+
+  </section>
+
 
   <footer>
     <p>
