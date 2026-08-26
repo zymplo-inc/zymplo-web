@@ -1,4 +1,5 @@
 ---
+import { WA_NUMBER } from '@data/countries';
 const title = 'Zymplo · Dashboard';
 ---
 <!DOCTYPE html>
@@ -94,7 +95,7 @@ const title = 'Zymplo · Dashboard';
 
     <div class="empty" style="margin-top:24px">
       <p>📲 La mayoría de tu actividad pasa por WhatsApp · esto es solo un panel rápido</p>
-      <a href="https://wa.me/12027718788?text=Hola" class="cta">Abrir chat con Zé</a>
+      <a href={`https://wa.me/${WA_NUMBER}?text=Hola`} class="cta">Abrir chat con Zé</a>
     </div>
   </main>
 
