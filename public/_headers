@@ -10,6 +10,14 @@
   Content-Security-Policy: default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;
   X-DNS-Prefetch-Control: on
 
+# Rondas de prueba · fuera de los buscadores por cabecera, no por robots.txt.
+# Un `Disallow` sólo pide no CRAWLEAR y los bots que tienen bloque propio en
+# robots.txt lo ignoran; `X-Robots-Tag` los saca del índice igual. La ruta
+# tampoco se enlaza desde ninguna página ni entra en el sitemap.
+/testers/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
+
 # Static assets · 1 year cache
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

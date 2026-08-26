@@ -10,6 +10,10 @@ Disallow: /v2/
 Disallow: /v3/
 Disallow: /api/
 Disallow: /admin/
+# Páginas de una ronda de pruebas · no son contenido del sitio y no se enlazan
+# desde ninguna parte. El bloqueo real está en `_headers` (X-Robots-Tag), porque
+# los bots con bloque propio más abajo ignoran este `*`.
+Disallow: /testers/
 
 # ============================================================
 # AI SEARCH BOTS · EXPLICITLY ALLOWED (Zymplo wants AI citations)
