@@ -49,6 +49,19 @@ control() {
 
 PUERTA="$BANCO/src/data/countries.ts"
 VICTIMA="$BANCO/src/pages/app/dashboard.astro"
+LISTA="$BANCO/src/data/numerosProhibidos.ts"
+
+# El número con el que se muta NO se escribe acá: se lee del propio candado.
+# Uno de los prohibidos es un teléfono personal, y este arnés no necesita ser
+# la enésima copia de ese dato en el repo.
+PROHIBIDO="$(grep -oE "numero: '[0-9]{10,15}'" "$REPO/scripts/check-numeros-wa.ts" | grep -oE '[0-9]{10,15}' | head -1)"
+[ -n "$PROHIBIDO" ] || { echo "MEDICION-INVALIDA · no pude sacar un número prohibido del candado"; exit 2; }
+# un SEGUNDO prohibido, de la otra punta de la lista: así el arnés prueba que
+# se vigila la lista entera y no sólo su primera fila.
+OTRO="$(grep -oE "numero: '[0-9]{10,15}'" "$REPO/scripts/check-numeros-wa.ts" | grep -oE '[0-9]{10,15}' | tail -1)"
+[ "$OTRO" != "$PROHIBIDO" ] || { echo "MEDICION-INVALIDA · la lista del candado tiene una sola fila"; exit 2; }
+# el mismo, escrito como lo escribiría una persona (fue así como se escondió)
+CON_ESPACIOS="$(echo "$PROHIBIDO" | sed -E 's/^(...)(...)(...)(...)$/+\1 \2 \3 \4/')"
 
 echo "ARNÉS DEL CANDADO DE NÚMEROS · banco: $BANCO"
 echo
@@ -75,20 +88,20 @@ fi
 
 # ── 3 · REVERSO: teléfono personal, pelado ──────────────────────────────────
 sembrar
-printf '\n<!-- contacto: 595981970735 -->\n' >> "$VICTIMA"
+printf '\n<!-- contacto: %s -->\n' "$PROHIBIDO" >> "$VICTIMA"
 control "rojo · teléfono personal pelado" 1
 
 # ── 4 · REVERSO: el mismo, con espacios ─────────────────────────────────────
 # La forma exacta en que estaba escondido en countries.ts hasta hoy, y la que
 # un grep del número pelado NO encuentra.
 sembrar
-printf '\n<!-- contacto: +595 981 970 735 -->\n' >> "$VICTIMA"
+printf '\n<!-- contacto: %s -->\n' "$CON_ESPACIOS" >> "$VICTIMA"
 control "rojo · teléfono personal con espacios" 1
 
 # ── 5 · REVERSO: número de prueba de Meta ───────────────────────────────────
 sembrar
-printf '\n<a href="https://wa.me/15556447935">probar</a>\n' >> "$VICTIMA"
-control "rojo · número de prueba de Meta" 1
+printf '\n<a href="https://wa.me/%s">probar</a>\n' "$OTRO" >> "$VICTIMA"
+control "rojo · otro prohibido (última fila de la lista)" 1
 
 # ── 6 · REVERSO: número VIVO elegido a mano ─────────────────────────────────
 # El número es correcto; lo que está mal es que la página lo elija sola. Este
@@ -110,6 +123,26 @@ sembrar
 perl -pi -e "s/WA_NUMBER_BR = '5511925697328'/WA_NUMBER_BR = '5511900000000'/" "$PUERTA"
 control "rojo · número de Brasil cambiado" 1
 
+# ── 8b · la lista compartida del PR #37 no dispara un rojo falso ────────────
+# `src/data/numerosProhibidos.ts` vive DENTRO de src/, que es lo que el candado
+# barre. Sin la excepción explícita, el candado encontraría la lista negra y la
+# denunciaría: verde hoy, rojo el día que ese PR mergee, por nada.
+sembrar
+cat > "$LISTA" <<'TS'
+export const NUMEROS_PROHIBIDOS = ['595000111222', '595000111333', '595000111444'];
+TS
+control "lista compartida presente · sigue VERDE" 0
+
+# ── 8c · y la lista compartida MANDA de verdad ──────────────────────────────
+# Se le pone un número que el respaldo del candado NO conoce. Si igual lo caza,
+# es porque leyó la lista y no su copia. Si no, la lectura es decorativa.
+sembrar
+cat > "$LISTA" <<'TS'
+export const NUMEROS_PROHIBIDOS = ['595000111222'];
+TS
+printf '\n<!-- contacto: 595000111222 -->\n' >> "$VICTIMA"
+control "número que SOLO está en la lista compartida" 1
+
 # ── 9 · MEDICION-INVALIDA no se degrada a ROJO ──────────────────────────────
 # «No pude medir» y «medí y está mal» son cosas distintas. Si esto devuelve 1,
 # un día vamos a creer que el candado revisó cuando no pudo abrir el archivo.
@@ -119,7 +152,7 @@ control "exit 2 · sin la puerta, NO se degrada a 1" 2
 
 # ── 10 · el interruptor apaga de verdad ─────────────────────────────────────
 sembrar
-printf '\n<!-- contacto: 595981970735 -->\n' >> "$VICTIMA"
+printf '\n<!-- contacto: %s -->\n' "$PROHIBIDO" >> "$VICTIMA"
 control "interruptor apaga (con la web rota)" 0 SALTAR_CANDADO_NUMEROS=si-y-me-hago-cargo
 
 # ── 11 · pero NO se apaga con cualquier cosa ────────────────────────────────

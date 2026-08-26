@@ -46,7 +46,7 @@
  *   Es a propósito incómodo de escribir: si hay que apagarlo, que se vea.
  */
 
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
 const RAIZ = resolve(import.meta.dirname, '..');
@@ -60,17 +60,57 @@ const VIVOS = {
 } as const;
 
 /**
- * Prohibidos · copiados de `canales-whatsapp.json` → `numeros_prohibidos`
- * del monorepo `zymplo-inc/zymplo`. Se escriben acá porque este repo no lo
- * puede leer; si allá se agrega uno, se agrega acá.
+ * DÓNDE VIVE LA LISTA DE PROHIBIDOS
+ *
+ * El origen de verdad es `canales-whatsapp.json` → `numeros_prohibidos` del
+ * monorepo `zymplo-inc/zymplo`, que este repo no puede leer.
+ *
+ * Si existe `src/data/numerosProhibidos.ts` (lo trae el PR #37, que además
+ * agrega el vigía de dominios EN VIVO), esa es la lista y esta copia no se
+ * usa. UNA lista, varios vigilantes: el de la fuente —este—, el del `dist`
+ * (`check-seo`) y el de los dominios servidos. Copiar la lista en cada uno
+ * es cómo se termina con tres listas que dicen cosas distintas.
+ *
+ * El respaldo de acá abajo existe para que el candado funcione IGUAL antes de
+ * que ese archivo aterrice. Se borra cuando #37 esté en main.
  */
-const PROHIBIDOS: ReadonlyArray<{ numero: string; que_era: string }> = [
+const LISTA_COMPARTIDA = 'src/data/numerosProhibidos.ts';
+
+const RESPALDO: ReadonlyArray<{ numero: string; que_era: string }> = [
   { numero: '595974239990', que_era: 'canal PY · 360dialog · sin efecto desde el 2026-08-07' },
   { numero: '595976636900', que_era: 'canal Meta Cloud DESA · verificación EXPIRADA' },
   { numero: '595981970735', que_era: 'TELÉFONO PERSONAL de Carlos · nunca fue un canal' },
   { numero: '14155238886', que_era: 'sandbox de Twilio · canal de pruebas de un tercero' },
   { numero: '15556447935', que_era: 'número de prueba de Meta' },
 ];
+
+/**
+ * Los archivos que TIENEN que nombrar los números prohibidos para poder
+ * bloquearlos. Sin esta excepción el candado se muerde la cola: encontraría
+ * la lista negra y la denunciaría como si fuera una publicación.
+ *
+ * Es la excepción más peligrosa del archivo, así que es explícita y corta:
+ * sólo la lista compartida. Cualquier otro archivo de `src/` que escriba uno
+ * de esos números sigue siendo rojo.
+ */
+const PUEDEN_NOMBRARLOS = new Set([LISTA_COMPARTIDA]);
+
+function cargarProhibidos(): ReadonlyArray<{ numero: string; que_era: string }> {
+  const ruta = join(RAIZ, LISTA_COMPARTIDA);
+  if (!existsSync(ruta)) return RESPALDO;
+  // Se lee como texto y no se importa: la lista es un dato, y un `import`
+  // ejecutaría lo que haya en ese archivo sólo para leer cinco números.
+  const texto = readFileSync(ruta, 'utf8');
+  const hallados = [...texto.matchAll(/['"](\d{10,15})['"]/g)].map((m) => m[1]);
+  const unicos = [...new Set(hallados)].filter((n) => n !== VIVOS.global && n !== VIVOS.brasil);
+  if (unicos.length === 0) {
+    morir(`${LISTA_COMPARTIDA} existe pero no pude sacarle ni un número · no voy a seguir con una lista vacía`);
+  }
+  return unicos.map((numero) => ({
+    numero,
+    que_era: RESPALDO.find((r) => r.numero === numero)?.que_era ?? `prohibido según ${LISTA_COMPARTIDA}`,
+  }));
+}
 
 /** Extensiones de texto que vale la pena mirar. El resto es binario. */
 const MIRABLES = /\.(astro|ts|tsx|js|jsx|mjs|cjs|json|html|htm|md|mdx|svg|txt|xml|yml|yaml|css)$/i;
@@ -116,6 +156,8 @@ function archivos(dir: string, acc: string[] = []): string[] {
 function comoLoEscribiriaUnHumano(numero: string): RegExp {
   return new RegExp(numero.split('').join('[\\s\\-.()]{0,2}'), 'g');
 }
+
+const PROHIBIDOS = cargarProhibidos();
 
 // ── El interruptor, antes que nada ──────────────────────────────────────────
 if (process.env.SALTAR_CANDADO_NUMEROS === 'si-y-me-hago-cargo') {
@@ -194,7 +236,7 @@ async function main(): Promise<void> {
     const lineas = texto.split('\n');
 
     // C · ningún prohibido, en ninguna forma
-    for (const { numero, que_era } of PROHIBIDOS) {
+    for (const { numero, que_era } of PUEDEN_NOMBRARLOS.has(rel) ? [] : PROHIBIDOS) {
       lineas.forEach((linea, i) => {
         if (comoLoEscribiriaUnHumano(numero).test(linea)) {
           fallas.push(`C · ${rel}:${i + 1} publica un número PROHIBIDO (…${numero.slice(-4)}) · ${que_era}`);
