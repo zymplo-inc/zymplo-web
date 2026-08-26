@@ -292,7 +292,7 @@
   <header class="hero">
     <h1>Qué probar en Zymplo</h1>
     <p>
-      Los testers de Brasil mandaron <strong>36 reportes</strong> en dos tandas. La mayoría ya tiene arreglo
+      Los testers de Brasil mandaron <strong>37 reportes</strong> en dos tandas. La mayoría ya tiene arreglo
       y está en esta versión nueva de la app. Esta página dice, para cada cosa que reportaron, <strong>qué
       probar y qué tiene que pasar</strong> — y dice sin vueltas lo que todavía no está.
     </p>
@@ -326,7 +326,7 @@
   <section class="person">
     <div class="person-head">
       <h2>Bárbara</h2>
-      <span>8 reportes</span>
+      <span>9 reportes</span>
     </div>
 
     <article class="item" id="b1">
@@ -352,23 +352,25 @@
     </article>
 
     <article class="item" id="b2">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-note">Confirmado por ella · en curso</span>
       <p class="said">«Ao baixar o app depois de atualizar, a msg inicial é esse código»</p>
       <p>
         Ese código es lo que conecta la app con WhatsApp — la app lo manda sola. El «no reconozco ese
-        código» era un error nuestro: el noveno dígito del celular brasileño rompía la conexión y el mensaje
-        culpaba al código. Por eso a la segunda vez funcionaba.
+        código» era un error nuestro: el noveno dígito del celular brasileño rompía la conexión y el
+        mensaje culpaba al código. Esa parte está corregida.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Conectar el WhatsApp y ver aparecer el código.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El código se acepta en el primer intento. Que aparezca solo queda raro, así que vamos a poner
-        una explicación antes — eso todavía no está en esta versión.</span>
+      <p>
+        <strong>Y su respuesta confirma lo que faltaba:</strong> «ele continua realmente aparecendo …
+        até hoje 26/08 às 11:51h». Que el código siga apareciendo es lo esperado por ahora; lo que falta
+        es la explicación previa, para que no llegue de la nada. Eso <strong>todavía no está hecho</strong>,
+        y sirve que lo haya confirmado en vez de que lo diéramos por supuesto.
+      </p>
+      <div class="expect warn">
+        <b>Nada que probar acá</b>
+        <span>No hace falta volver sobre esto. Avisamos cuando la explicación esté en la app; ahí sí vale
+        mirar si le hace sentido a alguien que nunca vio ese código.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b2"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="b2"> Entendido</label>
     </article>
 
     <article class="item" id="b3">
@@ -466,25 +468,48 @@
     </article>
 
     <article class="item" id="b8">
-      <span class="tag t-note">Falta un dato</span>
+      <span class="tag t-go">Lo encontró ella · y era peor de lo que parecía</span>
       <p class="said">«O QR Code do site não direciona pro whatsapp de primeira»</p>
       <p>
-        Ese <strong>+595</strong> era un número viejo, corregido en el sitio desde el 7 de agosto. Y acá
-        necesitamos su ayuda: si el sitio ya estaba bien, el QR que escaneó salió de otro lado — y ese otro
-        lado sigue circulando.
+        <strong>Tenía razón y yo estaba mirando el sitio equivocado.</strong> Yo verifiqué
+        <em>zymplo.com/br</em>, que está bien. Ella dijo <em>zymplo.com.br</em> — y son
+        <strong>dos sitios distintos</strong>. Fui al que indicó y el número viejo está ahí, tal como lo
+        describió, incluidas las tres veces en el <em>#faq</em>.
       </p>
-      <h4>Qué preguntarle</h4>
-      <ul>
-        <li>¿Estaba en el sitio? ¿En qué página?</li>
-        <li>¿O lo escaneó de otra pantalla, de un PDF, de una captura que le mandaron, de algo impreso?</li>
-        <li>¿Más o menos qué día fue?</li>
-      </ul>
+      <p>
+        La causa: <em>zymplo.com.br</em> es una publicación aparte que quedó <strong>congelada en una
+        versión vieja</strong> del sitio. El código ya estaba corregido; esa publicación nunca recibió el
+        arreglo. Sin la dirección exacta que ella mandó no lo íbamos a encontrar, porque de nuestro lado
+        todo se veía bien.
+      </p>
+      <p>
+        Y la misma causa explica lo otro que notó: «o teste demo … não está funcionando».
+        <strong>Esa versión vieja no tiene el demo.</strong> Una sola republicación arregla el número y
+        el demo juntos.
+      </p>
       <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Si todavía tiene la imagen o el archivo, que lo mande. Con eso se saca de circulación y no le
-        pasa a nadie más.</span>
+        <b>Qué pasa ahora</b>
+        <span>Esto salió de sus manos: depende de republicar ese sitio, que es una tarea de
+        infraestructura. Cuando esté, le avisamos y confirma el QR de <em>zymplo.com.br/#faq</em> — tiene
+        que abrir en un número con +55.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b8"> Preguntado</label>
+      <label class="mark"><input type="checkbox" data-c="b8"> Entendido</label>
+    </article>
+
+    <article class="item" id="b9">
+      <span class="tag t-wait">Todavía no · misma causa</span>
+      <p class="said">«O teste demo que aparece para clicar e ver uma demonstração de como funciona, não está funcionando»</p>
+      <p>
+        Esto vino junto con su respuesta del QR y vale como reporte propio. Confirmado: la versión
+        publicada en <em>zymplo.com.br</em> <strong>no incluye el componente del demo</strong> — existe en
+        el sitio actual. No es que el demo esté roto: esa publicación es vieja.
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Va junto con la republicación del punto anterior. Que haya grabado la pantalla fue lo que
+        separó «el demo tiene un bug» de «esa página es antigua».</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b9"> Entendido</label>
     </article>
   </section>
 
