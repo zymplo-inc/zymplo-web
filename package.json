@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && tsx scripts/check-seo.ts",
+    "build": "tsx scripts/check-numeros-wa.ts && astro build && tsx scripts/check-seo.ts",
     "preview": "astro preview",
     "astro": "astro",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:content:strict": "tsx scripts/validate-content.ts --strict",
     "validate:content:diff": "tsx scripts/validate-content.ts --diff",
-    "check:dominios": "tsx scripts/check-dominios-vivos.ts"
+    "check:dominios": "tsx scripts/check-dominios-vivos.ts",
+    "check:numeros": "tsx scripts/check-numeros-wa.ts",
+    "check:numeros:arnes": "bash scripts/mutar-check-numeros.sh"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
