@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>O que testar no Zymplo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --ground: #F6FAF7;
+    --surface: #FFFFFF;
+    --surface-2: #ECF3EE;
+    --border: #D7E4DB;
+    --border-strong: #B9CCC0;
+    --text: #16211B;
+    --muted: #566158;
+    --accent: #0E7A56;
+    --accent-soft: #E1F1E7;
+    --wait: #8A5B12;
+    --wait-soft: #FAF0DC;
+    --note: #4C5B63;
+    --note-soft: #EBF0F2;
+
+    --display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+    --body: 'Figtree', system-ui, -apple-system, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C120E;
+      --surface: #141D17;
+      --surface-2: #1B2620;
+      --border: #26332B;
+      --border-strong: #374A3D;
+      --text: #E6EFE9;
+      --muted: #98A79D;
+      --accent: #46C88F;
+      --accent-soft: #16281F;
+      --wait: #DFAE55;
+      --wait-soft: #2A2315;
+      --note: #9FB0B8;
+      --note-soft: #1A2226;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0C120E;
+    --surface: #141D17;
+    --surface-2: #1B2620;
+    --border: #26332B;
+    --border-strong: #374A3D;
+    --text: #E6EFE9;
+    --muted: #98A79D;
+    --accent: #46C88F;
+    --accent-soft: #16281F;
+    --wait: #DFAE55;
+    --wait-soft: #2A2315;
+    --note: #9FB0B8;
+    --note-soft: #1A2226;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(32px, 8vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .hero { display: flex; flex-direction: column; gap: 14px; }
+
+  .hero p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 56ch;
+  }
+  .hero p strong { color: var(--text); font-weight: 600; }
+
+  /* ---- primeiro passo ---- */
+
+  .first {
+    background: var(--accent-soft);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .first h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .first ol { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; }
+  .first p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* ---- progresso ---- */
+
+  .progress {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--ground);
+    padding: 12px 0 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .bar {
+    flex: 1;
+    height: 7px;
+    background: var(--surface-2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 99px; transition: width .3s ease; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+
+  /* ---- pessoa ---- */
+
+  .person { display: flex; flex-direction: column; gap: 16px; }
+
+  .person-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  .person-head h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(26px, 6vw, 34px);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .person-head span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  /* ---- item ---- */
+
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .item.done { opacity: .58; }
+
+  .tag {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-radius: 99px;
+    padding: 4px 11px;
+  }
+  .t-go   { color: var(--accent); background: var(--accent-soft); }
+  .t-wait { color: var(--wait);   background: var(--wait-soft); }
+  .t-note { color: var(--note);   background: var(--note-soft); }
+
+  .said {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.32;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .item ol, .item ul { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; }
+  .item p { margin: 0; }
+
+  .expect {
+    background: var(--surface-2);
+    border-radius: 11px;
+    padding: 13px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .expect b {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .expect.warn b { color: var(--wait); }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+    align-self: flex-start;
+    padding: 6px 0;
+    min-height: 34px;
+  }
+  .mark input {
+    width: 22px; height: 22px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    margin: 0;
+    flex: none;
+  }
+  .mark:hover { color: var(--text); }
+  .mark input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  footer p { margin: 0; }
+  footer strong { color: var(--text); }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 28px 15px 70px; gap: 30px; }
+    body { font-size: 16.5px; }
+    .item { padding: 16px 16px; border-radius: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>O que testar no Zymplo</h1>
+    <p>
+      Vocês mandaram <strong>19 relatos</strong>. A maioria já tem correção pronta e está nesta versão nova
+      do app. Esta página lista, para cada coisa que vocês relataram, <strong>o que testar e o que tem que
+      acontecer</strong>.
+    </p>
+    <p>
+      Se algo continuar errado, é isso mesmo que a gente precisa saber — vale mais que um «funcionou».
+      Pode marcar aqui o que já testou; fica salvo no seu celular.
+    </p>
+  </header>
+
+  <div class="first">
+    <h2>Antes de começar</h2>
+    <ol>
+      <li><strong>Desinstale o app antigo</strong> e instale o novo. Não atualize por cima.</li>
+      <li>Entre na sua conta e <strong>conecte o WhatsApp</strong> — quase tudo depende disso.</li>
+      <li>Se você já usava o app, <strong>saia da conta e entre de novo</strong> uma vez.</li>
+    </ol>
+    <p>
+      Duas coisas ainda não estão prontas e estão marcadas como «ainda não» — não precisa testar,
+      a gente avisa quando der.
+    </p>
+  </div>
+
+  <div class="progress">
+    <span id="pcount">0 de 20 testados</span>
+    <span class="bar"><i id="pbar"></i></span>
+  </div>
+
+  <!-- ================= BÁRBARA ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Bárbara</h2>
+      <span>8 relatos</span>
+    </div>
+
+    <article class="item" id="b1">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Demora em média 3x para vincular o app ao número do WhatsApp»</p>
+      <p>
+        Você estava certa, e o motivo é bem específico: o app parava de esperar depois de um minuto.
+        Como para mandar o código você precisa <em>sair</em> do app, o tempo acabava justo enquanto você
+        estava no WhatsApp. A conexão dava certo e o app não ficava sabendo.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Conecte o WhatsApp uma vez, sem pressa.</li>
+        <li>De propósito, <strong>demore</strong>: espere uns dois minutos antes de tocar em enviar.</li>
+        <li>Volte para o app.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Conectar de primeira, mesmo você tendo demorado. Sem «Algo deu errado» e sem gerar um
+        código novo. Se precisar de uma segunda tentativa, me conta quantos segundos você levou.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b1"> Testei</label>
+    </article>
+
+    <article class="item" id="b2">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Ao baixar o app depois de atualizar, a mensagem inicial é esse código»</p>
+      <p>
+        Esse código é o que liga o app ao WhatsApp — o app manda sozinho, você não precisa fazer nada.
+        O «não reconheço esse código» era um erro nosso: o nono dígito do celular brasileiro quebrava a
+        conexão e a mensagem culpava o código. Por isso na segunda vez funcionava.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Conectar o WhatsApp e observar o código aparecer.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O código é aceito na primeira vez. Você concordou que ele aparecer sozinho fica estranho,
+        então vamos colocar uma explicação antes — isso ainda não está nesta versão.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b2"> Testei</label>
+    </article>
+
+    <article class="item" id="b3">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Não salva o contato do fornecedor se não preencher todos os dados (tem fornecedores que não têm CNPJ)»</p>
+      <p>
+        Você descreveu exatamente certo. Duas coisas: o <strong>CNPJ nunca foi obrigatório</strong>, só o
+        nome. E o erro que você via era real, mas não tinha nada a ver com o que você preenchia — o
+        servidor lia os seus dados mais de uma vez, e da segunda leitura em diante chegavam vazios.
+        Por isso dizia «nome requerido» com o nome preenchido.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li><strong>Primeiro olhe sua lista de fornecedores.</strong> Com outro tester o registro salvou
+        mesmo mostrando erro, então talvez ele já esteja lá.</li>
+        <li>Se não estiver, cadastre com o nome só, sem CNPJ.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Salva com o nome só. Se ele já estiver na lista, me avisa que eu fecho — não cadastre de
+        novo para não duplicar.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b3"> Testei</label>
+    </article>
+
+    <article class="item" id="b4">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Não consigo “Adicionar um lembrete”, nem “Cobrar um Serviço” e nem consultar “Quem Me Deve” pelo app»</p>
+      <p>
+        Essas três funções existem. O que acontecia é que, sem o WhatsApp conectado de verdade, o app
+        não tinha permissão de ler os seus dados e respondia «não consegui». Era consequência do problema
+        de conexão, não falta de função.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Confirme que o WhatsApp ficou conectado.</li>
+        <li>No chat do Zy dentro do app, peça as três coisas separadas: um lembrete, cobrar um serviço,
+        e «Quem me deve».</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>As três respondem com os seus dados. Se alguma falhar, agora a mensagem tem que dizer se
+        vale tentar de novo ou não.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b4"> Testei</label>
+    </article>
+
+    <article class="item" id="b5">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">«Não consegui automatizar a cobrança pelo chat, tive que cobrar manualmente pelo app»</p>
+      <p>
+        Achamos o defeito e a correção está pronta, mas ela é do nosso servidor e ainda não foi para o ar.
+        Nesta versão do app o comportamento vai ser o mesmo.
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>A gente te avisa quando subir. Testar agora só vai repetir o mesmo erro.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b5"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="b6">
+      <span class="tag t-wait">Ainda não</span>
+      <p class="said">«Consegui que o bot identificasse a cobrança, porém ele não prosseguiu com a solicitação da cobrança automática»</p>
+      <p>
+        Sua captura mostrou duas coisas de uma vez. Uma: você pediu uma <strong>cobrança</strong> e ele
+        respondeu «recibo emitido» — eram coisas diferentes e ele anunciou a errada. Outra: ao escolher
+        «Pro WhatsApp», ele parou. As duas já têm correção, no mesmo servidor que ainda não subiu.
+      </p>
+      <div class="expect warn">
+        <b>Não teste ainda</b>
+        <span>Mesmo caso do anterior. Quando subir, o pedido tem que ir do começo ao fim pelo chat, sem
+        você precisar terminar na mão pelo app.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b6"> Ok, entendi</label>
+    </article>
+
+    <article class="item" id="b7">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Uso do pronome “teu” e “tua” — melhor usar “seu” e “sua”»</p>
+      <p>
+        Você e o Ricardo apontaram isso separados, o que tirou qualquer dúvida. Em português a gente fala
+        de <em>você</em>, então é <em>seu</em> e <em>sua</em>. Trocamos no app e no bot.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Abra a tela de conectar o WhatsApp e leia o texto de cima.</li>
+        <li>Converse qualquer coisa com o Zy e veja como ele te trata.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Nenhum «teu» nem «tua», nem no app nem no bot. Se sobrou algum, me manda onde.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b7"> Testei</label>
+    </article>
+
+    <article class="item" id="b8">
+      <span class="tag t-note">Preciso da sua ajuda</span>
+      <p class="said">«O QR Code do site não direciona pro WhatsApp de primeira»</p>
+      <p>
+        Aquele <strong>+595</strong> era um número antigo, corrigido no site desde 7 de agosto. E é aqui que
+        eu preciso de você: se o site já estava certo, o QR que você escaneou veio de outro lugar — e esse
+        outro lugar continua circulando.
+      </p>
+      <h4>O que me ajuda</h4>
+      <ul>
+        <li>Você estava no site? Qual página?</li>
+        <li>Ou escaneou de outra tela, de um PDF, de um print que te mandaram, de algo impresso?</li>
+        <li>Mais ou menos que dia foi?</li>
+      </ul>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Se você ainda tiver a imagem ou o arquivo, me manda. Com isso eu tiro de circulação e não
+        acontece com mais ninguém.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b8"> Respondi</label>
+    </article>
+  </section>
+
+  <!-- ================= ILTON ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Ilton</h2>
+      <span>6 relatos</span>
+    </div>
+
+    <article class="item" id="i1">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Mudar a moeda para Real» — aparecia «Gs.» em todas as telas</p>
+      <p>
+        Não era o app: a sua empresa estava com o Paraguai cadastrado como país no nosso banco de dados, e
+        era dali que saía o «Gs.». Aproveitamos para ver se acontecia com mais alguém e achamos outras três
+        contas iguais — as quatro já ficaram como Brasil.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li><strong>Saia da sua conta no app e entre de novo.</strong> O país vem junto no login, então até
+        você entrar de novo continua aparecendo o de antes.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>R$ em tudo. Se continuar aparecendo Gs. depois de entrar de novo, me avisa — aí sim o
+        problema é do app.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i1"> Testei</label>
+    </article>
+
+    <article class="item" id="i2">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Formato do telefone padrão +55 (11) 988559955»</p>
+      <p>
+        Ficou exatamente como você pediu: <strong>+55 (11) 98855-9955</strong>. E o seu pedido não era só
+        de estética: o exemplo antigo não levava o código do país, e quando alguém copiava e salvava o
+        número assim, o botão de WhatsApp da ficha do cliente abria uma conversa errada. Você nos fez achar
+        um problema de verdade.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Abra o campo de telefone e leia o exemplo.</li>
+        <li>Salve um cliente copiando esse formato e toque no botão de WhatsApp dele.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O exemplo leva o +55, e o botão abre a conversa certa.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i2"> Testei</label>
+    </article>
+
+    <article class="item" id="i3">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Enviar recibo em PDF por WhatsApp»</p>
+      <p>
+        Está pronto. Aparece um botão <strong>«Enviar recibo em PDF»</strong>: você toca, abre a tela de
+        compartilhar do celular e dali escolhe o WhatsApp. Não dá para anexar direto no chat porque o
+        WhatsApp só aceita texto por link, mas o caminho é o mesmo — e serve para e-mail também.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Emita um recibo e toque em «Enviar recibo em PDF».</li>
+        <li>Escolha o WhatsApp e envie.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O PDF chega no chat com o nome e o documento da sua empresa no cabeçalho. Uma pergunta:
+        você quer que leve a sua logo também?</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i3"> Testei</label>
+    </article>
+
+    <article class="item" id="i4">
+      <span class="tag t-go">Ajuda a investigar</span>
+      <p class="said">«Cadastrei R$ 500,00 numa conta bancária e depois não consegui identificar onde foi cadastrada. O chat disse que não tem acesso às contas bancárias»</p>
+      <p>
+        Este é o único dos seus que eu ainda não fechei, e vou ser honesta: são dois problemas e nenhum
+        está resolvido. Um é não achar onde a conta ficou depois de salvar. O outro é o chat não conseguir
+        consultar saldos.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Com o WhatsApp conectado, cadastre uma conta bancária com saldo.</li>
+        <li>Procure onde ela ficou — e anote <strong>onde você procurou primeiro</strong>. Isso é ouro
+        para a gente.</li>
+        <li>Pergunte ao chat pelo seu saldo.</li>
+      </ol>
+      <div class="expect">
+        <b>O que a gente aprende</b>
+        <span>Se o chat ainda disser «sem conexão» agora que a conexão foi corrigida, isso nos diz que
+        falta a função — e não que faltava permissão. Os dois casos têm soluções bem diferentes.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i4"> Testei</label>
+    </article>
+
+    <article class="item" id="i5">
+      <span class="tag t-note">Já anotado</span>
+      <p class="said">«Ao cadastrar uma nova conta bancária, aparecer os bancos do Brasil com seus respectivos códigos»</p>
+      <p>Boa ideia e barata de fazer — evita errar o código na digitação. Está na fila, não precisa testar nada.</p>
+      <label class="mark"><input type="checkbox" data-c="i5"> Ok</label>
+    </article>
+
+    <article class="item" id="i6">
+      <span class="tag t-note">Já anotado</span>
+      <p class="said">«É possível o app acessar os dados da agenda, para buscar um cliente em vez de cadastrar tudo de novo?»</p>
+      <p>
+        Faz muito sentido. Depende de pedir permissão de contatos, que é uma conversa à parte com as lojas
+        de aplicativo, então vai levar mais tempo que as outras. Anotado.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="i6"> Ok</label>
+    </article>
+  </section>
+
+  <!-- ================= LUCAS ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Lucas</h2>
+      <span>4 relatos</span>
+    </div>
+
+    <article class="item" id="l1">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Não consigo criar uma nova conta de cobrança» · «Tentei criar uma cobrança e não deu certo»</p>
+      <p>
+        Tenho uma notícia boa e uma curiosa: <strong>as suas quatro tentativas funcionaram</strong>. As
+        contas foram criadas, todas. O que estava quebrado era a resposta do servidor — vinha mal escrita,
+        o app não conseguia ler e mostrava «erro no servidor» mesmo já tendo salvo. Como você tentou de
+        novo ao ver o erro, ficaram contas repetidas. Já limpamos e deixamos uma de cada.
+      </p>
+      <p>
+        O seu relato foi dos mais úteis que recebemos: ele destapou um defeito que afetava várias telas de
+        uma vez, não só a sua. Obrigado de verdade.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Confira se a sua lista de contas ficou sem repetidas.</li>
+        <li>Crie uma conta de cobrança nova.</li>
+        <li>Se aparecer erro, <strong>não tente de novo</strong>: vá na lista ver se salvou.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Salva sem erro. E se algo falhar, o app não pode mais dizer «erro no servidor» sobre uma
+        coisa que salvou, nem te convidar a repetir quando repetir duplica.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l1"> Testei</label>
+    </article>
+
+    <article class="item" id="l2">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«O sistema não consegue consultar os meus dados» (ao pedir um lembrete)</p>
+      <p>
+        Duas partes. A primeira é um erro nosso e já localizamos: o bot te entendeu perfeitamente — achamos
+        a conversa e lá está escrito que era um lembrete e qual ferramenta usar — mas depois te mandou para
+        o lugar errado e acabou dizendo que não conseguiu consultar. Aquela mensagem existe de propósito
+        para ele nunca inventar uma resposta, mas ficou confusa.
+      </p>
+      <p>
+        A segunda é mais honesta de dizer: lembrete de uma data funciona, mas <strong>«me lembra todo mês»
+        ainda não existe</strong>. Não está quebrado, falta. Ficou anotado como pedido.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>«Me lembra dia 1 de outubro de pagar a conta de luz»</li>
+        <li>Depois, de propósito: «me lembra todo mês de pagar a conta de luz»</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O primeiro agenda. O segundo tem que dizer com clareza que o mensal ainda não existe — não
+        pode responder «não consegui consultar seus dados», que é o que acontecia.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l2"> Testei</label>
+    </article>
+
+    <article class="item" id="l3">
+      <span class="tag t-wait">Ainda não transcreve</span>
+      <p class="said">«Tentei criar uma cobrança com áudio e não deu certo»</p>
+      <p>
+        A transcrição de áudio existe, sim — o aviso que apareceu era mentira nossa. O app estava chamando
+        um endereço errado do servidor e, como não existia, mostrava «logo logo» em vez de dizer que tinha
+        falhado. Essa parte já corrigimos.
+      </p>
+      <p>
+        Mas vou ser sincera: <strong>ainda não transcreve</strong>. Revisando, faltam mais duas coisas do
+        lado do servidor. Prefiro te dizer antes do que te fazer testar algo que não anda. E obrigado,
+        porque escrito daquele jeito parecia pedido de função e era um defeito que estava lá desde sempre.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Mande um áudio para criar uma cobrança — só para ver a mensagem.</li>
+      </ol>
+      <div class="expect warn">
+        <b>Tem que acontecer</b>
+        <span>Um erro honesto. Nada de «já vem» nem «logo logo». A transcrição não vai funcionar, e isso
+        está esperado.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l3"> Testei</label>
+    </article>
+  </section>
+
+  <!-- ================= EURAM ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Euram</h2>
+      <span>2 relatos</span>
+    </div>
+
+    <article class="item" id="e1">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Erro ao acessar a plataforma do app e continua aparecendo aquele código»</p>
+      <p>
+        As suas duas capturas foram decisivas: nelas dá para ver o WhatsApp confirmando «Tudo certo, app e
+        chat conectados» às 19:09, e o app dizendo «Algo deu errado» às 19:10 — com um código novo já
+        esperando no campo de texto. A conexão funcionava e o app não ficava sabendo, porque parava de
+        esperar depois de um minuto. Corrigido.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Instale o app novo e conecte o WhatsApp.</li>
+        <li>De propósito, demore uns dois minutos antes de enviar o código.</li>
+        <li>Volte para o app.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O app reconhece a conexão quando você volta, mesmo tendo passado mais de um minuto. Sem
+        «Algo deu errado» e sem código novo.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="e1"> Testei</label>
+    </article>
+
+    <article class="item" id="e2">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Ao editar a meta não mostra o número que está digitando, e o botão de próximo não funciona. Estava sem nome da empresa — é bom pôr mensagem do que precisa preencher»</p>
+      <p>
+        Eram duas coisas e você acertou as duas, incluindo a solução. O teclado tapava o campo, e o botão
+        «Próximo» estava apagado sem dizer que faltava o nome da empresa. Agora um botão apagado tem que
+        dizer o que falta.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Com a empresa sem nome, vá editar a meta.</li>
+        <li>Digite o número e veja se ele aparece enquanto você digita.</li>
+        <li>Toque no «Próximo» estando apagado.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>O campo fica visível acima do teclado, e o botão apagado diz o que falta preencher.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="e2"> Testei</label>
+    </article>
+  </section>
+
+  <!-- ================= RICARDO ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Ricardo</h2>
+      <span>3 relatos</span>
+    </div>
+
+    <article class="item" id="r1">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Aqui não registrou múltiplos gastos, deu erro»</p>
+      <p>
+        Você tem razão, e era pior do que parecia: dos cinco gastos que você mandou ficou registrado
+        <strong>um só</strong>. Os outros quatro foram descartados sem te avisar, e ainda por cima o bot
+        perguntou «confirmo?» como se fosse tudo — então você confirmou uma coisa que não era o que tinha
+        mandado. O pior é que não teve nenhum aviso de erro: tudo parecia certo. Esse é justamente o tipo
+        de falha que a gente não acha sem alguém usando de verdade.
+      </p>
+      <p>
+        <strong>Confira o seu caixa</strong>, porque aqueles quatro não ficaram. Te mandei a lista deles
+        no privado.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Mande cinco gastos numa só mensagem, como você fez.</li>
+        <li>Conte quantos ele diz que entendeu, e quantos aparecem depois no caixa.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Ele diz quantos entendeu, confirma um, e te devolve os outros escritos para você reenviar
+        sem precisar lembrar de cabeça. Nenhum gasto pode cair calado.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="r1"> Testei</label>
+    </article>
+
+    <article class="item" id="r2">
+      <span class="tag t-go">Pode testar</span>
+      <p class="said">«Uso do pronome “tua” e “teu” muito utilizado»</p>
+      <p>
+        Você e a Bárbara apontaram isso separados, então não ficou dúvida nenhuma. Trocamos para
+        <em>seu</em> e <em>sua</em>, no app e no bot.
+      </p>
+      <h4>O que testar</h4>
+      <ol>
+        <li>Converse com o Zy e veja como ele te trata.</li>
+        <li>Dê uma olhada nas telas do app também.</li>
+      </ol>
+      <div class="expect">
+        <b>Tem que acontecer</b>
+        <span>Nenhum «teu» nem «tua». Se sobrou algum, me manda o print.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="r2"> Testei</label>
+    </article>
+
+    <article class="item" id="r3">
+      <span class="tag t-note">Já anotado</span>
+      <p class="said">«Em gasto, ver se é necessário endereço — e se sim, ter um buscador de CEP. Sobre período de pagamento, ter mensal, semanal ou única»</p>
+      <p>
+        São duas ideias e as duas são boas: provavelmente endereço não precisa num gasto, e os períodos
+        ficam mais claros com nome do que deixados para interpretação. Anotado, não precisa testar.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="r3"> Ok</label>
+    </article>
+  </section>
+
+  <footer>
+    <p>
+      <strong>Se algo continuar errado, manda print.</strong> Foi print que resolveu o caso do Euram e o
+      do Ricardo — a hora que aparece na tela nos disse exatamente onde estava o defeito.
+    </p>
+    <p>
+      As marcações ficam salvas só no seu celular. Não vão para lugar nenhum.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var KEY = 'zymplo-testers-br';
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.mark input'));
+    var saved = {};
+
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) saved = JSON.parse(raw) || {};
+    } catch (e) { saved = {}; }
+
+    function persist() {
+      var out = {};
+      boxes.forEach(function (b) { if (b.checked) out[b.dataset.c] = 1; });
+      try { localStorage.setItem(KEY, JSON.stringify(out)); } catch (e) { /* aba privada */ }
+    }
+
+    function paint() {
+      var done = 0;
+      boxes.forEach(function (b) {
+        var card = document.getElementById(b.dataset.c);
+        if (card) card.classList.toggle('done', b.checked);
+        if (b.checked) done++;
+      });
+      var total = boxes.length;
+      document.getElementById('pcount').textContent = done + ' de ' + total + ' testados';
+      document.getElementById('pbar').style.width = (total ? (done / total) * 100 : 0) + '%';
+    }
+
+    boxes.forEach(function (b) {
+      if (saved[b.dataset.c]) b.checked = true;
+      b.addEventListener('change', function () { persist(); paint(); });
+    });
+
+    paint();
+  })();
+</script>
+</body>
+</html>

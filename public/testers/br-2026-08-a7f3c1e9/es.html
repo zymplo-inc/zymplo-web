@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Qué probar en Zymplo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --ground: #F6FAF7;
+    --surface: #FFFFFF;
+    --surface-2: #ECF3EE;
+    --border: #D7E4DB;
+    --border-strong: #B9CCC0;
+    --text: #16211B;
+    --muted: #566158;
+    --accent: #0E7A56;
+    --accent-soft: #E1F1E7;
+    --wait: #8A5B12;
+    --wait-soft: #FAF0DC;
+    --note: #4C5B63;
+    --note-soft: #EBF0F2;
+
+    --display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+    --body: 'Figtree', system-ui, -apple-system, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C120E;
+      --surface: #141D17;
+      --surface-2: #1B2620;
+      --border: #26332B;
+      --border-strong: #374A3D;
+      --text: #E6EFE9;
+      --muted: #98A79D;
+      --accent: #46C88F;
+      --accent-soft: #16281F;
+      --wait: #DFAE55;
+      --wait-soft: #2A2315;
+      --note: #9FB0B8;
+      --note-soft: #1A2226;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0C120E;
+    --surface: #141D17;
+    --surface-2: #1B2620;
+    --border: #26332B;
+    --border-strong: #374A3D;
+    --text: #E6EFE9;
+    --muted: #98A79D;
+    --accent: #46C88F;
+    --accent-soft: #16281F;
+    --wait: #DFAE55;
+    --wait-soft: #2A2315;
+    --note: #9FB0B8;
+    --note-soft: #1A2226;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(32px, 8vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .hero { display: flex; flex-direction: column; gap: 14px; }
+
+  .hero p {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 56ch;
+  }
+  .hero p strong { color: var(--text); font-weight: 600; }
+
+  .first {
+    background: var(--accent-soft);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .first h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .first ol { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; }
+  .first p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  .progress {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--ground);
+    padding: 12px 0 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .bar {
+    flex: 1;
+    height: 7px;
+    background: var(--surface-2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 99px; transition: width .3s ease; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+
+  .person { display: flex; flex-direction: column; gap: 16px; }
+
+  .person-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  .person-head h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(26px, 6vw, 34px);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .person-head span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .item.done { opacity: .58; }
+
+  .tag {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-radius: 99px;
+    padding: 4px 11px;
+  }
+  .t-go   { color: var(--accent); background: var(--accent-soft); }
+  .t-wait { color: var(--wait);   background: var(--wait-soft); }
+  .t-note { color: var(--note);   background: var(--note-soft); }
+
+  .said {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.32;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .item ol, .item ul { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; }
+  .item p { margin: 0; }
+
+  .expect {
+    background: var(--surface-2);
+    border-radius: 11px;
+    padding: 13px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .expect b {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .expect.warn b { color: var(--wait); }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+    align-self: flex-start;
+    padding: 6px 0;
+    min-height: 34px;
+  }
+  .mark input {
+    width: 22px; height: 22px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    margin: 0;
+    flex: none;
+  }
+  .mark:hover { color: var(--text); }
+  .mark input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .quoted {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  footer p { margin: 0; }
+  footer strong { color: var(--text); }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 28px 15px 70px; gap: 30px; }
+    body { font-size: 16.5px; }
+    .item { padding: 16px 16px; border-radius: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Qué probar en Zymplo</h1>
+    <p>
+      Los testers de Brasil mandaron <strong>19 reportes</strong>. La mayoría ya tiene arreglo y está en esta
+      versión nueva de la app. Esta página dice, para cada cosa que reportaron, <strong>qué probar y qué
+      tiene que pasar</strong>.
+    </p>
+    <p>
+      Si algo sigue mal, eso es justamente lo que necesitamos saber — vale más que un «funcionó».
+      Se puede marcar lo que ya se probó; queda guardado en el teléfono.
+    </p>
+    <p class="quoted">
+      Los reportes están citados en portugués, como los escribieron ellos.
+    </p>
+  </header>
+
+  <div class="first">
+    <h2>Antes de empezar</h2>
+    <ol>
+      <li><strong>Desinstalar la app anterior</strong> e instalar la nueva. No actualizar encima.</li>
+      <li>Entrar a la cuenta y <strong>conectar el WhatsApp</strong> — casi todo depende de eso.</li>
+      <li>Si ya se usaba la app, <strong>salir de la cuenta y volver a entrar</strong> una vez.</li>
+    </ol>
+    <p>
+      Dos cosas todavía no están listas y están marcadas como «todavía no» — no hace falta probarlas.
+    </p>
+  </div>
+
+  <div class="progress">
+    <span id="pcount">0 de 20 probados</span>
+    <span class="bar"><i id="pbar"></i></span>
+  </div>
+
+  <!-- ================= BÁRBARA ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Bárbara</h2>
+      <span>8 reportes</span>
+    </div>
+
+    <article class="item" id="b1">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Demora em média 3x para vincular o app ao número do whatsapp»</p>
+      <p>
+        Tenía razón, y el motivo es bien específico: la app dejaba de esperar al minuto. Como para mandar el
+        código hay que <em>salir</em> de la app, el tiempo se terminaba justo mientras estaba en WhatsApp.
+        La conexión se hacía y la app no se enteraba.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Conectar el WhatsApp una vez, sin apurarse.</li>
+        <li>A propósito, <strong>demorarse</strong>: esperar dos minutos antes de tocar enviar.</li>
+        <li>Volver a la app.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Conectar de primera, aunque se haya demorado. Sin «Algo deu errado» y sin generar un código
+        nuevo. Si hace falta un segundo intento, anotar cuántos segundos tardó.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b1"> Probado</label>
+    </article>
+
+    <article class="item" id="b2">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Ao baixar o app depois de atualizar, a msg inicial é esse código»</p>
+      <p>
+        Ese código es lo que conecta la app con WhatsApp — la app lo manda sola. El «no reconozco ese
+        código» era un error nuestro: el noveno dígito del celular brasileño rompía la conexión y el mensaje
+        culpaba al código. Por eso a la segunda vez funcionaba.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Conectar el WhatsApp y ver aparecer el código.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El código se acepta en el primer intento. Que aparezca solo queda raro, así que vamos a poner
+        una explicación antes — eso todavía no está en esta versión.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b2"> Probado</label>
+    </article>
+
+    <article class="item" id="b3">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Não salva o contato do fornecedor se não preencher todos os dados (tem fornecedores que não tem CNPJ)»</p>
+      <p>
+        Lo describió exactamente bien. Dos cosas: el <strong>CNPJ nunca fue obligatorio</strong>, sólo el
+        nombre. Y el error que veía era real, pero no tenía nada que ver con lo que llenaba — el servidor
+        leía los datos más de una vez, y desde la segunda lectura llegaban vacíos. De ahí «nome requerido»
+        con el nombre puesto.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li><strong>Primero mirar la lista de proveedores.</strong> Con otro tester el registro se guardó
+        igual mostrando error, así que puede estar ya cargado.</li>
+        <li>Si no está, cargarlo con el nombre solo, sin CNPJ.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Guarda con el nombre solo. Si ya está en la lista, avisar y lo cerramos — no cargarlo de
+        nuevo para no duplicar.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b3"> Probado</label>
+    </article>
+
+    <article class="item" id="b4">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Não consigo “Adicionar um lembrete”, nem “Cobrar um Serviço” e nem consultar “Quem Me Deve” pelo app»</p>
+      <p>
+        Esas tres funciones existen. Lo que pasaba es que, sin el WhatsApp conectado de verdad, la app no
+        tenía permiso de leer los datos y contestaba «no pude». Era consecuencia del problema de conexión,
+        no falta de función.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Confirmar que el WhatsApp quedó conectado.</li>
+        <li>En el chat de Zy dentro de la app, pedir las tres cosas por separado: un lembrete, cobrar un
+        servicio, y «Quem me deve».</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Las tres responden con datos. Si alguna falla, ahora el mensaje tiene que decir si conviene
+        reintentar o no.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b4"> Probado</label>
+    </article>
+
+    <article class="item" id="b5">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">«Não consegui automatizar a cobrança pelo chat, tive que cobrar manualmente pelo app»</p>
+      <p>
+        Encontramos el defecto y el arreglo está listo, pero es de nuestro servidor y todavía no salió al
+        aire. En esta versión de la app el comportamiento va a ser el mismo.
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Avisamos cuando suba. Probarlo ahora sólo repite el mismo error.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b5"> Entendido</label>
+    </article>
+
+    <article class="item" id="b6">
+      <span class="tag t-wait">Todavía no</span>
+      <p class="said">«Consegui que o bot do whatsapp identificasse a cobrança, porém, ele não prosseguiu com a solicitação da cobrança automática»</p>
+      <p>
+        Su captura mostró dos cosas de una vez. Una: pidió una <strong>cobranza</strong> y el bot contestó
+        «recibo emitido» — eran cosas distintas y anunció la equivocada. Otra: al elegir «Pro WhatsApp», se
+        cortó. Las dos ya tienen arreglo, en el mismo servidor que todavía no subió.
+      </p>
+      <div class="expect warn">
+        <b>No probar todavía</b>
+        <span>Mismo caso que el anterior. Cuando suba, el pedido tiene que ir de principio a fin por el
+        chat, sin terminarlo a mano en la app.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b6"> Entendido</label>
+    </article>
+
+    <article class="item" id="b7">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Uso do pronome teu e tua, melhor diminuir e usar seu e sua»</p>
+      <p>
+        Ella y Ricardo lo marcaron por separado, lo que sacó cualquier duda. En portugués se habla de
+        <em>você</em>, así que va <em>seu</em> y <em>sua</em>. Se cambió en la app y en el bot.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Abrir la pantalla de conectar WhatsApp y leer el texto de arriba.</li>
+        <li>Conversar cualquier cosa con Zy y ver cómo trata a la persona.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Ni un «teu» ni un «tua», en la app ni en el bot. Si quedó alguno, mandar dónde.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b7"> Probado</label>
+    </article>
+
+    <article class="item" id="b8">
+      <span class="tag t-note">Falta un dato</span>
+      <p class="said">«O QR Code do site não direciona pro whatsapp de primeira»</p>
+      <p>
+        Ese <strong>+595</strong> era un número viejo, corregido en el sitio desde el 7 de agosto. Y acá
+        necesitamos su ayuda: si el sitio ya estaba bien, el QR que escaneó salió de otro lado — y ese otro
+        lado sigue circulando.
+      </p>
+      <h4>Qué preguntarle</h4>
+      <ul>
+        <li>¿Estaba en el sitio? ¿En qué página?</li>
+        <li>¿O lo escaneó de otra pantalla, de un PDF, de una captura que le mandaron, de algo impreso?</li>
+        <li>¿Más o menos qué día fue?</li>
+      </ul>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Si todavía tiene la imagen o el archivo, que lo mande. Con eso se saca de circulación y no le
+        pasa a nadie más.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b8"> Preguntado</label>
+    </article>
+  </section>
+
+  <!-- ================= ILTON ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Ilton</h2>
+      <span>6 reportes</span>
+    </div>
+
+    <article class="item" id="i1">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Mudar a moeda para Real» — aparecía «Gs.» en todas las pantallas</p>
+      <p>
+        No era la app: su empresa tenía Paraguay como país en nuestra base de datos, y de ahí salía el
+        «Gs.». Se revisó si le pasaba a más gente y aparecieron otras tres cuentas iguales — las cuatro ya
+        quedaron como Brasil.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li><strong>Salir de la cuenta en la app y volver a entrar.</strong> El país viaja en el login, así
+        que hasta que no vuelva a entrar sigue viendo lo de antes.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>R$ en todo. Si sigue apareciendo Gs. después de volver a entrar, ahí sí el problema es de la
+        app.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i1"> Probado</label>
+    </article>
+
+    <article class="item" id="i2">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Formato do telefone padrão +55 (11) 988559955»</p>
+      <p>
+        Quedó exactamente como pidió: <strong>+55 (11) 98855-9955</strong>. Y su pedido no era sólo
+        estético: el ejemplo anterior no llevaba código de país, y cuando alguien copiaba y guardaba el
+        número así, el botón de WhatsApp de la ficha del cliente abría una conversación equivocada. Nos hizo
+        encontrar un problema de verdad.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Abrir el campo de teléfono y leer el ejemplo.</li>
+        <li>Guardar un cliente copiando ese formato y tocar su botón de WhatsApp.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El ejemplo lleva el +55, y el botón abre la conversación correcta.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i2"> Probado</label>
+    </article>
+
+    <article class="item" id="i3">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Enviar recibo em PDF por WhatsApp»</p>
+      <p>
+        Está listo. Aparece un botón <strong>«Enviar recibo em PDF»</strong>: se toca, abre la pantalla de
+        compartir del teléfono y de ahí se elige WhatsApp. No se puede adjuntar directo en el chat porque
+        WhatsApp sólo acepta texto por link, pero el camino es el mismo — y sirve para mail también.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Emitir un recibo y tocar «Enviar recibo em PDF».</li>
+        <li>Elegir WhatsApp y mandarlo.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El PDF llega al chat con el nombre y el documento de la empresa en el encabezado. Y una
+        pregunta para él: ¿quiere que lleve su logo también?</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i3"> Probado</label>
+    </article>
+
+    <article class="item" id="i4">
+      <span class="tag t-go">Ayuda a investigar</span>
+      <p class="said">«Cadastrei R$ 500,00 em uma conta bancária e após salvar não consegui identificar onde essa conta foi cadastrada. O chat trouxe a mensagem de que não tem acesso às contas bancárias»</p>
+      <p>
+        Este es el único de los suyos que todavía no está cerrado, y hay que decirlo derecho: son dos
+        problemas y ninguno está resuelto. Uno es no encontrar dónde quedó la cuenta después de guardarla.
+        El otro es que el chat no puede consultar saldos.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Con el WhatsApp conectado, cargar una cuenta bancaria con saldo.</li>
+        <li>Buscar dónde quedó — y anotar <strong>dónde se buscó primero</strong>. Ese dato es oro.</li>
+        <li>Preguntarle al chat por el saldo.</li>
+      </ol>
+      <div class="expect">
+        <b>Qué aprendemos</b>
+        <span>Si el chat sigue diciendo «sin conexión» ahora que la conexión está arreglada, eso nos dice
+        que falta la función — y no que faltaba permiso. Los dos casos tienen soluciones muy distintas.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="i4"> Probado</label>
+    </article>
+
+    <article class="item" id="i5">
+      <span class="tag t-note">Ya anotado</span>
+      <p class="said">«Ao cadastrar uma nova conta bancária, aparecer os bancos do Brasil com seus respectivos códigos»</p>
+      <p>Buena idea y barata de hacer — evita errar el código al tipear. Está en la fila, no hay nada que probar.</p>
+      <label class="mark"><input type="checkbox" data-c="i5"> Ok</label>
+    </article>
+
+    <article class="item" id="i6">
+      <span class="tag t-note">Ya anotado</span>
+      <p class="said">«É possível o App acessar os dados da agenda? Assim, ao cadastrar um novo cliente, posso simplesmente buscar da agenda»</p>
+      <p>
+        Tiene mucho sentido. Depende de pedir permiso de contactos, que es una conversación aparte con las
+        tiendas de aplicaciones, así que va a llevar más tiempo que las otras. Anotado.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="i6"> Ok</label>
+    </article>
+  </section>
+
+  <!-- ================= LUCAS ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Lucas</h2>
+      <span>4 reportes</span>
+    </div>
+
+    <article class="item" id="l1">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Não consigo criar uma nova conta de cobrança» · «Tentei criar uma cobrança e não deu certo»</p>
+      <p>
+        Hay una noticia buena y una curiosa: <strong>sus cuatro intentos funcionaron</strong>. Las cuentas se
+        crearon, todas. Lo que estaba roto era la respuesta del servidor — venía mal escrita, la app no la
+        podía leer y mostraba «error del servidor» sobre algo ya guardado. Como reintentó al ver el error,
+        quedaron cuentas repetidas. Ya se limpiaron y quedó una de cada.
+      </p>
+      <p>
+        Su reporte fue de los más útiles que recibimos: destapó un defecto que afectaba varias pantallas a
+        la vez, no sólo la suya.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Confirmar que su lista de cuentas quedó sin repetidas.</li>
+        <li>Crear una cuenta de cobranza nueva.</li>
+        <li>Si aparece un error, <strong>no reintentar</strong>: ir a la lista a ver si se guardó.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Guarda sin error. Y si algo falla, la app ya no puede decir «error del servidor» sobre algo
+        que se guardó, ni invitar a reintentar cuando reintentar duplica.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l1"> Probado</label>
+    </article>
+
+    <article class="item" id="l2">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«O sistema não consegue consultar os meus dados» (al pedir un lembrete)</p>
+      <p>
+        Dos partes. La primera es un error nuestro y ya está localizado: el bot lo entendió perfectamente —
+        se encontró la conversación y ahí está escrito que era un lembrete y qué herramienta usar — pero
+        después lo mandó al lugar equivocado y terminó diciendo que no pudo consultar. Ese mensaje existe a
+        propósito para que nunca invente una respuesta, pero quedó confuso.
+      </p>
+      <p>
+        La segunda es más honesta de decir: el lembrete de una fecha funciona, pero <strong>«me lembra todo
+        mês» todavía no existe</strong>. No está roto, falta. Quedó anotado como pedido.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>«Me lembra dia 1 de outubro de pagar a conta de luz»</li>
+        <li>Después, a propósito: «me lembra todo mês de pagar a conta de luz»</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El primero agenda. El segundo tiene que decir con claridad que lo mensual todavía no existe —
+        no puede contestar «não consegui consultar seus dados», que es lo que pasaba.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l2"> Probado</label>
+    </article>
+
+    <article class="item" id="l3">
+      <span class="tag t-wait">Todavía no transcribe</span>
+      <p class="said">«Tentei criar uma cobrança com áudio e não deu certo»</p>
+      <p>
+        La transcripción de audio existe — el aviso que apareció era mentira nuestra. La app llamaba a una
+        dirección del servidor que no existe y, en vez de decir que falló, prometía que venía en camino.
+        Esa parte ya está corregida.
+      </p>
+      <p>
+        Pero hay que ser sinceros: <strong>todavía no transcribe</strong>. Revisando, faltan dos cosas más
+        del lado del servidor. Mejor decirlo antes que hacerlo probar algo que no anda. Y escrito como
+        estaba parecía un pedido de función, y era un defecto que estaba desde siempre.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Mandar un audio para crear una cobranza — sólo para ver el mensaje.</li>
+      </ol>
+      <div class="expect warn">
+        <b>Tiene que pasar</b>
+        <span>Un error honesto. Nada de «já vem» ni «logo logo». La transcripción no va a funcionar, y eso
+        está esperado.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="l3"> Probado</label>
+    </article>
+  </section>
+
+  <!-- ================= EURAM ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Euram</h2>
+      <span>2 reportes</span>
+    </div>
+
+    <article class="item" id="e1">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Erro ao acessar plataforma do app e continua aparecendo aquele código»</p>
+      <p>
+        Sus dos capturas fueron decisivas: en ellas se ve WhatsApp confirmando «Tudo certo, app e chat
+        conectados» a las 19:09, y la app diciendo «Algo deu errado» a las 19:10 — con un código nuevo ya
+        esperando en el campo de texto. La conexión funcionaba y la app no se enteraba, porque dejaba de
+        esperar al minuto. Corregido.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Instalar la app nueva y conectar el WhatsApp.</li>
+        <li>A propósito, demorar dos minutos antes de enviar el código.</li>
+        <li>Volver a la app.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>La app reconoce la conexión al volver, aunque haya pasado más de un minuto. Sin «Algo deu
+        errado» y sin código nuevo.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="e1"> Probado</label>
+    </article>
+
+    <article class="item" id="e2">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Quando vai editar a meta, não mostra o número que tá digitando e botão de próximo não funciona. Estava sem nome da empresa, daí é bom por mensagem que precisa preencher»</p>
+      <p>
+        Eran dos cosas y acertó las dos, incluida la solución. El teclado tapaba el campo, y el botón
+        «Próximo» estaba apagado sin decir que faltaba el nombre de la empresa. Ahora un botón apagado tiene
+        que decir qué le falta.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Con la empresa sin nombre, ir a editar la meta.</li>
+        <li>Escribir el número y ver si se ve mientras se escribe.</li>
+        <li>Tocar «Próximo» estando apagado.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>El campo queda visible arriba del teclado, y el botón apagado dice qué falta llenar.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="e2"> Probado</label>
+    </article>
+  </section>
+
+  <!-- ================= RICARDO ================= -->
+  <section class="person">
+    <div class="person-head">
+      <h2>Ricardo</h2>
+      <span>3 reportes</span>
+    </div>
+
+    <article class="item" id="r1">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Aqui não registrou múltiplos gastos, deu erro»</p>
+      <p>
+        Tenía razón, y era peor de lo que parecía: de los cinco gastos que mandó quedó registrado
+        <strong>uno solo</strong>. Los otros cuatro se descartaron sin avisar, y encima el bot preguntó
+        «confirmo?» como si fuera todo — así que confirmó algo que no era lo que había mandado. Lo peor es
+        que no hubo ningún aviso de error: todo parecía bien. Es justo el tipo de falla que no se encuentra
+        sin alguien usando de verdad.
+      </p>
+      <p>
+        <strong>Hay que revisarle la caja</strong>, porque esos cuatro no quedaron. La lista de los cuatro
+        se le pasa por privado.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Mandar cinco gastos en un solo mensaje, como hizo él.</li>
+        <li>Contar cuántos dice que entendió, y cuántos aparecen después en la caja.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Dice cuántos entendió, confirma uno, y devuelve los otros escritos para reenviar sin tener
+        que acordarse de memoria. Ningún gasto se puede caer en silencio.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="r1"> Probado</label>
+    </article>
+
+    <article class="item" id="r2">
+      <span class="tag t-go">Se puede probar</span>
+      <p class="said">«Uso do pronome tua e teu muito ultilizado»</p>
+      <p>
+        Él y Bárbara lo marcaron por separado, así que no quedó ninguna duda. Se cambió a <em>seu</em> y
+        <em>sua</em>, en la app y en el bot.
+      </p>
+      <h4>Qué probar</h4>
+      <ol>
+        <li>Conversar con Zy y ver cómo trata a la persona.</li>
+        <li>Mirar también las pantallas de la app.</li>
+      </ol>
+      <div class="expect">
+        <b>Tiene que pasar</b>
+        <span>Ni un «teu» ni un «tua». Si quedó alguno, que manden la captura.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="r2"> Probado</label>
+    </article>
+
+    <article class="item" id="r3">
+      <span class="tag t-note">Ya anotado</span>
+      <p class="said">«Em gasto, ver se é necessário endereço e se sim ter um buscador de cep. Sobre período de pagamento, bom ter mensal, semanal ou única»</p>
+      <p>
+        Son dos ideas y las dos son buenas: probablemente la dirección no hace falta en un gasto, y los
+        períodos quedan más claros con nombre que dejados a interpretación. Anotado, no hay nada que probar.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="r3"> Ok</label>
+    </article>
+  </section>
+
+  <footer>
+    <p>
+      <strong>Si algo sigue mal, que manden captura.</strong> Fue una captura la que resolvió el caso de
+      Euram y el de Ricardo — la hora que se ve en la pantalla dijo exactamente dónde estaba el defecto.
+    </p>
+    <p>
+      Las marcas quedan guardadas sólo en este teléfono. No van a ningún lado.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var KEY = 'zymplo-testers-es';
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.mark input'));
+    var saved = {};
+
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) saved = JSON.parse(raw) || {};
+    } catch (e) { saved = {}; }
+
+    function persist() {
+      var out = {};
+      boxes.forEach(function (b) { if (b.checked) out[b.dataset.c] = 1; });
+      try { localStorage.setItem(KEY, JSON.stringify(out)); } catch (e) { /* ventana privada */ }
+    }
+
+    function paint() {
+      var done = 0;
+      boxes.forEach(function (b) {
+        var card = document.getElementById(b.dataset.c);
+        if (card) card.classList.toggle('done', b.checked);
+        if (b.checked) done++;
+      });
+      var total = boxes.length;
+      document.getElementById('pcount').textContent = done + ' de ' + total + ' probados';
+      document.getElementById('pbar').style.width = (total ? (done / total) * 100 : 0) + '%';
+    }
+
+    boxes.forEach(function (b) {
+      if (saved[b.dataset.c]) b.checked = true;
+      b.addEventListener('change', function () { persist(); paint(); });
+    });
+
+    paint();
+  })();
+</script>
+</body>
+</html>
