@@ -198,6 +198,22 @@
   .t-wait { color: var(--wait);   background: var(--wait-soft); }
   .t-note { color: var(--note);   background: var(--note-soft); }
 
+  /* Veredictos · sólo cuando el tester ya probó y contestó. Rellenos, porque
+     son la conclusión del caso y no un estado más. */
+  .t-cerrado, .t-sigue {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
+  .t-cerrado { background: #0E7A56; }
+  .t-sigue   { background: #A4442A; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .t-cerrado { background: #1F8A63; }
+    :root:not([data-theme="light"]) .t-sigue   { background: #B9502F; }
+  }
+  :root[data-theme="dark"] .t-cerrado { background: #1F8A63; }
+  :root[data-theme="dark"] .t-sigue   { background: #B9502F; }
+
   .said {
     font-family: var(--display);
     font-weight: 500;
@@ -297,6 +313,11 @@
       probar y qué tiene que pasar</strong> — y dice sin vueltas lo que todavía no está.
     </p>
     <p>
+      Cuando un tester responde en un caso, ese caso pasa a llevar un veredicto:
+      <strong>«Probado · resuelto»</strong> o <strong>«Probado · sigue pasando»</strong>. Así no hay que
+      leer el párrafo entero para saber dónde quedó — y lo que sigue pasando queda a la vista.
+    </p>
+    <p>
       Si algo sigue mal, eso es justamente lo que necesitamos saber — vale más que un «funcionó».
       Se puede marcar lo que ya se probó; queda guardado en el teléfono.
     </p>
@@ -352,7 +373,7 @@
     </article>
 
     <article class="item" id="b2">
-      <span class="tag t-note">Confirmado por ella · en curso</span>
+      <span class="tag t-sigue">Probado · sigue pasando</span>
       <p class="said">«Ao baixar o app depois de atualizar, a msg inicial é esse código»</p>
       <p>
         Ese código es lo que conecta la app con WhatsApp — la app lo manda sola. El «no reconozco ese
@@ -468,7 +489,7 @@
     </article>
 
     <article class="item" id="b8">
-      <span class="tag t-go">Lo encontró ella · y era peor de lo que parecía</span>
+      <span class="tag t-sigue">Probado · sigue pasando</span>
       <p class="said">«O QR Code do site não direciona pro whatsapp de primeira»</p>
       <p>
         <strong>Tenía razón y yo estaba mirando el sitio equivocado.</strong> Yo verifiqué
@@ -497,7 +518,7 @@
     </article>
 
     <article class="item" id="b9">
-      <span class="tag t-wait">Todavía no · misma causa</span>
+      <span class="tag t-sigue">Probado · sigue pasando</span>
       <p class="said">«O teste demo que aparece para clicar e ver uma demonstração de como funciona, não está funcionando»</p>
       <p>
         Esto vino junto con su respuesta del QR y vale como reporte propio. Confirmado: la versión
