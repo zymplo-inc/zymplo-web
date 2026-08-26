@@ -12,6 +12,7 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:content:strict": "tsx scripts/validate-content.ts --strict",
     "validate:content:diff": "tsx scripts/validate-content.ts --diff",
+    "check:dominios": "tsx scripts/check-dominios-vivos.ts",
     "check:numeros": "tsx scripts/check-numeros-wa.ts",
     "check:numeros:arnes": "bash scripts/mutar-check-numeros.sh"
   },
