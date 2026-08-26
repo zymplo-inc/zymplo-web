@@ -267,11 +267,19 @@ export const EU_SLUGS: CountrySlug[] = ['es'];
 
 // SOLO DOS números de WhatsApp (Carlos 2026-07-22 · ratificado 2026-08-07):
 // US +1 202 771 8788 atiende TODOS los países · BR +55 11 92569-7328 exclusivo
-// Brasil. El canal PY quedó sin efecto, y el 595 981 970735 que estaba acá
-// NUNCA fue de ningún canal — todo CTA que apuntara ahí caía al vacío.
+// Brasil. Los números viejos están prohibidos de publicar; la lista vive en
+// `canales-whatsapp.json` del monorepo y la vigila `scripts/check-numeros-wa.ts`.
+// Acá no se escriben, ni siquiera para explicar que no se usan: uno de ellos es
+// un teléfono personal, y el comentario que avisaba de no publicarlo lo estuvo
+// publicando hasta el 2026-08-26 (escrito con espacios, así que ningún grep del
+// número pelado lo encontraba).
+//
+// `slug` es opcional a propósito. Una página que no sabe de qué país es quien
+// mira tiene que caer en el global: mandar a un paraguayo al canal de Brasil
+// sería mandarlo a un canal que no es el suyo.
 export const WA_NUMBER = '12027718788';
 export const WA_NUMBER_BR = '5511925697328';
-export const waNumberFor = (slug: CountrySlug): string =>
+export const waNumberFor = (slug?: CountrySlug | string): string =>
   slug === 'br' ? WA_NUMBER_BR : WA_NUMBER;
 const WA_TEXT: Record<CountrySlug, string> = {
   br: 'Olá! Quero começar com Zymplo grátis.',
