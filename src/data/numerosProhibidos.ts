@@ -51,8 +51,14 @@ export const NUMEROS_PROHIBIDOS: readonly string[] = [
  */
 export const DOMINIOS_PUBLICOS: readonly string[] = [
   'zymplo.com',
-  // ccTLD · publicación SEPARADA, la que se congeló
+  // ccTLD · publicaciones SEPARADAS, las que se congelaron. Las sirve un Worker
+  // (cabecera `x-zymplo-cctld`) que apunta a un deployment fijo en vez de al
+  // vivo, así que se quedan quietas para siempre sin que nadie se entere.
+  // Medido 2026-08-26 16:25 -03: .br congelada el 10-ago, .py el 22-MAYO, y las
+  // dos sirviendo los mismos 7 números prohibidos. Faltaba .py en esta lista:
+  // el dominio que llevaba más tiempo roto era justo el que nadie miraba.
   'zymplo.com.br',
+  'zymplo.com.py',
   // proxies por país
   'ar.zymplo.com',
   'bo.zymplo.com',
