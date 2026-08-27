@@ -308,9 +308,10 @@
   <header class="hero">
     <h1>Qué probar en Zymplo</h1>
     <p>
-      Los testers de Brasil mandaron <strong>37 reportes</strong> en dos tandas. La mayoría ya tiene arreglo
-      y está en esta versión nueva de la app. Esta página dice, para cada cosa que reportaron, <strong>qué
-      probar y qué tiene que pasar</strong> — y dice sin vueltas lo que todavía no está.
+      Los testers de Brasil mandaron <strong>43 reportes</strong> en dos tandas. Casi todos ya tienen
+      arreglo escrito. Esta página dice, para cada cosa que reportaron, <strong>qué probar y qué tiene
+      que pasar</strong> — y dice sin vueltas lo que todavía no está y lo que está hecho pero
+      <em>todavía no llegó al teléfono</em>.
     </p>
     <p>
       Cuando un tester responde en un caso, ese caso pasa a llevar un veredicto:
@@ -329,17 +330,40 @@
   <div class="first">
     <h2>Antes de empezar</h2>
     <ol>
-      <li><strong>Desinstalar la app anterior</strong> e instalar la nueva. No actualizar encima.</li>
+      <li><strong>Desinstalar la app anterior</strong> e instalar la nueva desde este link: <a href="https://sims.zymplo.com/zymplo-android-latest.apk"><strong>bajar la app (Android)</strong></a>. No actualizar encima — y no bajarla de Play: la de Play sigue siendo la vieja.</li>
       <li>Entrar a la cuenta y <strong>conectar el WhatsApp</strong> — casi todo depende de eso.</li>
       <li>Si ya se usaba la app, <strong>salir de la cuenta y volver a entrar</strong> una vez.</li>
     </ol>
     <p>
-      Dos cosas todavía no están listas y están marcadas como «todavía no» — no hace falta probarlas.
+      Lo único que no hace falta probar es lo marcado «todavía no». Todo lo demás ya se puede.
     </p>
   </div>
 
+    <article class="item" id="pub">
+    <span class="tag t-go">Actualización 27/08 · leer primero</span>
+    <p class="said">Ya se puede probar todo: la app nueva está en el link de arriba y el bot ya se actualizó</p>
+    <p>
+      Esta página decía que seis arreglos estaban hechos y sin publicar. Era cierto cuando se escribió.
+      Hoy cambió:
+    </p>
+    <p>
+      <strong>La app nueva (Android) ya está para bajar</strong> — el link está en «Antes de empezar».
+      Trae los seis arreglos y varios más. La que se baja de <strong>Play sigue siendo la vieja</strong>:
+      si se prueba sobre esa, todo va a seguir igual, y no es que los arreglos fallaron.
+    </p>
+    <p>
+      <strong>El bot de WhatsApp ya se actualizó.</strong> Para los casos del bot no hay que instalar
+      nada: se prueban conversando, hoy mismo.
+    </p>
+    <p>
+      <strong>iPhone: todavía no.</strong> Los arreglos están en el código, pero la versión de iPhone no
+      salió — esos casos siguen en espera y están marcados.
+    </p>
+    <label class="mark"><input type="checkbox" data-c="pub"> Entendido</label>
+  </article>
+
   <div class="progress">
-    <span id="pcount">0 de 20 probados</span>
+    <span id="pcount">0 de 45 probados</span>
     <span class="bar"><i id="pbar"></i></span>
   </div>
 
@@ -347,29 +371,48 @@
   <section class="person">
     <div class="person-head">
       <h2>Bárbara</h2>
-      <span>9 reportes</span>
+      <span>10 reportes</span>
     </div>
 
     <article class="item" id="b1">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva</span>
       <p class="said">«Demora em média 3x para vincular o app ao número do whatsapp»</p>
       <p>
         Tenía razón, y el motivo es bien específico: la app dejaba de esperar al minuto. Como para mandar el
         código hay que <em>salir</em> de la app, el tiempo se terminaba justo mientras estaba en WhatsApp.
         La conexión se hacía y la app no se enteraba.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Conectar el WhatsApp una vez, sin apurarse.</li>
-        <li>A propósito, <strong>demorarse</strong>: esperar dos minutos antes de tocar enviar.</li>
-        <li>Volver a la app.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Conectar de primera, aunque se haya demorado. Sin «Algo deu errado» y sin generar un código
-        nuevo. Si hace falta un segundo intento, anotar cuántos segundos tardó.</span>
+      <p>
+        <strong>El arreglo ya está en la app nueva del link de arriba.</strong> En la de Play sigue faltando.
+      </p>
+      <div class="expect warn">
+        <b>Cómo probarlo</b>
+        <span>Conectar sin apurarse, a propósito demorarse dos minutos antes de tocar enviar, y volver a la
+        app. Tiene que conectar de primera, sin «Algo deu errado» y sin generar código nuevo.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b1"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="b1"> Entendido</label>
+    </article>
+
+    <article class="item" id="b10">
+      <span class="tag t-sigue">Probado · sigue pasando</span>
+      <p class="said">«Ele não vincula permanentemente … ou carrega e vincula, mas se vou olhar 1h depois ele já está desvinculado» <em>(26/08)</em></p>
+      <p>
+        <strong>Esto es un problema distinto</strong> del anterior, y hay que decirlo porque es fácil
+        confundirlos. El de arriba es «vinculó y la app no se enteró», en el momento. Este es
+        <strong>vinculó de verdad y una hora después ya no</strong>. El arreglo que viene en la versión
+        nueva <em>no</em> cubre este caso.
+      </p>
+      <p>
+        Es el reporte más valioso de su segunda ronda: sin ese «1h depois» lo hubiéramos dado por cerrado
+        con el otro arreglo.
+      </p>
+      <div class="expect">
+        <b>Lo que más ayuda</b>
+        <span>Cuando vuelva a pasar, anotar <strong>a qué hora vinculó y a qué hora lo encontró
+        desvinculado</strong>, y si en el medio cerró la app, cambió de red o reinició el teléfono. Con esas
+        dos horas se puede buscar exactamente qué la cortó.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b10"> Entendido</label>
     </article>
 
     <article class="item" id="b2">
@@ -386,16 +429,32 @@
         es la explicación previa, para que no llegue de la nada. Eso <strong>todavía no está hecho</strong>,
         y sirve que lo haya confirmado en vez de que lo diéramos por supuesto.
       </p>
-      <div class="expect warn">
-        <b>Nada que probar acá</b>
-        <span>No hace falta volver sobre esto. Avisamos cuando la explicación esté en la app; ahí sí vale
-        mirar si le hace sentido a alguien que nunca vio ese código.</span>
+      <p>
+        <strong>Y hay una mitad que sí se puede probar hoy</strong>, porque el arreglo del noveno dígito
+        <em>sí</em> está en la app publicada — no es de los seis que quedaron esperando.
+      </p>
+      <h4>Qué probar hoy</h4>
+      <ol>
+        <li>Conectar el WhatsApp y mandar el código, sin demorarse.</li>
+        <li>Mirar <strong>qué dice exactamente</strong> si falla.</li>
+      </ol>
+      <div class="expect">
+        <b>La diferencia importa</b>
+        <span>Si dice <em>«não reconheço esse código»</em>, el arreglo del noveno dígito no alcanzó y hay que
+        saberlo ya. Si dice <em>«Algo deu errado»</em>, es el otro problema — el de la vinculación, que
+        todavía no se publicó — y ahí no hace falta insistir. Son dos cosas distintas y las dos palabras las
+        separan.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b2"> Entendido</label>
+      <div class="expect warn">
+        <b>Lo que sigue esperando</b>
+        <span>La explicación previa al código no está hecha. Avisamos cuando esté; ahí sí vale mirar si le
+        hace sentido a alguien que nunca lo vio.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="b2"> Probado</label>
     </article>
 
     <article class="item" id="b3">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-cerrado">Probado · resuelto</span>
       <p class="said">«Não salva o contato do fornecedor se não preencher todos os dados (tem fornecedores que não tem CNPJ)»</p>
       <p>
         Lo describió exactamente bien. Dos cosas: el <strong>CNPJ nunca fue obligatorio</strong>, sólo el
@@ -403,93 +462,82 @@
         leía los datos más de una vez, y desde la segunda lectura llegaban vacíos. De ahí «nome requerido»
         con el nombre puesto.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li><strong>Primero mirar la lista de proveedores.</strong> Con otro tester el registro se guardó
-        igual mostrando error, así que puede estar ya cargado.</li>
-        <li>Si no está, cargarlo con el nombre solo, sin CNPJ.</li>
-      </ol>
       <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Guarda con el nombre solo. Si ya está en la lista, avisar y lo cerramos — no cargarlo de
-        nuevo para no duplicar.</span>
+        <b>Cerrado por ella</b>
+        <span>«Perfeito, testei aqui e já consigo salvar novos fornecedores só com nome, obrigada!» —
+        probado y funcionando. No hay nada más que hacer acá.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b3"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="b3"> Ok</label>
     </article>
 
     <article class="item" id="b4">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva</span>
       <p class="said">«Não consigo “Adicionar um lembrete”, nem “Cobrar um Serviço” e nem consultar “Quem Me Deve” pelo app»</p>
       <p>
         Esas tres funciones existen. Lo que pasaba es que, sin el WhatsApp conectado de verdad, la app no
         tenía permiso de leer los datos y contestaba «no pude». Era consecuencia del problema de conexión,
         no falta de función.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Confirmar que el WhatsApp quedó conectado.</li>
-        <li>En el chat de Zy dentro de la app, pedir las tres cosas por separado: un lembrete, cobrar un
-        servicio, y «Quem me deve».</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Las tres responden con datos. Si alguna falla, ahora el mensaje tiene que decir si conviene
-        reintentar o no.</span>
+      <p>
+        El arreglo de la vinculación ya viene en la app nueva, así que esto también quedó destrabado.
+      </p>
+      <div class="expect warn">
+        <b>Cómo probarlo</b>
+        <span>Con el WhatsApp conectado, pedirle a Zy las tres cosas por separado. Las tres tienen que
+        responder con datos, y si alguna falla, el mensaje tiene que decir si conviene reintentar o no.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b4"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="b4"> Entendido</label>
     </article>
 
     <article class="item" id="b5">
-      <span class="tag t-wait">Todavía no</span>
+      <span class="tag t-go">El servidor ya subió · probar</span>
       <p class="said">«Não consegui automatizar a cobrança pelo chat, tive que cobrar manualmente pelo app»</p>
       <p>
-        Encontramos el defecto y el arreglo está listo, pero es de nuestro servidor y todavía no salió al
-        aire. En esta versión de la app el comportamiento va a ser el mismo.
+        Encontramos el defecto y el arreglo está listo — y <strong>el servidor ya se actualizó el 27/08</strong>, así que ahora sí vale probarlo.
       </p>
       <div class="expect warn">
-        <b>No probar todavía</b>
-        <span>Avisamos cuando suba. Probarlo ahora sólo repite el mismo error.</span>
+        <b>Qué probar</b>
+        <span>Pedir la cobranza por el chat, de principio a fin. Si vuelve a hacer falta terminarla a mano en la app, captura en el momento: significa que el arreglo no cubrió este camino, y ese dato vale mucho.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="b5"> Entendido</label>
     </article>
 
     <article class="item" id="b6">
-      <span class="tag t-wait">Todavía no</span>
+      <span class="tag t-go">El servidor ya subió · probar</span>
       <p class="said">«Consegui que o bot do whatsapp identificasse a cobrança, porém, ele não prosseguiu com a solicitação da cobrança automática»</p>
       <p>
         Su captura mostró dos cosas de una vez. Una: pidió una <strong>cobranza</strong> y el bot contestó
         «recibo emitido» — eran cosas distintas y anunció la equivocada. Otra: al elegir «Pro WhatsApp», se
-        cortó. Las dos ya tienen arreglo, en el mismo servidor que todavía no subió.
+        cortó. Las dos ya tienen arreglo, y <strong>el servidor se actualizó el 27/08</strong> — lo de «recibo emitido» sobre una cobranza se corrigió puntualmente.
       </p>
       <div class="expect warn">
-        <b>No probar todavía</b>
-        <span>Mismo caso que el anterior. Cuando suba, el pedido tiene que ir de principio a fin por el
-        chat, sin terminarlo a mano en la app.</span>
+        <b>Qué probar</b>
+        <span>El pedido tiene que ir de principio a fin por el chat, sin terminarlo a mano en la app. Y si dice «recibo» donde se pidió una cobranza, captura al momento.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="b6"> Entendido</label>
     </article>
 
     <article class="item" id="b7">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva + bot al aire</span>
       <p class="said">«Uso do pronome teu e tua, melhor diminuir e usar seu e sua»</p>
       <p>
         Ella y Ricardo lo marcaron por separado, lo que sacó cualquier duda. En portugués se habla de
-        <em>você</em>, así que va <em>seu</em> y <em>sua</em>. Se cambió en la app y en el bot.
+        <em>você</em>, así que va <em>seu</em> y <em>sua</em>. El cambio está hecho en los dos lados: 358
+        líneas de texto de la app y 50 archivos del bot.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Abrir la pantalla de conectar WhatsApp y leer el texto de arriba.</li>
-        <li>Conversar cualquier cosa con Zy y ver cómo trata a la persona.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Ni un «teu» ni un «tua», en la app ni en el bot. Si quedó alguno, mandar dónde.</span>
+      <p>
+        <strong>Ya llegó a los dos lados:</strong> está en la app nueva del link de arriba y en el bot que atiende hoy. En la app de Play sigue la versión vieja.
+      </p>
+      <div class="expect warn">
+        <b>Cómo probarlo</b>
+        <span>Leer la pantalla de conectar WhatsApp y conversar cualquier cosa con Zy. No tiene que quedar
+        ni un «teu» ni un «tua». Si queda alguno <em>ahí sí</em>, mandar dónde.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="b7"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="b7"> Entendido</label>
     </article>
 
     <article class="item" id="b8">
-      <span class="tag t-sigue">Probado · sigue pasando</span>
+      <span class="tag t-go">Corregido después de tu prueba · re-escanear</span>
       <p class="said">«O QR Code do site não direciona pro whatsapp de primeira»</p>
       <p>
         <strong>Tenía razón y yo estaba mirando el sitio equivocado.</strong> Yo verifiqué
@@ -505,14 +553,11 @@
       </p>
       <p>
         Y la misma causa explica lo otro que notó: «o teste demo … não está funcionando».
-        <strong>Esa versión vieja no tiene el demo.</strong> Una sola republicación arregla el número y
-        el demo juntos.
+        <strong>Esa versión vieja no tenía el demo.</strong> Ojo: el demo resultó ser un caso aparte — ver el punto siguiente.
       </p>
       <div class="expect">
-        <b>Qué pasa ahora</b>
-        <span>Esto salió de sus manos: depende de republicar ese sitio, que es una tarea de
-        infraestructura. Cuando esté, le avisamos y confirma el QR de <em>zymplo.com.br/#faq</em> — tiene
-        que abrir en un número con +55.</span>
+        <b>Actualización 27/08 · ya se republicó</b>
+        <span>El sitio de Brasil se volvió a publicar y hoy lo medimos: los 16 dominios sirven el número nuevo. Falta tu parte: escanear de nuevo el QR de <em>zymplo.com.br/#faq</em> — tiene que abrir una conversación con un número <strong>+55</strong>.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="b8"> Entendido</label>
     </article>
@@ -521,14 +566,11 @@
       <span class="tag t-sigue">Probado · sigue pasando</span>
       <p class="said">«O teste demo que aparece para clicar e ver uma demonstração de como funciona, não está funcionando»</p>
       <p>
-        Esto vino junto con su respuesta del QR y vale como reporte propio. Confirmado: la versión
-        publicada en <em>zymplo.com.br</em> <strong>no incluye el componente del demo</strong> — existe en
-        el sitio actual. No es que el demo esté roto: esa publicación es vieja.
+        Esto vino junto con su respuesta del QR y vale como reporte propio. Corrección, después de medirlo mejor: <strong>el demo tampoco está en el sitio actual</strong> — el botón existe, el componente de la demostración no. O sea que tenías más razón de la que te dimos: no era sólo una página vieja, el demo falta de verdad. Sigue con nosotros.
       </p>
       <div class="expect warn">
         <b>No probar todavía</b>
-        <span>Va junto con la republicación del punto anterior. Que haya grabado la pantalla fue lo que
-        separó «el demo tiene un bug» de «esa página es antigua».</span>
+        <span>El sitio ya se republicó, pero el demo falta igual. Avisamos cuando exista de verdad. Que hayas grabado la pantalla fue lo que separó «el demo tiene un bug» de «el demo no está».</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="b9"> Entendido</label>
     </article>
@@ -542,28 +584,22 @@
     </div>
 
     <article class="item" id="i1">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-cerrado">Probado · resuelto</span>
       <p class="said">«Mudar a moeda para Real» — aparecía «Gs.» en todas las pantallas</p>
       <p>
         No era la app: su empresa tenía Paraguay como país en nuestra base de datos, y de ahí salía el
         «Gs.». Se revisó si le pasaba a más gente y aparecieron otras tres cuentas iguales — las cuatro ya
         quedaron como Brasil.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li><strong>Salir de la cuenta en la app y volver a entrar.</strong> El país viaja en el login, así
-        que hasta que no vuelva a entrar sigue viendo lo de antes.</li>
-      </ol>
       <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>R$ en todo. Si sigue apareciendo Gs. después de volver a entrar, ahí sí el problema es de la
-        app.</span>
+        <b>Cerrado</b>
+        <span>Confirmado después de salir y volver a entrar: «Ótimo! Está aparecendo em real brasileiro».</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="i1"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="i1"> Ok</label>
     </article>
 
     <article class="item" id="i2">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-cerrado">Probado · resuelto</span>
       <p class="said">«Formato do telefone padrão +55 (11) 988559955»</p>
       <p>
         Quedó exactamente como pidió: <strong>+55 (11) 98855-9955</strong>. Y su pedido no era sólo
@@ -571,37 +607,33 @@
         número así, el botón de WhatsApp de la ficha del cliente abría una conversación equivocada. Nos hizo
         encontrar un problema de verdad.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Abrir el campo de teléfono y leer el ejemplo.</li>
-        <li>Guardar un cliente copiando ese formato y tocar su botón de WhatsApp.</li>
-      </ol>
       <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El ejemplo lleva el +55, y el botón abre la conversación correcta.</span>
+        <b>Cerrado</b>
+        <span>Confirmado con un «✅✅✅». Ya está en la versión publicada.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="i2"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="i2"> Ok</label>
     </article>
 
     <article class="item" id="i3">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-cerrado">Probado · resuelto</span>
       <p class="said">«Enviar recibo em PDF por WhatsApp»</p>
       <p>
         Está listo. Aparece un botón <strong>«Enviar recibo em PDF»</strong>: se toca, abre la pantalla de
         compartir del teléfono y de ahí se elige WhatsApp. No se puede adjuntar directo en el chat porque
         WhatsApp sólo acepta texto por link, pero el camino es el mismo — y sirve para mail también.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Emitir un recibo y tocar «Enviar recibo em PDF».</li>
-        <li>Elegir WhatsApp y mandarlo.</li>
-      </ol>
+      <p>
+        <strong>La pregunta del logo ya está contestada</strong>, y con un ejemplo dibujado al lado del
+        recibo actual: sí al logo, pero <em>opcional</em> para cada emprendedor, y con algunos datos más en
+        el encabezado. Eso deja de ser una pregunta y pasa a ser un pedido con forma.
+      </p>
       <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El PDF llega al chat con el nombre y el documento de la empresa en el encabezado. Y una
-        pregunta para él: ¿quiere que lleve su logo también?</span>
+        <b>Cerrado · y sigue como pedido</b>
+        <span>El envío del PDF queda cerrado. El logo opcional y los campos extra quedan anotados como
+        trabajo aparte, con el «Modelo sugerido» que mandó como referencia — no hace falta volver a
+        probarlo.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="i3"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="i3"> Ok</label>
     </article>
 
     <article class="item" id="i4">
@@ -612,16 +644,23 @@
         problemas y ninguno está resuelto. Uno es no encontrar dónde quedó la cuenta después de guardarla.
         El otro es que el chat no puede consultar saldos.
       </p>
-      <h4>Qué probar</h4>
+      <p>
+        <strong>Esto se puede probar hoy</strong>, y es de los pocos casos en que probar sin arreglo hecho
+        <em>sirve más</em> que esperar: lo que necesitamos no es que funcione, es entender cuál de los dos
+        problemas es.
+      </p>
+      <h4>Qué probar hoy</h4>
       <ol>
-        <li>Con el WhatsApp conectado, cargar una cuenta bancaria con saldo.</li>
-        <li>Buscar dónde quedó — y anotar <strong>dónde se buscó primero</strong>. Ese dato es oro.</li>
+        <li>Cargar una cuenta bancaria con saldo.</li>
+        <li>Buscar dónde quedó — y anotar <strong>dónde se buscó primero</strong>. Ese dato es oro: dice
+        dónde la esperaba, que es donde debería estar.</li>
         <li>Preguntarle al chat por el saldo.</li>
       </ol>
       <div class="expect">
         <b>Qué aprendemos</b>
-        <span>Si el chat sigue diciendo «sin conexión» ahora que la conexión está arreglada, eso nos dice
-        que falta la función — y no que faltaba permiso. Los dos casos tienen soluciones muy distintas.</span>
+        <span>Si el chat dice <em>«sin conexión»</em>, es un problema de permiso. Si dice que
+        <em>no tiene acceso a las cuentas bancarias</em>, es que la función no existe. Suenan parecido y son
+        arreglos completamente distintos — copiar la frase exacta que conteste ya resuelve la duda.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="i4"> Probado</label>
     </article>
@@ -664,16 +703,24 @@
         Su reporte fue de los más útiles que recibimos: destapó un defecto que afectaba varias pantallas a
         la vez, no sólo la suya.
       </p>
-      <h4>Qué probar</h4>
+      <p>
+        La limpieza de las repetidas ya está hecha del lado nuestro, y <strong>el arreglo de la app ya viene en la app nueva</strong> del link de arriba — así que las dos mitades se pueden probar.
+      </p>
+      <h4>Qué probar hoy</h4>
       <ol>
-        <li>Confirmar que su lista de cuentas quedó sin repetidas.</li>
-        <li>Crear una cuenta de cobranza nueva.</li>
-        <li>Si aparece un error, <strong>no reintentar</strong>: ir a la lista a ver si se guardó.</li>
+        <li>Abrir la lista de cuentas y confirmar que quedó <strong>sin repetidas</strong>: tiene que haber
+        una sola «C&amp;A» y la de Aluguel. Eso ya se puede ver, no depende de ninguna versión.</li>
       </ol>
       <div class="expect">
         <b>Tiene que pasar</b>
-        <span>Guarda sin error. Y si algo falla, la app ya no puede decir «error del servidor» sobre algo
-        que se guardó, ni invitar a reintentar cuando reintentar duplica.</span>
+        <span>Una de cada. Si todavía aparecen repetidas, la limpieza no quedó bien y hay que saberlo —
+        es un dato de nuestra base, no del teléfono.</span>
+      </div>
+      <div class="expect warn">
+        <b>Y con la app nueva</b>
+        <span>Crear una cuenta de cobranza nueva, y si aparece un error <strong>no reintentar</strong>: ir a
+        la lista a ver si se guardó. La app ya no puede decir «error del servidor» sobre algo que sí se
+        guardó, ni invitar a reintentar cuando reintentar duplica.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="l1"> Probado</label>
     </article>
@@ -691,7 +738,11 @@
         La segunda es más honesta de decir: el lembrete de una fecha funciona, pero <strong>«me lembra todo
         mês» todavía no existe</strong>. No está roto, falta. Quedó anotado como pedido.
       </p>
-      <h4>Qué probar</h4>
+      <p>
+        <strong>Esto se puede probar hoy mismo.</strong> El arreglo es del bot, no de la app, y el bot ya
+        salió al aire — así que no hay que esperar ninguna versión nueva ni actualizar nada.
+      </p>
+      <h4>Qué probar hoy</h4>
       <ol>
         <li>«Me lembra dia 1 de outubro de pagar a conta de luz»</li>
         <li>Después, a propósito: «me lembra todo mês de pagar a conta de luz»</li>
@@ -699,7 +750,9 @@
       <div class="expect">
         <b>Tiene que pasar</b>
         <span>El primero agenda. El segundo tiene que decir con claridad que lo mensual todavía no existe —
-        no puede contestar «não consegui consultar seus dados», que es lo que pasaba.</span>
+        no puede contestar «não consegui consultar seus dados», que es lo que pasaba. Que conteste una cosa
+        que no tiene y lo diga es un buen resultado; que vuelva a decir que no pudo consultar es una
+        recaída y hay que avisarnos en el momento.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="l2"> Probado</label>
     </article>
@@ -761,24 +814,23 @@
     </article>
 
     <article class="item" id="e2">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva</span>
       <p class="said">«Quando vai editar a meta, não mostra o número que tá digitando e botão de próximo não funciona. Estava sem nome da empresa, daí é bom por mensagem que precisa preencher»</p>
       <p>
         Eran dos cosas y acertó las dos, incluida la solución. El teclado tapaba el campo, y el botón
-        «Próximo» estaba apagado sin decir que faltaba el nombre de la empresa. Ahora un botón apagado tiene
-        que decir qué le falta.
+        «Próximo» estaba apagado sin decir que faltaba el nombre de la empresa. Los dos arreglos están
+        escritos: el campo sube arriba del teclado, y un botón apagado ahora tiene que decir qué le falta.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Con la empresa sin nombre, ir a editar la meta.</li>
-        <li>Escribir el número y ver si se ve mientras se escribe.</li>
-        <li>Tocar «Próximo» estando apagado.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El campo queda visible arriba del teclado, y el botón apagado dice qué falta llenar.</span>
+      <p>
+        <strong>Los dos ya están en la app nueva del link de arriba.</strong>
+      </p>
+      <div class="expect warn">
+        <b>Cómo probarlo</b>
+        <span>Con la empresa sin nombre, ir a editar la meta, escribir el número mirando si se ve, y tocar
+        «Próximo» estando apagado. El campo tiene que quedar visible y el botón tiene que decir qué falta
+        llenar.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="e2"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="e2"> Entendido</label>
     </article>
   </section>
 
@@ -803,7 +855,11 @@
         <strong>Hay que revisarle la caja</strong>, porque esos cuatro no quedaron. La lista de los cuatro
         se le pasa por privado.
       </p>
-      <h4>Qué probar</h4>
+      <p>
+        <strong>Esto se puede probar hoy mismo.</strong> El arreglo es del bot y ya está al aire — no
+        depende de la versión de la app que quedó esperando.
+      </p>
+      <h4>Qué probar hoy</h4>
       <ol>
         <li>Mandar cinco gastos en un solo mensaje, como hizo él.</li>
         <li>Contar cuántos dice que entendió, y cuántos aparecen después en la caja.</li>
@@ -811,28 +867,25 @@
       <div class="expect">
         <b>Tiene que pasar</b>
         <span>Dice cuántos entendió, confirma uno, y devuelve los otros escritos para reenviar sin tener
-        que acordarse de memoria. Ningún gasto se puede caer en silencio.</span>
+        que acordarse de memoria. <strong>Los dos números tienen que dar igual</strong>: los que dice que
+        entendió y los que aparecen en la caja. Si dice cinco y aparecen tres, es exactamente el mismo
+        defecto y hay que avisar en el momento.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="r1"> Probado</label>
     </article>
 
     <article class="item" id="r2">
-      <span class="tag t-go">Se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva + bot al aire</span>
       <p class="said">«Uso do pronome tua e teu muito ultilizado»</p>
       <p>
-        Él y Bárbara lo marcaron por separado, así que no quedó ninguna duda. Se cambió a <em>seu</em> y
-        <em>sua</em>, en la app y en el bot.
+        Él y Bárbara lo marcaron por separado, así que no quedó ninguna duda. Se cambió a <em>seu</em> y <em>sua</em>, en la app y en el bot — <strong>y ya llegó a los dos</strong>: la app nueva del link de arriba, y el bot que atiende hoy.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Conversar con Zy y ver cómo trata a la persona.</li>
-        <li>Mirar también las pantallas de la app.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Ni un «teu» ni un «tua». Si quedó alguno, que manden la captura.</span>
+      <div class="expect warn">
+        <b>Cómo probarlo</b>
+        <span>Conversar con Zy y mirar las pantallas de la app. Ni un «teu» ni un «tua»; si queda alguno,
+        que mande la captura.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="r2"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="r2"> Entendido</label>
     </article>
 
     <article class="item" id="r3">
@@ -857,95 +910,88 @@
       <span class="tag t-note">Leer primero</span>
       <p class="said">Estos reportes se hicieron sobre la versión anterior de la app</p>
       <p>
-        Las capturas son de la madrugada del 26 y la versión nueva salió después. Tres de estos problemas
-        <strong>ya estaban corregidos</strong> cuando se reportaron — no es culpa de nadie, fue cuestión de
-        horario. Están marcados con «rehacer la prueba»: si siguen pasando en la versión nueva, ahí sí es un
-        problema de verdad.
+        Las capturas son de la madrugada del 26. Tres de estos problemas <strong>ya tenían el arreglo
+        escrito</strong> cuando se reportaron — no es culpa de nadie, fue cuestión de horario.
+      </p>
+      <p>
+        <strong>Actualización 27/08:</strong> ahora sí salió — es la app del link de arriba. Estos casos vuelven a «rehacer la prueba»: si algo sigue pasando <em>en la app nueva</em>, eso ya es un problema de verdad y hay que mandarlo.
       </p>
       <label class="mark"><input type="checkbox" data-c="s0"> Entendido</label>
     </article>
 
     <article class="item" id="s1">
-      <span class="tag t-go">Rehacer la prueba</span>
+      <span class="tag t-wait">Corregido · falta la versión de iPhone</span>
       <p class="said">«O teclado do iPhone cobre o espaço do texto fazendo com que não consiga visualizar o que vamos escrever»</p>
-      <p>Corregido. Era el mismo defecto que reportó Euram en la pantalla de meta, y valía para todas.</p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>En «Novo recibo», escribir en la observación.</li>
-        <li>En cualquier otro campo largo de la app, lo mismo.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El campo sube y queda visible arriba del teclado. Si en alguna pantalla sigue tapado, hay que
-        saber cuál — significa que el arreglo no llegó a esa.</span>
+      <p>
+        Arreglado en el código, y valía para todas las pantallas — era el mismo defecto que reportó Euram en
+        la de meta. <strong>En Android ya está, en la app nueva. La versión de iPhone todavía no salió</strong> — y este reporte era de iPhone.
+      </p>
+      <div class="expect warn">
+        <b>Cuando salga la versión de iPhone (en Android ya se puede mirar)</b>
+        <span>Escribir en la observación de «Novo recibo» y en cualquier otro campo largo. El campo tiene que
+        subir y quedar visible arriba del teclado; si en alguna pantalla sigue tapado, hay que saber cuál —
+        significa que el arreglo no llegó a esa.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="s1"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="s1"> Entendido</label>
     </article>
 
     <article class="item" id="s2">
-      <span class="tag t-go">Rehacer la prueba</span>
+      <span class="tag t-go">Listo para re-probar · app nueva</span>
       <p class="said">«Quando falta registrar alguma informação o app não mostra qual informação está pendente, temos que ir por exclusão»</p>
-      <p>Acertó el defecto y la solución junto. Corregido: un botón apagado tiene que decir qué le falta.</p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>En «Registrar gasto», dejar algo en blanco y tocar el botón apagado.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>Dice <em>cuál</em> dato falta. Si sólo dice «completá los campos» sin señalar cuál, sigue
-        siendo el mismo problema.</span>
+      <p>
+        Acertó el defecto y la solución junto. Arreglado: un botón apagado tiene que decir qué le falta. <strong>Ya está en la app nueva.</strong>
+      </p>
+      <div class="expect warn">
+        <b>Qué probar</b>
+        <span>En «Registrar gasto», dejar algo en blanco y tocar el botón apagado. Tiene que decir
+        <em>cuál</em> dato falta; si sólo dice «completá los campos» sin señalar cuál, sigue siendo el mismo
+        problema.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="s2"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="s2"> Entendido</label>
     </article>
 
     <article class="item" id="s3">
-      <span class="tag t-go">Rehacer la prueba</span>
+      <span class="tag t-go">Listo para re-probar · app nueva</span>
       <p class="said">«Registro falhou» · con el cartel «Sem internet · pode continuar» arriba</p>
       <p>
-        La parte del error está corregida. Pero hay una segunda cosa para confirmar: ese cartel promete que
-        <em>se puede continuar</em> sin internet, y después el registro falla. Si eso sigue pasando, es un
-        problema aparte.
+        La parte del error está arreglada <strong>y ya está en la app nueva</strong>. Pero hay una segunda
+        cosa que sigue en pie igual: ese cartel promete que <em>se puede continuar</em> sin internet, y
+        después el registro falla. Eso es un problema aparte y no lo arregla la versión nueva.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>Sin internet, cargar una cuenta hasta el final.</li>
-        <li>Volver a tener internet y ver si quedó guardada.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>O guarda de verdad, o el cartel no promete que se puede seguir. Las dos cosas juntas, no.</span>
+      <div class="expect warn">
+        <b>Qué probar</b>
+        <span>Sin internet, cargar una cuenta hasta el final; después volver a tener internet y ver si quedó
+        guardada. O guarda de verdad, o el cartel no promete que se puede seguir. Las dos cosas juntas, no.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="s3"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="s3"> Entendido</label>
     </article>
 
     <article class="item" id="s4">
-      <span class="tag t-go">Corregido · se puede probar</span>
+      <span class="tag t-go">Listo para probar · app nueva</span>
       <p class="said">«Melhorar o uso da vírgula e ponto no registro de valores» · aparecía «3708400» y «799»</p>
       <p>
-        Corregido en dos pantallas: «Nova conta» y «Novo pagamento». Ahora el número se agrupa mientras se
-        escribe, así que <strong>3708400</strong> se ve <strong>3.708.400</strong> y se lee sin contar ceros.
+        El arreglo está escrito para dos pantallas — «Nova conta» y «Novo pagamento» — y agrupa el número
+        mientras se escribe, así que <strong>3708400</strong> se vería <strong>3.708.400</strong>.
+      </p>
+      <p>
+        <strong>Actualización 27/08:</strong> ya se integró y viaja en la app nueva — era el que más lejos estaba y terminó llegando con los demás.
       </p>
       <p>
         Sobre el pedido de que la coma venga sola (escribir 799 y que aparezca 7,99): <strong>eso todavía no
-        está</strong>. Es un cambio en cómo funcionan todos los campos de valor de la app, así que se decide
-        aparte. Mejor decirlo que hacer probar esperando otra cosa.
+        está</strong> ni escrito. Es un cambio en cómo funcionan todos los campos de valor de la app, así que
+        se decide aparte.
       </p>
-      <h4>Qué probar</h4>
-      <ol>
-        <li>En «Nova conta», escribir un valor grande y ver si sale agrupado.</li>
-        <li>En «Novo pagamento», lo mismo.</li>
-        <li>Escribir centavos poniendo la coma a mano y confirmar que el valor guardado es el que se vio.</li>
-      </ol>
-      <div class="expect">
-        <b>Tiene que pasar</b>
-        <span>El número queda legible mientras se escribe, y lo que se guarda es lo mismo que apareció en
-        pantalla. Si guarda distinto de lo que se vio, eso es grave y hay que avisar en el momento.</span>
+      <div class="expect warn">
+        <b>Qué probar</b>
+        <span>Escribir un valor grande en «Nova conta» y en «Novo pagamento» y ver si sale agrupado, y poner
+        centavos con la coma a mano confirmando que lo guardado es lo que se vio. Si guarda distinto de lo
+        que se vio, eso es grave y hay que avisar en el momento.</span>
       </div>
-      <label class="mark"><input type="checkbox" data-c="s4"> Probado</label>
+      <label class="mark"><input type="checkbox" data-c="s4"> Entendido</label>
     </article>
 
     <article class="item" id="s5">
-      <span class="tag t-wait">Todavía no</span>
+      <span class="tag t-go">Corregido en el bot · probar ya</span>
       <p class="said">Zy contesta bien y en el mismo mensaje dice que no entendió</p>
       <p>
         Lo pescaron de cuatro formas: contesta bien y engancha «não entendi bem» · hace una pregunta y
@@ -953,14 +999,11 @@
         repite tres veces que nadie debe.
       </p>
       <p>
-        <strong>No son cuatro defectos, es uno.</strong> La respuesta se arma juntando pedazos, y los que
-        llegan tarde se pegan al final sin que nadie revise si el conjunto tiene sentido. Ya está localizado
-        en el código. Todavía no arreglado.
+        <strong>Corrección de lo que dijimos acá:</strong> la explicación de «pedazos que llegan tarde» era equivocada — la medimos y el mecanismo era otro. Cuando el bot tapaba una respuesta insostenible con un aviso seguro, la respuesta tapada <em>quedaba igual</em> en la conversación, y podían salir las dos. Eso ya está corregido y al aire.
       </p>
       <div class="expect warn">
-        <b>No probar todavía</b>
-        <span>Avisamos. Pero si aparece una forma <em>distinta</em> de esas cuatro, esa sí hay que mandarla —
-        ayuda a medir el tamaño del problema.</span>
+        <b>Qué probar</b>
+        <span>Conversar normal con Zy, hoy mismo — no hay que instalar nada. No podemos afirmar que esto cubra las cuatro formas: si alguna vuelve a aparecer, esa captura vale doble, porque significa que hay una segunda causa.</span>
       </div>
       <label class="mark"><input type="checkbox" data-c="s5"> Entendido</label>
     </article>
@@ -982,7 +1025,7 @@
     </article>
 
     <article class="item" id="s7">
-      <span class="tag t-wait">Todavía no</span>
+      <span class="tag t-go">Corregido en el bot · probar ya</span>
       <p class="said">Sumó un pendiente como si hubiera entrado</p>
       <p>
         Este es el más serio de la tanda. A las 00:28 dijo que entraron R$ 2.007,99 y a las 00:30 dijo
@@ -990,10 +1033,13 @@
         como plata que entró. Un pendiente no es plata cobrada.
       </p>
       <p>
-        No es un error que se vea: parece un número normal. Fue la diferencia entre las dos capturas la que
-        mostró la causa.
+        No es un error que se vea: parece un número normal. Fue la diferencia entre las dos capturas la que mostró la causa — y al medirla resultaron ser <strong>dos defectos</strong>: el total se escribía redondeado en un lugar (R$ 2.008) y con centavos en el otro (R$ 2.007,99) — el mismo valor, escrito de dos formas — y además la suma contaba pendientes como plata recibida. <strong>Los dos están corregidos y al aire.</strong>
       </p>
-      <label class="mark"><input type="checkbox" data-c="s7"> Entendido</label>
+      <div class="expect">
+        <b>Qué probar</b>
+        <span>Preguntarle «quanto entrou esse mês?». La respuesta ahora separa «entrou de verdade» de «ainda a receber», y el mismo valor no puede aparecer escrito de dos formas. Si dos números no coinciden, capturas de las dos pantallas con la hora.</span>
+      </div>
+      <label class="mark"><input type="checkbox" data-c="s7"> Probado</label>
     </article>
 
     <article class="item" id="s8">
@@ -1034,12 +1080,12 @@
     </article>
 
     <article class="item" id="s12">
-      <span class="tag t-note">Anotado</span>
+      <span class="tag t-go">En parte corregido · mirar en la app nueva</span>
       <p class="said">«O que é pulso do dia?» · y «o que seria recibo é venda?»</p>
       <p>
         Las dos observaciones dan justo, y hay una tercera que la captura dejó ver: decía «Tudo em dia» con
         el saldo en <strong>−R$ 32.004,49</strong>. Decir que todo está en orden arriba del peor número de la
-        pantalla es peor que no decir nada. Los tres textos se reescriben.
+        pantalla es peor que no decir nada. <strong>Dos de los tres ya están:</strong> el título ahora dice «Como vai o mês», y con el mes en rojo ya no dice «Tudo em dia» — muestra que está en rojo y lleva a los gastos. Los dos cambios vienen en la app nueva. El texto de «recibo é venda» sigue en la cola.
       </p>
       <label class="mark"><input type="checkbox" data-c="s12"> Ok</label>
     </article>
@@ -1050,12 +1096,51 @@
       <label class="mark"><input type="checkbox" data-c="s13"> Ok</label>
     </article>
 
+    <article class="item" id="s20">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Estes itens são considerados perguntas? Se sim precisa de ?»</p>
+      <p>
+        Faltaba en esta página y era un reporte propio. Tiene razón: si el texto pregunta, lleva signo. Va
+        junto con la reescritura de los otros textos, para no tocar las mismas pantallas dos veces.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s20"> Ok</label>
+    </article>
+
+    <article class="item" id="s21">
+      <span class="tag t-note">Anotado</span>
+      <p class="said">«Texto errado, favor melhorar a localização do texto»</p>
+      <p>
+        También faltaba acá. Entra en el mismo repaso de textos que «pulso do dia», «recibo é venda?» y el
+        «Tudo em dia» arriba de un saldo negativo.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s21"> Ok</label>
+    </article>
+
+    <article class="item" id="s22">
+      <span class="tag t-note">Anotado · buen pedido</span>
+      <p class="said">«No registro de pagamento ela não entendeu a escrita … poderia mostrar um menu ou opções: Você quer receber um valor? / Gostaria de registrar um gasto?»</p>
+      <p>
+        Estaba mezclado con el ítem del error genérico y merece estar solo, porque no es el mismo pedido:
+        no pide que el error se explique mejor, pide que <strong>cuando no entiende, ofrezca</strong>. Es la
+        diferencia entre disculparse y ayudar, y las dos opciones que escribió sirven tal cual.
+      </p>
+      <label class="mark"><input type="checkbox" data-c="s22"> Ok</label>
+    </article>
+
     <article class="item" id="s14">
-      <span class="tag t-note">Anotado · hallazgo nuevo</span>
+      <span class="tag t-note">Anotado · era a propósito, y el texto está mal</span>
       <p class="said">El recibo llega, pero el link «Comprovante pelo Zymplo» abre una conversación, no el comprobante</p>
       <p>
         Esto no lo había reportado nadie — apareció en la captura de las 00:36. El recibo del «Serviço mkt»
         de R$ 5.000,00 salió bien, pero quien toca el link esperando el PDF abre un chat de WhatsApp.
+      </p>
+      <p>
+        <strong>Lo revisamos y no es un defecto: ese link va al chat a propósito</strong>, está escrito así
+        en el código y documentado. La idea es que el cliente que recibe el cobro quede hablando con Zy.
+      </p>
+      <p>
+        Pero eso no salva el reporte, lo mejora: si el texto dice «comprovante» y entrega una conversación,
+        <strong>el texto está mal</strong>, no el link. Lo que se cambia es la palabra.
       </p>
       <label class="mark"><input type="checkbox" data-c="s14"> Ok</label>
     </article>
