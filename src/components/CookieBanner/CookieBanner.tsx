@@ -17,7 +17,7 @@ export default function CookieBanner() {
     <div role="dialog" aria-label="Cookies" className="fixed bottom-4 left-4 right-4 md:left-auto md:max-w-md z-50 bg-ink text-paper rounded-2xl p-5 shadow-2xl border border-paper/10">
       <div className="text-sm font-semibold mb-2">🍪 Cookies</div>
       <p className="text-xs text-paper/70">
-        Usamos cookies esenciales para que el sitio funcione. Con tu consentimiento, también medimos uso para mejorar el producto. GDPR.
+        Usamos cookies esenciales para que el sitio funcione. Con tu consentimiento, también medimos uso para mejorar el producto.
       </p>
       <div className="mt-4 flex gap-2 flex-wrap">
         <button onClick={() => accept('all')} className="bg-turquesa hover:bg-turquesa-dark text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">Aceptar todo</button>

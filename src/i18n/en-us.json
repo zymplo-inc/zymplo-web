@@ -455,7 +455,7 @@
       },
       {
         "q": "Is it secure? Is my data protected?",
-        "a": "Yes. We follow CCPA/GDPR, with encryption in transit and isolation between clients. No client sees another client's data."
+        "a": "Yes. Your data is yours: ask to see or delete it anytime. Encrypted in transit (HTTPS), and no client sees another client's data."
       },
       {
         "q": "What if I don't like it?",
@@ -525,7 +525,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "100% safe · CCPA compliant"
+        "text": "Your data is yours"
       },
       {
         "icon": "💚",

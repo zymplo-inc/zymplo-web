@@ -454,7 +454,7 @@
       },
       {
         "q": "É seguro? Meus dados ficam protegidos?",
-        "a": "Sim. Seguimos o RGPD, com criptografia em trânsito e isolamento entre clientes. Nenhum cliente vê dados de outro."
+        "a": "Sim. Os seus dados são seus: pode pedir para os ver ou apagar quando quiser. Criptografia em trânsito (HTTPS) e nenhum cliente vê dados de outro."
       },
       {
         "q": "E se eu não gostar?",
@@ -615,7 +615,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "Construído para o RGPD"
+        "text": "Os seus dados são seus"
       },
       {
         "icon": "💚",

@@ -54,7 +54,7 @@ See [/pricing.md](https://zymplo.com/pricing.md) for full structured data.
 
 - **REST API** (Plan 3 Equipo): https://mei-api.zymplo.com
 - **Webhooks**: Configurable per workspace (Plan 3)
-- **OAuth**: Google (Calendar · Gmail · Drive) · LGPD-compliant
+- **OAuth**: Google (Calendar · Gmail · Drive) · connected only when the user grants access
 - **Stripe**: Subscriptions + Connect for collections (BR Pix · LATAM Mercado Pago · US/EU Stripe)
 - **Pluggy**: Bank account integration (BR Open Banking)
 - **Calendar**: Google Calendar two-way sync (Plan 2+)

@@ -454,7 +454,7 @@
       },
       {
         "q": "¿Es seguro? ¿Mis datos están protegidos?",
-        "a": "Sí. Cumple con LGPD/RGPD, encriptación punta a punta. Ningún cliente ve los datos de otro."
+        "a": "Sí. Tus datos son tuyos: podés pedir verlos o borrarlos cuando quieras. Cifrado en tránsito (HTTPS) y ningún cliente ve los datos de otro."
       },
       {
         "q": "¿Y si no me gusta?",
@@ -524,7 +524,7 @@
       },
       {
         "icon": "🛡️",
-        "text": "100% DGT compliant"
+        "text": "Tus datos son tuyos"
       },
       {
         "icon": "💚",
