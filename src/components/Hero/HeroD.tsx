@@ -246,8 +246,8 @@ export default function HeroD({ slug, country, dict }: Props) {
 }
 
 function WhatsAppMockup({ country, slug }: { country: Country; slug: string }) {
-  const isPT = country.lang === 'pt-BR' || slug === 'br';
-  const isEN = country.lang === 'en-US' || slug === 'us';
+  const isPT = country.locale === 'pt-BR' || slug === 'br';
+  const isEN = country.locale === 'en-US' || slug === 'us';
   const personaName = country.personas?.[0]?.name ?? 'Diego';
   const currency = country.currency.symbol ?? 'R$';
   const amount = isEN ? '450' : '450';
