@@ -15,10 +15,29 @@
  *       hreflang o cualquier tag con href) queda con la ruta fija del apex ES
  *       (`/legal/{doc}/`) dentro de una página de país o de idioma — ver el
  *       bloque "FUEGO 5" más abajo para la forma exacta del defecto y por qué.
+ *   6 · DOCUMENTOS LEGALES Y HOME (2026-11-02) · ninguna página legal (política
+ *       de privacidad, términos, borrado de datos, eliminar cuenta, compliance)
+ *       ni la home afirma lo que el repo no puede probar: contratos firmados con
+ *       proveedores (DPA, NDA, SCC, «Data Processing Agreement», «contrato de
+ *       tratamento … assinado») y «backups 30 días». Los documentos legales
+ *       (no la home, que es copy de marketing con su propia revisión) tampoco
+ *       afirman certificaciones (ISO 27001, SOC 2, PCI-DSS), cifrados con número
+ *       (TLS 1.3, AES-256), «sin entrenamiento» atribuido a proveedores,
+ *       «retención cero», «GDPR · CCPA compliance» ni un borrado «en menos de 24
+ *       horas»; y los que hablan de datos, ningún plazo automático (90 días,
+ *       7 años, 12 meses, «desde la última actividad»). La política decía
+ *       «DPA firmados» y «todos cumplen SCC» y en el repo no consta ni un acuse
+ *       (paquete legal 2-nov, hallazgo H1). Vigila la PROPIEDAD, no una frase:
+ *       sin distinguir mayúsculas, en el texto visible y en las meta.
+ *       Y EXIGE PRESENCIA (regla 47: un 0 se publica con su denominador): cada
+ *       política de privacidad tiene que traer sus 13 secciones, la línea de su
+ *       responsable (LTDA en br, S.A. en py, Inc. en el resto) y los proveedores
+ *       de IA en la sección 5; si el cuerpo está vacío o falta una página que
+ *       importa, el candado no midió y se pone rojo.
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { COUNTRY_SLUGS, getCountry } from '../src/data/countries';
+import { COUNTRY_SLUGS, LEGAL_COUNTRY_SLUGS, getCountry } from '../src/data/countries';
 import { NUMEROS_PROHIBIDOS } from '../src/data/numerosProhibidos';
 
 const DIST = join(process.cwd(), 'dist');
@@ -65,6 +84,69 @@ const SHARED_FILES = new Set(['/favicon.ico', '/favicon.svg', '/robots.txt', '/s
 const errors: string[] = [];
 let pages = 0;
 let withHreflang = 0;
+// ── Candado 6 · lo que un documento legal (o la home) no puede afirmar sin respaldo en el repo ──
+// Se compara SIN distinguir mayúsculas (el falso verde de 2-nov: «dpa firmado», «sccs») y sobre el texto
+// visible más las meta. Palabra completa: «DPA», «NDA», «SCC» no coinciden con «standard», «Fernanda», «ANDAMENTO».
+const NOMBRE_DE_COPIA_DE_SEGURIDAD = 'backups?|copias?\\s+de\\s+seguridad|c[oó]pias?\\s+de\\s+seguran[cç]a|respaldos?';
+const TREINTA_DIAS = '30\\s*(?:dias|días|days)';
+const SIN_RESPALDO: { re: RegExp; que: string }[] = [
+  { re: /\bDPAs?\b/i, que: 'DPA' },
+  { re: /\bNDAs?\b/i, que: 'NDA' },
+  { re: /\bSCCs?\b/i, que: 'SCC' },
+  { re: /data\s+processing\s+agreements?/i, que: 'Data Processing Agreement' },
+  { re: /(?:acordos?|acuerdos?)\s+de\s+(?:processamento|procesamiento|tratamento|tratamiento)\s+de\s+(?:dados|datos)/i, que: 'acuerdo de tratamiento de datos' },
+  { re: /contratos?\s+de\s+tratam(?:i)?ento[^.]{0,120}?\b(?:assinad|firmad)[oa]s?\b/i, que: 'contrato de tratamiento firmado' },
+  { re: /\b(?:assinad|firmad)[oa]s?\b[^.]{0,60}contratos?\s+de\s+tratam(?:i)?ento/i, que: 'contrato de tratamiento firmado' },
+  { re: /\b(?:signed|executed)\b[^.]{0,60}\b(?:agreements?|contracts?|clauses?)\b/i, que: 'signed agreement' },
+  { re: /\b(?:agreements?|contracts?)\b[^.]{0,40}\b(?:signed|executed)\b/i, que: 'agreement signed' },
+  { re: new RegExp(`\\b(?:${NOMBRE_DE_COPIA_DE_SEGURIDAD})\\b[^.]{0,100}?\\b${TREINTA_DIAS}\\b`, 'i'), que: 'backups con 30 días' },
+  { re: new RegExp(`\\b${TREINTA_DIAS}\\b[^.]{0,100}?\\b(?:${NOMBRE_DE_COPIA_DE_SEGURIDAD})\\b`, 'i'), que: '30 días de backups' },
+];
+// Además, SÓLO en los documentos legales (no en la home, que es copy de marketing con su propia revisión).
+const SIN_RESPALDO_EN_LEGALES: { re: RegExp; que: string }[] = [
+  { re: /\b(?:no|sem|sin|zero)\s+(?:training|treinamento|entrenamiento)\b/i, que: '«sin entrenamiento» atribuido a proveedores' },
+  { re: /\bzero[\s-]+(?:data[\s-]+)?retention\b|\bretenç[aã]o\s+zero\b|\bretenci[oó]n\s+cero\b/i, que: 'retención cero' },
+  { re: /\bISO\s*\/?\s*(?:IEC\s*)?2700[01]\b|\bISO\s*27018\b|\bSOC\s*[-]?\s*2\b|\bPCI[\s-]?DSS\b/i, que: 'certificación (ISO/SOC/PCI)' },
+  { re: /\bTLS\s*1\.[23]\b|\bAES[\s-]?256\b/i, que: 'cifrado con número (TLS/AES)' },
+  { re: /\b(?:gdpr|ccpa|lgpd)\b(?:[\s·,/&-]+(?:gdpr|ccpa|lgpd))*[\s·,-]+(?:compliance|compliant)\b|\b(?:gdpr|ccpa)[\s-]+ready\b/i, que: '«GDPR · CCPA compliance»' },
+  { re: /(?:delet|borr|elimin|exclu|exclus)[^.]{0,120}?\b(?:menos\s+de\s+24|24\s*(?:horas|hours)|within\s+24)\b/i, que: 'borrado «en menos de 24 horas»' },
+];
+// Plazos de retención que ningún código ejecuta: sólo en los documentos que hablan de datos.
+const SIN_RESPALDO_DE_DATOS: { re: RegExp; que: string }[] = [
+  { re: /\b90\s*(?:dias|días|days)\b/i, que: 'plazo automático de 90 días' },
+  { re: /\b7\s*(?:anos|años|years)\b/i, que: 'plazo automático de 7 años' },
+  { re: /\b12\s*(?:meses|months)\b/i, que: 'plazo automático de 12 meses' },
+  { re: /últim[ao]\s+(?:atividade|actividad)|last\s+activity/i, que: '«desde la última actividad»' },
+];
+const DOCUMENTOS_LEGALES = ['privacy', 'terms', 'data-deletion', 'delete-account', 'compliance'];
+const DOCUMENTOS_DE_DATOS = new Set(['privacy', 'data-deletion', 'delete-account', 'compliance']);
+// Dónde tiene que existir cada documento: las 13 páginas de país con idioma propio + las 3 del apex (es · pt · en).
+const LUGARES_LEGALES = [...LEGAL_COUNTRY_SLUGS.map((s) => `${s}/legal`), 'legal', 'pt/legal', 'en/legal'];
+const HOMES_REQUERIDAS = ['index.html', ...COUNTRY_SLUGS.map((s) => `${s}/index.html`)];
+// La línea de responsable de cada política (sección 1): la entidad y su número, en el MISMO renglón.
+const RESPONSABLE: Record<'br' | 'py' | 'otro', { nombre: string; re: RegExp }> = {
+  br: { nombre: 'Zymplo Brasil LTDA', re: /Zymplo\s+Brasil\s+LTDA[\s·]*CNPJ\s+66\.667\.634\/0001-00/ },
+  py: { nombre: 'Zymplo S.A.', re: /Zymplo\s+S\.A\.[\s·]*RUC\s+80170149-0/ },
+  otro: { nombre: 'Zymplo Inc.', re: /Zymplo\s+Inc\.[\s\S]{0,40}EIN\s+30-1486305/ },
+};
+const PROVEEDORES_EN_LA_SECCION_5 = ['Meta', 'Anthropic', 'Groq', 'Deepgram', 'OpenAI'];
+const SECCIONES_DE_LA_POLITICA = 13;
+const textoVisible = (html: string): string => {
+  const metas = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((m) => m[0])
+    .filter((t) => /(?:name|property)="(?:og:|twitter:)?(?:description|title)"/i.test(t))
+    .map((t) => t.match(/\bcontent="([^"]*)"/i)?.[1] ?? '');
+  const cuerpo = html
+    .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ');
+  return [cuerpo, ...metas].join(' ');
+};
+const seccion = (html: string, n: number): string | undefined =>
+  html.match(new RegExp(`<h2[^>]*>\\s*${n}\\.[^<]*</h2>([\\s\\S]*?)(?=<h2[^>]*>\\s*${n + 1}\\.|<footer|$)`))?.[1];
+const politicasVistas = new Set<string>();
+const legalesVistos = new Set<string>();
+const homesVistas = new Set<string>();
+let paginasVigiladas = 0;
 
 const walk = (dir: string): string[] =>
   readdirSync(dir).flatMap((name) => {
@@ -128,6 +210,46 @@ for (const file of walk(DIST)) {
     if (html.includes(bad)) errors.push(`${rel}: contiene la cifra fabricada "${bad}"`);
   for (const num of FORBIDDEN_NUMBERS)
     if (html.includes(num)) errors.push(`${rel}: número de WhatsApp PROHIBIDO ${num}`);
+
+  // 6 · documentos legales y home: nada sin respaldo, y presencia exigida (ver cabecera).
+  const tipoLegal = DOCUMENTOS_LEGALES.find((d) => new RegExp(`(?:^|/)legal/${d}/index\\.html$`).test(rel));
+  const esHome = HOMES_REQUERIDAS.includes(rel);
+  if (tipoLegal || esHome) {
+    paginasVigiladas++;
+    if (tipoLegal) legalesVistos.add(rel);
+    if (esHome) homesVistas.add(rel);
+    const texto = textoVisible(html);
+    const reglas = !tipoLegal
+      ? SIN_RESPALDO
+      : DOCUMENTOS_DE_DATOS.has(tipoLegal)
+        ? [...SIN_RESPALDO, ...SIN_RESPALDO_EN_LEGALES, ...SIN_RESPALDO_DE_DATOS]
+        : [...SIN_RESPALDO, ...SIN_RESPALDO_EN_LEGALES];
+    const dichas = new Set<string>();
+    for (const { re, que } of reglas) {
+      const hallado = texto.match(re);
+      if (hallado && !dichas.has(que)) {
+        dichas.add(que);
+        errors.push(`${rel}: afirma algo sin respaldo en el repo (${que}) → "${hallado[0].replace(/\s+/g, ' ').slice(0, 80)}"`);
+      }
+    }
+    if (tipoLegal === 'privacy') {
+      politicasVistas.add(rel);
+      // País de la política (el apex es/pt/en no tiene país: responsable = «el resto»).
+      const pais = SLUGS.has(first) && !APEX_LANG_PREFIXES.some((p) => dirPath.startsWith(p)) ? first : '';
+      const resp = RESPONSABLE[pais === 'br' ? 'br' : pais === 'py' ? 'py' : 'otro'];
+      const faltan = [...Array(SECCIONES_DE_LA_POLITICA).keys()].map((i) => i + 1).filter((n) => seccion(html, n) === undefined);
+      if (faltan.length) errors.push(`${rel}: la política no trae sus ${SECCIONES_DE_LA_POLITICA} secciones (faltan ${faltan.join(',')}) — cuerpo vacío o recortado`);
+      const sec1 = seccion(html, 1);
+      if (sec1 !== undefined && !resp.re.test(textoVisible(sec1)))
+        errors.push(`${rel}: la sección 1 no trae la línea del responsable (${resp.nombre}) con su número`);
+      const sec5 = seccion(html, 5);
+      if (sec5 !== undefined) {
+        const t5 = textoVisible(sec5);
+        const sinNombrar = PROVEEDORES_EN_LA_SECCION_5.filter((p) => !t5.includes(p));
+        if (sinNombrar.length) errors.push(`${rel}: la sección 5 (proveedores) no nombra a ${sinNombrar.join(', ')}`);
+      }
+    }
+  }
 
   // Links internos rotos: el footer viejo linkeaba 9 rutas que nunca existieron
   // (/about/, /blog/, /careers/…) y Google acumuló 49 URLs en 404 (GSC 7-ago).
@@ -212,12 +334,23 @@ if (!existsSync(sitemapPath)) {
 
 errors.push(...brokenLinks);
 
+// Un 0 se publica con su denominador (regla 47): si el candado 6 no vio las páginas que importan, no midió, no aprueba.
+// Las que importan: los 5 documentos legales en las 13 páginas de país y en las 3 del apex (es · pt · en), y las 15 homes.
+const LEGALES_REQUERIDOS = DOCUMENTOS_LEGALES.flatMap((d) => LUGARES_LEGALES.map((l) => `${l}/${d}/index.html`));
+for (const requerida of LEGALES_REQUERIDOS)
+  if (!legalesVistos.has(requerida)) errors.push(`candado 6: no vio ${requerida} (no midió esa página)`);
+for (const requerida of HOMES_REQUERIDAS)
+  if (!homesVistas.has(requerida)) errors.push(`candado 6: no vio la home ${requerida} (no midió esa página)`);
+const POLITICAS_REQUERIDAS = LUGARES_LEGALES.map((l) => `${l}/privacy/index.html`);
+const politicasMedidas = POLITICAS_REQUERIDAS.filter((p) => politicasVistas.has(p)).length;
+
 if (errors.length) {
   console.error(`\n🔴 check-seo: ${errors.length} problema(s) en ${pages} páginas:\n`);
-  for (const e of errors.slice(0, 40)) console.error('  · ' + e);
-  if (errors.length > 40) console.error(`  … y ${errors.length - 40} más`);
+  const TOPE = process.env.CHECK_SEO_TODO ? errors.length : 40; // CHECK_SEO_TODO=1 imprime todos
+  for (const e of errors.slice(0, TOPE)) console.error('  · ' + e);
+  if (errors.length > TOPE) console.error(`  … y ${errors.length - TOPE} más`);
   process.exit(1);
 }
 console.log(
-  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · 0 links internos rotos · sin cifras fabricadas ni números prohibidos`
+  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · 0 links internos rotos · sin cifras fabricadas ni números prohibidos · candado 6: ${paginasVigiladas} páginas legales y homes sin afirmaciones sin respaldo (${LEGALES_REQUERIDOS.length} legales + ${HOMES_REQUERIDAS.length} homes exigidas) · ${politicasMedidas}/${POLITICAS_REQUERIDAS.length} políticas con sus 13 secciones, su responsable y sus proveedores`
 );

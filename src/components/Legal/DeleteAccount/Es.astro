@@ -3,7 +3,7 @@
 export const meta = {
   title: 'Eliminar mi cuenta · Zymplo',
   description: 'Cómo eliminar permanentemente tu cuenta y todos tus datos en Zymplo.',
-  lastUpdated: '2026-05-04',
+  lastUpdated: '2026-11-02',
 };
 // OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
 // se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
@@ -27,19 +27,21 @@ const { base } = Astro.props;
 <h2>Opción 1 · Por WhatsApp (más rápido · 30 segundos)</h2>
 <div class="step">
   <p><span class="step-num">1</span> Mandale al bot Zymplo el mensaje: <strong>"borrar mi cuenta"</strong> · <strong>"deletar minha conta"</strong> · o <strong>"delete my account"</strong>.</p>
-  <p><span class="step-num">2</span> El bot te pedirá confirmación con un botón.</p>
-  <p><span class="step-num">3</span> Confirmás · y se ejecuta el borrado en menos de 24 horas.</p>
+  <p><span class="step-num">2</span> El bot te va a pedir que confirmes escribiendo una palabra.</p>
+  <p><span class="step-num">3</span> Confirmás · y borramos o anonimizamos tus datos en hasta 15 días, salvo lo que la ley obliga a guardar.</p>
 </div>
 
 <h2>Opción 2 · Por email</h2>
 <div class="step">
   <p>Enviá un email desde tu cuenta registrada a <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a> con asunto <strong>"Solicitud de eliminación de cuenta"</strong> e incluí tu número de WhatsApp Zymplo.</p>
-  <p>Respondemos en 15 días hábiles máximo (LGPD · GDPR).</p>
+  <p>Respondemos en hasta 15 días y, en ese plazo, borramos o anonimizamos tus datos, salvo lo que la ley obliga a guardar.</p>
 </div>
 
-<h2>Opción 3 · Web form</h2>
+<h2>Opción 3 · Desde la app</h2>
 <div class="step">
-  <p>Llená el formulario en <a href="https://zymplo.com/legal/delete-request/">zymplo.com/legal/delete-request/</a> con tu número de WhatsApp · respondemos por el mismo canal.</p>
+  <p><span class="step-num">1</span> Abrí la app Zymplo y entrá a <strong>Perfil</strong>.</p>
+  <p><span class="step-num">2</span> Tocá <strong>Eliminar mi cuenta</strong> y confirmá.</p>
+  <p><strong>No necesitás tener la app instalada para pedir el borrado:</strong> las opciones 1 y 2 funcionan igual sin ella.</p>
 </div>
 
 <h2>Qué se elimina</h2>
@@ -48,14 +50,13 @@ const { base } = Astro.props;
   <li>Historial completo de conversaciones con el bot.</li>
   <li>Lista de clientes · cobranzas · gastos · agendamientos · notas.</li>
   <li>Estadísticas de uso y analytics personales.</li>
+  <li>Las copias de audios y fotos que haya en nuestros servidores.</li>
   <li>Cualquier suscripción activa (cancelada inmediatamente · sin reembolsos prorrateados salvo lo que diga la ley local).</li>
 </ul>
 
-<h2>Qué se conserva temporalmente</h2>
+<h2>Qué se conserva por ley</h2>
 <ul>
-  <li><strong>NFS-e emitidas:</strong> conservadas 5 años en Brasil por obligación fiscal (no podemos borrar). Quedan asociadas a un identificador anónimo.</li>
-  <li><strong>Logs técnicos anonimizados:</strong> 90 días por seguridad y prevención de fraude.</li>
-  <li><strong>Backups encriptados:</strong> 30 días post borrado · luego destruidos.</li>
+  <li><strong>NFS-e emitidas:</strong> conservadas 5 años en Brasil, por ley (no podemos borrar). Quedan asociadas a un identificador anónimo.</li>
 </ul>
 
 <div class="box-warning">

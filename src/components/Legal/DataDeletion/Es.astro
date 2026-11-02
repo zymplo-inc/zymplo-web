@@ -21,13 +21,15 @@
 //     → 1 resultado y es un comentario · y la tabla no tiene FK a empresas
 //     (0 REFERENCES en la migración) → no hay cascada. Por eso la página dice
 //     en voz alta que ese borrado se pide por correo y se hace a mano.
-// Plazos: los de src/components/Legal/Privacy/Es.astro:84-89 (15 días hábiles ·
-// NFS-e 5 años · logs 90 días · backups 30 días).
+// Plazos: los de la sección 7 de src/components/Legal/Privacy/Es.astro (borrado o
+// anonimización en hasta 15 días · NFS-e 5 años, por ley). 2-nov-2026: se quitaron
+// los plazos automáticos (30 días, 90 días, backups 30 días) porque ningún código
+// los ejecuta.
 export const meta = {
   title: 'Borrado de datos · Zymplo',
   description:
     'Cómo pedir que Zymplo borre tus datos, incluidos los que llegan desde Instagram y Facebook.',
-  lastUpdated: '2026-08-08',
+  lastUpdated: '2026-11-02',
 };
 // OPS fix(links): `base` es el prefijo (país o idioma) del contexto donde
 // se renderiza este documento — '' en el apex ES, '/en' o '/pt' en el apex
@@ -105,16 +107,13 @@ const { base } = Astro.props;
 
 <h2>En cuánto tiempo</h2>
 <ul>
-  <li>Te confirmamos el pedido en hasta <strong>15 días hábiles</strong> (LGPD · GDPR).</li>
-  <li>El borrado queda hecho en hasta <strong>30 días</strong> desde tu pedido.</li>
-  <li>Las copias de seguridad cifradas se destruyen 30 días después del borrado.</li>
+  <li>Si pedís borrar tus datos (desde la app o a privacy@zymplo.com), los borramos o anonimizamos en hasta <strong>15 días</strong>, salvo lo que la ley obliga a guardar.</li>
+  <li>Si pedís borrar tus datos, también borramos las copias de audios y fotos que haya en nuestros servidores.</li>
 </ul>
 
 <h2>Qué queda guardado, y por cuánto</h2>
 <ul>
-  <li><strong>Notas fiscales (NFS-e) emitidas en Brasil:</strong> 5 años, por obligación fiscal. No podemos borrarlas. Quedan atadas a un identificador anónimo.</li>
-  <li><strong>Registros técnicos anonimizados:</strong> 90 días, por seguridad y prevención de fraude.</li>
-  <li><strong>Copias de seguridad cifradas:</strong> 30 días después del borrado.</li>
+  <li><strong>Notas fiscales (NFS-e) emitidas en Brasil:</strong> 5 años, por ley. No podemos borrarlas. Quedan atadas a un identificador anónimo.</li>
 </ul>
 
 <div class="box-warning">
