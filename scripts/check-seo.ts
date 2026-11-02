@@ -15,6 +15,12 @@
  *       hreflang o cualquier tag con href) queda con la ruta fija del apex ES
  *       (`/legal/{doc}/`) dentro de una página de país o de idioma — ver el
  *       bloque "FUEGO 5" más abajo para la forma exacta del defecto y por qué.
+ *   6 · POLÍTICA DE PRIVACIDAD (2026-11-02) · ninguna política publicada
+ *       afirma un instrumento contractual (DPA, NDA, SCC) que el repo no puede
+ *       probar. La política decía «DPA firmados» y «todos cumplen SCC» y en el
+ *       repo no consta ni un acuse (paquete legal 2-nov, hallazgo H1). Vigila
+ *       la PROPIEDAD, no una frase: cualquier página `…/legal/privacy/` del
+ *       dist que vuelva a nombrar uno de esos instrumentos se pone roja.
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -65,6 +71,10 @@ const SHARED_FILES = new Set(['/favicon.ico', '/favicon.svg', '/robots.txt', '/s
 const errors: string[] = [];
 let pages = 0;
 let withHreflang = 0;
+// Candado 6: instrumentos contractuales que una política pública no puede afirmar sin acuse en el repo.
+// (Palabra completa y en mayúsculas: «DPA», «NDA», «SCC»/«SCCs»; no coincide con «standard», «Fernanda», etc.)
+const CONTRATOS_SIN_RESPALDO = [/\bDPAs?\b/, /\bNDAs?\b/, /\bSCCs?\b/];
+const politicasVistas = new Set<string>();
 
 const walk = (dir: string): string[] =>
   readdirSync(dir).flatMap((name) => {
@@ -128,6 +138,16 @@ for (const file of walk(DIST)) {
     if (html.includes(bad)) errors.push(`${rel}: contiene la cifra fabricada "${bad}"`);
   for (const num of FORBIDDEN_NUMBERS)
     if (html.includes(num)) errors.push(`${rel}: número de WhatsApp PROHIBIDO ${num}`);
+
+  // 6 · política de privacidad sin instrumentos contractuales afirmados (ver cabecera).
+  if (/(^|\/)legal\/privacy\/index\.html$/.test(rel)) {
+    politicasVistas.add(rel);
+    const texto = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ');
+    for (const re of CONTRATOS_SIN_RESPALDO) {
+      const hallado = texto.match(re);
+      if (hallado) errors.push(`${rel}: la política afirma un instrumento contractual sin respaldo en el repo ("${hallado[0]}")`);
+    }
+  }
 
   // Links internos rotos: el footer viejo linkeaba 9 rutas que nunca existieron
   // (/about/, /blog/, /careers/…) y Google acumuló 49 URLs en 404 (GSC 7-ago).
@@ -212,6 +232,12 @@ if (!existsSync(sitemapPath)) {
 
 errors.push(...brokenLinks);
 
+// Un 0 se publica con su denominador (regla 47): si el candado 6 no vio las políticas que importan, no midió, no aprueba.
+// Las que importan: las tres que enlaza la app (br, py, us) y las tres del apex (es, pt, en).
+const POLITICAS_REQUERIDAS = ['br/legal/privacy/index.html', 'py/legal/privacy/index.html', 'us/legal/privacy/index.html', 'legal/privacy/index.html', 'pt/legal/privacy/index.html', 'en/legal/privacy/index.html'];
+for (const requerida of POLITICAS_REQUERIDAS)
+  if (!politicasVistas.has(requerida)) errors.push(`candado 6: no vio ${requerida} (no midió esa política)`);
+
 if (errors.length) {
   console.error(`\n🔴 check-seo: ${errors.length} problema(s) en ${pages} páginas:\n`);
   for (const e of errors.slice(0, 40)) console.error('  · ' + e);
@@ -219,5 +245,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · 0 links internos rotos · sin cifras fabricadas ni números prohibidos`
+  `✅ check-seo: ${pages} páginas · canónicas propias OK · ${withHreflang} con hreflang completo (${LOCALES.size} locales) · sitemap OK · 0 links internos rotos · sin cifras fabricadas ni números prohibidos · ${politicasVistas.size} políticas de privacidad sin DPA/NDA/SCC afirmados`
 );

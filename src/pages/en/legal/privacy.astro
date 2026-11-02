@@ -1,7 +1,8 @@
 ---
+// 2026-11-02 · text corrected so it says what the code does (controller by country, AI and voice providers, retention, transfer basis). The same text lives in src/pages/en/legal/privacy.astro: edit them together.
 const title = 'Privacy Policy · Zymplo';
 const description = 'How Zymplo collects, uses and protects your personal data. LGPD · GDPR · CCPA compliance.';
-const lastUpdated = '2026-07-27';
+const lastUpdated = '2026-11-02';
 ---
 
 <!doctype html>
@@ -46,9 +47,14 @@ const lastUpdated = '2026-07-27';
       <strong>Quick summary:</strong> Zymplo receives your WhatsApp messages to process them with AI and return useful responses (reminders · payment collection · invoices · etc). We do not sell your data · we do not share it with advertising third parties · you can delete your account whenever you want at <a href="/en/legal/delete-account/">/en/legal/delete-account/</a>.
     </div>
 
-    <h2>1. Who operates Zymplo</h2>
-    <p>Zymplo is operated by <strong>Zymplo Inc.</strong>, a company incorporated in Delaware (USA), EIN 30-1486305, DUNS 145007664, with registered address in Newark, DE 19713, USA.</p>
-    <p>For privacy inquiries: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
+    <h2>1. Who is responsible for your data</h2>
+    <p>The company responsible for processing your personal data (the "controller" under Brazil's LGPD) depends on the country:</p>
+    <ul>
+      <li><strong>Brazil:</strong> <strong>Zymplo Brasil LTDA</strong> · CNPJ 66.667.634/0001-00 · Fortaleza, CE.</li>
+      <li><strong>Paraguay:</strong> <strong>Zymplo S.A.</strong> · RUC 80170149-0 · San Lorenzo.</li>
+      <li><strong>All other countries:</strong> <strong>Zymplo Inc.</strong> · Delaware (USA) · EIN 30-1486305 · DUNS 145007664 · Newark, DE 19713, USA.</li>
+    </ul>
+    <p><strong>Data protection officer (DPO):</strong> José Carlos Rolón. Privacy contact: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
 
     <h2>2. What data we collect</h2>
     <ul>
@@ -69,7 +75,7 @@ const lastUpdated = '2026-07-27';
 
     <h2>3. What we use your data for</h2>
     <ul>
-      <li>Process your messages with AI models (Anthropic Claude · OpenAI GPT · providers with signed NDA + DPA).</li>
+      <li>Process your messages with AI models and transcribe your voice messages (providers in section 5).</li>
       <li>Execute the actions you requested (create a payment collection · send a reminder · issue an NFS-e · etc).</li>
       <li>Improve service quality (aggregated and anonymized analytics).</li>
       <li>Comply with local legal obligations (LGPD Brazil · Law 1682/01 Paraguay · etc).</li>
@@ -85,14 +91,22 @@ const lastUpdated = '2026-07-27';
 
     <h2>5. Who we share with</h2>
     <ul>
-      <li><strong>Meta (WhatsApp Business API):</strong> messaging infrastructure · signed DPA.</li>
-      <li><strong>AI providers:</strong> Anthropic · OpenAI · xAI (they process your messages in real time · signed DPAs · we do not train models with your data).</li>
+      <li><strong>Meta (WhatsApp Business API):</strong> messaging infrastructure.</li>
+      <li><strong>AI and voice providers</strong> (they process the content of your messages in real time; all are headquartered in the US, except DeepSeek):
+        <ul>
+          <li><strong>Text and images:</strong> Anthropic (Claude).</li>
+          <li><strong>Voice-message transcription:</strong> Groq (primary), Deepgram and OpenAI (backup).</li>
+          <li><strong>Short support tasks</strong> (for example, understanding your name or classifying a request): OpenAI and xAI; and, only if enabled in the service, Groq, Cerebras, Together AI and DeepSeek (China).</li>
+          <li><strong>Conversation quality log:</strong> LangSmith (LangChain), only when that log is switched on in the server.</li>
+        </ul>
+      </li>
       <li><strong>Stripe / Mercado Pago:</strong> only if you activate payment features.</li>
       <li><strong>Cloudflare · Oracle Cloud:</strong> hosting · CDN.</li>
       <li><strong>Resend:</strong> transactional emails.</li>
       <li><strong>Authorities:</strong> only under a valid court order from the corresponding country.</li>
     </ul>
     <p>We do NOT sell · do NOT rent · do NOT share for advertising.</p>
+    <p>We do not use your data to train AI models unless you accept this on an optional, separate basis.</p>
 
     <h2>6. Google data (Google Calendar)</h2>
     <p>If you connect your Google account, Zymplo requests the minimum events permission for your <strong>Google Calendar</strong> (<code>https://www.googleapis.com/auth/calendar.events</code>) so that, from WhatsApp, you can:</p>
@@ -106,11 +120,12 @@ const lastUpdated = '2026-07-27';
     </div>
 
     <h2>7. Retention</h2>
+    <p>The periods below count from your account's last activity. You can ask for deletion earlier, whenever you want (section 8).</p>
     <ul>
-      <li>Messages and operational data: up to 30 days (free plan) or up to 12 months (paid plans) after the last interaction.</li>
-      <li>Issued NFS-e: 5 years (fiscal obligation).</li>
+      <li>Personal identification data (name · email · phone · CPF/CNPJ): anonymized after 90 days (free plan) or 7 years (paid plan).</li>
+      <li>Conversations with the assistant: 30 days (free plan) or 12 months (paid plan), unless you have optionally accepted their use for training.</li>
+      <li>Issued NFS-e: 5 years (free plan) or 7 years (paid plan), by fiscal obligation.</li>
       <li>Technical logs: 90 days.</li>
-      <li>Encrypted backups: 30 days after account deletion.</li>
     </ul>
 
     <h2>8. Your rights (LGPD · GDPR · CCPA)</h2>
@@ -121,8 +136,10 @@ const lastUpdated = '2026-07-27';
       <li><strong>Portability:</strong> export your data in JSON.</li>
       <li><strong>Objection:</strong> refuse non-essential uses.</li>
       <li><strong>Withdrawal of consent:</strong> at any time without affecting prior processing.</li>
+      <li><strong>Information about consent:</strong> to know that you may refuse consent and what the consequences are.</li>
+      <li><strong>Complaint to the authority:</strong> in Brazil, to the ANPD (National Data Protection Authority) against the controller; in other countries, to your local authority (section 13).</li>
     </ul>
-    <p>Exercise your rights by emailing <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>. We respond within 15 business days at most.</p>
+    <p>Exercise your rights by emailing <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>. We respond within 15 days at most.</p>
 
     <h2>9. Security</h2>
     <ul>
@@ -131,12 +148,14 @@ const lastUpdated = '2026-07-27';
       <li>Encrypted backups · disaster recovery tested monthly.</li>
       <li>Quarterly key rotation policy.</li>
     </ul>
+    <p>If a security incident affects your personal data, we will notify you and the competent authority. In Brazil, the deadline is 3 business days from the moment we learn that the incident affected personal data (ANPD Res. CD/ANPD No. 15/2024).</p>
 
     <h2>10. Minors</h2>
     <p>Zymplo is NOT directed at anyone under 18. If we discover a minor's data, we delete it immediately. If you are a guardian and notice this: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
 
     <h2>11. International transfers</h2>
-    <p>Data may be processed in the USA · Brazil · Paraguay · countries where our providers operate. All comply with SCCs (Standard Contractual Clauses) or local equivalents.</p>
+    <p>Some of the providers in section 5 are outside your country, mainly in the United States, so your data may be processed in the USA · Brazil · Paraguay · countries where our providers operate.</p>
+    <p>Basis for these transfers: your specific and prominent consent (LGPD, art. 33, VIII). We are arranging with the providers the adoption of the ANPD's standard contractual clauses (the "cláusulas-padrão", approved by Brazil's data protection authority); this process is under way.</p>
 
     <h2>12. Changes to this policy</h2>
     <p>We will notify you via WhatsApp of any material changes · 30 days in advance. Minor changes (typographical · clarifications) without notification.</p>
@@ -145,7 +164,7 @@ const lastUpdated = '2026-07-27';
     <p>You can file a complaint with your local authority: ANPD (Brazil) · MITIC (Paraguay) · INAI (Mexico) · AEPD (Spain) · SIC (Colombia) · etc.</p>
 
     <footer>
-      <p>Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664. For users in Brazil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · local LGPD controller · Fortaleza CE</p>
+      <p>Brazil: Zymplo Brasil LTDA · CNPJ 66.667.634/0001-00 · Fortaleza CE · Paraguay: Zymplo S.A. · RUC 80170149-0 · San Lorenzo · All other countries: Zymplo Inc. · Delaware USA · EIN 30-1486305 · DUNS 145007664</p>
       <p><a href="/">Back to zymplo.com</a> · <a href="/en/legal/terms/">Terms of Service</a> · <a href="/en/legal/delete-account/">Delete account</a></p>
     </footer>
   </body>
