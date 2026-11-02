@@ -1,7 +1,7 @@
 ---
 // 2026-11-02 · texto corregido para que diga lo que el código hace (responsable por país, proveedores de IA y voz, retención, base de transferencia). El mismo texto vive en src/pages/legal/privacy.astro: se editan juntos.
 const title = 'Política de privacidad · Zymplo';
-const description = 'Cómo Zymplo recolecta, usa y protege tus datos personales. LGPD · GDPR · CCPA compliance.';
+const description = 'Cómo Zymplo recolecta, usa y protege tus datos personales, y cómo pedir que los borremos.';
 const lastUpdated = '2026-11-02';
 ---
 
@@ -86,7 +86,7 @@ const lastUpdated = '2026-11-02';
       <li><strong>Consentimiento:</strong> cuando el consentimiento es la base aplicable, es siempre explícito, informado y específico, y puede revocarse en cualquier momento. Para las demás finalidades tratamos tus datos sobre la base de ejecución de contrato, cumplimiento de una obligación legal o interés legítimo, conforme al art. 7 de la LGPD. No utilizamos consentimiento implícito.</li>
       <li><strong>Ejecución de contrato:</strong> para entregar el servicio que pediste.</li>
       <li><strong>Interés legítimo:</strong> para fraud-prevention y mejora del servicio.</li>
-      <li><strong>Obligación legal:</strong> retención de NFS-e emitidas por plazo fiscal (5 años Brasil).</li>
+      <li><strong>Obligación legal:</strong> guardar las NFS-e emitidas durante 5 años, por ley (Brasil).</li>
     </ul>
 
     <h2>5. Con quién compartimos</h2>
@@ -95,18 +95,21 @@ const lastUpdated = '2026-11-02';
       <li><strong>Proveedores de IA y de voz</strong> (procesan el contenido de tus mensajes en tiempo real; todos con sede en EE.UU., salvo DeepSeek):
         <ul>
           <li><strong>Texto e imágenes:</strong> Anthropic (Claude).</li>
-          <li><strong>Transcripción de audios:</strong> Groq (principal), Deepgram y OpenAI (respaldo).</li>
-          <li><strong>Tareas cortas de apoyo</strong> (por ejemplo, entender tu nombre o clasificar un pedido): OpenAI y xAI; y, solo si están activados en el servicio, Groq, Cerebras, Together AI y DeepSeek (China).</li>
-          <li><strong>Registro de calidad de las conversaciones:</strong> LangSmith (LangChain), solo cuando ese registro está encendido en el servidor.</li>
+          <li><strong>Transcripción de audios:</strong> Groq (principal), Deepgram y OpenAI (respaldo). A Deepgram le pedimos, en cada envío, que tu audio quede fuera de su programa de mejora de modelos.</li>
+          <li><strong>Entender tu nombre:</strong> OpenAI.</li>
+          <li><strong>Solo si se activan en el servicio:</strong> xAI, Cerebras, Together AI y DeepSeek (China).</li>
+          <li><strong>Registro de calidad de las conversaciones:</strong> LangSmith (LangChain). Está apagado. Si algún día se enciende, el contenido de tus mensajes se oculta.</li>
         </ul>
       </li>
+      <li><strong>Pluggy:</strong> Open Finance en Brasil, solo si conectás tu banco.</li>
       <li><strong>Stripe / Mercado Pago:</strong> solo si activás funciones de pago.</li>
       <li><strong>Cloudflare · Oracle Cloud:</strong> hosting · CDN.</li>
       <li><strong>Resend:</strong> emails transaccionales.</li>
+      <li><strong>Sentry:</strong> reportes de errores técnicos.</li>
       <li><strong>Autoridades:</strong> solo bajo orden judicial válida del país correspondiente.</li>
     </ul>
     <p>NO vendemos · NO alquilamos · NO compartimos para publicidad.</p>
-    <p>No usamos tus datos para entrenar modelos de IA, salvo que lo aceptes de forma opcional y por separado.</p>
+    <p>No usamos tus datos para entrenar modelos de IA.</p>
 
     <h2>6. Datos de Google (Google Calendar)</h2>
     <p>Si conectás tu cuenta de Google, Zymplo solicita el permiso mínimo de eventos de tu <strong>Google Calendar</strong> (<code>https://www.googleapis.com/auth/calendar.events</code>) para que, desde WhatsApp, puedas:</p>
@@ -120,12 +123,10 @@ const lastUpdated = '2026-11-02';
     </div>
 
     <h2>7. Retención</h2>
-    <p>Los plazos de abajo se cuentan desde la última actividad de la cuenta. Se puede pedir el borrado antes, en cualquier momento (sección 8).</p>
+    <p>Guardamos tus datos mientras uses Zymplo. Si pedís borrarlos (desde la app o a <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>), los borramos o anonimizamos en hasta 15 días, salvo lo que la ley obliga a guardar.</p>
     <ul>
-      <li>Datos personales de identificación (nombre · correo · teléfono · CPF/CNPJ): se anonimizan a los 90 días (plan gratuito) o a los 7 años (plan pago).</li>
-      <li>Conversaciones con el asistente: 30 días (plan gratuito) o 12 meses (plan pago), salvo que se haya aceptado, de forma opcional, su uso para entrenamiento.</li>
-      <li>NFS-e emitidas: 5 años (plan gratuito) o 7 años (plan pago), por obligación fiscal.</li>
-      <li>Logs técnicos: 90 días.</li>
+      <li>Notas fiscales (NFS-e) emitidas en Brasil: 5 años, por ley.</li>
+      <li>Audios y fotos: sirven para responderte. Hoy puede quedar una copia en nuestros servidores; si pedís borrar tus datos, también borramos esas copias.</li>
     </ul>
 
     <h2>8. Tus derechos (LGPD · GDPR · CCPA)</h2>
@@ -143,19 +144,17 @@ const lastUpdated = '2026-11-02';
 
     <h2>9. Seguridad</h2>
     <ul>
-      <li>Encriptación en tránsito (TLS 1.3) y en reposo (AES-256).</li>
+      <li>Cifrado en tránsito (HTTPS).</li>
       <li>Acceso a datos restringido por rol · audit logs.</li>
-      <li>Backups encriptados · disaster recovery testeado mensualmente.</li>
-      <li>Política de rotación de claves trimestral.</li>
     </ul>
-    <p>Si ocurre un incidente de seguridad que afecte tus datos personales, avisaremos a la persona afectada y a la autoridad competente. En Brasil, el plazo es de 3 días hábiles desde que sepamos que el incidente afectó datos personales (Res. CD/ANPD n.º 15/2024).</p>
+    <p>Si un incidente de seguridad puede afectar tus datos personales, avisaremos a la persona afectada y a la autoridad competente. En Brasil, el plazo es de 3 días hábiles desde que sepamos que el incidente afectó datos personales (Res. CD/ANPD n.º 15/2024).</p>
 
     <h2>10. Menores</h2>
     <p>Zymplo NO está dirigido a menores de 18 años. Si descubrimos datos de un menor, los borramos inmediatamente. Si sos tutor y notás esto: <a href="mailto:privacy@zymplo.com">privacy@zymplo.com</a>.</p>
 
     <h2>11. Transferencias internacionales</h2>
     <p>Parte de los proveedores de la sección 5 está fuera de tu país, principalmente en Estados Unidos; por eso tus datos pueden procesarse en USA · Brasil · Paraguay · Países donde operan nuestros proveedores.</p>
-    <p>Base para esos envíos: tu consentimiento específico y destacado (LGPD, art. 33, VIII). Estamos gestionando con los proveedores la adopción de las cláusulas-padrão de la ANPD (cláusulas contractuales estándar aprobadas por la autoridad); ese proceso está en curso.</p>
+    <p>Base para esos envíos: son necesarios para prestarte el servicio que pediste (LGPD, art. 33, IX, con art. 7, V). Les pedimos a nuestros proveedores Deepgram, OpenAI y Groq que firmen las cláusulas-padrão de la ANPD (cláusulas contractuales estándar aprobadas por la autoridad); con los demás, está en preparación.</p>
 
     <h2>12. Cambios a esta política</h2>
     <p>Te notificaremos por WhatsApp si hay cambios materiales · con 30 días de anticipación. Cambios menores (tipográficos · clarificaciones) sin notificación.</p>

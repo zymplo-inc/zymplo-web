@@ -70,7 +70,7 @@ See [/pricing.md](https://zymplo.com/pricing.md) for full structured data.
 
 - **LGPD** (Brazil): DPO José Carlos Rolón · privacy@zymplo.com · opt-in primer mensaje
 - **GDPR** (España): same DPO coverage · cross-platform sync (R88)
-- **Data retention**: WhatsApp-only · no app data · 30-day audit logs
+- **Data retention**: kept while you use Zymplo · on a deletion request (app or privacy@zymplo.com) data is deleted or anonymized within 15 days, except what the law requires us to keep (NFS-e tax receipts: 5 years)
 - **AI transparency**: Bot identifies as AI · disclaimer on first interaction
 - **Crisis detection**: Suicide/violence/abuse → hotline auto-inject (R87 capa 15)
 
