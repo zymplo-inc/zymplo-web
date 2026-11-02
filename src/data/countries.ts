@@ -295,6 +295,10 @@ const WA_TEXT: Record<CountrySlug, string> = {
   uy: '¡Hola bo! Quiero empezar con Zymplo gratis.',
   bo: '¡Hola pues! Quiero empezar con Zymplo gratis.',
   cr: '¡Pura vida! Quiero empezar con Zymplo gratis.',
+  // Portugal no tenía texto propio y `waLink` caía en el de Brasil con el `?? WA_TEXT.br`.
+  // Se escribe el mismo texto a propósito: nadie ve nada distinto. Si Portugal pide la
+  // forma de allá («com o Zymplo»), es una decisión de texto, no de tipos.
+  pt: 'Olá! Quero começar com Zymplo grátis.',
 };
 export const waLink = (slug: CountrySlug, planLabel?: string): string => {
   const baseText = WA_TEXT[slug] ?? WA_TEXT.br;

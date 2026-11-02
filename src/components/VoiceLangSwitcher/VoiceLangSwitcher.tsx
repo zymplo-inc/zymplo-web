@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { COUNTRY_SLUGS, type CountrySlug } from '@data/countries';
+import { COUNTRY_SLUGS, getCountry, type CountrySlug } from '@data/countries';
 
 interface Props {
   currentSlug: CountrySlug;
@@ -48,11 +48,10 @@ export default function VoiceLangSwitcher({ currentSlug, dict }: Props) {
       rec.continuous = false;
       rec.interimResults = false;
       rec.maxAlternatives = 1;
-      // Default lang from current slug → encourage user to speak in that locale or switch
-      const localeMap: Record<CountrySlug, string> = {
-        br: 'pt-BR', mx: 'es-MX', us: 'en-US', co: 'es-CO', es: 'es-ES', ar: 'es-AR', py: 'es-PY',
-      };
-      rec.lang = localeMap[currentSlug] || 'en-US';
+      // Default lang from current slug → encourage user to speak in that locale or switch.
+      // El locale sale de `COUNTRIES` (única fuente): el mapa propio tenía 7 de los 14 países
+      // y los otros 7 (pe, ec, cl, uy, bo, cr, pt) escuchaban en inglés.
+      rec.lang = getCountry(currentSlug)?.locale ?? 'en-US';
       rec.onstart = () => { setState('listening'); setMessage(listening); };
       rec.onerror = () => { setState('error'); setMessage(noMatch); };
       rec.onresult = (e: any) => {
@@ -84,7 +83,10 @@ export default function VoiceLangSwitcher({ currentSlug, dict }: Props) {
         }
       };
       rec.onend = () => {
-        if (state === 'listening') setState('idle');
+        // `state` aquí es el de cuando se creó este callback, y a esa altura nunca era 'listening'
+        // (arriba se sale si lo era): la comparación no podía ser cierta y el estado se quedaba
+        // pulsando. Se lee el estado vigente con la forma funcional.
+        setState((actual) => (actual === 'listening' ? 'idle' : actual));
       };
       rec.start();
     } catch {
