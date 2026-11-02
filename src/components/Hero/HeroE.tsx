@@ -228,8 +228,8 @@ export default function HeroE({ slug, country, dict }: Props) {
 }
 
 function AnimatedDemo({ lines, visibleLines, typing, country }: { lines: DemoLine[]; visibleLines: number; typing: boolean; country: Country }) {
-  const isPT = country.lang === 'pt-BR';
-  const isEN = country.lang === 'en-US';
+  const isPT = country.locale === 'pt-BR';
+  const isEN = country.locale === 'en-US';
   const onlineLabel = isPT ? 'online · digitando…' : isEN ? 'online · typing…' : 'en línea · escribiendo…';
   const inputPlaceholder = isPT ? 'Mensagem' : isEN ? 'Message' : 'Mensaje';
 

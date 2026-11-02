@@ -226,19 +226,19 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
   const goBack = () => setStep((s) => Math.max(s - 1, 0));
 
   return (
-    <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+    <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
       {/* Progress bar */}
-      <div class="flex items-center gap-2 mb-8" role="progressbar" aria-valuenow={step + 1} aria-valuemin={1} aria-valuemax={total}>
+      <div className="flex items-center gap-2 mb-8" role="progressbar" aria-valuenow={step + 1} aria-valuemin={1} aria-valuemax={total}>
         {stepNames.map((_, i) => (
           <div
             key={i}
-            class={`h-1.5 flex-1 rounded-full transition-all duration-500 ${
+            className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${
               i <= step ? 'bg-turquesa' : 'bg-ink/10'
             }`}
           />
         ))}
       </div>
-      <div class="text-xs uppercase tracking-widest text-mute font-bold mb-2">
+      <div className="text-xs uppercase tracking-widest text-mute font-bold mb-2">
         {t.step} {step + 1} {t.of} {total}
       </div>
 
@@ -250,9 +250,9 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            class="text-center"
+            className="text-center"
           >
-            <div class="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-turquesa to-turquesa-dark flex items-center justify-center shadow-[0_20px_60px_-20px_rgba(20,184,166,0.6)] mb-6">
+            <div className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-turquesa to-turquesa-dark flex items-center justify-center shadow-[0_20px_60px_-20px_rgba(20,184,166,0.6)] mb-6">
               <motion.svg
                 viewBox="0 0 96 96"
                 width="64"
@@ -266,20 +266,20 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                 </g>
               </motion.svg>
             </div>
-            <h1 class="font-display text-4xl md:text-5xl font-bold tracking-tightest">{t.welcome_title}</h1>
-            <p class="mt-3 text-mute text-lg max-w-md mx-auto">{t.welcome_sub}</p>
+            <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tightest">{t.welcome_title}</h1>
+            <p className="mt-3 text-mute text-lg max-w-md mx-auto">{t.welcome_sub}</p>
             <motion.div
-              class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-turquesa-deeper"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-turquesa-deeper"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
               {welcomeReady ? (
                 <>
-                  <span class="w-2 h-2 rounded-full bg-success" /> {t.welcome_ready}
+                  <span className="w-2 h-2 rounded-full bg-success" /> {t.welcome_ready}
                 </>
               ) : (
                 <>
-                  <span class="w-2 h-2 rounded-full bg-turquesa animate-pulse" /> {t.welcome_detecting}
+                  <span className="w-2 h-2 rounded-full bg-turquesa animate-pulse" /> {t.welcome_detecting}
                 </>
               )}
             </motion.div>
@@ -294,9 +294,9 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.oficio_title}</h2>
-            <p class="mt-2 text-mute text-center">{t.oficio_sub}</p>
-            <div class="mt-8 grid grid-cols-3 sm:grid-cols-4 gap-2">
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.oficio_title}</h2>
+            <p className="mt-2 text-mute text-center">{t.oficio_sub}</p>
+            <div className="mt-8 grid grid-cols-3 sm:grid-cols-4 gap-2">
               {OFICIOS.map((o) => {
                 const selected = oficio === o.id;
                 return (
@@ -305,14 +305,14 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     key={o.id}
                     onClick={() => setOficio(o.id)}
                     style={{ transition: 'transform 0.4s var(--ease-spring), border-color 0.25s var(--ease-out-expo), background-color 0.25s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
-                    class={`group flex flex-col items-center gap-1 p-3 rounded-2xl border-2 ${
+                    className={`group flex flex-col items-center gap-1 p-3 rounded-2xl border-2 ${
                       selected
                         ? 'border-turquesa bg-turquesa-paler shadow-[0_8px_24px_-8px_rgba(20,184,166,0.5)] scale-105'
                         : 'border-ink/5 bg-paper hover:border-turquesa/40 hover:bg-turquesa-paler/40 hover:-translate-y-0.5'
                     }`}
                   >
-                    <span class="text-3xl" aria-hidden="true">{o.emoji}</span>
-                    <span class={`text-xs font-bold text-center leading-tight ${selected ? 'text-turquesa-deeper' : 'text-slate'}`}>
+                    <span className="text-3xl" aria-hidden="true">{o.emoji}</span>
+                    <span className={`text-xs font-bold text-center leading-tight ${selected ? 'text-turquesa-deeper' : 'text-slate'}`}>
                       {(o.label as Record<string, string>)[labelLang] ?? o.label.br}
                     </span>
                   </button>
@@ -321,7 +321,7 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             </div>
             {oficio && (
               <motion.p
-                class="mt-6 text-center text-turquesa-deeper font-semibold"
+                className="mt-6 text-center text-turquesa-deeper font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
@@ -339,35 +339,35 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4 }}
           >
-            <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.data_title}</h2>
-            <p class="mt-2 text-mute text-center">{t.data_sub}</p>
-            <div class="mt-8 space-y-5">
-              <label class="block">
-                <span class="text-sm font-bold text-slate">{t.data_name}</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.data_title}</h2>
+            <p className="mt-2 text-mute text-center">{t.data_sub}</p>
+            <div className="mt-8 space-y-5">
+              <label className="block">
+                <span className="text-sm font-bold text-slate">{t.data_name}</span>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName((e.target as HTMLInputElement).value)}
                   placeholder={t.data_name_ph}
-                  class="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-semibold"
+                  className="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-semibold"
                 />
               </label>
-              <label class="block">
-                <span class="text-sm font-bold text-slate">{docMeta.label}</span>
+              <label className="block">
+                <span className="text-sm font-bold text-slate">{docMeta.label}</span>
                 <input
                   type="text"
                   value={doc}
                   onChange={(e) => setDoc((e.target as HTMLInputElement).value)}
                   placeholder={docMeta.placeholder}
-                  class="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
+                  className="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
                 />
-                <span class="mt-1 inline-flex items-center gap-1 text-xs text-success font-semibold">
+                <span className="mt-1 inline-flex items-center gap-1 text-xs text-success font-semibold">
                   ✓ {t.data_doc_help}
                 </span>
               </label>
-              <label class="block">
-                <span class="text-sm font-bold text-slate">{t.data_phone}</span>
-                <div class="mt-1 flex gap-2 relative">
+              <label className="block">
+                <span className="text-sm font-bold text-slate">{t.data_phone}</span>
+                <div className="mt-1 flex gap-2 relative">
                   {/* Country picker · pre-selected by subdomain · user can override */}
                   <button
                     type="button"
@@ -375,11 +375,11 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     aria-haspopup="listbox"
                     aria-expanded={phonePickerOpen}
                     aria-label={`Country code: ${phoneCountry.name} +${phoneCountry.code}`}
-                    class="shrink-0 flex items-center gap-1.5 px-3 py-3 rounded-2xl border-2 border-ink/10 bg-paper hover:border-turquesa/40 transition font-bold text-slate"
+                    className="shrink-0 flex items-center gap-1.5 px-3 py-3 rounded-2xl border-2 border-ink/10 bg-paper hover:border-turquesa/40 transition font-bold text-slate"
                   >
-                    <span class="text-lg leading-none">{phoneCountry.flag}</span>
-                    <span class="font-mono text-sm">+{phoneCountry.code}</span>
-                    <svg class="w-3 h-3 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                    <span className="text-lg leading-none">{phoneCountry.flag}</span>
+                    <span className="font-mono text-sm">+{phoneCountry.code}</span>
+                    <svg className="w-3 h-3 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
                   </button>
                   <input
                     type="tel"
@@ -392,18 +392,18 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     }}
                     placeholder={phoneCountry.nationalPh}
                     aria-label={t.data_phone}
-                    class="flex-1 min-w-0 px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
+                    className="flex-1 min-w-0 px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none transition font-mono"
                   />
 
                   {phonePickerOpen && (
                     <>
                       <div
-                        class="fixed inset-0 z-30"
+                        className="fixed inset-0 z-30"
                         onClick={() => setPhonePickerOpen(false)}
                       />
                       <ul
                         role="listbox"
-                        class="absolute z-40 left-0 top-full mt-1.5 w-72 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-ink/10 py-1.5"
+                        className="absolute z-40 left-0 top-full mt-1.5 w-72 max-h-72 overflow-y-auto bg-white rounded-2xl shadow-2xl border border-ink/10 py-1.5"
                       >
                         {PHONE_COUNTRIES.map((p) => (
                           <li key={p.iso + p.code}>
@@ -412,11 +412,11 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                               role="option"
                               aria-selected={phoneCountry.iso === p.iso}
                               onClick={() => { setPhoneCountry(p); setPhonePickerOpen(false); }}
-                              class={`w-full flex items-center gap-3 px-3.5 py-2.5 text-left hover:bg-turquesa-paler transition ${phoneCountry.iso === p.iso ? 'bg-turquesa-paler/60' : ''}`}
+                              className={`w-full flex items-center gap-3 px-3.5 py-2.5 text-left hover:bg-turquesa-paler transition ${phoneCountry.iso === p.iso ? 'bg-turquesa-paler/60' : ''}`}
                             >
-                              <span class="text-lg leading-none">{p.flag}</span>
-                              <span class="flex-1 text-sm font-semibold text-ink truncate">{p.name}</span>
-                              <span class="font-mono text-xs text-mute">+{p.code}</span>
+                              <span className="text-lg leading-none">{p.flag}</span>
+                              <span className="flex-1 text-sm font-semibold text-ink truncate">{p.name}</span>
+                              <span className="font-mono text-xs text-mute">+{p.code}</span>
                             </button>
                           </li>
                         ))}
@@ -424,10 +424,10 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     </>
                   )}
                 </div>
-                <div class="mt-1 flex items-center justify-between gap-3">
-                  <span class="text-xs text-mute">{t.data_phone_help}</span>
+                <div className="mt-1 flex items-center justify-between gap-3">
+                  <span className="text-xs text-mute">{t.data_phone_help}</span>
                   {phoneE164 && (
-                    <span class="text-xs text-success font-mono font-semibold whitespace-nowrap">{phoneE164}</span>
+                    <span className="text-xs text-success font-mono font-semibold whitespace-nowrap">{phoneE164}</span>
                   )}
                 </div>
               </label>
@@ -443,31 +443,31 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4 }}
           >
-            <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.demo_title}</h2>
-            <p class="mt-2 text-mute text-center">{t.demo_sub}</p>
-            <div class="mt-8 grid md:grid-cols-2 gap-6 items-center">
-              <div class="space-y-4">
-                <label class="block">
-                  <span class="text-sm font-bold text-slate">{t.demo_to}</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tightest text-center">{t.demo_title}</h2>
+            <p className="mt-2 text-mute text-center">{t.demo_sub}</p>
+            <div className="mt-8 grid md:grid-cols-2 gap-6 items-center">
+              <div className="space-y-4">
+                <label className="block">
+                  <span className="text-sm font-bold text-slate">{t.demo_to}</span>
                   <input
                     type="text"
                     value={clientName}
                     onChange={(e) => setClientName((e.target as HTMLInputElement).value)}
                     placeholder={t.demo_to_ph}
                     disabled={demoSent}
-                    class="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none disabled:opacity-60"
+                    className="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none disabled:opacity-60"
                   />
                 </label>
-                <label class="block">
-                  <span class="text-sm font-bold text-slate">
-                    {t.demo_amount} <span class="text-turquesa-deeper">{country.currency.symbol}</span>
+                <label className="block">
+                  <span className="text-sm font-bold text-slate">
+                    {t.demo_amount} <span className="text-turquesa-deeper">{country.currency.symbol}</span>
                   </span>
                   <input
                     type="number"
                     value={amount}
                     onChange={(e) => setAmount(Number((e.target as HTMLInputElement).value || 0))}
                     disabled={demoSent}
-                    class="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none font-display text-2xl font-bold disabled:opacity-60"
+                    className="mt-1 w-full px-4 py-3 rounded-2xl border-2 border-ink/10 bg-paper focus:border-turquesa focus:outline-none font-display text-2xl font-bold disabled:opacity-60"
                   />
                 </label>
                 {!demoSent && (
@@ -476,7 +476,7 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                     onClick={() => setDemoSent(true)}
                     disabled={!clientName || amount < 1}
                     style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
-                    class="w-full px-6 py-4 rounded-2xl bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_12px_32px_-12px_rgba(20,184,166,0.6)] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                    className="w-full px-6 py-4 rounded-2xl bg-turquesa hover:bg-turquesa-dark hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_12px_32px_-12px_rgba(20,184,166,0.6)] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
                     {t.demo_send}
                   </button>
@@ -485,20 +485,20 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    class="px-4 py-3 rounded-2xl bg-success/10 border border-success/30 text-success font-bold"
+                    className="px-4 py-3 rounded-2xl bg-success/10 border border-success/30 text-success font-bold"
                   >
                     ✓ {t.demo_sent}
                   </motion.div>
                 )}
               </div>
-              <div class="relative aspect-square max-w-xs mx-auto rounded-3xl bg-gradient-to-br from-ink to-slate p-6 flex flex-col items-center justify-center text-paper">
-                <div class="text-xs uppercase tracking-widest font-bold text-turquesa-light">
+              <div className="relative aspect-square max-w-xs mx-auto rounded-3xl bg-gradient-to-br from-ink to-slate p-6 flex flex-col items-center justify-center text-paper">
+                <div className="text-xs uppercase tracking-widest font-bold text-turquesa-light">
                   {country.payments[0]}
                 </div>
-                <div class="mt-2 font-display text-4xl font-bold">
+                <div className="mt-2 font-display text-4xl font-bold">
                   {country.currency.format(amount || 0)}
                 </div>
-                <svg viewBox="0 0 100 100" class="w-32 h-32 mt-3" aria-label="QR code demo">
+                <svg viewBox="0 0 100 100" className="w-32 h-32 mt-3" aria-label="QR code demo">
                   <rect width="100" height="100" fill="#FAFBFF" />
                   {Array.from({ length: 64 }).map((_, i) => {
                     const x = (i % 8) * 12 + 2;
@@ -511,19 +511,19 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                   <rect x="76" y="2" width="22" height="22" fill="none" stroke="#0A0B14" stroke-width="3" />
                   <rect x="2" y="76" width="22" height="22" fill="none" stroke="#0A0B14" stroke-width="3" />
                 </svg>
-                <div class="mt-2 text-xs opacity-70 truncate max-w-full">
+                <div className="mt-2 text-xs opacity-70 truncate max-w-full">
                   {clientName || t.demo_to_ph}
                 </div>
                 {demoSent && (
                   <motion.div
-                    class="absolute inset-0 pointer-events-none"
+                    className="absolute inset-0 pointer-events-none"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
                     {Array.from({ length: 18 }).map((_, i) => (
                       <motion.span
                         key={i}
-                        class="absolute w-2 h-2 rounded-full"
+                        className="absolute w-2 h-2 rounded-full"
                         style={{
                           background: ['#14B8A6', '#5EEAD4', '#623AE6', '#F59E0B'][i % 4],
                           left: `${(i * 53) % 100}%`,
@@ -547,10 +547,10 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            class="text-center"
+            className="text-center"
           >
             <motion.div
-              class="mx-auto w-24 h-24 rounded-full bg-success/10 border-2 border-success flex items-center justify-center mb-6"
+              className="mx-auto w-24 h-24 rounded-full bg-success/10 border-2 border-success flex items-center justify-center mb-6"
               animate={{ scale: [1, 1.08, 1] }}
               transition={{ duration: 1.6, repeat: Infinity }}
             >
@@ -558,14 +558,14 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </motion.div>
-            <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tightest">{t.done_title}</h2>
-            <p class="mt-3 text-mute text-lg max-w-md mx-auto">{t.done_sub}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tightest">{t.done_title}</h2>
+            <p className="mt-3 text-mute text-lg max-w-md mx-auto">{t.done_sub}</p>
             <a
               href={wa}
               target="_blank"
               rel="noopener noreferrer"
               style={{ transition: 'transform 0.4s var(--ease-spring), background-color 0.2s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo)' }}
-              class="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-success hover:bg-[#1BA651] hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_16px_40px_-12px_rgba(34,197,94,0.6)]"
+              className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-success hover:bg-[#1BA651] hover:-translate-y-0.5 active:translate-y-0 text-white font-bold text-lg shadow-[0_16px_40px_-12px_rgba(34,197,94,0.6)]"
             >
               {t.done_cta}
             </a>
@@ -575,12 +575,12 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
 
       {/* Nav buttons */}
       {step < total - 1 && (
-        <div class="mt-12 flex items-center justify-between">
+        <div className="mt-12 flex items-center justify-between">
           <button
             type="button"
             onClick={goBack}
             disabled={step === 0}
-            class="px-5 py-2.5 rounded-full text-sm font-bold text-slate hover:bg-ink/5 transition disabled:opacity-30 disabled:cursor-not-allowed"
+            className="px-5 py-2.5 rounded-full text-sm font-bold text-slate hover:bg-ink/5 transition disabled:opacity-30 disabled:cursor-not-allowed"
           >
             ← {t.back}
           </button>
@@ -589,7 +589,7 @@ export default function Onboarding5Steps({ country, whatsappNumber = '5511999999
             onClick={goNext}
             disabled={!canNext}
             style={{ transition: 'transform 0.35s var(--ease-spring), background-color 0.2s var(--ease-out-expo)' }}
-            class="px-6 py-2.5 rounded-full bg-ink hover:bg-slate hover:-translate-y-0.5 active:translate-y-0 text-paper text-sm font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            className="px-6 py-2.5 rounded-full bg-ink hover:bg-slate hover:-translate-y-0.5 active:translate-y-0 text-paper text-sm font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
             {t.next} →
           </button>
